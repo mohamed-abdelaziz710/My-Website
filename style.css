@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', Arial, sans-serif; /* Modern font for better readability */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -7,6 +7,8 @@ body {
     margin: 0;
     background-color: #eaeaea; /* Slightly darker gray for better contrast */
     color: #222; /* Darker text for improved readability */
+    line-height: 1.8; /* Improve text spacing */
+    padding: 20px; /* Add padding for better layout on larger screens */
     /* Ensure no duplicate or conflicting styles */
 }
 
@@ -14,8 +16,8 @@ body {
     background: #ffffff;
     border: 1px solid #ddd;
     border-radius: 8px;
-    padding: 20px;
-    max-width: 400px;
+    padding: 30px; /* Add more padding for better spacing */
+    max-width: 600px; /* Increase width for CV content */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
     /* No duplicates or errors found */
@@ -24,12 +26,15 @@ body {
 h1, h2 {
     margin: 10px 0;
     color: #0056b3; /* Darker blue for better contrast */
+    font-weight: bold; /* Emphasize headings */
+    text-transform: uppercase; /* Add a professional touch */
     /* Ensure consistent heading styles */
 }
 
 p, ul {
     margin: 10px 0;
     line-height: 1.6;
+    font-size: 1rem; /* Ensure consistent font size */
     /* No duplicates or errors found */
 }
 
@@ -41,14 +46,15 @@ ul {
 
 ul li {
     margin: 5px 0;
+    font-size: 0.95rem; /* Slightly smaller for list items */
 }
 
 .contact {
     background: #f9f9f9;
     border: 1px solid #ccc;
     border-radius: 8px;
-    padding: 20px;
-    max-width: 400px;
+    padding: 25px; /* Adjust padding for consistency */
+    max-width: 600px; /* Match the card width */
     margin-top: 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     /* No duplicates or errors found */
@@ -58,13 +64,14 @@ ul li {
     margin-bottom: 15px;
     font-size: 1.5rem;
     color: #333;
+    text-transform: uppercase; /* Match heading style */
     /* Ensure heading styles are consistent */
 }
 
 .contact form {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 15px; /* Increase spacing between form elements */
     /* No duplicates or errors found */
 }
 
@@ -74,7 +81,8 @@ ul li {
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 4px;
-    font-size: 1rem;
+    font-size: 1rem; /* Ensure consistent font size */
+    font-family: 'Roboto', Arial, sans-serif; /* Match body font */
     /* Ensure consistent focus styles */
 }
 
@@ -94,6 +102,8 @@ ul li {
     border-radius: 4px;
     cursor: pointer;
     font-size: 1rem;
+    font-weight: bold; /* Make the button text stand out */
+    letter-spacing: 0.5px; /* Add slight spacing for a modern look */
     /* Ensure consistent button styles */
 }
 
