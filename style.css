@@ -5,7 +5,8 @@ body {
     align-items: center;
     min-height: 100vh;
     margin: 0;
-    background-color: gray;
+    background-color: #f0f0f0; /* Light gray for better readability */
+    color: #333; /* Darker text for contrast */
 }
 
 .card {
@@ -20,6 +21,7 @@ body {
 
 h1, h2 {
     margin: 10px 0;
+    color: #007BFF; /* Add a theme color for headings */
 }
 
 p, ul {
