@@ -5,27 +5,28 @@ body {
     align-items: center;
     min-height: 100vh;
     margin: 0;
-    background-color: #eaeaea; /* Slightly darker gray for better contrast */
-    color: #222; /* Darker text for improved readability */
+    background-color: #121212; /* Dark black for background */
+    color: #e0e0e0; /* Light gray for text readability */
     line-height: 1.8; /* Improve text spacing */
     padding: 20px; /* Add padding for better layout on larger screens */
     /* Ensure no duplicate or conflicting styles */
 }
 
 .card {
-    background: #ffffff;
-    border: 1px solid #ddd;
+    background: #1e1e1e; /* Dark gray for card background */
+    border: 1px solid #333; /* Slightly lighter border for contrast */
     border-radius: 8px;
     padding: 30px; /* Add more padding for better spacing */
     max-width: 600px; /* Increase width for CV content */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
+    color: #e0e0e0; /* Light gray for text */
     /* No duplicates or errors found */
 }
 
 h1, h2 {
     margin: 10px 0;
-    color: #0056b3; /* Darker blue for better contrast */
+    color: #39ff14; /* Neon green for headings */
     font-weight: bold; /* Emphasize headings */
     text-transform: uppercase; /* Add a professional touch */
     /* Ensure consistent heading styles */
@@ -50,13 +51,14 @@ ul li {
 }
 
 .contact {
-    background: #f9f9f9;
-    border: 1px solid #ccc;
+    background: #1e1e1e; /* Dark gray for contact section */
+    border: 1px solid #333; /* Consistent border style */
     border-radius: 8px;
     padding: 25px; /* Adjust padding for consistency */
     max-width: 600px; /* Match the card width */
     margin-top: 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    color: #e0e0e0; /* Light gray for text */
     /* No duplicates or errors found */
 }
 
@@ -79,25 +81,27 @@ ul li {
 .contact textarea {
     width: 100%;
     padding: 10px;
-    border: 1px solid #ddd;
+    border: 1px solid #333; /* Consistent border style */
     border-radius: 4px;
     font-size: 1rem; /* Ensure consistent font size */
     font-family: 'Roboto', Arial, sans-serif; /* Match body font */
+    background-color: #121212; /* Dark black for input fields */
+    color: #e0e0e0; /* Light gray for input text */
     /* Ensure consistent focus styles */
 }
 
 .contact input:focus,
 .contact textarea:focus {
-    border-color: #007BFF;
+    border-color: #39ff14; /* Neon green for focus state */
     outline: none;
-    box-shadow: 0 0 4px rgba(0, 86, 179, 0.5); /* Adjusted to match the darker blue */
+    box-shadow: 0 0 4px rgba(57, 255, 20, 0.5); /* Neon green glow */
     /* No duplicates or errors found */
 }
 
 .contact button {
     padding: 10px 15px;
-    background-color: #0056b3; /* Darker blue for better contrast */
-    color: #fff;
+    background-color: #39ff14; /* Neon green for button */
+    color: #121212; /* Dark black for button text */
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -108,6 +112,6 @@ ul li {
 }
 
 .contact button:hover {
-    background-color: #003f7f; /* Even darker blue for hover state */
+    background-color: #2ecc71; /* Slightly muted green for hover state */
     /* No duplicates or errors found */
 }
