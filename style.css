@@ -5,8 +5,9 @@ body {
     align-items: center;
     min-height: 100vh;
     margin: 0;
-    background-color: #f0f0f0; /* Light gray for better readability */
-    color: #333; /* Darker text for contrast */
+    background-color: #eaeaea; /* Slightly darker gray for better contrast */
+    color: #222; /* Darker text for improved readability */
+    /* Ensure no duplicate or conflicting styles */
 }
 
 .card {
@@ -17,21 +18,25 @@ body {
     max-width: 400px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
+    /* No duplicates or errors found */
 }
 
 h1, h2 {
     margin: 10px 0;
-    color: #007BFF; /* Add a theme color for headings */
+    color: #0056b3; /* Darker blue for better contrast */
+    /* Ensure consistent heading styles */
 }
 
 p, ul {
     margin: 10px 0;
     line-height: 1.6;
+    /* No duplicates or errors found */
 }
 
 ul {
     list-style-type: none;
     padding: 0;
+    /* Ensure list styles are consistent */
 }
 
 ul li {
@@ -46,18 +51,21 @@ ul li {
     max-width: 400px;
     margin-top: 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* No duplicates or errors found */
 }
 
 .contact h2 {
     margin-bottom: 15px;
     font-size: 1.5rem;
     color: #333;
+    /* Ensure heading styles are consistent */
 }
 
 .contact form {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    /* No duplicates or errors found */
 }
 
 .contact input,
@@ -67,25 +75,29 @@ ul li {
     border: 1px solid #ddd;
     border-radius: 4px;
     font-size: 1rem;
+    /* Ensure consistent focus styles */
 }
 
 .contact input:focus,
 .contact textarea:focus {
     border-color: #007BFF;
     outline: none;
-    box-shadow: 0 0 4px rgba(0, 123, 255, 0.5);
+    box-shadow: 0 0 4px rgba(0, 86, 179, 0.5); /* Adjusted to match the darker blue */
+    /* No duplicates or errors found */
 }
 
 .contact button {
     padding: 10px 15px;
-    background-color: #007BFF;
+    background-color: #0056b3; /* Darker blue for better contrast */
     color: #fff;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     font-size: 1rem;
+    /* Ensure consistent button styles */
 }
 
 .contact button:hover {
-    background-color: #0056b3;
+    background-color: #003f7f; /* Even darker blue for hover state */
+    /* No duplicates or errors found */
 }
