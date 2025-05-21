@@ -1,117 +1,550 @@
+* Global styles */
+:root {
+    --dark-bg: #121212;       /* Dark black background */
+    --card-bg: #1e1e1e;       /* Dark gray for cards */
+    --text-color: #e0e0e0;    /* Light gray for text */
+    --neon-green: #39ff14;    /* Neon green for highlights */
+    --accent-color: #333;     /* Slightly lighter gray for accents */
+    --border-color: #333;     /* Border color */
+    --hover-color: #2a2a2a;   /* Hover effect color */
+    --shadow-color: rgba(57, 255, 20, 0.2); /* Neon green shadow with transparency */
+}
+
+/* Base styles */
 body {
-    font-family: 'Roboto', Arial, sans-serif; /* Modern font for better readability */
+    font-family: 'Roboto', Arial, sans-serif;
+    background-color: var(--dark-bg);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Navigation */
+nav {
+    background-color: rgba(30, 30, 30, 0.9);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--neon-green);
+    box-shadow: 0 2px 10px var(--shadow-color);
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+nav ul li a i {
+    margin-right: 8px;
+    color: var(--neon-green);
+    transition: all 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: var(--hover-color);
+    transform: translateY(-2px);
+}
+
+nav ul li a:hover i {
+    transform: scale(1.2);
+}
+
+/* Cards */
+.card {
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    padding: 30px;
+    margin: 30px 0;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3), 0 0 10px var(--shadow-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.card.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4), 0 0 15px var(--shadow-color);
+}
+
+/* Profile card */
+.profile-card {
+    padding: 0 0 30px 0;
+    overflow: hidden;
+}
+
+.profile-header {
+    position: relative;
+    height: 300px;
+    overflow: hidden;
+    border-radius: 10px 10px 0 0;
+}
+
+.profile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.7);
+    transition: all 0.5s ease;
+}
+
+.profile-card:hover .profile-image {
+    filter: brightness(0.9);
+    transform: scale(1.05);
+}
+
+.profile-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    display: flex;
+    align-items: flex-end;
+    height: 100%;
+}
+
+.profile-title {
+    width: 100%;
+}
+
+.profile-title h1 {
+    color: white;
+    margin: 0;
+    font-size: 2.5em;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.profile-subtitle {
+    margin-top: 5px;
+    font-size: 1.2em;
+}
+
+.about-content {
+    padding: 20px 30px 0;
+}
+
+.tagline {
+    font-size: 1.4em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    color: var(--neon-green);
+}
+
+/* Headings */
+h1, h2, h3 {
+    color: var(--neon-green);
+    margin: 10px 0;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+h2 {
+    font-size: 1.8em;
+    border-bottom: 2px solid var(--neon-green);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+h3 {
+    font-size: 1.3em;
+    margin-top: 20px;
+}
+
+/* Icons */
+.neon-icon {
+    margin-right: 10px;
+    color: var(--neon-green);
+    text-shadow: 0 0 5px var(--neon-green);
+}
+
+.pulse {
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Highlights */
+.highlight {
+    color: var(--neon-green);
+    font-weight: bold;
+}
+
+.highlight-alt {
+    color: white;
+    font-weight: bold;
+}
+
+/* Skills section */
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.skill-category {
+    background-color: var(--accent-color);
+    border-radius: 8px;
+    padding: 15px;
+    transition: transform 0.3s ease;
+}
+
+.skill-category:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2), 0 0 8px var(--shadow-color);
+}
+
+.skill-category h3 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.skill-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.skill-list li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.skill-list li i {
+    margin-right: 10px;
+    color: var(--neon-green);
+    width: 20px;
+    text-align: center;
+}
+
+/* Certifications section */
+.certifications-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.certification-item {
+    background-color: var(--accent-color);
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    align-items: flex-start;
+    transition: transform 0.3s ease;
+}
+
+.certification-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2), 0 0 8px var(--shadow-color);
+}
+
+.certification-icon {
+    background-color: var(--neon-green);
+    color: var(--dark-bg);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    margin: 0;
-    background-color: #121212; /* Dark black for background */
-    color: #e0e0e0; /* Light gray for text readability */
-    line-height: 1.8; /* Improve text spacing */
-    padding: 20px; /* Add padding for better layout on larger screens */
-    /* Ensure no duplicate or conflicting styles */
+    margin-right: 15px;
+    flex-shrink: 0;
 }
 
-.card {
-    background: #1e1e1e; /* Dark gray for card background */
-    border: 1px solid #333; /* Slightly lighter border for contrast */
+.certification-icon i {
+    font-size: 1.5em;
+}
+
+.certification-details h3 {
+    margin-top: 0;
+    font-size: 1.1em;
+}
+
+.certification-details p {
+    margin-bottom: 0;
+    font-size: 0.9em;
+    opacity: 0.9;
+}
+
+/* Timeline for experience and education */
+.timeline {
+    position: relative;
+    margin: 30px 0;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    width: 2px;
+    background-color: var(--neon-green);
+    top: 0;
+    bottom: 0;
+    left: 20px;
+    margin-left: -1px;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 30px;
+    padding-left: 50px;
+}
+
+.timeline-dot {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    left: 12px;
+    background-color: var(--neon-green);
+    border-radius: 50%;
+    top: 5px;
+    box-shadow: 0 0 10px var(--neon-green);
+}
+
+.timeline-date {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: var(--neon-green);
+}
+
+.timeline-content {
+    background-color: var(--accent-color);
+    padding: 15px;
     border-radius: 8px;
-    padding: 30px; /* Add more padding for better spacing */
-    max-width: 600px; /* Increase width for CV content */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    color: #e0e0e0; /* Light gray for text */
-    /* No duplicates or errors found */
 }
 
-h1, h2 {
-    margin: 10px 0;
-    color: #39ff14; /* Neon green for headings */
-    font-weight: bold; /* Emphasize headings */
-    text-transform: uppercase; /* Add a professional touch */
-    /* Ensure consistent heading styles */
+.timeline-content h3 {
+    margin-top: 0;
+    color: white;
 }
 
-p, ul {
-    margin: 10px 0;
-    line-height: 1.6;
-    font-size: 1rem; /* Ensure consistent font size */
-    /* No duplicates or errors found */
+.timeline-content p {
+    margin-bottom: 5px;
 }
 
-ul {
-    list-style-type: none;
-    padding: 0;
-    /* Ensure list styles are consistent */
-}
-
-ul li {
-    margin: 5px 0;
-    font-size: 0.95rem; /* Slightly smaller for list items */
-}
-
-.contact {
-    background: #1e1e1e; /* Dark gray for contact section */
-    border: 1px solid #333; /* Consistent border style */
-    border-radius: 8px;
-    padding: 25px; /* Adjust padding for consistency */
-    max-width: 600px; /* Match the card width */
-    margin-top: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    color: #e0e0e0; /* Light gray for text */
-    /* No duplicates or errors found */
-}
-
-.contact h2 {
-    margin-bottom: 15px;
-    font-size: 1.5rem;
-    color: #333;
-    text-transform: uppercase; /* Match heading style */
-    /* Ensure heading styles are consistent */
-}
-
-.contact form {
+.partners {
     display: flex;
-    flex-direction: column;
-    gap: 15px; /* Increase spacing between form elements */
-    /* No duplicates or errors found */
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
 }
 
-.contact input,
-.contact textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #333; /* Consistent border style */
+.partner {
+    background-color: var(--dark-bg);
+    color: var(--neon-green);
+    padding: 5px 10px;
     border-radius: 4px;
-    font-size: 1rem; /* Ensure consistent font size */
-    font-family: 'Roboto', Arial, sans-serif; /* Match body font */
-    background-color: #121212; /* Dark black for input fields */
-    color: #e0e0e0; /* Light gray for input text */
-    /* Ensure consistent focus styles */
+    font-size: 0.9em;
+    border: 1px solid var(--neon-green);
 }
 
-.contact input:focus,
-.contact textarea:focus {
-    border-color: #39ff14; /* Neon green for focus state */
-    outline: none;
-    box-shadow: 0 0 4px rgba(57, 255, 20, 0.5); /* Neon green glow */
-    /* No duplicates or errors found */
+/* Projects section */
+.projects-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
 }
 
-.contact button {
-    padding: 10px 15px;
-    background-color: #39ff14; /* Neon green for button */
-    color: #121212; /* Dark black for button text */
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 1rem;
-    font-weight: bold; /* Make the button text stand out */
-    letter-spacing: 0.5px; /* Add slight spacing for a modern look */
-    /* Ensure consistent button styles */
+.project-item {
+    background-color: var(--accent-color);
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    align-items: flex-start;
+    transition: transform 0.3s ease;
 }
 
-.contact button:hover {
-    background-color: #2ecc71; /* Slightly muted green for hover state */
-    /* No duplicates or errors found */
+.project-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2), 0 0 8px var(--shadow-color);
+}
+
+.project-icon {
+    background-color: var(--neon-green);
+    color: var(--dark-bg);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+.project-icon i {
+    font-size: 1.5em;
+}
+
+.project-details h3 {
+    margin-top: 0;
+    font-size: 1.1em;
+}
+
+.project-details p {
+    margin-bottom: 0;
+    font-size: 0.9em;
+    opacity: 0.9;
+}
+
+/* Contact section */
+.contact-info {
+    background-color: var(--accent-color);
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.contact-info p {
+    margin: 15px 0;
+    display: flex;
+    align-items: center;
+}
+
+.contact-info i {
+    color: var(--neon-green);
+    margin-right: 15px;
+    width: 20px;
+    text-align: center;
+}
+
+.contact-info a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-info a:hover {
+    color: var(--neon-green);
+    text-decoration: underline;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+    background-color: var(--card-bg);
+    border-top: 1px solid var(--border-color);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    nav ul li {
+        margin: 5px 0;
+    }
+    
+    .skills-container,
+    .certifications-container,
+    .projects-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .profile-title h1 {
+        font-size: 2em;
+    }
+    
+    .profile-subtitle {
+        font-size: 1em;
+    }
+    
+    .tagline {
+        font-size: 1.2em;
+    }
+}
+
+/* Animation for elements */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card.animate {
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+/* Glow effect for neon elements */
+.neon-glow {
+    text-shadow: 0 0 5px var(--neon-green), 0 0 10px var(--neon-green);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--dark-bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--accent-color);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--neon-green);
 }
