@@ -80,7 +80,7 @@ nav ul li a:hover i {
 
 /* Cards */
 .card {
-    background-color: var(--card-bg);
+    background-color: #222244; /* Example: dark blue instead of gray */
     border-radius: 10px;
     padding: 30px;
     margin: 30px 0;
@@ -168,7 +168,7 @@ nav ul li a:hover i {
 
 /* Headings */
 h1, h2, h3 {
-    color: var(--neon-green);
+    color: #ff00cc; /* Example: bright magenta */
     margin: 10px 0;
     font-weight: bold;
     text-transform: uppercase;
