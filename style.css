@@ -802,98 +802,60 @@ footer {
   outline: none;
 }
 
+.badge:hover i,
+.badge:focus i {
+  color: #fff;
+}
+/* Specific badges for the profile or section */
+.badge-dev { background: #1e1e1e; }
+.badge-engineer { background: #1e1e1e; }
+.badge-builder { background: #1e1e1e; }
+.badge-student { background: #1e1e1e; }
+.badge-multilingual { background: #1e1e1e; }
+.badge-location { background: #1e1e1e; }
 @media (max-width: 600px) {
-  .badges {
-    gap: 8px;
-    font-size: 0.96em;
-    justify-content: center;
-  }
-  .badge {
-    padding: 7px 10px;
-    font-size: 0.98em;
-  }
+.badges {
+  gap: 8px;
+  font-size: 0.96em;
+  justify-content: center;
 }
 
-#amrikyy-chat {
-  position: fixed;
-  bottom: 24px;
-  right: 24px;
-  width: 340px;
-  height: 480px;
-  background: #181f1b;
-  border-radius: 32px;
-  box-shadow: 0 8px 32px #39FF1444, 0 2px 8px #0008;
-  z-index: 9999;
-  padding: 0;
-  overflow: hidden;
-  border: 2.5px solid #39FF14;
-  transition: box-shadow 0.2s, transform 0.2s;
-}
-
-#amrikyy-chat iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
-  border-radius: 32px;
-  background: transparent;
-}
-
-html { font-size: 16px; }
-@media (max-width: 600px) {
-  html { font-size: 15px; }
-}
-
-.chat-header {
+/* Hero section */
+.hero-section {
+  position: relative;
+  min-height: 90vh;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding-bottom: 8px;
-  border-bottom: 1px solid #222;
-  margin-bottom: 10px;
+  justify-content: center;
+  background: url('your-cyber-image.jpg') center/cover no-repeat; /* أو background: #101510; */
+  overflow: hidden;
 }
-.chat-title {
-  color: #39FF14;
-  font-size: 1.2em;
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 20, 20, 0.65); /* طبقة تغطية سوداء شفافة */
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  text-align: center;
+}
+
+.hero-btn {
+  margin-top: 24px;
+  background: #39FF14;
+  color: #101510;
+  padding: 12px 32px;
+  border-radius: 24px;
   font-weight: bold;
-  letter-spacing: 1px;
+  text-decoration: none;
+  font-size: 1.1em;
+  transition: background 0.2s;
 }
-.chat-close {
-  background: none;
-  border: none;
-  color: #39FF14;
-  font-size: 1.5em;
-  cursor: pointer;
-  transition: color 0.2s;
-}
-.chat-close:hover {
-  color: #ff4444;
-}
-
-/* Background effect for the whole page */
-.background-effect {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: radial-gradient(circle at center, #39FF14 0%, #0D0D0D 100%);
-  opacity: 0.08;
-  pointer-events: none;
-  z-index: -1;
-  transition: background-position 0.2s ease-out;
-}
-
-@media screen and (max-width: 600px) {
-  .container {
-    padding: 10px;
-  }
-  .hero {
-    flex-direction: column;
-    align-items: center;
-  }
-  .hero-text,
-  .hero-image {
-    width: 100%;
-    text-align: center;
-  }
+.hero-btn:hover {
+  background: #2ecc10;
 }
