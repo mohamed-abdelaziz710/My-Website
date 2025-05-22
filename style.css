@@ -712,13 +712,22 @@ footer {
     border-radius: 6px !important;
   }
   #amrikyy-chat {
-    width: 98vw !important;
-    height: 60vh !important;
-    right: 1vw !important;
-    bottom: 1vh !important;
-    left: unset !important;
-    border-radius: 14px !important;
-    padding: 0 !important;
+    position: fixed;
+    top: 24px;         /* Change from bottom to top */
+    right: 24px;
+    width: 360px;
+    max-width: 98vw;
+    height: 520px;
+    background: #181f1b;
+    border-radius: 28px;
+    box-shadow: 0 8px 32px #39FF1444, 0 2px 8px #0008;
+    z-index: 9999;
+    padding: 0;
+    overflow: hidden;
+    border: 2.5px solid #39FF14;
+    transition: box-shadow 0.2s, transform 0.2s;
+    display: flex;
+    flex-direction: column;
   }
   #amrikyy-chat iframe {
     width: 100%;
