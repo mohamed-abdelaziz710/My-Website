@@ -510,6 +510,44 @@ footer {
     }
 }
 
+/* تحسين مظهر Amrikyy على الموبايل */
+@media (max-width: 600px) {
+  .chat-container {
+    margin: 20px 10px;
+    padding: 16px 12px;
+    border-radius: 10px;
+    max-width: 100%;
+    min-height: 60vh;
+  }
+
+  .chat-window {
+    max-height: 50vh;
+    min-height: 200px;
+    font-size: 1em;
+    padding: 8px 2px;
+  }
+
+  .input-row {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  input[type="text"] {
+    width: 100%;
+    margin-bottom: 10px;
+    font-size: 1em;
+    padding: 10px;
+    border-radius: 6px;
+  }
+
+  button {
+    width: 100%;
+    font-size: 1em;
+    padding: 10px;
+    border-radius: 6px;
+  }
+}
+
 /* Animation for elements */
 @keyframes fadeInUp {
     from {
