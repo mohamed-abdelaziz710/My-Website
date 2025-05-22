@@ -14,7 +14,7 @@
 body {
   margin: 0;
   padding: 0;
-  background: #e0e0e0; /* more visible light gray */
+  background: #cccccc; /* darker light gray */
   color: #1a1a1a; /* dark text for contrast */
   font-family: 'DM Sans', sans-serif;
   overflow-x: hidden;
