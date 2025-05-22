@@ -766,7 +766,7 @@ footer {
 .badges {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 12px;
   margin: 18px 0 0 0;
   justify-content: flex-start;
 }
@@ -774,46 +774,42 @@ footer {
 .badge {
   display: inline-flex;
   align-items: center;
-  background: #ececec;
-  color: #222;
+  background: #181f1b;
+  color: #39FF14;
   font-family: 'DM Sans', sans-serif;
-  font-size: 0.95rem;
-  padding: 6px 14px;
+  font-size: 1rem;
+  padding: 7px 16px;
   border-radius: 18px;
   margin: 2px 0;
-  border: 1.5px solid transparent;
-  transition: border 0.2s, box-shadow 0.2s;
-  box-shadow: 0 1px 4px rgba(57,255,20,0.07);
+  border: 1.5px solid #39FF14;
+  box-shadow: 0 1px 8px #39FF1422;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
 }
 
 .badge i {
-  margin-right: 7px;
-  color: var(--neon-green, #39FF14);
-  font-size: 1em;
+  margin-right: 8px;
+  color: #39FF14;
+  font-size: 1.1em;
 }
 
-.badge.neon-sep {
-  border-color: var(--neon-green, #39FF14);
-  color: #222;
-  background: #f8fff8;
-  font-weight: bold;
-}
-
-.sep-dot {
-  color: var(--neon-green, #39FF14);
-  margin: 0 4px;
-  font-weight: bold;
+.badge:hover, .badge:focus {
+  background: #232d25;
+  color: #fff;
+  box-shadow: 0 2px 12px #39FF1444;
+  outline: none;
 }
 
 @media (max-width: 600px) {
   .badges {
-    gap: 7px;
-    justify-content: flex-start;
+    gap: 8px;
+    font-size: 0.96em;
+    justify-content: center;
   }
   .badge {
-    font-size: 0.92rem;
-    padding: 6px 10px;
-    border-radius: 15px;
+    padding: 7px 10px;
+    font-size: 0.98em;
   }
 }
 
