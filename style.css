@@ -33,6 +33,7 @@ h1 {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px 10px; /* some horizontal padding for small screens */
+  background: transparent; /* unify background */
 }
 
 /* Navigation */
@@ -145,28 +146,21 @@ nav a:hover {
 /* Hero section */
 .hero-section {
   position: relative;
-  min-height: 100vh;
+  min-height: auto; /* remove forced full viewport height */
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #0a0e12;
+  padding: 40px 0 40px 0; /* match other sections */
+  background: transparent; /* unify background */
   overflow: hidden;
 }
 
 .hero-particles {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  z-index: 1;
+  display: none !important; /* remove overlay and particles for clean look */
 }
 
 .hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(10,20,20,0.8) 100%);
-  z-index: 2;
+  display: none !important; /* remove overlay and particles for clean look */
 }
 
 .hero-content {
@@ -353,7 +347,7 @@ nav a:hover {
 
 /* Cards */
 .card {
-    background-color: var(--card-bg);
+    background: transparent; /* unify background */
     border-radius: 16px;
     padding: 18px 14px;
     margin: 24px 0;
