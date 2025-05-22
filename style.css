@@ -55,22 +55,22 @@ nav .logo {
   font-weight: bold;
 }
 
-.nav-links {
-  list-style: none;
+nav ul {
   display: flex;
   gap: 20px;
+  list-style: none;
   margin: 0;
   padding: 0;
 }
 
-.nav-links li a {
+nav a {
   color: #39FF14;
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s ease;
 }
 
-.nav-links li a:hover {
+nav a:hover {
   color: #aaff77;
 }
 
@@ -197,7 +197,7 @@ nav .logo {
 .cyber-circuit {
   width: 400px;
   height: 400px;
-  background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDQwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMjAwIiByPSIxOTAiIHN0cm9rZT0iIzM5RkYxNCIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtZGFzaGFycmF5PSIxMCAxMCIgLz4KICA8Y2lyY2xlIGN4PSIyMDAiIGN5PSIyMDAiIHI9IjE1MCIgc3Ryb2tlPSIjMzlGRjE0IiBzdHJva2Utd2lkdGg9IjIiIC8+CiAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMjAwIiByPSIxMDAiIHN0cm9rZT0iIzM5RkYxNCIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtZGFzaGFycmF5PSI1IDUiIC8+CiAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMjAwIiByPSI1MCIgZmlsbD0iIzM5RkYxNDIwIiBzdHJva2U9IiMzOUZGMTQiIHN0cm9rZS13aWR0aD0iMiIgLz4KICA8cGF0aCBkPSJNMjAwIDEwTDIwMCA1MCIgc3Ryb2tlPSIjMzlGRjE0IiBzdHJva2Utd2lkdGg9IjIiIC8+CiAgPHBhdGggZD0iTTIwMCAzNTBMMjAwIDM5MCIgc3Ryb2tlPSIjMzlGRjE0IiBzdHJva2Utd2lkdGg9IjIiIC8+CiAgPHBhdGggZD0iTTEwIDIwMEw1MCAyMDAiIHN0cm9rZT0iIzM5RkYxNCIgc3Ryb2tlLXdpZHRoPSIyIiAvPgogIDxwYXRoIGQ9Ik0zNTAgMjAwTDM5MCAyMDAiIHN0cm9rZT0iIzM5RkYxNCIgc3Ryb2tlLXdpZHRoPSIyIiAvPgogIDxwYXRoIGQ9Ik0xMDAgMTAwTDEzMCAxMzAiIHN0cm9rZT0iIzM5RkYxNCIgc3Ryb2tlLXdpZHRoPSIyIiAvPgogIDxwYXRoIGQ9Ik0yNzAgMjcwTDMwMCAzMDAiIHN0cm9rZT0iIzM5RkYxNCIgc3Ryb2tlLXdpZHRoPSIyIiAvPgogIDxwYXRoIGQ9Ik0xMDAgMzAwTDEzMCAyNzAiIHN0cm9rZT0iIzM5RkYxNCIgc3Ryb2tlLXdpZHRoPSIyIiAvPgogIDxwYXRoIGQ9Ik0yNzAgMTMwTDMwMCAxMDAiIHN0cm9rZT0iIzM5RkYxNCIgc3Ryb2tlLXdpZHRoPSIyIiAvPgo8L3N2Zz4=') center/contain no-repeat;
+  background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDQwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMjAwIiByPSIxOTAiIHN0cm9rZT0iIzM5RkYxNCIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2Utd2lkdGg9IjIiIC8+CiAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMjAwIiByPSIxMDAiIHN0cm9rZT0iIzM5RkYxNCIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2Utd2lkdGg9IjIiIC8+CiAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMjAwIiByPSI1MCIgZmlsbD0iIzM5RkYxNDIwIiBzdHJva2U9IiMzOUZGMTQiIHN0cm9rZS13aWR0aD0iMiIgLz4KICA8cGF0aCBkPSJNMjAwIDEwTDIwMCA1MCIgc3Ryb2tlPSIjMzlGRjE0IiBzdHJva2Utd2lkdGg9IjIiIC8+CiAgPHBhdGggZD0iTTIwMCAzNTBMMjAwIDM5MCIgc3Ryb2tlPSIjMzlGRjE0IiBzdHJva2Utd2lkdGg9IjIiIC8+CiAgPHBhdGggZD0iTTEwIDIwMEw1MCAyMDAiIHN0cm9rZT0iIzM5RkYxNCIgc3Ryb2tlLXdpZHRoPSIyIiAvPgogIDxwYXRoIGQ9Ik0zNTAgMjAwTDM5MCAyMDAiIHN0cm9rZT0iIzM5RkYxNCIgc3Ryb2tlLXdpZHRoPSIyIiAvPgogIDxwYXRoIGQ9Ik0xMDAgMTAwTDEzMCAxMzAiIHN0cm9rZT0iIzM5RkYxNCIgc3Ryb2tlLXdpZHRoPSIyIiAvPgogIDxwYXRoIGQ9Ik0yNzAgMjcwTDMwMCAzMDAiIHN0cm9rZT0iIzM5RkYxNCIgc3Ryb2tlLXdpZHRoPSIyIiAvPgogIDxwYXRoIGQ9Ik0xMDAgMzAwTDEzMCAyNzAiIHN0cm9rZT0iIzM5RkYxNCIgc3Ryb2tlLXdpZHRoPSIyIiAvPgogIDxwYXRoIGQ9Ik0yNzAgMTMwTDMwMCAxMDAiIHN0cm9rZT0iIzM5RkYxNCIgc3Ryb2tlLXdpZHRoPSIyIiAvPgo8L3N2Zz4=') center/contain no-repeat;
   animation: rotate 20s linear infinite;
 }
 
@@ -1130,6 +1130,18 @@ footer {
         margin-left: 0;
         margin-top: 10px;
     }
+    
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        width: 100%;
+        gap: 12px;
+        margin-top: 12px;
+    }
 }
 
 @media (max-width: 600px) {
@@ -1279,4 +1291,51 @@ footer {
     .rtl .timeline-dot {
         right: 7px;
     }
+}
+
+/* nav الأساسي */
+nav{
+  background:#0d0d0d;
+  padding:16px 24px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.logo{color:#39FF14;font-size:1.4rem;font-weight:700;}
+nav ul{display:flex;gap:20px;list-style:none;margin:0;padding:0;}
+nav a{color:#39FF14;text-decoration:none;font-weight:500;}
+/* هاتف */
+@media(max-width:768px){
+  nav{flex-direction:column;align-items:flex-start;}
+  nav ul{flex-direction:column;width:100%;gap:12px;margin-top:12px;}
+}
+
+/* الشارات (Badges) القابلة للّف */
+.badges{display:flex;flex-wrap:wrap;gap:8px;}
+.badge{
+  background:#eaeaea;
+  color:#000;
+  padding:6px 10px;
+  border-radius:14px;
+  font-size:0.9rem;
+  white-space:nowrap;
+}
+
+#chatToggle{
+  position:fixed;bottom:24px;right:24px;z-index:900;
+  width:60px;height:60px;border-radius:50%;
+  background:#39FF14;color:#000;font-size:28px;
+  display:flex;justify-content:center;align-items:center;
+  cursor:pointer;box-shadow:0 0 10px #39FF1466;
+}
+.chat-container{
+  position:fixed;bottom:96px;right:24px;
+  max-width:360px;width:90vw;
+  display:none;
+}
+.chat-container.show{
+  display:block;
+}
+@media(max-width:600px){
+  .chat-container{bottom:0;right:0;width:100%;border-radius:0;}
 }

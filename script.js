@@ -224,6 +224,10 @@ function initChat() {
             chatBubble.style.transform = 'scale(1)';
         }, 200);
     }, 1000);
+    
+    document.getElementById('chatToggle').onclick=()=>{
+      document.querySelector('.chat-container').classList.toggle('show');
+    };
 }
 
 // Mobile menu functionality
