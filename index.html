@@ -311,6 +311,13 @@
                 <p><i class="fab fa-linkedin"></i> LinkedIn: <a href="https://www.linkedin.com/in/mohamed-abdelaziz-815797347/" target="_blank" rel="noopener noreferrer">mohamed-abdelaziz-815797347</a></p>
             </div>
         </div>
+
+        <!-- Intro Bubble -->
+        <div class="intro-bubble">
+          <span class="bot-icon">🤖</span>
+          <span class="intro-text">Hello, I’m Muhammad. Welcome to my personal site!</span>
+          <span class="cursor"></span>
+        </div>
     </div>
 
     <!-- Footer section -->
@@ -383,5 +390,28 @@
     <div id="amrikyy-chat">
       <iframe src="amrikyy-gemini.html" title="Amrikyy Gemini Chatbot"></iframe>
     </div>
+    <!-- Optional JavaScript to add a typing effect to the intro text. -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const introTextEl = document.querySelector('.intro-text');
+        const cursorEl = document.querySelector('.cursor');
+        if (!introTextEl || !cursorEl) return;
+        const fullText = introTextEl.textContent;
+        introTextEl.textContent = '';
+        cursorEl.style.display = 'inline-block';
+
+        let index = 0;
+        function typeChar() {
+          if (index < fullText.length) {
+            introTextEl.textContent += fullText.charAt(index);
+            index++;
+            setTimeout(typeChar, 50);
+          } else {
+            cursorEl.style.display = 'none'; // or keep blinking if you prefer
+          }
+        }
+        typeChar();
+      });
+    </script>
 </body>
 </html>

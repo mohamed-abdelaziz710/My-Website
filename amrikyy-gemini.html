@@ -24,6 +24,14 @@
             flex-direction: column;
             min-height: 70vh;
         }
+        .chat-title {
+            text-align: center;
+            color: #39FF14;
+            font-size: 1.5em;
+            margin-bottom: 18px;
+            letter-spacing: 2px;
+            font-weight: bold;
+        }
         .chat-window {
             display: flex;
             flex-direction: column;
@@ -49,8 +57,6 @@
           position: relative;
           clear: both;
         }
-
-        /* User message bubble (right side) */
         .message.user {
           background: #e0e0e0;
           color: #222;
@@ -61,8 +67,6 @@
           border-top-left-radius: 18px;
           border-bottom-left-radius: 18px;
         }
-
-        /* Bot message bubble (left side, neon accent) */
         .message.bot {
           background: #181f1b;
           color: #39FF14;
@@ -103,14 +107,6 @@
         button:hover {
             background: #2ecc10;
         }
-        .chat-title {
-            text-align: center;
-            color: #39FF14;
-            font-size: 1.5em;
-            margin-bottom: 18px;
-            letter-spacing: 2px;
-            font-weight: bold;
-        }
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -135,7 +131,7 @@
             .chat-window {
                 max-height: 40vh !important;
                 min-height: 120px !important;
-                font-size: 1em !important;
+                font-size: 1em !important;   font-size: 1em !important;
                 padding: 4px 1px !important;
             }
             .input-row {
@@ -172,15 +168,6 @@
         function addMessage(text, sender) {
             const msg = document.createElement('div');
             msg.className = 'message ' + sender;
-
-            // أضف مظهر احترافي باللون الأخضر لردود Amrikyy فقط
-            if (sender === 'bot') {
-                msg.style.background = 'linear-gradient(90deg, #132d13 0%, #0D0D0D 100%)';
-                msg.style.color = '#39FF14';
-                msg.style.borderLeft = '4px solid #39FF14';
-                msg.style.fontWeight = 'bold';
-                msg.style.boxShadow = '0 0 8px #39FF1444';
-            }
             msg.textContent = text;
             chatWindow.appendChild(msg);
             chatWindow.scrollTop = chatWindow.scrollHeight;
@@ -188,14 +175,10 @@
 
         // Format Gemini reply with Amrikyy's tone
         function formatAmrikyyReply(raw) {
-            // Add a prefix and a Gen-Z/futuristic touch if not already present
             let reply = raw.trim();
-
-            // Example transformation: add signature, emojis, or futuristic phrases
             if (!reply.startsWith("Amrikyy:")) {
                 reply = `Amrikyy: ${reply}`;
             }
-            // Add a Gen-Z/futuristic emoji if not present
             if (!/[🤖🚀✨]/.test(reply)) {
                 reply += " 🚀";
             }
@@ -227,7 +210,6 @@
 إذا سألك أحد عن محمد، تكلم عن نفسك بصيغة "أنا".
                 `.trim();
 
-                // اجمع بين personaIntro و prompt في نص واحد
                 const promptWithPersona = `${personaIntro}\n\n${prompt}`;
 
                 const response = await fetch(GEMINI_API_URL, {
@@ -248,7 +230,6 @@
                 if (data && data.candidates && data.candidates[0] && data.candidates[0].content && data.candidates[0].content.parts) {
                     botReply = data.candidates[0].content.parts.map(p => p.text).join('\n');
                 }
-                // Format the reply with Amrikyy's tone
                 addMessage(formatAmrikyyReply(botReply), 'bot');
             } catch (err) {
                 const loadingMsg = chatWindow.querySelector('.bot:last-child');
