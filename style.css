@@ -1,12 +1,12 @@
 /* Global styles */
 :root {
-    --dark-bg: #121212;       /* Dark black background */
-    --card-bg: #1e1e1e;       /* Dark gray for cards */
-    --text-color: #e0e0e0;    /* Light gray for text */
+    --dark-bg: #181a1b;       /* Deeper dark gray background */
+    --card-bg: #23272a;       /* Slightly lighter dark gray for cards */
+    --text-color: #ffffff;    /* Pure white for text */
     --neon-green: #39ff14;    /* Neon green for highlights */
-    --accent-color: #333;     /* Slightly lighter gray for accents */
-    --border-color: #333;     /* Border color */
-    --hover-color: #2a2a2a;   /* Hover effect color */
+    --accent-color: #23272a;  /* Match card background for accents */
+    --border-color: #39ff14;  /* Neon green for borders */
+    --hover-color: #222826;   /* Slightly lighter dark gray for hover */
     --shadow-color: rgba(57, 255, 20, 0.2); /* Neon green shadow with transparency */
 }
 
@@ -14,8 +14,8 @@
 body {
   margin: 0;
   padding: 0;
-  background: #cccccc; /* darker light gray */
-  color: #1a1a1a; /* dark text for contrast */
+  background: var(--dark-bg);
+  color: var(--text-color);
   font-family: 'DM Sans', sans-serif;
   overflow-x: hidden;
 }
@@ -25,7 +25,7 @@ h1 {
   font-weight: 700;
   font-size: 2.2rem;
   margin: 0;
-  color: #000000; /* solid black for the name to make it stand out */
+  color: var(--neon-green);
 }
 
 /* Container */
@@ -33,12 +33,12 @@ h1 {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px 10px; /* some horizontal padding for small screens */
-  background: transparent; /* unify background */
+  background: var(--card-bg); /* unify background */
 }
 
 /* Navigation */
 nav {
-  background: #0d0d0d;
+  background: var(--card-bg);
   padding: 16px 24px;
   display: flex;
   justify-content: space-between;
@@ -51,7 +51,7 @@ nav {
 }
 
 nav .logo {
-  color: #39FF14;
+  color: var(--neon-green);
   font-size: 1.5rem;
   font-weight: bold;
 }
@@ -65,14 +65,14 @@ nav ul {
 }
 
 nav a {
-  color: #39FF14;
+  color: var(--neon-green);
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s ease;
 }
 
 nav a:hover {
-  color: #aaff77;
+  color: #baff7a;
 }
 
 /* Language toggle */
@@ -347,7 +347,7 @@ nav a:hover {
 
 /* Cards */
 .card {
-    background: transparent; /* unify background */
+    background: var(--card-bg);
     border-radius: 16px;
     padding: 18px 14px;
     margin: 24px 0;
@@ -363,8 +363,7 @@ nav a:hover {
 }
 
 .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4), 0 0 15px var(--shadow-color);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4), 0 0 15px var(--neon-green);
 }
 
 /* Profile card */
@@ -378,7 +377,7 @@ nav a:hover {
     height: 300px;
     overflow: hidden;
     border-radius: 10px 10px 0 0;
-    background: url('crypto-bg.jpg') center/cover no-repeat;
+    background: var(--dark-bg);
 }
 
 .profile-image {
@@ -419,7 +418,7 @@ nav a:hover {
 }
 
 .profile-title h1 {
-    color: white;
+    color: var(--neon-green);
     margin: 0;
     font-size: 2.5em;
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -428,10 +427,12 @@ nav a:hover {
 .profile-subtitle {
     margin-top: 5px;
     font-size: 1.2em;
+    color: var(--text-color);
 }
 
 .about-content {
     padding: 20px 30px 0;
+    color: var(--text-color);
 }
 
 .tagline {
@@ -752,8 +753,8 @@ footer {
     text-align: center;
     padding: 20px;
     margin-top: 50px;
-    background-color: var(--card-bg);
-    border-top: 1px solid var(--border-color);
+    background-color: var(--dark-bg);
+    border-top: 2px solid var(--neon-green);
 }
 
 .site-footer {
@@ -819,14 +820,14 @@ footer {
 .badge {
   display: inline-flex;
   align-items: center;
-  background: #eaeaea;
-  color: #000;
+  background: var(--card-bg);
+  color: var(--neon-green);
   font-family: 'DM Sans', sans-serif;
   font-size: 1rem;
   padding: 7px 16px;
   border-radius: 18px;
   margin: 2px 0;
-  border: 1.5px solid #39FF14;
+  border: 1.5px solid var(--neon-green);
   box-shadow: 0 1px 8px #39FF1422;
   font-weight: 500;
   letter-spacing: 0.02em;
@@ -841,9 +842,9 @@ footer {
 }
 
 .badge:hover, .badge:focus {
-  background: #232d25;
+  background: var(--hover-color);
   color: #fff;
-  box-shadow: 0 2px 12px #39FF1444;
+  box-shadow: 0 2px 12px var(--neon-green);
   outline: none;
 }
 
@@ -1050,8 +1051,7 @@ footer {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--accent-color);
-    border-radius: 5px;
+    background: var(--card-bg);
 }
 
 ::-webkit-scrollbar-thumb:hover {
