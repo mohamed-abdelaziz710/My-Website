@@ -513,38 +513,34 @@ footer {
 /* تحسين مظهر Amrikyy على الموبايل */
 @media (max-width: 600px) {
   .chat-container {
-    margin: 20px 10px;
-    padding: 16px 12px;
-    border-radius: 10px;
-    max-width: 100%;
-    min-height: 60vh;
+    margin: 20px 10px !important;
+    padding: 16px 12px !important;
+    border-radius: 10px !important;
+    max-width: 100% !important;
+    min-height: 60vh !important;
   }
-
   .chat-window {
-    max-height: 50vh;
-    min-height: 200px;
-    font-size: 1em;
-    padding: 8px 2px;
+    max-height: 50vh !important;
+    min-height: 200px !important;
+    font-size: 1em !important;
+    padding: 8px 2px !important;
   }
-
   .input-row {
-    flex-direction: column;
-    gap: 8px;
+    flex-direction: column !important;
+    gap: 8px !important;
   }
-
   input[type="text"] {
-    width: 100%;
-    margin-bottom: 10px;
-    font-size: 1em;
-    padding: 10px;
-    border-radius: 6px;
+    width: 100% !important;
+    margin-bottom: 10px !important;
+    font-size: 1em !important;
+    padding: 10px !important;
+    border-radius: 6px !important;
   }
-
   button {
-    width: 100%;
-    font-size: 1em;
-    padding: 10px;
-    border-radius: 6px;
+    width: 100% !important;
+    font-size: 1em !important;
+    padding: 10px !important;
+    border-radius: 6px !important;
   }
 }
 
