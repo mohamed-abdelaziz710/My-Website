@@ -96,7 +96,7 @@
 </head>
 <body>
     <div class="chat-container">
-        <div class="chat-title">Amrikyy Gemini Chatbot</div>
+        <div class="chat-title">Amrikyy</div>
         <div class="chat-window" id="chat-window"></div>
         <form class="input-row" id="chat-form" autocomplete="off">
             <input type="text" id="user-input" placeholder="Type your message..." required autofocus />
@@ -109,10 +109,10 @@
         const userInput = document.getElementById('user-input');
 
         // Replace this with your actual Gemini API key
-        const GEMINI_API_KEY = "YOUR_GEMIAIzaSyC_SY5na1guMufJ9VngfX6PlcMLwcJOBQc";
+        const GEMINI_API_KEY = "YOUR_GEMIAzaSyC_SY5na1guMufJ9VngfX6PlcMLwcJOBQc";
 
         // Gemini Pro API endpoint
-        const GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=" + GEMINI_API_KEY;
+        const GEMINI_API_URL = "https://0e45fe78-86ad-4c8f-b665-f561edd3e592-00-ezbtmwl50c4e.riker.replit.dev:5000/api/gemini";
 
         // Add message to chat window
         function addMessage(text, sender) {
@@ -183,7 +183,7 @@
                         "Content-Type": "application/json"
                     },
                     body: JSON.stringify({
-                        contents: [{ parts: [{ text: promptWithPersona }] }]
+                        prompt: promptWithPersona
                     })
                 });
                 const data = await response.json();
