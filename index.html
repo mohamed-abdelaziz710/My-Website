@@ -17,13 +17,13 @@
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Favicon and meta icons -->
-    <link rel="icon" type="image/png" href="favicon.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="favicon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon.png">
-    <meta name="msapplication-TileImage" content="favicon.png">
+    <link rel="icon" type="image/png" href="favicon_new.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon_new.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_new.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_new.png">
+    <meta name="msapplication-TileImage" content="favicon_new.png">
     <meta name="msapplication-TileColor" content="#121212">
-    <meta property="og:image" content="favicon.png">
+    <meta property="og:image" content="favicon_new.png">
     <meta property="og:image:type" content="image/png">
     <meta property="og:image:width" content="300">
     <meta property="og:image:height" content="300">
@@ -43,14 +43,33 @@
 
   <!-- Hero section -->
   <section class="hero-section">
+    <div class="hero-particles" id="particles-js"></div>
     <div class="hero-overlay"></div>
     <div class="hero-content">
-      <h1>Mohamed Abdelaziz</h1>
-      <p>Cybersecurity Engineer & AI Innovator</p>
-      <a href="#contact" class="hero-btn">Contact</a>
-      <!-- أو أيقونات تواصل اجتماعي -->
+      <div class="hero-text-container">
+        <h1 class="glitch-text" data-text="Mohamed Abdelaziz">Mohamed Abdelaziz</h1>
+        <div class="hero-subtitle">
+          <span class="typewriter">Cybersecurity Engineer & AI Innovator</span>
+        </div>
+        <div class="hero-description">
+          <p>Securing the digital frontier with innovative AI solutions</p>
+          <div class="hero-tech-icons">
+            <i class="fas fa-shield-alt" title="Cybersecurity"></i>
+            <i class="fas fa-brain" title="Artificial Intelligence"></i>
+            <i class="fas fa-code" title="Programming"></i>
+            <i class="fab fa-bitcoin" title="Cryptocurrency"></i>
+          </div>
+        </div>
+        <a href="#contact" class="hero-btn pulse-btn">Contact Me <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="hero-visual">
+        <div class="cyber-circuit"></div>
+      </div>
     </div>
   </section>
+  
+  <!-- Particles.js for background effect -->
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 
   <!-- Main container for the content -->
   <div class="container">

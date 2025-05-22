@@ -10,6 +10,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize language toggle
     initLanguageToggle();
+    
+    // Initialize particles.js
+    initParticles();
 });
 
 // Animation for cards
@@ -69,52 +72,120 @@ function initChat() {
             // Get current language
             const isArabic = document.body.classList.contains('rtl');
             
-            // Persona-specific responses based on language
-            const responses = isArabic ? [
-                "شكراً للتواصل! أنا حالياً أركز على مشاريع الأمن السيبراني والذكاء الاصطناعي.",
-                "هذا سؤال مثير للاهتمام عن عملي. أعمل حالياً على كتابة كتاب 'CodeX' حول الحوسبة الكمومية ودمج الذكاء الاصطناعي والعملات المشفرة.",
-                "أنا خبير في تحليل التهديدات السيبرانية وتطوير حلول الأمن باستخدام الذكاء الاصطناعي.",
-                "لدي خبرة 6 سنوات في تداول العملات المشفرة وتحليل السوق.",
-                "سأتخرج في مايو 2026 كمهندس أمن سيبراني من جامعة كينيسو ستيت.",
-                "يمكنك التواصل معي عبر وسائل التواصل الاجتماعي المذكورة في قسم الاتصال.",
-                "أنا مهتم بتطوير تطبيقات الذكاء الاصطناعي التي تعزز الأمن السيبراني."
-            ] : [
-                "Thanks for reaching out! I'm currently focused on cybersecurity and AI projects.",
-                "That's an interesting question about my work. I'm currently writing a book called 'CodeX' about quantum computing and AI integration.",
-                "I specialize in cyber threat analysis and developing security solutions using AI.",
-                "I have 6 years of experience in cryptocurrency trading and market analysis.",
-                "I'll be graduating in May 2026 as a Cybersecurity Engineer from Kennesaw State University.",
-                "Feel free to connect with me on social platforms listed in the contact section.",
-                "I'm passionate about developing AI applications that enhance cybersecurity."
-            ];
+            // Show typing indicator
+            const typingIndicator = document.createElement('div');
+            typingIndicator.className = 'message bot-message typing-indicator';
+            typingIndicator.innerHTML = `
+                <div class="message-content">
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+            `;
+            chatMessages.appendChild(typingIndicator);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
             
-            // Select a response that might be relevant to the user's message
-            let responseIndex = 0;
-            const lowerMessage = message.toLowerCase();
-            
-            if (lowerMessage.includes('book') || lowerMessage.includes('codex') || lowerMessage.includes('كتاب')) {
-                responseIndex = 1;
-            } else if (lowerMessage.includes('cyber') || lowerMessage.includes('security') || lowerMessage.includes('أمن')) {
-                responseIndex = 2;
-            } else if (lowerMessage.includes('crypto') || lowerMessage.includes('bitcoin') || lowerMessage.includes('عملات')) {
-                responseIndex = 3;
-            } else if (lowerMessage.includes('education') || lowerMessage.includes('university') || lowerMessage.includes('تعليم') || lowerMessage.includes('جامعة')) {
-                responseIndex = 4;
-            } else if (lowerMessage.includes('contact') || lowerMessage.includes('social') || lowerMessage.includes('تواصل')) {
-                responseIndex = 5;
-            } else if (lowerMessage.includes('ai') || lowerMessage.includes('artificial') || lowerMessage.includes('ذكاء')) {
-                responseIndex = 6;
-            } else {
-                // Random response if no keywords match
-                responseIndex = Math.floor(Math.random() * responses.length);
-            }
-            
-            // Send the selected response
-            setTimeout(function() {
-                addMessage(responses[responseIndex], 'bot');
-            }, 1000);
+            // Connect to Replit backend API
+            fetch('https://0e45fe78-86ad-4c8f-b665-f561edd3e592-00-ezbtmwl50c4e.riker.replit.dev:5000/chat', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    message: message
+                })
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                // Remove typing indicator
+                chatMessages.removeChild(typingIndicator);
+                
+                // Extract response text from the API response
+                let responseText = '';
+                if (data && data.candidates && data.candidates[0] && 
+                    data.candidates[0].content && data.candidates[0].content.parts && 
+                    data.candidates[0].content.parts[0]) {
+                    responseText = data.candidates[0].content.parts[0].text;
+                } else {
+                    // Fallback responses if API response format is unexpected
+                    const fallbackResponses = isArabic ? [
+                        "عذراً، حدث خطأ في الاتصال. يمكنك التواصل معي عبر وسائل التواصل الاجتماعي المذكورة في قسم الاتصال.",
+                        "أواجه بعض المشاكل التقنية حالياً. سأكون متاحاً قريباً! 🔧"
+                    ] : [
+                        "Sorry, there was a connection error. You can reach me through the social media platforms listed in the contact section.",
+                        "I'm experiencing some technical issues at the moment. I'll be back soon! 🔧"
+                    ];
+                    responseText = fallbackResponses[Math.floor(Math.random() * fallbackResponses.length)];
+                }
+                
+                // Add the response to the chat
+                addMessage(responseText, 'bot');
+            })
+            .catch(error => {
+                console.error('Error connecting to backend:', error);
+                
+                // Remove typing indicator
+                if (typingIndicator.parentNode === chatMessages) {
+                    chatMessages.removeChild(typingIndicator);
+                }
+                
+                // Fallback responses in case of connection error
+                const errorResponses = isArabic ? [
+                    "عذراً، يبدو أن هناك مشكلة في الاتصال بالخادم. يمكنك التواصل معي مباشرة عبر وسائل التواصل الاجتماعي. 🔌",
+                    "لا يمكنني الوصول إلى الخادم حالياً. هل يمكنك المحاولة مرة أخرى لاحقاً؟ 🛠️"
+                ] : [
+                    "Sorry, there seems to be an issue connecting to the server. You can reach me directly through social media. 🔌",
+                    "I can't reach the server right now. Could you try again later? 🛠️"
+                ];
+                
+                const errorResponse = errorResponses[Math.floor(Math.random() * errorResponses.length)];
+                addMessage(errorResponse, 'bot');
+            });
         }
     }
+    
+    // Add CSS for typing indicator
+    const style = document.createElement('style');
+    style.textContent = `
+        .typing-indicator .message-content {
+            background-color: #1a1a1a !important;
+            padding: 10px 15px !important;
+        }
+        
+        .typing-indicator .dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #00ff00;
+            margin-right: 3px;
+            animation: typing-animation 1.4s infinite ease-in-out;
+        }
+        
+        .typing-indicator .dot:nth-child(1) {
+            animation-delay: 0s;
+        }
+        
+        .typing-indicator .dot:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+        
+        .typing-indicator .dot:nth-child(3) {
+            animation-delay: 0.4s;
+            margin-right: 0;
+        }
+        
+        @keyframes typing-animation {
+            0%, 60%, 100% { transform: translateY(0); }
+            30% { transform: translateY(-5px); }
+        }
+    `;
+    document.head.appendChild(style);
     
     sendMessage.addEventListener('click', sendUserMessage);
     
@@ -255,7 +326,8 @@ function updateLanguageContent(language) {
             // Hero section
             'hero-title': 'Mohamed Abdelaziz',
             'hero-subtitle': 'Cybersecurity Engineer & AI Innovator',
-            'hero-btn': 'Contact',
+            'hero-description': 'Securing the digital frontier with innovative AI solutions',
+            'hero-btn': 'Contact Me',
             
             // Profile section
             'profile-title': 'Mohamed Abdelaziz',
@@ -302,6 +374,7 @@ function updateLanguageContent(language) {
             // Hero section
             'hero-title': 'محمد عبد العزيز',
             'hero-subtitle': 'مهندس أمن سيبراني ومبتكر ذكاء اصطناعي',
+            'hero-description': 'تأمين الحدود الرقمية بحلول ذكاء اصطناعي مبتكرة',
             'hero-btn': 'اتصل بي',
             
             // Profile section
@@ -353,10 +426,12 @@ function updateLanguageContent(language) {
     });
     
     // Update hero section
-    if (document.querySelector('.hero-content h1')) {
-        document.querySelector('.hero-content h1').textContent = translation['hero-title'];
-        document.querySelector('.hero-content p').textContent = translation['hero-subtitle'];
-        document.querySelector('.hero-btn').textContent = translation['hero-btn'];
+    if (document.querySelector('.glitch-text')) {
+        document.querySelector('.glitch-text').textContent = translation['hero-title'];
+        document.querySelector('.glitch-text').setAttribute('data-text', translation['hero-title']);
+        document.querySelector('.typewriter').textContent = translation['hero-subtitle'];
+        document.querySelector('.hero-description p').textContent = translation['hero-description'];
+        document.querySelector('.hero-btn').innerHTML = translation['hero-btn'] + ' <i class="fas fa-arrow-right"></i>';
     }
     
     // Update profile section
@@ -420,5 +495,116 @@ function updateLanguageContent(language) {
         document.querySelector('.footer-name').innerHTML = translation['footer-name'].replace('Mohamed Abdelaziz', '<span class="neon-text">' + (language === 'en' ? 'Mohamed Abdelaziz' : 'محمد عبد العزيز') + '</span>');
         document.querySelector('.footer-role').textContent = translation['footer-role'];
         document.querySelector('.footer-signature').textContent = translation['footer-signature'];
+    }
+}
+
+// Initialize particles.js
+function initParticles() {
+    if (typeof particlesJS !== 'undefined') {
+        particlesJS('particles-js', {
+            "particles": {
+                "number": {
+                    "value": 80,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#39ff14"
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    },
+                    "polygon": {
+                        "nb_sides": 5
+                    }
+                },
+                "opacity": {
+                    "value": 0.5,
+                    "random": true,
+                    "anim": {
+                        "enable": true,
+                        "speed": 1,
+                        "opacity_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "size": {
+                    "value": 3,
+                    "random": true,
+                    "anim": {
+                        "enable": true,
+                        "speed": 2,
+                        "size_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#39ff14",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 2,
+                    "direction": "none",
+                    "random": true,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": false,
+                        "rotateX": 600,
+                        "rotateY": 1200
+                    }
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "grab"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 140,
+                        "line_linked": {
+                            "opacity": 1
+                        }
+                    },
+                    "bubble": {
+                        "distance": 400,
+                        "size": 40,
+                        "duration": 2,
+                        "opacity": 8,
+                        "speed": 3
+                    },
+                    "repulse": {
+                        "distance": 200,
+                        "duration": 0.4
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    },
+                    "remove": {
+                        "particles_nb": 2
+                    }
+                }
+            },
+            "retina_detect": true
+        });
     }
 }
