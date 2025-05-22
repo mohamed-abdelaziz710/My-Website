@@ -66,16 +66,52 @@ function initChat() {
             addMessage(message, 'user');
             messageInput.value = '';
             
-            // Simulate response (in a real implementation, this would be handled by a backend)
+            // Get current language
+            const isArabic = document.body.classList.contains('rtl');
+            
+            // Persona-specific responses based on language
+            const responses = isArabic ? [
+                "شكراً للتواصل! أنا حالياً أركز على مشاريع الأمن السيبراني والذكاء الاصطناعي.",
+                "هذا سؤال مثير للاهتمام عن عملي. أعمل حالياً على كتابة كتاب 'CodeX' حول الحوسبة الكمومية ودمج الذكاء الاصطناعي والعملات المشفرة.",
+                "أنا خبير في تحليل التهديدات السيبرانية وتطوير حلول الأمن باستخدام الذكاء الاصطناعي.",
+                "لدي خبرة 6 سنوات في تداول العملات المشفرة وتحليل السوق.",
+                "سأتخرج في مايو 2026 كمهندس أمن سيبراني من جامعة كينيسو ستيت.",
+                "يمكنك التواصل معي عبر وسائل التواصل الاجتماعي المذكورة في قسم الاتصال.",
+                "أنا مهتم بتطوير تطبيقات الذكاء الاصطناعي التي تعزز الأمن السيبراني."
+            ] : [
+                "Thanks for reaching out! I'm currently focused on cybersecurity and AI projects.",
+                "That's an interesting question about my work. I'm currently writing a book called 'CodeX' about quantum computing and AI integration.",
+                "I specialize in cyber threat analysis and developing security solutions using AI.",
+                "I have 6 years of experience in cryptocurrency trading and market analysis.",
+                "I'll be graduating in May 2026 as a Cybersecurity Engineer from Kennesaw State University.",
+                "Feel free to connect with me on social platforms listed in the contact section.",
+                "I'm passionate about developing AI applications that enhance cybersecurity."
+            ];
+            
+            // Select a response that might be relevant to the user's message
+            let responseIndex = 0;
+            const lowerMessage = message.toLowerCase();
+            
+            if (lowerMessage.includes('book') || lowerMessage.includes('codex') || lowerMessage.includes('كتاب')) {
+                responseIndex = 1;
+            } else if (lowerMessage.includes('cyber') || lowerMessage.includes('security') || lowerMessage.includes('أمن')) {
+                responseIndex = 2;
+            } else if (lowerMessage.includes('crypto') || lowerMessage.includes('bitcoin') || lowerMessage.includes('عملات')) {
+                responseIndex = 3;
+            } else if (lowerMessage.includes('education') || lowerMessage.includes('university') || lowerMessage.includes('تعليم') || lowerMessage.includes('جامعة')) {
+                responseIndex = 4;
+            } else if (lowerMessage.includes('contact') || lowerMessage.includes('social') || lowerMessage.includes('تواصل')) {
+                responseIndex = 5;
+            } else if (lowerMessage.includes('ai') || lowerMessage.includes('artificial') || lowerMessage.includes('ذكاء')) {
+                responseIndex = 6;
+            } else {
+                // Random response if no keywords match
+                responseIndex = Math.floor(Math.random() * responses.length);
+            }
+            
+            // Send the selected response
             setTimeout(function() {
-                const responses = [
-                    "Thanks for reaching out! I'm currently focused on cybersecurity and AI projects.",
-                    "That's an interesting question about my work. I'm currently writing a book called 'CodeX' about quantum computing and AI integration.",
-                    "I'd be happy to discuss my projects or experience in more detail.",
-                    "Feel free to connect with me on LinkedIn or other social platforms listed in the contact section."
-                ];
-                const randomResponse = responses[Math.floor(Math.random() * responses.length)];
-                addMessage(randomResponse, 'bot');
+                addMessage(responses[responseIndex], 'bot');
             }, 1000);
         }
     }
