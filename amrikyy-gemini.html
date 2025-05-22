@@ -6,202 +6,167 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
         body {
-            background: #181f1b; /* or #101510 for a dark theme */
+            background: #181f1b;
             color: #e0e0e0;
             font-family: 'DM Sans', sans-serif;
             margin: 0;
             padding: 0;
             min-height: 100vh;
         }
-        /* Chatbot Styles Fix */
-        #amrikyy-chat {
-  position: fixed;
-  bottom: 24px;
-  right: 24px;
-  width: 360px;
-  max-width: 98vw;
-  height: 520px;
-  background: #181f1b;
-  border-radius: 28px;
-  box-shadow: 0 8px 32px #39FF1444, 0 2px 8px #0008;
-  z-index: 9999;
-  padding: 0;
-  overflow: hidden;
-  border: 2.5px solid #39FF14;
-  transition: box-shadow 0.2s, transform 0.2s;
-  display: flex;
-  flex-direction: column;
-}
 
-#amrikyy-chat iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
-  border-radius: 28px;
-  background: transparent;
-}
+        /* Chatbot inner container styles */
+        .chat-container {
+            width: 100%;
+            height: 100%;
+            background: #181f1b;
+            border-radius: 28px;
+            display: flex;
+            flex-direction: column;
+            box-shadow: none;
+            border: none;
+            padding: 0;
+        }
 
-/* Chatbot inner container (inside iframe, if you control it) */
-.chat-container {
-  width: 100%;
-  height: 100%;
-  background: #181f1b;
-  border-radius: 28px;
-  display: flex;
-  flex-direction: column;
-  box-shadow: none;
-  border: none;
-  padding: 0;
-}
+        .chat-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 20px 12px 20px;
+            border-bottom: 1.5px solid #232d25;
+            background: #181f1b;
+        }
 
-.chat-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 18px 20px 12px 20px;
-  border-bottom: 1.5px solid #232d25;
-  background: #181f1b;
-}
+        .chat-title {
+            color: #39FF14;
+            font-size: 1.25em;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
 
-.chat-title {
-  color: #39FF14;
-  font-size: 1.25em;
-  font-weight: bold;
-  letter-spacing: 1px;
-}
+        .chat-close {
+            background: none;
+            border: none;
+            color: #39FF14;
+            font-size: 1.6em;
+            cursor: pointer;
+            transition: color 0.2s;
+            line-height: 1;
+            padding: 0 6px;
+        }
+        .chat-close:hover {
+            color: #ff4444;
+        }
 
-.chat-close {
-  background: none;
-  border: none;
-  color: #39FF14;
-  font-size: 1.6em;
-  cursor: pointer;
-  transition: color 0.2s;
-  line-height: 1;
-  padding: 0 6px;
-}
-.chat-close:hover {
-  color: #ff4444;
-}
+        .chat-window {
+            flex: 1;
+            overflow-y: auto;
+            background: transparent;
+            padding: 16px 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 0;
+            border-radius: 0 0 18px 18px;
+            scrollbar-width: thin;
+        }
 
-.chat-window {
-  flex: 1;
-  overflow-y: auto;
-  background: transparent;
-  padding: 16px 14px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-bottom: 0;
-  border-radius: 0 0 18px 18px;
-  scrollbar-width: thin;
-}
+        .message {
+            display: inline-block;
+            max-width: 85%;
+            padding: 10px 16px;
+            border-radius: 18px;
+            font-size: 1em;
+            line-height: 1.5;
+            word-break: break-word;
+            box-shadow: 0 2px 8px rgba(57,255,20,0.07);
+            position: relative;
+            clear: both;
+        }
+        .message.user {
+            background: #e0e0e0;
+            color: #222;
+            align-self: flex-end;
+            margin-left: 15%;
+            border-bottom-right-radius: 4px;
+        }
+        .message.bot {
+            background: #232d25;
+            color: #39FF14;
+            border: 1.5px solid #39FF14;
+            align-self: flex-start;
+            margin-right: 15%;
+            border-bottom-left-radius: 4px;
+            box-shadow: 0 0 8px #39FF1444;
+        }
 
-.message {
-  display: inline-block;
-  max-width: 85%;
-  padding: 10px 16px;
-  border-radius: 18px;
-  font-size: 1em;
-  line-height: 1.5;
-  word-break: break-word;
-  box-shadow: 0 2px 8px rgba(57,255,20,0.07);
-  position: relative;
-  clear: both;
-}
-.message.user {
-  background: #e0e0e0;
-  color: #222;
-  align-self: flex-end;
-  margin-left: 15%;
-  border-bottom-right-radius: 4px;
-}
-.message.bot {
-  background: #232d25;
-  color: #39FF14;
-  border: 1.5px solid #39FF14;
-  align-self: flex-start;
-  margin-right: 15%;
-  border-bottom-left-radius: 4px;
-  box-shadow: 0 0 8px #39FF1444;
-}
+        .input-row {
+            display: flex;
+            gap: 8px;
+            padding: 14px 14px 18px 14px;
+            background: #181f1b;
+            border-radius: 0 0 18px 18px;
+        }
 
-.input-row {
-  display: flex;
-  gap: 8px;
-  padding: 14px 14px 18px 14px;
-  background: #181f1b;
-  border-radius: 0 0 18px 18px;
-}
+        .input-row input[type="text"] {
+            flex: 1;
+            padding: 12px;
+            background: #181818;
+            color: #fff;
+            border: 1px solid #39FF14;
+            border-radius: 8px;
+            font-size: 1em;
+            outline: none;
+        }
 
-.input-row input[type="text"] {
-  flex: 1;
-  padding: 12px;
-  background: #181818;
-  color: #fff;
-  border: 1px solid #39FF14;
-  border-radius: 8px;
-  font-size: 1em;
-  outline: none;
-}
+        .input-row button {
+            background: #39FF14;
+            color: #0D0D0D;
+            border: none;
+            border-radius: 8px;
+            padding: 12px 18px;
+            font-weight: bold;
+            font-size: 1.1em;
+            min-width: 48px;
+            min-height: 48px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .input-row button:hover {
+            background: #2ecc10;
+        }
 
-.input-row button {
-  background: #39FF14;
-  color: #0D0D0D;
-  border: none;
-  border-radius: 8px;
-  padding: 12px 18px;
-  font-weight: bold;
-  font-size: 1.1em;
-  min-width: 48px;
-  min-height: 48px;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-.input-row button:hover {
-  background: #2ecc10;
-}
-
-/* Responsive for mobile */
-@media (max-width: 600px) {
-  #amrikyy-chat {
-    width: 98vw !important;
-    height: 60vh !important;
-    right: 1vw !important;
-    bottom: 1vh !important;
-    border-radius: 14px !important;
-    padding: 0 !important;
-  }
-  #amrikyy-chat iframe {
-    border-radius: 14px !important;
-  }
-  .chat-header, .input-row {
-    padding-left: 8px;
-    padding-right: 8px;
-  }
-  .chat-window {
-    padding: 8px 4px;
-    font-size: 0.98em;
-  }
-  .message {
-    max-width: 98vw;
-    font-size: 0.98em;
-  }
-}
+        /* Responsive for mobile */
+        @media (max-width: 600px) {
+            .chat-container {
+                border-radius: 14px !important;
+            }
+            .chat-header, .input-row {
+                padding-left: 8px;
+                padding-right: 8px;
+            }
+            .chat-window {
+                padding: 8px 4px;
+                font-size: 0.98em;
+            }
+            .message {
+                max-width: 98vw;
+                font-size: 0.98em;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="chat-container">
-  <div class="chat-header">
-    <span class="chat-title">Amrikyy</span>
-    <button class="chat-close" title="Close">&times;</button>
-  </div>
-  <div class="chat-window" id="chat-window"></div>
-  <form class="input-row" id="chat-form" autocomplete="off">
-    <input type="text" id="user-input" placeholder="Type your message..." required autofocus />
-    <button type="submit">Send</button>
-  </form>
-</div>
+        <div class="chat-header">
+            <span class="chat-title">Amrikyy</span>
+            <button class="chat-close" title="Close">&times;</button>
+        </div>
+        <div class="chat-window" id="chat-window"></div>
+        <form class="input-row" id="chat-form" autocomplete="off">
+            <input type="text" id="user-input" placeholder="Type your message..." required autofocus />
+            <button type="submit">Send</button>
+        </form>
+    </div>
     <script>
         const chatWindow = document.getElementById('chat-window');
         const chatForm = document.getElementById('chat-form');
@@ -238,7 +203,7 @@
             if (!prompt) return;
             addMessage(prompt, 'user');
             userInput.value = '';
-            userInput.focus(); // Add this line
+            userInput.focus();
             addMessage('...', 'bot');
 
             try {
@@ -286,11 +251,11 @@
         });
 
         document.querySelector('.chat-close').onclick = () => {
-          window.parent.document.getElementById('amrikyy-chat').style.display = 'none';
+            window.parent.document.getElementById('amrikyy-chat').style.display = 'none';
         };
 
         window.addEventListener('DOMContentLoaded', () => {
-          addMessage("Hi, I’m Amrikyy! Ask me anything about cybersecurity, AI, or my journey. 🚀", 'bot');
+            addMessage("Hi, I’m Amrikyy! Ask me anything about cybersecurity, AI, or my journey. 🚀", 'bot');
         });
     </script>
 </body>
