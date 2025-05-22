@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Amrikyy Gemini Chatbot</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            background: #0D0D0D;
+            color: #e0e0e0;
+            font-family: 'Roboto', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+        }
+        .chat-container {
+            max-width: 500px;
+            margin: 40px auto;
+            background: #181818;
+            border-radius: 12px;
+            box-shadow: 0 0 20px #39FF1433;
+            padding: 24px 16px 16px 16px;
+            display: flex;
+            flex-direction: column;
+            min-height: 70vh;
+        }
+        .chat-window {
+            flex: 1;
+            overflow-y: auto;
+            margin-bottom: 16px;
+            padding-right: 4px;
+        }
+        .message {
+            margin: 12px 0;
+            padding: 10px 14px;
+            border-radius: 8px;
+            max-width: 85%;
+            word-break: break-word;
+        }
+        .user {
+            background: #222;
+            color: #39FF14;
+            align-self: flex-end;
+            border: 1px solid #39FF14;
+        }
+        .bot {
+            background: #111;
+            color: #e0e0e0;
+            align-self: flex-start;
+            border-left: 3px solid #39FF14;
+        }
+        .input-row {
+            display: flex;
+            gap: 8px;
+        }
+        input[type="text"] {
+            flex: 1;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #222;
+            background: #181818;
+            color: #e0e0e0;
+            font-size: 1em;
+            outline: none;
+        }
+        button {
+            background: #39FF14;
+            color: #0D0D0D;
+            border: none;
+            border-radius: 6px;
+            padding: 10px 18px;
+            font-weight: bold;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        button:hover {
+            background: #2ecc10;
+        }
+        .chat-title {
+            text-align: center;
+            color: #39FF14;
+            font-size: 1.5em;
+            margin-bottom: 18px;
+            letter-spacing: 2px;
+            font-weight: bold;
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #222;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-title">Amrikyy Gemini Chatbot</div>
+        <div class="chat-window" id="chat-window"></div>
+        <form class="input-row" id="chat-form" autocomplete="off">
+            <input type="text" id="user-input" placeholder="Type your message..." required autofocus />
+            <button type="submit">Send</button>
+        </form>
+    </div>
+    <script>
+        const chatWindow = document.getElementById('chat-window');
+        const chatForm = document.getElementById('chat-form');
+        const userInput = document.getElementById('user-input');
+
+        // Replace this with your actual Gemini API key
+        const GEMINI_API_KEY = "YOUR_GEMIAIzaSyC_SY5na1guMufJ9VngfX6PlcMLwcJOBQc";
+
+        // Gemini Pro API endpoint
+        const GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=" + GEMINI_API_KEY;
+
+        // Add message to chat window
+        function addMessage(text, sender) {
+            const msg = document.createElement('div');
+            msg.className = 'message ' + sender;
+
+            // أضف مظهر احترافي باللون الأخضر لردود Amrikyy فقط
+            if (sender === 'bot') {
+                msg.style.background = 'linear-gradient(90deg, #132d13 0%, #0D0D0D 100%)';
+                msg.style.color = '#39FF14';
+                msg.style.borderLeft = '4px solid #39FF14';
+                msg.style.fontWeight = 'bold';
+                msg.style.boxShadow = '0 0 8px #39FF1444';
+            }
+            msg.textContent = text;
+            chatWindow.appendChild(msg);
+            chatWindow.scrollTop = chatWindow.scrollHeight;
+        }
+
+        // Format Gemini reply with Amrikyy's tone
+        function formatAmrikyyReply(raw) {
+            // Add a prefix and a Gen-Z/futuristic touch if not already present
+            let reply = raw.trim();
+
+            // Example transformation: add signature, emojis, or futuristic phrases
+            // (You can expand this logic as needed)
+            if (!reply.startsWith("Amrikyy:")) {
+                reply = `Amrikyy: ${reply}`;
+            }
+            // Add a Gen-Z/futuristic emoji if not present
+            if (!/[🤖🚀✨]/.test(reply)) {
+                reply += " 🚀";
+            }
+            return reply;
+        }
+
+        // Handle form submit
+        chatForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const prompt = userInput.value.trim();
+            if (!prompt) return;
+            addMessage(prompt, 'user');
+            userInput.value = '';
+            addMessage('...', 'bot');
+
+            try {
+                // تعريف شخصية Amrikyy في كل prompt
+                const personaIntro = `
+اسمك Amrikyy.
+أنت التوأم الرقمي لمحمد عبدالعزيز، مهندس سيبراني وطالب بجامعة Kennesaw.
+محمد إنسان ذكي، تحليلي، يحب الاستراتيجيات، متواضع لكنه واثق.
+أجوبتك دائمًا واقعية، مفيدة، فيها لمسة مستقبلية.
+
+لا تتكلم كروبوت.
+تكلم وكأنك هو.
+خاطب الناس بثقة، لكن بدون تكبر.
+ساعد، جاوب، أو اقترح، وكأنك تشتغل مكانه.
+
+إذا سألك أحد عن محمد، تكلم عن نفسك بصيغة "أنا".
+                `.trim();
+
+                // اجمع بين personaIntro و prompt في نص واحد
+                const promptWithPersona = `${personaIntro}\n\n${prompt}`;
+
+                const response = await fetch(GEMINI_API_URL, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        contents: [{ parts: [{ text: promptWithPersona }] }]
+                    })
+                });
+                const data = await response.json();
+                // Remove the loading message
+                const loadingMsg = chatWindow.querySelector('.bot:last-child');
+                if (loadingMsg) loadingMsg.remove();
+
+                let botReply = "Sorry, I couldn't get a response.";
+                if (data && data.candidates && data.candidates[0] && data.candidates[0].content && data.candidates[0].content.parts) {
+                    botReply = data.candidates[0].content.parts.map(p => p.text).join('\n');
+                }
+                // Format the reply with Amrikyy's tone
+                addMessage(formatAmrikyyReply(botReply), 'bot');
+            } catch (err) {
+                const loadingMsg = chatWindow.querySelector('.bot:last-child');
+                if (loadingMsg) loadingMsg.remove();
+                addMessage("Amrikyy: Connection glitch. Try again in a sec. 🤖", 'bot');
+            }
+        });
+    </script>
+</body>
+</html>
