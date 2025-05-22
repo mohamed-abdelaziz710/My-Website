@@ -24,13 +24,28 @@
             flex-direction: column;
             min-height: 70vh;
         }
+        .chat-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 18px;
+        }
         .chat-title {
-            text-align: center;
             color: #39FF14;
             font-size: 1.5em;
-            margin-bottom: 18px;
             letter-spacing: 2px;
             font-weight: bold;
+        }
+        .chat-close {
+            background: none;
+            border: none;
+            color: #39FF14;
+            font-size: 1.5em;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        .chat-close:hover {
+            color: #2ecc10;
         }
         .chat-window {
             display: flex;
@@ -149,7 +164,10 @@
 </head>
 <body>
     <div class="chat-container">
-        <div class="chat-title">Amrikyy</div>
+        <div class="chat-header">
+            <span class="chat-title">Amrikyy</span>
+            <button class="chat-close" title="Close">&times;</button>
+        </div>
         <div class="chat-window" id="chat-window"></div>
         <form class="input-row" id="chat-form" autocomplete="off">
             <input type="text" id="user-input" placeholder="Type your message..." required autofocus />
@@ -237,6 +255,10 @@
                 addMessage("Amrikyy: Connection glitch. Try again in a sec. 🤖", 'bot');
             }
         });
+
+        document.querySelector('.chat-close').onclick = () => {
+          window.parent.document.getElementById('amrikyy-chat').style.display = 'none';
+        };
     </script>
 </body>
 </html>

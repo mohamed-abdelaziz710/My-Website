@@ -318,6 +318,11 @@
           <span class="intro-text">Hello, I’m Muhammad. Welcome to my personal site!</span>
           <span class="cursor"></span>
         </div>
+    </div> <!-- end of .container -->
+
+    <!-- Floating Gemini Chatbot Widget -->
+    <div id="amrikyy-chat">
+      <iframe src="amrikyy-gemini.html" title="Amrikyy Gemini Chatbot"></iframe>
     </div>
 
     <!-- Footer section -->
@@ -354,42 +359,6 @@
             });
         });
     </script>
-    <!-- Floating Gemini Chatbot Widget -->
-    <style>
-      #amrikyy-chat {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        width: 320px;
-        height: 460px;
-        border-radius: 16px;
-        box-shadow: 0 0 20px #39FF14;
-        z-index: 9999;
-        background: #0D0D0D;
-        color: white;
-        padding: 10px;
-        transition: width 0.2s, height 0.2s;
-      }
-      #amrikyy-chat iframe {
-        width: 100%;
-        height: 100%;
-        border: none;
-        border-radius: 12px;
-        background: #0D0D0D;
-      }
-      @media (max-width: 600px) {
-        #amrikyy-chat {
-          width: 98vw;
-          height: 60vh;
-          right: 1vw;
-          bottom: 1vh;
-          padding: 2px;
-        }
-      }
-    </style>
-    <div id="amrikyy-chat">
-      <iframe src="amrikyy-gemini.html" title="Amrikyy Gemini Chatbot"></iframe>
-    </div>
     <!-- Optional JavaScript to add a typing effect to the intro text. -->
     <script>
       document.addEventListener('DOMContentLoaded', function() {
