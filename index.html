@@ -21,15 +21,13 @@
   <div class="background-effect"></div>
   <!-- Navigation bar -->
   <nav>
-      <ul>
-          <li><a href="#about"><i class="fas fa-user"></i> About</a></li>
-          <li><a href="#skills"><i class="fas fa-code"></i> Skills</a></li>
-          <li><a href="#certifications"><i class="fas fa-certificate"></i> Certifications</a></li>
-          <li><a href="#experience"><i class="fas fa-briefcase"></i> Experience</a></li>
-          <li><a href="#education"><i class="fas fa-graduation-cap"></i> Education</a></li>
-          <li><a href="#projects"><i class="fas fa-project-diagram"></i> Projects</a></li>
-          <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
-      </ul>
+    <div class="logo">Mohamed Abdelaziz</div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
   </nav>
 
   <!-- Main container for the content -->
@@ -386,6 +384,16 @@
       typeChar();
     });
   </script>
+  <script>
+document.addEventListener('mousemove', function(e) {
+  const x = e.clientX / window.innerWidth;
+  const y = e.clientY / window.innerHeight;
+  const bg = document.querySelector('.background-effect');
+  if (bg) {
+    bg.style.background = `radial-gradient(circle at ${x * 100}% ${y * 100}%, #39FF14 0%, #0D0D0D 100%)`;
+  }
+});
+</script>
 </body>v class="background-effect"></div>
 
 </html></body>

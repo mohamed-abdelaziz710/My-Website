@@ -43,11 +43,30 @@ nav {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  box-shadow: 0 4px 12px rgba(57, 255, 20, 0.08);
-  border-bottom: 2px solid #39FF14;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+nav .logo {
+  color: #39FF14;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links li a {
+  color: #39FF14;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+  color: #aaff77;
 }
 
 nav ul {
@@ -115,18 +134,17 @@ nav ul li a:hover i {
   width: 180px;
   height: 180px;
   object-fit: cover;
+  background-color: #1a1a1a;
   border-radius: 50%;
-  border: 3px solid #39FF14; /* neon green border accent around image */
-  box-shadow: 0 0 10px rgba(57, 255, 20, 0.3); /* subtle neon glow shadow */
-  background: #222; /* fallback background */
+  padding: 4px;
+  border: 2px solid #39FF14;
+  box-shadow: 0 0 16px #39FF14, 0 0 32px #39FF1444;
+  transition: box-shadow 0.3s, transform 0.3s;
 }
 
-/* Responsive image size for larger screens */
-@media (min-width: 769px) {
-  .hero-image img {
-    width: 250px;
-    height: 250px;
-  }
+.hero-image img:hover {
+  box-shadow: 0 0 32px #39FF14, 0 0 64px #39FF1444;
+  transform: scale(1.04);
 }
 
 /* Intro chatbot bubble */
@@ -858,14 +876,13 @@ html { font-size: 16px; }
 /* Background effect for the whole page */
 .background-effect {
   position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  z-index: 0;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(circle at center, #39FF14 0%, #0D0D0D 100%);
+  opacity: 0.08;
   pointer-events: none;
-  background: radial-gradient(circle at 70% 20%, #39FF1444 0%, transparent 60%),
-              radial-gradient(circle at 20% 80%, #39FF1422 0%, transparent 70%);
-  /* You can adjust the gradients for more/less effect */
-}
-body > *:not(.background-effect) {
-  position: relative;
-  z-index: 1;
+  z-index: -1;
+  transition: background-position 0.2s ease-out;
 }
