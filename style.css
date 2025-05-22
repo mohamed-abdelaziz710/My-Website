@@ -565,6 +565,57 @@ footer {
     border-top: 1px solid var(--border-color);
 }
 
+.site-footer {
+  background: #101510;
+  color: #e0e0e0;
+  padding: 24px 0 12px 0;
+  text-align: center;
+  border-top: 2px solid #39FF14;
+  margin-top: 40px;
+  box-shadow: 0 -2px 24px #39FF1444;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  font-size: 1.05em;
+}
+
+.footer-name {
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.neon-text {
+  color: #39FF14;
+  text-shadow: 0 0 6px #39FF14, 0 0 2px #39FF14;
+}
+
+.footer-role {
+  opacity: 0.85;
+  font-size: 0.98em;
+}
+
+.footer-signature {
+  color: #39FF14;
+  font-family: 'Sora', 'DM Sans', sans-serif;
+  font-size: 1.1em;
+  letter-spacing: 2px;
+  margin-top: 2px;
+}
+
+@media (max-width: 600px) {
+  .site-footer {
+    font-size: 0.98em;
+    padding: 18px 0 8px 0;
+  }
+  .footer-content {
+    gap: 4px;
+  }
+}
+
 /* Responsive design */
 @media (max-width: 768px) {
     nav ul {
