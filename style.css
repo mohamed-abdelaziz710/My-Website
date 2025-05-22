@@ -130,9 +130,7 @@ nav ul li a:hover i {
   font-size: 1.3rem;
 }
 
-.intro-bubble .intro-text {
-  /* The text content, possibly dynamic via JS */
-}
+/* .intro-bubble .intro-text {  The text content, possibly dynamic via JS } */
 
 .intro-bubble .cursor {
   display: none; /* default: hidden, will show if JS adds typing effect */
@@ -671,25 +669,52 @@ footer {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+  margin: 18px 0 0 0;
+  justify-content: flex-start;
 }
 
 .badge {
-  display: inline-block;
-  background: #e8e8e8; /* light grey background for badge */
-  color: #000;
-  font-size: 0.9rem;
-  padding: 6px 10px;
-  border-radius: 15px;
-  white-space: nowrap; /* keep text in one line */
+  display: inline-flex;
+  align-items: center;
+  background: #ececec;
+  color: #222;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  padding: 6px 14px;
+  border-radius: 18px;
+  margin: 2px 0;
+  border: 1.5px solid transparent;
+  transition: border 0.2s, box-shadow 0.2s;
+  box-shadow: 0 1px 4px rgba(57,255,20,0.07);
 }
 
-/* Optionally, highlight parts of badges (like separators) in neon */
-.badge::selection {
-  background: #39FF14;
-  color: #000;
+.badge i {
+  margin-right: 7px;
+  color: var(--neon-green, #39FF14);
+  font-size: 1em;
 }
 
-/* If we wanted to style the " | " separators in the OpenAI | Intel | BlackRock badge in neon: */
-.badge:nth-child(4) { /* the OpenAI | Intel | BlackRock Talent badge */
-  /* No specific styling here, but could add icon or color to separators if desired */
+.badge.neon-sep {
+  border-color: var(--neon-green, #39FF14);
+  color: #222;
+  background: #f8fff8;
+  font-weight: bold;
+}
+
+.sep-dot {
+  color: var(--neon-green, #39FF14);
+  margin: 0 4px;
+  font-weight: bold;
+}
+
+@media (max-width: 600px) {
+  .badges {
+    gap: 7px;
+    justify-content: flex-start;
+  }
+  .badge {
+    font-size: 0.92rem;
+    padding: 6px 10px;
+    border-radius: 15px;
+  }
 }
