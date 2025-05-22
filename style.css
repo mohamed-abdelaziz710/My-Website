@@ -854,3 +854,18 @@ html { font-size: 16px; }
 .chat-close:hover {
   color: #ff4444;
 }
+
+/* Background effect for the whole page */
+.background-effect {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 70% 20%, #39FF1444 0%, transparent 60%),
+              radial-gradient(circle at 20% 80%, #39FF1422 0%, transparent 70%);
+  /* You can adjust the gradients for more/less effect */
+}
+body > *:not(.background-effect) {
+  position: relative;
+  z-index: 1;
+}
