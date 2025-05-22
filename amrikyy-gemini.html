@@ -61,7 +61,7 @@
         /* Chat message bubbles */
         .message {
           display: inline-block;
-          max-width: 80%;
+          max-width: 90vw; /* Was 80%, now 90vw for mobile */
           padding: 10px 16px;
           margin: 8px 0;
           border-radius: 18px;
@@ -113,9 +113,11 @@
             color: #0D0D0D;
             border: none;
             border-radius: 6px;
-            padding: 10px 18px;
+            padding: 14px 22px; /* Larger padding */
             font-weight: bold;
-            font-size: 1em;
+            font-size: 1.15em;  /* Larger font */
+            min-width: 48px;    /* Minimum touch target */
+            min-height: 48px;
             cursor: pointer;
             transition: background 0.2s;
         }
@@ -210,6 +212,7 @@
             if (!prompt) return;
             addMessage(prompt, 'user');
             userInput.value = '';
+            userInput.focus(); // Add this line
             addMessage('...', 'bot');
 
             try {
@@ -259,6 +262,10 @@
         document.querySelector('.chat-close').onclick = () => {
           window.parent.document.getElementById('amrikyy-chat').style.display = 'none';
         };
+
+        window.addEventListener('DOMContentLoaded', () => {
+          addMessage("Hi, I’m Amrikyy! Ask me anything about cybersecurity, AI, or my journey. 🚀", 'bot');
+        });
     </script>
 </body>
 </html>
