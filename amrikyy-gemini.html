@@ -108,10 +108,7 @@
         const chatForm = document.getElementById('chat-form');
         const userInput = document.getElementById('user-input');
 
-        // Replace this with your actual Gemini API key
-        const GEMINI_API_KEY = "YOUR_GEMIAzaSyC_SY5na1guMufJ9VngfX6PlcMLwcJOBQc";
-
-        // Gemini Pro API endpoint
+        // Gemini Pro API endpoint (your backend proxy)
         const GEMINI_API_URL = "https://0e45fe78-86ad-4c8f-b665-f561edd3e592-00-ezbtmwl50c4e.riker.replit.dev:5000/api/gemini";
 
         // Add message to chat window
@@ -138,7 +135,6 @@
             let reply = raw.trim();
 
             // Example transformation: add signature, emojis, or futuristic phrases
-            // (You can expand this logic as needed)
             if (!reply.startsWith("Amrikyy:")) {
                 reply = `Amrikyy: ${reply}`;
             }
