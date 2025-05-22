@@ -16,9 +16,17 @@
     
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Favicon and meta icons -->
     <link rel="icon" type="image/png" href="favicon.png">
-    <!-- or for .ico -->
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon.png">
+    <meta name="msapplication-TileImage" content="favicon.png">
+    <meta name="msapplication-TileColor" content="#121212">
+    <meta property="og:image" content="favicon.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="300">
+    <meta property="og:image:height" content="300">
 </head>
 <body>
   <div class="background-effect"></div>
@@ -74,7 +82,7 @@
       <div class="badges">
           <span class="badge"><i class="fas fa-user-shield"></i> Cybersecurity Engineer</span>
           <span class="badge"><i class="fas fa-microchip"></i> AI Tools Builder</span>
-          <span class="badge"><i class="fas fa-university"></i> KSU ’26 – Cybersecurity Student</span>
+          <span class="badge"><i class="fas fa-university"></i> KSU '26 – Cybersecurity Student</span>
           <span class="badge"><i class="fas fa-language"></i> Multilingual: AR / EN</span>
           <span class="badge"><i class="fas fa-terminal"></i> Replit Dev</span>
           <span class="badge"><i class="fas fa-location-dot"></i> Based in Cairo – Global Reach</span>
@@ -323,89 +331,50 @@
               <p><i class="fab fa-linkedin"></i> LinkedIn: <a href="https://www.linkedin.com/in/mohamed-abdelaziz-815797347/" target="_blank" rel="noopener noreferrer">mohamed-abdelaziz-815797347</a></p>
           </div>
       </div>
-
-      <!-- Intro Bubble -->
-      <div class="intro-bubble">
-        <span class="bot-icon">🤖</span>
-        <span class="intro-text">Hello, I’m Muhammad. Welcome to my personal site!</span>
-        <span class="cursor"></span>
-      </div>
-  </div> <!-- end of .container -->
-
-  <!-- Floating Gemini Chatbot Widget -->
-  <div id="amrikyy-chat">
-    <iframe src="amrikyy-gemini.html" title="Amrikyy Gemini Chatbot"></iframe>
   </div>
 
-  <!-- Footer section -->
+  <!-- Footer -->
   <footer class="site-footer">
-    <div class="footer-content">
-      <span class="footer-name">© 2025 <span class="neon-text">Mohamed Abdelaziz</span></span>
-      <span class="footer-role">Cybersecurity Engineer & AI Innovator</span>
-      <span class="footer-signature">Amrikyy</span>
-    </div>
+      <div class="footer-content">
+          <div class="footer-name">© 2025 <span class="neon-text">Mohamed Abdelaziz</span></div>
+          <div class="footer-role">Cybersecurity Engineer & AI Innovator</div>
+          <div class="footer-signature">Amrikyy</div>
+      </div>
   </footer>
 
-  <!-- JavaScript for animations and interactions -->
-  <script>
-      document.addEventListener('DOMContentLoaded', function() {
-          // Add animation class to elements when they come into view
-          const observer = new IntersectionObserver((entries) => {
-              entries.forEach(entry => {
-                  if (entry.isIntersecting) {
-                      entry.target.classList.add('animate');
-                  }
-              });
-          }, { threshold: 0.1 });
+  <!-- Chat Bubble -->
+  <div class="chat-bubble" id="chatBubble">
+    <i class="fas fa-comment"></i>
+  </div>
 
-          // Observe all cards
-          document.querySelectorAll('.card').forEach(card => {
-              observer.observe(card);
-          });
+  <!-- Chat Window -->
+  <div class="chat-window" id="chatWindow">
+    <div class="chat-header">
+      <h3>Chat with Mohamed</h3>
+      <button class="close-btn" id="closeChat">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <div class="chat-messages" id="chatMessages">
+      <!-- Messages will be dynamically added here -->
+      <div class="message bot-message">
+        <div class="message-content">Hello, I'm Muhammad. Welcome to my personal site!</div>
+        <div class="message-time">Just now</div>
+      </div>
+      <div class="message bot-message">
+        <div class="message-content">Feel free to ask me anything about cybersecurity, AI, or my journey. ✏️</div>
+        <div class="message-time">Just now</div>
+      </div>
+    </div>
+    <div class="chat-input">
+      <input type="text" id="messageInput" placeholder="Type your message...">
+      <button id="sendMessage">
+        <i class="fas fa-paper-plane"></i>
+      </button>
+    </div>
+  </div>
 
-          // Add hover effect to navigation items
-          document.querySelectorAll('nav ul li a').forEach(item => {
-              item.addEventListener('mouseenter', function() {
-                  this.querySelector('i').classList.add('pulse');
-              });
-              item.addEventListener('mouseleave', function() {
-                  this.querySelector('i').classList.remove('pulse');
-              });
-          });
-      });
-  </script>
-  <!-- Optional JavaScript to add a typing effect to the intro text. -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const introTextEl = document.querySelector('.intro-text');
-      const cursorEl = document.querySelector('.cursor');
-      if (!introTextEl || !cursorEl) return;
-      const fullText = introTextEl.textContent;
-      introTextEl.textContent = '';
-      cursorEl.style.display = 'inline-block';
-
-      let index = 0;
-      function typeChar() {
-        if (index < fullText.length) {
-          introTextEl.textContent += fullText.charAt(index);
-          index++;
-          setTimeout(typeChar, 50);
-        } else {
-          cursorEl.style.display = 'none'; // or keep blinking if you prefer
-        }
-      }
-      typeChar();
-    });
-  </script>
-  <script>
-document.addEventListener('mousemove', function(e) {
-  const x = e.clientX / window.innerWidth;
-  const y = e.clientY / window.innerHeight;
-  const bg = document.querySelector('.background-effect');
-  if (bg) {
-    bg.style.background = `radial-gradient(circle at ${x * 100}% ${y * 100}%, #39FF14 0%, #0D0D0D 100%)`;
-  }
-});
-</script>
+  <!-- JavaScript -->
+  <script src="script.js"></script>
 </body>
 </html>
