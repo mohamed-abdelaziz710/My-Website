@@ -10,21 +10,28 @@
     --shadow-color: rgba(57, 255, 20, 0.2); /* Neon green shadow with transparency */
 }
 
-/* Base styles */
+/* Base styles and typography */
 body {
-    font-family: 'Roboto', Arial, sans-serif;
-    background-color: var(--dark-bg);
-    color: var(--text-color);
-    margin: 0;
-    padding: 0;
-    line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background: #FFFFFF; /* white background for clean look */
+  color: #333333;      /* dark gray text for good contrast on white */
+  font-family: 'DM Sans', sans-serif;
+}
+
+h1 {
+  font-family: 'Sora', sans-serif;
+  font-weight: 700;
+  font-size: 2.2rem;
+  margin: 0;
+  color: #000000; /* solid black for the name to make it stand out */
 }
 
 /* Container */
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 15px; /* some horizontal padding for small screens */
 }
 
 /* Navigation */
@@ -76,6 +83,70 @@ nav ul li a:hover {
 
 nav ul li a:hover i {
     transform: scale(1.2);
+}
+
+/* Hero section */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* On desktop, text and image side by side */
+  padding: 60px 0;
+  gap: 40px; /* space between text and image */
+}
+
+.hero-text {
+  flex: 1;
+}
+
+.hero-image {
+  flex: 1;
+  text-align: center;
+}
+
+.hero-image img {
+  max-width: 250px;
+  /* Make image a nicely rounded circle */
+  border-radius: 50%;
+  border: 3px solid #39FF14; /* neon green border accent around image */
+  box-shadow: 0 0 10px rgba(57, 255, 20, 0.3); /* subtle neon glow shadow */
+}
+
+/* Intro chatbot bubble */
+.intro-bubble {
+  display: inline-flex;
+  align-items: center;
+  background: #F0F0F0; /* light gray bubble background */
+  color: #000;         /* black text for contrast on light bubble */
+  font-size: 1.1rem;
+  padding: 12px 16px;
+  margin: 20px 0;
+  border-radius: 8px;
+  position: relative;
+}
+
+.intro-bubble .bot-icon {
+  margin-right: 8px;
+  font-size: 1.3rem;
+}
+
+.intro-bubble .intro-text {
+  /* The text content, possibly dynamic via JS */
+}
+
+.intro-bubble .cursor {
+  display: none; /* default: hidden, will show if JS adds typing effect */
+  width: 2px;
+  height: 1.2em;
+  background: #000;
+  margin-left: 3px;
+  animation: blink 1s infinite;
+}
+
+/* Blinking cursor animation (for typing effect) */
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
 }
 
 /* Cards */
@@ -508,6 +579,18 @@ footer {
     .tagline {
         font-size: 1.2em;
     }
+    
+    .hero {
+    flex-direction: column; /* Stack text and image vertically */
+    text-align: center;     /* Center-align text for mobile */
+    padding: 40px 0;
+  }
+  .hero-text {
+    margin-bottom: 30px;
+  }
+  .hero-image img {
+    max-width: 180px;
+  }
 }
 
 /* تحسين مظهر Amrikyy على الموبايل */
@@ -581,4 +664,32 @@ footer {
 
 ::-webkit-scrollbar-thumb:hover {
     background: var(--neon-green);
+}
+
+/* Badges styles */
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.badge {
+  display: inline-block;
+  background: #e8e8e8; /* light grey background for badge */
+  color: #000;
+  font-size: 0.9rem;
+  padding: 6px 10px;
+  border-radius: 15px;
+  white-space: nowrap; /* keep text in one line */
+}
+
+/* Optionally, highlight parts of badges (like separators) in neon */
+.badge::selection {
+  background: #39FF14;
+  color: #000;
+}
+
+/* If we wanted to style the " | " separators in the OpenAI | Intel | BlackRock badge in neon: */
+.badge:nth-child(4) { /* the OpenAI | Intel | BlackRock Talent badge */
+  /* No specific styling here, but could add icon or color to separators if desired */
 }
