@@ -1,1 +1,623 @@
-document.addEventListener('DOMContentLoaded',function(){initAnimations();initChat();initMobileMenu();initLanguageToggle();initParticles()});function initAnimations(){const e=document.querySelectorAll('.card');e.forEach(t=>{t.classList.add('animate')});const t=new IntersectionObserver(e=>{e.forEach(e=>{e.isIntersecting&&e.target.classList.add('animate')})},{threshold:.1});e.forEach(e=>{t.observe(e)})}function initChat(){const e=document.getElementById('chatBubble'),t=document.getElementById('chatWindow'),n=document.getElementById('closeChat'),i=document.getElementById('messageInput'),a=document.getElementById('sendMessage'),o=document.getElementById('chatMessages');e.addEventListener('click',function(){t.style.display='flex',e.style.display='none',o.scrollTop=o.scrollHeight}),n.addEventListener('click',function(){t.style.display='none',e.style.display='flex'});function s(){const e=i.value.trim();if(''!==e){!function(e,t){const n=document.createElement('div');n.className=`message ${t}-message`;const i=document.createElement('div');i.className='message-content',i.textContent=e;const a=document.createElement('div');a.className='message-time',a.textContent='Just now',n.appendChild(i),n.appendChild(a),o.appendChild(n),o.scrollTop=o.scrollHeight}(e,'user'),i.value='';const t=document.body.classList.contains('rtl'),n=document.createElement('div');n.className='message bot-message typing-indicator',n.innerHTML='<div class="message-content"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>',o.appendChild(n),o.scrollTop=o.scrollHeight,fetch('https://0e45fe78-86ad-4c8f-b665-f561edd3e592-00-ezbtmwl50c4e.riker.replit.dev:5000/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:e})}).then(e=>{if(!e.ok)throw new Error('Network response was not ok');return e.json()}).then(e=>{o.removeChild(n);let i='';e&&e.candidates&&e.candidates[0]&&e.candidates[0].content&&e.candidates[0].content.parts&&e.candidates[0].content.parts[0]?i=e.candidates[0].content.parts[0].text:i=(t?['عذراً، حدث خطأ في الاتصال. يمكنك التواصل معي عبر وسائل التواصل الاجتماعي المذكورة في قسم الاتصال.','أواجه بعض المشاكل التقنية حالياً. سأكون متاحاً قريباً! 🔧']:['Sorry, there was a connection error. You can reach me through the social media platforms listed in the contact section.','I\'m experiencing some technical issues at the moment. I\'ll be back soon! 🔧'])[Math.floor(Math.random()*2)],function(e,t){const n=document.createElement('div');n.className=`message ${t}-message`;const i=document.createElement('div');i.className='message-content',i.textContent=e;const a=document.createElement('div');a.className='message-time',a.textContent='Just now',n.appendChild(i),n.appendChild(a),o.appendChild(n),o.scrollTop=o.scrollHeight}(i,'bot')}).catch(e=>{console.error('Error connecting to backend:',e),n.parentNode===o&&o.removeChild(n);const i=(t?['عذراً، يبدو أن هناك مشكلة في الاتصال بالخادم. يمكنك التواصل معي مباشرة عبر وسائل التواصل الاجتماعي. 🔌','لا يمكنني الوصول إلى الخادم حالياً. هل يمكنك المحاولة مرة أخرى لاحقاً؟ 🛠️']:['Sorry, there seems to be an issue connecting to the server. You can reach me directly through social media. 🔌','I can\'t reach the server right now. Could you try again later? 🛠️'])[Math.floor(Math.random()*2)];function e(e,t){const n=document.createElement('div');n.className=`message ${t}-message`;const i=document.createElement('div');i.className='message-content',i.textContent=e;const a=document.createElement('div');a.className='message-time',a.textContent='Just now',n.appendChild(i),n.appendChild(a),o.appendChild(n),o.scrollTop=o.scrollHeight}e(i,'bot')})}}a.addEventListener('click',s),i.addEventListener('keypress',function(e){'Enter'===e.key&&s()})}function initMobileMenu(){const e=document.createElement('button');e.className='menu-btn',e.innerHTML='<i class="fas fa-bars"></i>',e.setAttribute('aria-label','Toggle navigation menu'),e.setAttribute('aria-expanded','false');const t=document.querySelector('nav'),n=document.querySelector('.nav-links');t.insertBefore(e,n),e.addEventListener('click',function(){const t=n.classList.contains('active');n.classList.toggle('active'),e.setAttribute('aria-expanded',!t),e.innerHTML=t?'<i class="fas fa-bars"></i>':'<i class="fas fa-times"></i>',document.body.style.overflow=t?'':'hidden'}),document.addEventListener('click',function(t){!t.target.closest('nav')&&n.classList.contains('active')&&(n.classList.remove('active'),e.innerHTML='<i class="fas fa-bars"></i>',e.setAttribute('aria-expanded','false'),document.body.style.overflow='')});const i=n.querySelectorAll('a');i.forEach(t=>{t.addEventListener('click',function(){n.classList.remove('active'),e.innerHTML='<i class="fas fa-bars"></i>',e.setAttribute('aria-expanded','false'),document.body.style.overflow='';const t=this.getAttribute('href').substring(1),i=document.getElementById(t);i&&i.scrollIntoView({behavior:'smooth'})})}),document.addEventListener('keydown',function(t){'Escape'===t.key&&n.classList.contains('active')&&(n.classList.remove('active'),e.innerHTML='<i class="fas fa-bars"></i>',e.setAttribute('aria-expanded','false'),document.body.style.overflow='')})}function initLanguageToggle(){const e=document.createElement('div');e.className='language-toggle',e.innerHTML='<span class="lang-label">EN</span><label><input type="checkbox" id="languageSwitch"><span class="slider"></span></label><span class="lang-label">AR</span>';const t=document.querySelector('nav');t.appendChild(e);const n=document.getElementById('languageSwitch'),i=localStorage.getItem('language');'ar'===i&&(document.body.classList.add('rtl'),n.checked=!0,updateLanguageContent('ar')),n.addEventListener('change',function(){this.checked?(document.body.classList.add('rtl'),localStorage.setItem('language','ar'),updateLanguageContent('ar')):(document.body.classList.remove('rtl'),localStorage.setItem('language','en'),updateLanguageContent('en'))})}function updateLanguageContent(e){const t={en:{'nav-about':'About','nav-skills':'Skills','nav-projects':'Projects','nav-contact':'Contact','hero-title':'Mohamed Abdelaziz','hero-subtitle':'Cybersecurity Engineer & AI Innovator','hero-description':'Securing the digital frontier with innovative AI solutions','hero-btn':'Contact Me','profile-title':'Mohamed Abdelaziz','profile-subtitle-1':'Cybersecurity Engineer','profile-subtitle-2':'AI Innovator','tagline':'Cybersecurity Strategist. AI Innovator. Driven by Vision.','about-p1':'Egyptian American, 26 years old, specializing in Cybersecurity and Artificial Intelligence. Currently living in Cairo, Egypt. Will graduate in May 2026 as a Cybersecurity Engineer, looking forward to contributing to the development of innovative security solutions using AI technologies.','about-p2':'Currently writing a book called "CodeX" about quantum computing and AI integration and cryptocurrency.','badge-1':'Cybersecurity Engineer','badge-2':'AI Tools Builder','badge-3':'KSU \'26 – Cybersecurity Student','badge-4':'Multilingual: AR / EN','badge-5':'Replit Dev','badge-6':'Based in Cairo – Global Reach','skills-title':'Skills','certifications-title':'Certifications','experience-title':'Work Experience','education-title':'Education','projects-title':'Projects','contact-title':'Contact','chat-header':'Chat with Mohamed','chat-msg1':'Hello, I\'m Muhammad. Welcome to my personal site!','chat-msg2':'Feel free to ask me anything about cybersecurity, AI, or my journey. ✏️','chat-input':'Type your message...','footer-name':'© 2025 Mohamed Abdelaziz','footer-role':'Cybersecurity Engineer & AI Innovator','footer-signature':'Amrikyy'},ar:{'nav-about':'نبذة عني','nav-skills':'المهارات','nav-projects':'المشاريع','nav-contact':'اتصل بي','hero-title':'محمد عبد العزيز','hero-subtitle':'مهندس أمن سيبراني ومبتكر ذكاء اصطناعي','hero-description':'تأمين الحدود الرقمية بحلول ذكاء اصطناعي مبتكرة','hero-btn':'اتصل بي','profile-title':'محمد عبد العزيز','profile-subtitle-1':'مهندس أمن سيبراني','profile-subtitle-2':'مبتكر ذكاء اصطناعي','tagline':'استراتيجي أمن سيبراني. مبتكر ذكاء اصطناعي. مدفوع بالرؤية.','about-p1':'مصري أمريكي، 26 عامًا، متخصص في الأمن السيبراني والذكاء الاصطناعي. أعيش حاليًا في القاهرة، مصر. سأتخرج في مايو 2026 كمهندس أمن سيبراني، وأتطلع إلى المساهمة في تطوير حلول أمنية مبتكرة باستخدام تقنيات الذكاء الاصطناعي.','about-p2':'أعمل حاليًا على كتابة كتاب يسمى "CodeX" حول الحوسبة الكمومية ودمج الذكاء الاصطناعي والعملات المشفرة.','badge-1':'مهندس أمن سيبراني','badge-2':'مطور أدوات ذكاء اصطناعي','badge-3':'طالب أمن سيبراني - KSU \'26','badge-4':'متعدد اللغات: عربي / إنجليزي','badge-5':'مطور Replit','badge-6':'مقيم في القاهرة - تواصل عالمي','skills-title':'المهارات','certifications-title':'الشهادات','experience-title':'الخبرة العملية','education-title':'التعليم','projects-title':'المشاريع','contact-title':'اتصل بي','chat-header':'دردش مع محمد','chat-msg1':'مرحبًا، أنا محمد. أهلاً بك في موقعي الشخصي!','chat-msg2':'لا تتردد في سؤالي عن أي شيء يتعلق بالأمن السيبراني، الذكاء الاصطناعي، أو مسيرتي المهنية. ✏️','chat-input':'اكتب رسالتك...','footer-name':'© 2025 محمد عبد العزيز','footer-role':'مهندس أمن سيبراني ومبتكر ذكاء اصطناعي','footer-signature':'Amrikyy'}};document.querySelectorAll('[data-translate]').forEach(n=>{const i=n.getAttribute('data-translate');t[e]&&t[e][i]&&(n.textContent=t[e][i])});const n=document.getElementById('messageInput');n&&(n.placeholder=t[e]['chat-input'])}function initParticles(){particlesJS('particles-js',{particles:{number:{value:80,density:{enable:!0,value_area:800}},color:{value:'#39ff14'},shape:{type:'circle',stroke:{width:0,color:'#000000'},polygon:{nb_sides:5}},opacity:{value:.5,random:!1,anim:{enable:!1,speed:1,opacity_min:.1,sync:!1}},size:{value:3,random:!0,anim:{enable:!1,speed:40,size_min:.1,sync:!1}},line_linked:{enable:!0,distance:150,color:'#39ff14',opacity:.4,width:1},move:{enable:!0,speed:6,direction:'none',random:!1,straight:!1,out_mode:'out',bounce:!1,attract:{enable:!1,rotateX:600,rotateY:1200}}},interactivity:{detect_on:'canvas',events:{onhover:{enable:!0,mode:'repulse'},onclick:{enable:!0,mode:'push'},resize:!0},modes:{grab:{distance:400,line_linked:{opacity:1}},bubble:{distance:400,size:40,duration:2,opacity:8,speed:3},repulse:{distance:200,duration:.4},push:{particles_nb:4},remove:{particles_nb:2}}},retina_detect:!0})}
+// Enhanced Spaceship UI/UX Theme JavaScript
+
+document.addEventListener("DOMContentLoaded", function () {
+  initScrollAnimations(); // Enhanced scroll animations
+  initChat(); // Existing chat functionality (UI improved via CSS)
+  initMobileMenu(); // Existing mobile menu (UI improved via CSS)
+  initLanguageToggle(); // Existing language toggle (UI improved via CSS)
+  initParticles(); // Updated particle configuration
+  initHeroEffects(); // Added effects for hero section
+  initHoverEffects(); // Added subtle hover effects
+});
+
+// 1. Enhanced Scroll Animations
+function initScrollAnimations() {
+  const animatedElements = document.querySelectorAll(".scroll-animate");
+
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(
+      (entries, observerInstance) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            // Optional: Unobserve after animation to save resources
+            // observerInstance.unobserve(entry.target);
+          }
+          // Optional: Reset animation if element scrolls out of view
+          // else {
+          //   entry.target.classList.remove("visible");
+          // }
+        });
+      },
+      {
+        threshold: 0.15, // Trigger a bit earlier/later if needed
+        // rootMargin: "0px 0px -50px 0px" // Adjust trigger margin
+      }
+    );
+
+    animatedElements.forEach((el) => {
+      observer.observe(el);
+    });
+  } else {
+    // Fallback for browsers without IntersectionObserver (rare)
+    animatedElements.forEach((el) => {
+      el.classList.add("visible");
+    });
+  }
+}
+
+// 2. Hero Section Effects (Example: Subtle Parallax/Mouse Interaction)
+function initHeroEffects() {
+  const heroVisual = document.querySelector(".hero-visual .futuristic-sphere");
+  const heroSection = document.querySelector(".hero-section");
+
+  if (heroVisual && heroSection) {
+    heroSection.addEventListener("mousemove", (e) => {
+      const rect = heroSection.getBoundingClientRect();
+      const x = e.clientX - rect.left; // x position within the element.
+      const y = e.clientY - rect.top; // y position within the element.
+
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+
+      const deltaX = (x - centerX) * 0.01; // Adjust multiplier for sensitivity
+      const deltaY = (y - centerY) * 0.01;
+
+      // Apply a subtle tilt effect
+      heroVisual.style.transform = `perspective(1000px) rotateY(${deltaX}deg) rotateX(${-deltaY}deg) scale(1.05)`;
+      heroVisual.style.transition = "transform 0.1s ease-out"; // Smooth transition
+    });
+
+    heroSection.addEventListener("mouseleave", () => {
+      heroVisual.style.transform = "perspective(1000px) rotateY(0deg) rotateX(0deg) scale(1)";
+      heroVisual.style.transition = "transform 0.5s ease-in-out"; // Slower return transition
+    });
+  }
+
+  // Optional: Add JS-driven typing/glitch effect if CSS isn't sufficient
+  // (Current implementation uses CSS for typing effect)
+}
+
+// 3. Enhanced Hover Effects (Example: Card Tilt)
+function initHoverEffects() {
+  const cards = document.querySelectorAll(".card, .panel, .skill-category, .project-item, .certification-item");
+
+  cards.forEach(card => {
+    card.addEventListener("mousemove", (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const rotateX = (y - centerY) * 0.03; // Adjust sensitivity
+      const rotateY = (centerX - x) * 0.03;
+
+      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`; // Combine with existing hover scale
+      card.style.transition = "transform 0.1s ease-out";
+    });
+
+    card.addEventListener("mouseleave", () => {
+      card.style.transform = "perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)"; // Reset transform
+      card.style.transition = "transform 0.5s ease-in-out";
+    });
+  });
+}
+
+// 4. Chat Functionality (Improved UI Interaction)
+function initChat() {
+  const chatBubble = document.getElementById("chatBubble");
+  const chatWindow = document.getElementById("chatWindow");
+  const closeChat = document.getElementById("closeChat");
+  const messageInput = document.getElementById("messageInput");
+  const sendMessage = document.getElementById("sendMessage");
+  const chatMessages = document.getElementById("chatMessages");
+
+  if (!chatBubble || !chatWindow || !closeChat || !messageInput || !sendMessage || !chatMessages) {
+    console.warn("Chat elements not found.");
+    return;
+  }
+
+  // Add classes for CSS transitions
+  chatWindow.classList.add("chat-window-transition");
+
+  chatBubble.addEventListener("click", function () {
+    // chatWindow.style.display = "flex"; // Replaced by class toggle
+    chatWindow.classList.add("open");
+    chatBubble.style.display = "none";
+    // Scroll to bottom after animation
+    setTimeout(() => {
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }, 300); // Match CSS transition duration
+  });
+
+  closeChat.addEventListener("click", function () {
+    // chatWindow.style.display = "none"; // Replaced by class toggle
+    chatWindow.classList.remove("open");
+    chatBubble.style.display = "flex";
+  });
+
+  function appendMessage(message, type) {
+    const messageWrapper = document.createElement("div");
+    messageWrapper.className = `message ${type}-message message-animate`; // Add animation class
+
+    const messageContent = document.createElement("div");
+    messageContent.className = "message-content";
+    messageContent.textContent = message;
+
+    const messageTime = document.createElement("div");
+    messageTime.className = "message-time";
+    messageTime.textContent = "Just now"; // Or format timestamp
+
+    messageWrapper.appendChild(messageContent);
+    messageWrapper.appendChild(messageTime);
+    chatMessages.appendChild(messageWrapper);
+
+    // Ensure scroll to bottom
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+  }
+
+  function showTypingIndicator() {
+      const typingIndicator = document.createElement("div");
+      typingIndicator.className = "message bot-message typing-indicator";
+      typingIndicator.innerHTML = 
+          `<div class="message-content">
+              <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+           </div>`;
+      chatMessages.appendChild(typingIndicator);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+      return typingIndicator; // Return reference to remove later
+  }
+
+  function handleSendMessage() {
+    const messageText = messageInput.value.trim();
+    if (messageText === "") return;
+
+    appendMessage(messageText, "user");
+    messageInput.value = "";
+
+    const isRTL = document.body.classList.contains("rtl");
+    const typingIndicatorElement = showTypingIndicator();
+
+    // --- Backend Fetch (Keep existing logic) ---
+    fetch("https://0e45fe78-86ad-4c8f-b665-f561edd3e592-00-ezbtmwl50c4e.riker.replit.dev:5000/chat", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ message: messageText }),
+    })
+      .then((response) => {
+        if (!response.ok) throw new Error("Network response was not ok");
+        return response.json();
+      })
+      .then((data) => {
+        if (typingIndicatorElement.parentNode === chatMessages) {
+            chatMessages.removeChild(typingIndicatorElement);
+        }
+        let reply = "";
+        // Safely access nested properties
+        if (data?.candidates?.[0]?.content?.parts?.[0]?.text) {
+          reply = data.candidates[0].content.parts[0].text;
+        } else {
+          // Fallback messages
+          const fallbackMessagesEN = [
+            "Sorry, there was a connection error. You can reach me through the social media platforms listed in the contact section.",
+            "I'm experiencing some technical issues at the moment. I'll be back soon! 🔧",
+          ];
+          const fallbackMessagesAR = [
+            "عذراً، حدث خطأ في الاتصال. يمكنك التواصل معي عبر وسائل التواصل الاجتماعي المذكورة في قسم الاتصال.",
+            "أواجه بعض المشاكل التقنية حالياً. سأكون متاحاً قريباً! 🔧",
+          ];
+          reply = (isRTL ? fallbackMessagesAR : fallbackMessagesEN)[
+            Math.floor(Math.random() * 2)
+          ];
+        }
+        appendMessage(reply, "bot");
+      })
+      .catch((error) => {
+        console.error("Error connecting to backend:", error);
+        if (typingIndicatorElement.parentNode === chatMessages) {
+            chatMessages.removeChild(typingIndicatorElement);
+        }
+        // Error messages
+        const errorMessagesEN = [
+          "Sorry, there seems to be an issue connecting to the server. You can reach me directly through social media. 🔌",
+          "I can't reach the server right now. Could you try again later? 🛠️",
+        ];
+        const errorMessagesAR = [
+          "عذراً، يبدو أن هناك مشكلة في الاتصال بالخادم. يمكنك التواصل معي مباشرة عبر وسائل التواصل الاجتماعي. 🔌",
+          "لا يمكنني الوصول إلى الخادم حالياً. هل يمكنك المحاولة مرة أخرى لاحقاً؟ 🛠️",
+        ];
+        const errorMessage = (isRTL ? errorMessagesAR : errorMessagesEN)[
+          Math.floor(Math.random() * 2)
+        ];
+        appendMessage(errorMessage, "bot");
+      });
+    // --- End Backend Fetch ---
+  }
+
+  sendMessage.addEventListener("click", handleSendMessage);
+  messageInput.addEventListener("keypress", function (e) {
+    if (e.key === "Enter") {
+      handleSendMessage();
+    }
+  });
+}
+
+// 5. Mobile Menu Functionality (Keep existing logic, UI improved via CSS)
+function initMobileMenu() {
+  const menuBtn = document.createElement("button");
+  menuBtn.className = "menu-btn";
+  menuBtn.innerHTML = 
+    `<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+     </svg>`; // Use SVG for cleaner icon
+  menuBtn.setAttribute("aria-label", "Toggle navigation menu");
+  menuBtn.setAttribute("aria-expanded", "false");
+
+  const nav = document.querySelector("nav");
+  const navLinks = document.querySelector(".nav-links");
+
+  if (!nav || !navLinks) {
+    console.warn("Navigation elements not found for mobile menu.");
+    return;
+  }
+
+  // Insert before the navLinks list
+  nav.insertBefore(menuBtn, navLinks);
+
+  menuBtn.addEventListener("click", function () {
+    const isActive = navLinks.classList.contains("active");
+    navLinks.classList.toggle("active");
+    menuBtn.setAttribute("aria-expanded", String(!isActive));
+    // Toggle icon SVG
+    menuBtn.innerHTML = isActive
+      ? `<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+         </svg>`
+      : `<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+         </svg>`;
+    // Prevent body scroll when menu is open
+    document.body.style.overflow = isActive ? "" : "hidden";
+  });
+
+  // Close menu when clicking outside
+  document.addEventListener("click", function (event) {
+    if (!event.target.closest("nav") && navLinks.classList.contains("active")) {
+      navLinks.classList.remove("active");
+      menuBtn.innerHTML = 
+        `<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+         </svg>`;
+      menuBtn.setAttribute("aria-expanded", "false");
+      document.body.style.overflow = "";
+    }
+  });
+
+  // Close menu when clicking a link
+  const links = navLinks.querySelectorAll("a");
+  links.forEach((link) => {
+    link.addEventListener("click", function () {
+      navLinks.classList.remove("active");
+      menuBtn.innerHTML = 
+        `<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+         </svg>`;
+      menuBtn.setAttribute("aria-expanded", "false");
+      document.body.style.overflow = "";
+      // Smooth scroll logic (if needed, otherwise handled by browser)
+      // const targetId = this.getAttribute("href").substring(1);
+      // const targetElement = document.getElementById(targetId);
+      // if (targetElement) {
+      //   targetElement.scrollIntoView({ behavior: "smooth" });
+      // }
+    });
+  });
+
+  // Close menu on Escape key
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape" && navLinks.classList.contains("active")) {
+      navLinks.classList.remove("active");
+      menuBtn.innerHTML = 
+        `<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+         </svg>`;
+      menuBtn.setAttribute("aria-expanded", "false");
+      document.body.style.overflow = "";
+    }
+  });
+}
+
+// 6. Language Toggle Functionality (Keep existing logic, UI improved via CSS)
+function initLanguageToggle() {
+  const toggleContainer = document.createElement("div");
+  toggleContainer.className = "language-toggle";
+  toggleContainer.innerHTML = 
+    `<span class="lang-label">EN</span>
+     <label class="switch">
+       <input type="checkbox" id="languageSwitch">
+       <span class="slider round"></span>
+     </label>
+     <span class="lang-label">AR</span>`;
+
+  const nav = document.querySelector("nav");
+  if (nav) {
+      // Append next to nav links if possible, or at the end
+      const navLinks = nav.querySelector(".nav-links");
+      if (navLinks && navLinks.parentNode === nav) {
+          nav.insertBefore(toggleContainer, navLinks.nextSibling);
+      } else {
+          nav.appendChild(toggleContainer);
+      }
+  } else {
+      console.warn("Navigation element not found for language toggle.");
+      return;
+  }
+
+  const languageSwitch = document.getElementById("languageSwitch");
+  const savedLanguage = localStorage.getItem("language");
+
+  if (savedLanguage === "ar") {
+    document.body.classList.add("rtl");
+    languageSwitch.checked = true;
+    updateLanguageContent("ar");
+  } else {
+    // Default to English
+    document.body.classList.remove("rtl");
+    languageSwitch.checked = false;
+    updateLanguageContent("en");
+  }
+
+  languageSwitch.addEventListener("change", function () {
+    if (this.checked) {
+      document.body.classList.add("rtl");
+      localStorage.setItem("language", "ar");
+      updateLanguageContent("ar");
+    } else {
+      document.body.classList.remove("rtl");
+      localStorage.setItem("language", "en");
+      updateLanguageContent("en");
+    }
+  });
+}
+
+// 7. Update Language Content (Keep existing logic)
+function updateLanguageContent(lang) {
+  const translations = {
+    en: {
+      "nav-about": "About",
+      "nav-skills": "Skills",
+      "nav-projects": "Projects",
+      "nav-contact": "Contact",
+      "hero-title": "Mohamed Abdelaziz",
+      "hero-subtitle": "Cybersecurity Engineer & AI Innovator",
+      "hero-description": "Securing the digital frontier with innovative AI solutions",
+      "hero-btn": "Contact Me",
+      "profile-title": "Mohamed Abdelaziz",
+      "profile-subtitle-1": "Cybersecurity Engineer",
+      "profile-subtitle-2": "AI Innovator",
+      "tagline": "Cybersecurity Strategist. AI Innovator. Driven by Vision.",
+      "about-p1": "Egyptian American, 26 years old, specializing in Cybersecurity and Artificial Intelligence. Currently living in Cairo, Egypt. Will graduate in May 2026 as a Cybersecurity Engineer, looking forward to contributing to the development of innovative security solutions using AI technologies.",
+      "about-p2": "Currently writing a book called \"CodeX\" about quantum computing and AI integration and cryptocurrency.",
+      "badge-1": "Cybersecurity Engineer",
+      "badge-2": "AI Tools Builder",
+      "badge-3": "KSU \'26 – Cybersecurity Student",
+      "badge-4": "Multilingual: AR / EN",
+      "badge-5": "Replit Dev",
+      "badge-6": "Based in Cairo – Global Reach",
+      "skills-title": "Skills Matrix", // Updated title
+      "certifications-title": "Certifications",
+      "experience-title": "Experience Log", // Updated title
+      "education-title": "Education Record", // Updated title
+      "projects-title": "Projects Log", // Updated title
+      "contact-title": "Contact Comms", // Updated title
+      "chat-header": "SPACE COMMS v1.0", // Updated title
+      "chat-msg1": "Hello! I'm Mohamed's AI assistant. Welcome to the command center!",
+      "chat-msg2": "How can I assist you regarding cybersecurity, AI, or Mohamed's work?",
+      "chat-input": "Transmit message...", // Updated placeholder
+      "footer-name": `© ${new Date().getFullYear()} Mohamed Abdelaziz`, // Dynamic year
+      "footer-role": "Cybersecurity Engineer & AI Innovator",
+      "footer-signature": "Amrikyy",
+    },
+    ar: {
+      "nav-about": "نبذة",
+      "nav-skills": "المهارات",
+      "nav-projects": "المشاريع",
+      "nav-contact": "اتصال",
+      "hero-title": "محمد عبد العزيز",
+      "hero-subtitle": "مهندس أمن سيبراني ومبتكر ذكاء اصطناعي",
+      "hero-description": "تأمين الحدود الرقمية بحلول ذكاء اصطناعي مبتكرة",
+      "hero-btn": "اتصل بي",
+      "profile-title": "محمد عبد العزيز",
+      "profile-subtitle-1": "مهندس أمن سيبراني",
+      "profile-subtitle-2": "مبتكر ذكاء اصطناعي",
+      "tagline": "استراتيجي أمن سيبراني. مبتكر ذكاء اصطناعي. مدفوع بالرؤية.",
+      "about-p1": "مصري أمريكي، 26 عامًا، متخصص في الأمن السيبراني والذكاء الاصطناعي. أعيش حاليًا في القاهرة، مصر. سأتخرج في مايو 2026 كمهندس أمن سيبراني، وأتطلع إلى المساهمة في تطوير حلول أمنية مبتكرة باستخدام تقنيات الذكاء الاصطناعي.",
+      "about-p2": "أعمل حاليًا على كتابة كتاب يسمى \"CodeX\" حول الحوسبة الكمومية ودمج الذكاء الاصطناعي والعملات المشفرة.",
+      "badge-1": "مهندس أمن سيبراني",
+      "badge-2": "مطور أدوات ذكاء اصطناعي",
+      "badge-3": "طالب أمن سيبراني - KSU \'26",
+      "badge-4": "متعدد اللغات: عربي / إنجليزي",
+      "badge-5": "مطور Replit",
+      "badge-6": "مقيم في القاهرة - تواصل عالمي",
+      "skills-title": "مصفوفة المهارات", // Updated title
+      "certifications-title": "الشهادات",
+      "experience-title": "سجل الخبرة", // Updated title
+      "education-title": "السجل التعليمي", // Updated title
+      "projects-title": "سجل المشاريع", // Updated title
+      "contact-title": "نظام الاتصال", // Updated title
+      "chat-header": "اتصالات الفضاء v1.0", // Updated title
+      "chat-msg1": "مرحباً! أنا مساعد محمد الافتراضي. أهلاً بك في مركز القيادة!",
+      "chat-msg2": "كيف يمكنني مساعدتك بخصوص الأمن السيبراني، الذكاء الاصطناعي، أو أعمال محمد؟",
+      "chat-input": "أرسل رسالة...", // Updated placeholder
+      "footer-name": `© ${new Date().getFullYear()} محمد عبد العزيز`, // Dynamic year
+      "footer-role": "مهندس أمن سيبراني ومبتكر ذكاء اصطناعي",
+      "footer-signature": "Amrikyy",
+    },
+  };
+
+  document.querySelectorAll("[data-translate]").forEach((element) => {
+    const key = element.getAttribute("data-translate");
+    if (translations[lang] && translations[lang][key]) {
+      element.textContent = translations[lang][key];
+    }
+  });
+
+  // Update chat input placeholder specifically
+  const messageInput = document.getElementById("messageInput");
+  if (messageInput) {
+    messageInput.placeholder = translations[lang]["chat-input"];
+  }
+
+  // Update HTML lang attribute
+  document.documentElement.lang = lang;
+}
+
+// 8. Particle JS Initialization (Updated Configuration)
+function initParticles() {
+  if (typeof particlesJS === "undefined") {
+    console.warn("particles.js not loaded. Skipping particle initialization.");
+    return;
+  }
+
+  const particlesContainerId = "particles-js"; // Ensure this ID exists in your HTML
+  if (!document.getElementById(particlesContainerId)) {
+      console.warn(`Element with ID '${particlesContainerId}' not found for particles.js.`);
+      return;
+  }
+
+  particlesJS(particlesContainerId, {
+    particles: {
+      number: {
+        value: 60, // Slightly fewer particles
+        density: {
+          enable: true,
+          value_area: 800,
+        },
+      },
+      color: {
+        value: "#21E6C1", // Use primary accent color
+      },
+      shape: {
+        type: "circle", // Keep circle or try "edge"
+        stroke: {
+          width: 0,
+          color: "#000000",
+        },
+        polygon: {
+          nb_sides: 5,
+        },
+      },
+      opacity: {
+        value: 0.4, // Slightly less opaque
+        random: true, // Add randomness
+        anim: {
+          enable: true,
+          speed: 0.5,
+          opacity_min: 0.1,
+          sync: false,
+        },
+      },
+      size: {
+        value: 2.5, // Slightly smaller
+        random: true,
+        anim: {
+          enable: false,
+          speed: 40,
+          size_min: 0.1,
+          sync: false,
+        },
+      },
+      line_linked: {
+        enable: true,
+        distance: 130, // Slightly shorter links
+        color: "#21E6C1", // Use primary accent color
+        opacity: 0.25, // More subtle links
+        width: 1,
+      },
+      move: {
+        enable: true,
+        speed: 3, // Slower movement
+        direction: "none",
+        random: true, // Random movement
+        straight: false,
+        out_mode: "out",
+        bounce: false,
+        attract: {
+          enable: false,
+          rotateX: 600,
+          rotateY: 1200,
+        },
+      },
+    },
+    interactivity: {
+      detect_on: "canvas",
+      events: {
+        onhover: {
+          enable: true,
+          mode: "grab", // Changed from repulse to grab
+        },
+        onclick: {
+          enable: true,
+          mode: "push",
+        },
+        resize: true,
+      },
+      modes: {
+        grab: {
+          distance: 150,
+          line_linked: {
+            opacity: 0.5, // Slightly more visible grab lines
+          },
+        },
+        bubble: {
+          distance: 400,
+          size: 40,
+          duration: 2,
+          opacity: 8,
+          speed: 3,
+        },
+        repulse: {
+          distance: 200,
+          duration: 0.4,
+        },
+        push: {
+          particles_nb: 4,
+        },
+        remove: {
+          particles_nb: 2,
+        },
+      },
+    },
+    retina_detect: true,
+  });
+}
+
+// Add CSS for chat window transition and message animation
+const styleSheet = document.createElement("style");
+styleSheet.type = "text/css";
+styleSheet.innerText = `
+  .chat-window-transition {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+    pointer-events: none;
+  }
+  .chat-window-transition.open {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+  }
+  .message-animate {
+    opacity: 0;
+    transform: translateY(10px);
+    animation: messageFadeIn 0.4s ease-out forwards;
+  }
+  @keyframes messageFadeIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+`;
+document.head.appendChild(styleSheet);
+
