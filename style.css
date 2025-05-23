@@ -1071,6 +1071,35 @@ footer {
     }
 }
 
+/* Extra small devices */
+@media screen and (max-width: 480px) {
+  .container {
+    padding: 15px 8px;
+  }
+
+  .glitch-text {
+    font-size: 2rem;
+  }
+
+  .typewriter {
+    font-size: 1.2rem;
+  }
+
+  .cyber-circuit {
+    width: 240px;
+    height: 240px;
+  }
+
+  .hero-btn {
+    padding: 10px 25px;
+    font-size: 0.9rem;
+  }
+
+  .hero-tech-icons i {
+    font-size: 1.6rem;
+  }
+}
+
 /* RTL support */
 body.rtl {
     direction: rtl;

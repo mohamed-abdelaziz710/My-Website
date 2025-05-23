@@ -231,6 +231,8 @@ function initMobileMenu() {
     const menuBtn = document.createElement('button');
     menuBtn.className = 'menu-btn';
     menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+    menuBtn.setAttribute('aria-label', 'Toggle navigation menu');
+    menuBtn.setAttribute('aria-expanded', 'false');
     
     const nav = document.querySelector('nav');
     const navLinks = document.querySelector('.nav-links');
@@ -240,14 +242,17 @@ function initMobileMenu() {
     
     // Toggle menu on button click
     menuBtn.addEventListener('click', function() {
+        const isExpanded = navLinks.classList.contains('active');
         navLinks.classList.toggle('active');
+        menuBtn.setAttribute('aria-expanded', !isExpanded);
         
         // Change icon based on menu state
-        if (navLinks.classList.contains('active')) {
-            menuBtn.innerHTML = '<i class="fas fa-times"></i>';
-        } else {
-            menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-        }
+        menuBtn.innerHTML = isExpanded ? 
+            '<i class="fas fa-bars"></i>' : 
+            '<i class="fas fa-times"></i>';
+            
+        // Prevent body scroll when menu is open
+        document.body.style.overflow = isExpanded ? '' : 'hidden';
     });
     
     // Close menu when clicking outside
@@ -255,6 +260,8 @@ function initMobileMenu() {
         if (!nav.contains(event.target) && navLinks.classList.contains('active')) {
             navLinks.classList.remove('active');
             menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            menuBtn.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
         }
     });
     
@@ -264,7 +271,26 @@ function initMobileMenu() {
         link.addEventListener('click', function() {
             navLinks.classList.remove('active');
             menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            menuBtn.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
+            
+            // Smooth scroll to section
+            const targetId = this.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({ behavior: 'smooth' });
+            }
         });
+    });
+    
+    // Handle escape key to close menu
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+            navLinks.classList.remove('active');
+            menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            menuBtn.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
+        }
     });
 }
 
