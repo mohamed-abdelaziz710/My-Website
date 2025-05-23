@@ -10,9 +10,8 @@
   <!-- Animated Background Layer -->
   <div class="hero-bg-animated">
     <canvas id="hero-particles"></canvas>
-    <!-- fallback for non-canvas browsers -->
   </div>
-  <div class="profile-card card scroll-animate">
+  <div class="profile-card card scroll-animate" style="position: relative; z-index: 2;">
     <!-- Enhanced Profile Header with Holographic Effect -->
     <div class="profile-header">
       <!-- Animated Background Elements -->
@@ -174,25 +173,29 @@
 <script>
 /* Simple animated particles for hero background */
 const canvas = document.getElementById('hero-particles');
+function resizeParticlesCanvas() {
+  if (!canvas) return;
+  canvas.width = window.innerWidth;
+  // Use the hero-section height or fallback to window height
+  const heroSection = document.querySelector('.hero-section');
+  canvas.height = heroSection ? heroSection.offsetHeight : window.innerHeight;
+}
 if (canvas) {
   const ctx = canvas.getContext('2d');
   let particles = [];
   const particleCount = 32;
-  function resize() {
-    canvas.width = window.innerWidth;
-    canvas.height = document.querySelector('.hero-section').offsetHeight;
-  }
-  window.addEventListener('resize', resize);
-  resize();
-  for (let i = 0; i < particleCount; i++) {
-    particles.push({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      r: 1.5 + Math.random() * 2.5,
-      dx: (Math.random() - 0.5) * 0.5,
-      dy: (Math.random() - 0.5) * 0.5,
-      alpha: 0.3 + Math.random() * 0.5
-    });
+  function initParticles() {
+    particles = [];
+    for (let i = 0; i < particleCount; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        r: 1.5 + Math.random() * 2.5,
+        dx: (Math.random() - 0.5) * 0.5,
+        dy: (Math.random() - 0.5) * 0.5,
+        alpha: 0.3 + Math.random() * 0.5
+      });
+    }
   }
   function draw() {
     ctx.clearRect(0,0,canvas.width,canvas.height);
@@ -210,6 +213,13 @@ if (canvas) {
     }
     requestAnimationFrame(draw);
   }
+  function handleResize() {
+    resizeParticlesCanvas();
+    initParticles();
+  }
+  window.addEventListener('resize', handleResize);
+  resizeParticlesCanvas();
+  initParticles();
   draw();
 }
 </script>
