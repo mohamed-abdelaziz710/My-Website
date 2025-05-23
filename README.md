@@ -34,8 +34,24 @@
 - Azure
 - Firebase
 - Amadeus Selling Platform
+## Experience
 
-### Highlights & Achievements
+- **Cybersecurity Engineer**  
+  *Kennesaw State University* — 2023–Present  
+  - Lead student security research projects and implement campus-wide security awareness campaigns.
+  - Develop and maintain secure web applications; automate threat detection scripts.
+
+- **Travel Agent**  
+  *Amadeus Selling Platform* — 2020–2022  
+  - Managed client bookings and provided technical support for Amadeus GDS.
+  - Trained new agents on digital tools and customer service best practices.
+
+- **Web Developer (Freelance)**  
+  *Remote* — 2018–2020  
+  - Built and launched websites for small businesses and non-profits.
+  - Specialized in responsive design, accessibility, and SEO optimization.
+
+## Highlights & Achievements
 
 - Built a landing page project for charity: water
 - Member of Blackroom Talent Community
@@ -454,3 +470,24 @@ See `style.css` for implementation and more details.
   - Motion/animation respects the user's `prefers-reduced-motion` setting.
 
 See `style.css` and markup for implementation details.
+
+---
+
+## Animation & Motion
+
+- Use animations sparingly and only to enhance (not distract from) the user experience.
+- Prefer CSS transitions or lightweight JS libraries (GSAP/Framer Motion) for smooth effects.
+- Animate only `transform` and `opacity` properties (e.g. `translateY`, `scale`, `opacity`) to avoid layout reflow and improve performance.
+- Use `will-change: transform;` on frequently animated elements for rendering optimization.
+- Do not animate offscreen or hidden elements; pause or remove animations when not visible.
+- Avoid animating expensive CSS properties (e.g. `box-shadow`, `filter`, `blur`) as they can degrade performance.
+- Always provide a fallback for users who prefer reduced motion:
+  ```css
+  @media (prefers-reduced-motion: reduce) {
+    .animated-element { transition: none !important; animation: none !important; }
+  }
+  ```
+- If using GSAP or Framer Motion, keep animations subtle (fade-ins, gentle slides, micro-interactions), limit duration (200–500ms), and use `ease-in-out` easing.
+- Test performance in multiple browsers and devices.
+
+See `style.css` for implementation and code examples.

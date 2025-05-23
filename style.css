@@ -67,6 +67,7 @@ body, html {
 @import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;600;700&family=Roboto+Mono:wght@300;400;500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Source+Sans+Pro:wght@400&display=swap');
 
+
 /* --- Headings & Text --- */
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Montserrat', sans-serif;
@@ -1681,4 +1682,25 @@ label {
   margin-bottom: 0.25em;
   display: block;
 }
+
+/* --- Animation & Motion Best Practices --- */
+.animated-element {
+  will-change: transform, opacity;
+  transition: transform 0.4s cubic-bezier(0.4,0,0.2,1), opacity 0.4s cubic-bezier(0.4,0,0.2,1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animated-element, .scroll-animate, .pulse, .neonFlicker {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* Example: Subtle card hover animation */
+.card:hover {
+  transform: translateY(-10px) scale(1.04);
+  will-change: transform;
+}
+
+/* Only animate transform/opacity for performance. Avoid animating box-shadow or filter. */
 
