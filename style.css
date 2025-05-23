@@ -10,7 +10,7 @@ Based on the original style.css and the spaceship concept.
   --darker-bg: #050A15; /* Even darker for depth */
   --card-bg: #10151F; /* Panel/Card background */
   --primary-accent: #39ff14; /* Neon Green */
-  --secondary-accent: #9A16E5; /* Neon Purple */
+  --secondary-accent: #fff; /* White */
   --tertiary-accent: #FFA500; /* Tech Orange (optional) */
   --text-color: #E0E0E0; /* Light grey/off-white */
   --border-color: rgba(57, 255, 20, 0.5); /* Neon Green border */

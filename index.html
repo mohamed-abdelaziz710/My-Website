@@ -1,413 +1,1319 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <!-- Meta information for character encoding and responsive design -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Page title -->
-    <title>Mohamed Abdelaziz | Cybersecurity Engineer</title>
-    
-    <!-- Link to external CSS file -->
-    <link rel="stylesheet" href="style.css">
-    
-    <!-- Link to Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Favicon and meta icons -->
-    <link rel="icon" type="image/png" href="favicon_new.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="favicon_new.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon_new.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon_new.png">
-    <meta name="msapplication-TileImage" content="favicon_new.png">
-    <meta name="msapplication-TileColor" content="#121212">
-    <meta property="og:image" content="favicon_new.png">
-    <meta property="og:image:type" content="image/png">
-    <meta property="og:image:width" content="300">
-    <meta property="og:image:height" content="300">
+/*
+Enhanced Spaceship UI/UX Theme CSS
+Based on the original style.css and the spaceship concept.
+*/
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://mohamed-abdelaziz710.github.io/My-Website/">
-    <meta property="og:title" content="Mohamed Abdelaziz | Cybersecurity Engineer & AI Innovator">
-    <meta property="og:description" content="Securing the digital frontier with innovative AI solutions. Cybersecurity Engineer, AI developer, and cryptocurrency enthusiast based in Cairo.">
-    <meta property="og:image" content="https://mohamed-abdelaziz710.github.io/My-Website/favicon_new.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://mohamed-abdelaziz710.github.io/My-Website/">
-    <meta property="twitter:title" content="Mohamed Abdelaziz | Cybersecurity Engineer & AI Innovator">
-    <meta property="twitter:description" content="Securing the digital frontier with innovative AI solutions. Cybersecurity Engineer, AI developer, and cryptocurrency enthusiast based in Cairo.">
-    <meta property="twitter:image" content="https://mohamed-abdelaziz710.github.io/My-Website/favicon_new.png">
-</head>
-<body>
-  <div class="background-effect"></div>
-  <!-- Navigation bar -->
-  <nav>
-    <div class="logo">Mohamed Abdelaziz</div>
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
+/* --- Core Variables --- */
+:root {
+  /* Spaceship UI Theme Colors */
+  --dark-bg: #0A0F1A; /* Deep space blue/black */
+  --darker-bg: #050A15; /* Even darker for depth */
+  --card-bg: #10151F; /* Panel/Card background */
+  --primary-accent: #39ff14; /* Neon Green */
+  --secondary-accent: #fff; /* White */
+  --tertiary-accent: #FFA500; /* Tech Orange (optional) */
+  --text-color: #E0E0E0; /* Light grey/off-white */
+  --border-color: rgba(57, 255, 20, 0.5); /* Neon Green border */
+  --hover-color: #1A2030; /* Slightly lighter dark for hover */
+  --shadow-color: rgba(57, 255, 20, 0.3); /* Neon Green shadow */
 
-  <!-- Hero section -->
-  <section class="hero-section">
-    <div class="hero-particles" id="particles-js"></div>
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <div class="hero-text-container">
-        <h1 class="glitch-text" data-text="Mohamed Abdelaziz">Mohamed Abdelaziz</h1>
-        <div class="hero-subtitle">
-          <span class="typewriter">Cybersecurity Engineer & AI Innovator</span>
-        </div>
-        <div class="hero-description">
-          <p>Securing the digital frontier with innovative AI solutions</p>
-          <div class="hero-tech-icons">
-            <i class="fas fa-shield-alt" title="Cybersecurity"></i>
-            <i class="fas fa-brain" title="Artificial Intelligence"></i>
-            <i class="fas fa-code" title="Programming"></i>
-            <i class="fab fa-bitcoin" title="Cryptocurrency"></i>
-          </div>
-        </div>
-        <a href="#contact" class="hero-btn pulse-btn">Contact Me <i class="fas fa-arrow-right"></i></a>
-      </div>
-      <div class="hero-visual">
-        <div class="cyber-circuit"></div>
-      </div>
-    </div>
-  </section>
-  
-  <!-- Particles.js for background effect -->
-  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  /* Fonts */
+  --font-primary: 'Exo 2', 'Roboto', sans-serif;
+  --font-secondary: 'Roboto Mono', monospace;
+}
 
-  <!-- Main container for the content -->
-  <div class="container">
-      <!-- Profile card -->
-      <div class="card profile-card">
-          <!-- Image section -->
-          <div class="profile-header">
-              <img src="profile.jpg" alt="Mohamed Abdelaziz" class="profile-image">
-              <div class="profile-overlay">
-                  <div class="profile-title">
-                      <h1 id="about">Mohamed Abdelaziz</h1>
-                      <div class="profile-subtitle">
-                          <span class="highlight">Cybersecurity Engineer</span> | 
-                          <span class="highlight-alt">AI Innovator</span>
-                      </div>
-                  </div>
-              </div>
-          </div>
-          
-          <!-- About section -->
-          <div class="about-content">
-              <p class="tagline"><i class="fas fa-lock neon-icon"></i> <span class="highlight">Cybersecurity Strategist. AI Innovator. Driven by Vision.</span></p>
-              <p>Egyptian American, 26 years old, specializing in Cybersecurity and Artificial Intelligence. Currently living in Cairo, Egypt. Will graduate in May 2026 as a Cybersecurity Engineer, looking forward to contributing to the development of innovative security solutions using AI technologies.</p>
-              <p>Currently writing a book called <span class="highlight">"CodeX"</span> about quantum computing and AI integration and cryptocurrency.</p>
-          </div>
-      </div>
+/* --- Base Styles --- */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--dark-bg);
+  color: var(--text-color);
+  font-family: var(--font-primary);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
 
-      <!-- Badges section -->
-      <div class="badges">
-          <span class="badge"><i class="fas fa-user-shield"></i> Cybersecurity Engineer</span>
-          <span class="badge"><i class="fas fa-microchip"></i> AI Tools Builder</span>
-          <span class="badge"><i class="fas fa-university"></i> KSU '26 – Cybersecurity Student</span>
-          <span class="badge"><i class="fas fa-language"></i> Multilingual: AR / EN</span>
-          <span class="badge"><i class="fas fa-terminal"></i> Replit Dev</span>
-          <span class="badge"><i class="fas fa-location-dot"></i> Based in Cairo – Global Reach</span>
-      </div>
+/* --- Font Imports --- */
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;600;700&family=Roboto+Mono:wght@300;400;500&display=swap');
 
-      <!-- Skills section -->
-      <div class="card">
-          <h2 id="skills"><i class="fas fa-code neon-icon"></i> Skills</h2>
-          <div class="skills-container">
-              <div class="skill-category">
-                  <h3>Cybersecurity</h3>
-                  <ul class="skill-list">
-                      <li><i class="fas fa-shield-alt"></i> Threat Analysis</li>
-                      <li><i class="fas fa-bug"></i> Penetration Testing</li>
-                      <li><i class="fas fa-lock"></i> Network Security</li>
-                  </ul>
-              </div>
-              <div class="skill-category">
-                  <h3>Artificial Intelligence</h3>
-                  <ul class="skill-list">
-                      <li><i class="fas fa-brain"></i> AI Applications</li>
-                      <li><i class="fas fa-robot"></i> OpenAI</li>
-                      <li><i class="fas fa-chart-line"></i> Data Analysis</li>
-                  </ul>
-              </div>
-              <div class="skill-category">
-                  <h3>Programming</h3>
-                  <ul class="skill-list">
-                      <li><i class="fab fa-python highlight"></i> <span class="highlight">Python</span></li>
-                      <li><i class="fab fa-js"></i> JavaScript</li>
-                      <li><i class="fas fa-code-branch"></i> Code Forking</li>
-                  </ul>
-              </div>
-              <div class="skill-category">
-                  <h3>Web Development</h3>
-                  <ul class="skill-list">
-                      <li><i class="fas fa-database"></i> Firebase</li>
-                      <li><i class="fas fa-mobile-alt"></i> UI/UX Design</li>
-                      <li><i class="fas fa-terminal"></i> Developer Program</li>
-                  </ul>
-              </div>
-              <div class="skill-category">
-                  <h3>Cryptocurrency</h3>
-                  <ul class="skill-list">
-                      <li><i class="fab fa-bitcoin"></i> <span class="highlight">Crypto Trading (5 years )</span></li>
-                      <li><i class="fas fa-chart-line"></i> Market Analysis</li>
-                      <li><i class="fas fa-exchange-alt"></i> Trading Strategies</li>
-                  </ul>
-              </div>
-              <div class="skill-category">
-                  <h3>Other Skills</h3>
-                  <ul class="skill-list">
-                      <li><i class="fas fa-file-excel"></i> Excel</li>
-                      <li><i class="fas fa-file-word"></i> Word</li>
-                      <li><i class="fas fa-plane"></i> Amadeus Selling Platform</li>
-                  </ul>
-              </div>
-          </div>
-      </div>
+/* --- Headings & Text --- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-primary);
+  color: var(--primary-accent);
+  font-weight: 600;
+  margin: 10px 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
 
-      <!-- Certifications section -->
-      <div class="card">
-          <h2 id="certifications"><i class="fas fa-certificate neon-icon"></i> Certifications</h2>
-          <div class="certifications-container">
-              <div class="certification-item">
-                  <div class="certification-icon"><i class="fas fa-shield-alt"></i></div>
-                  <div class="certification-details">
-                      <h3>Cisco Introduction to Cybersecurity</h3>
-                      <p>Certified qualification in cybersecurity fundamentals from Cisco Networking Academy</p>
-                  </div>
-              </div>
-              <div class="certification-item">
-                  <div class="certification-icon"><i class="fas fa-award"></i></div>
-                  <div class="certification-details">
-                      <h3>Honor Society Member</h3>
-                      <p>Selected for membership in the Honor Society, recognizing academic excellence and leadership</p>
-                  </div>
-              </div>
-              <div class="certification-item">
-                  <div class="certification-icon"><i class="fab fa-python"></i></div>
-                  <div class="certification-details">
-                      <h3>Kaggle Python Coder Badge</h3>
-                      <p>Successfully earned certification in Python programming skills</p>
-                  </div>
-              </div>
-              <div class="certification-item">
-                  <div class="certification-icon"><i class="fas fa-code-branch"></i></div>
-                  <div class="certification-details">
-                      <h3>Kaggle Code Forker Badge</h3>
-                      <p>Recognized for code collaboration and version control skills</p>
-                  </div>
-              </div>
-              <div class="certification-item">
-                  <div class="certification-icon"><i class="fas fa-brain"></i></div>
-                  <div class="certification-details">
-                      <h3>AI Professional Skills</h3>
-                      <p>Applying AI to real-world projects with OpenAI</p>
-                  </div>
-              </div>
-              <div class="certification-item">
-                  <div class="certification-icon"><i class="fas fa-chart-bar"></i></div>
-                  <div class="certification-details">
-                      <h3>Data Visualization</h3>
-                      <p>Visualizing impact on sustainability with Intel</p>
-                  </div>
-              </div>
-              <div class="certification-item">
-                  <div class="certification-icon"><i class="fas fa-laptop-code"></i></div>
-                  <div class="certification-details">
-                      <h3>AI-Powered Web Development</h3>
-                      <p>Building a website using AI with Intel</p>
-                  </div>
-              </div>
-              <div class="certification-item">
-                  <div class="certification-icon"><i class="fas fa-cogs"></i></div>
-                  <div class="certification-details">
-                      <h3>Developer Program Member</h3>
-                      <p>Active member of developer communities and programs</p>
-                  </div>
-              </div>
-          </div>
-      </div>
+h1 {
+  font-size: 2.5rem; /* Adjusted size */
+  text-shadow: 0 0 10px var(--shadow-color);
+}
 
-      <!-- Work experience section -->
-      <div class="card">
-          <h2 id="experience"><i class="fas fa-briefcase neon-icon"></i> Work Experience</h2>
-          <div class="timeline">
-              <div class="timeline-item">
-                  <div class="timeline-dot"></div>
-                  <div class="timeline-date">2025 - Present</div>
-                  <div class="timeline-content">
-                      <h3>BlackRock Talent Community</h3>
-                      <p>Member of the talent community at BlackRock global investment company</p>
-                  </div>
-              </div>
-              <div class="timeline-item">
-                  <div class="timeline-dot"></div>
-                  <div class="timeline-date">2025 - Present</div>
-                  <div class="timeline-content">
-                      <h3>Global Career Accelerator</h3>
-                      <p>Participant in the Global Career Accelerator program through Kennesaw State University, learning Web Development with AI, JavaScript & AI Skills, UX/UI Prototyping, Data Analytics, and Digital Marketing.</p>
-                      <div class="partners">
-                          <span class="partner">OpenAI</span>
-                          <span class="partner">Intel</span>
-                          <span class="partner">L'Oréal</span>
-                      </div>
-                  </div>
-              </div>
-              <div class="timeline-item">
-                  <div class="timeline-dot"></div>
-                  <div class="timeline-date">2019 - Present</div>
-                  <div class="timeline-content">
-                      <h3>Cryptocurrency Trader</h3>
-                      <p>6 years of experience in cryptocurrency trading and market analysis</p>
-                  </div>
-              </div>
-              <div class="timeline-item">
-                  <div class="timeline-dot"></div>
-                  <div class="timeline-date">Previous</div>
-                  <div class="timeline-content">
-                      <h3>Travel Agent</h3>
-                      <p>Worked for 2 years as a Travel Agent with experience in Amadeus Selling Platform system</p>
-                  </div>
-              </div>
-          </div>
-      </div>
+h2 {
+  font-size: 2rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 10px;
+  margin-bottom: 30px;
+  display: inline-block; /* Changed for better alignment */
+}
 
-      <!-- Education section -->
-      <div class="card">
-          <h2 id="education"><i class="fas fa-graduation-cap neon-icon"></i> Education</h2>
-          <div class="timeline">
-              <div class="timeline-item">
-                  <div class="timeline-dot"></div>
-                  <div class="timeline-date">2022 - 2026</div>
-                  <div class="timeline-content">
-                      <h3>Kennesaw State University</h3>
-                      <p>Bachelor's in Cybersecurity Engineering</p>
-                      <p>Expected graduation: May 2026</p>
-                      <p>GPA: 3.2</p>
-                  </div>
-              </div>
-              <div class="timeline-item">
-                  <div class="timeline-dot"></div>
-                  <div class="timeline-date">2021</div>
-                  <div class="timeline-content">
-                      <h3>Chattahoochee Technical College</h3>
-                      <p>Marietta, Georgia, USA</p>
-                  </div>
-              </div>
-              <div class="timeline-item">
-                  <div class="timeline-dot"></div>
-                  <div class="timeline-date">2017</div>
-                  <div class="timeline-content">
-                      <h3>El Shaheen High School</h3>
-                      <p>Kuwait</p>
-                  </div>
-              </div>
-          </div>
-      </div>
+h3 {
+  font-size: 1.5rem;
+  color: var(--secondary-accent);
+}
 
-      <!-- Projects section -->
-      <div class="card">
-          <h2 id="projects"><i class="fas fa-tasks neon-icon"></i> Projects</h2>
-          <div class="projects-container">
-              <div class="project-item">
-                  <div class="project-icon"><i class="fas fa-book"></i></div>
-                  <div class="project-details">
-                      <h3>CodeX Book</h3>
-                      <p>Currently writing a book about cybersecurity and AI integration</p>
-                  </div>
-              </div>
-              <div class="project-item">
-                  <div class="project-icon"><i class="fas fa-desktop"></i></div>
-                  <div class="project-details">
-                      <h3>Landing Page Project</h3>
-                      <p>Created a landing page using branding and persona for charity: water</p>
-                  </div>
-              </div>
-              <div class="project-item">
-                  <div class="project-icon"><i class="fas fa-comments"></i></div>
-                  <div class="project-details">
-                      <h3>AI Chatbot Development</h3>
-                      <p>Developing an app and chatbot using OpenAI and L'Oréal</p>
-                  </div>
-              </div>
-              <div class="project-item">
-                  <div class="project-icon"><i class="fas fa-laptop-code"></i></div>
-                  <div class="project-details">
-                      <h3>AI-Powered Website</h3>
-                      <p>Building a website using AI with Intel</p>
-                  </div>
-              </div>
-          </div>
-      </div>
+code, .monospace {
+  font-family: var(--font-secondary);
+}
 
-      <!-- Contact section -->
-      <div class="card">
-          <h2 id="contact"><i class="fas fa-envelope neon-icon"></i> Contact</h2>
-          <div class="contact-info">
-              <p><i class="fas fa-envelope"></i> <a href="mailto:mohamed.abdelaziz710@gmail.com">mohamed.abdelaziz710@gmail.com</a></p>
-              <p><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/mohamed-abdelaziz-710/" target="_blank">linkedin.com/in/mohamed-abdelaziz-710/</a></p>
-              <p><i class="fab fa-github"></i> <a href="https://github.com/mohamed-abdelaziz710" target="_blank">github.com/mohamed-abdelaziz710</a></p>
-              <p><i class="fab fa-replit"></i> <a href="https://replit.com/@Amrikyy" target="_blank">replit.com/@Amrikyy</a></p>
-              <p><i class="fab fa-kaggle"></i> <a href="https://www.kaggle.com/mohamedabdelaziz710" target="_blank">kaggle.com/mohamedabdelaziz710</a></p>
-          </div>
-      </div>
-  </div>
+.highlight {
+  color: var(--primary-accent);
+  font-weight: bold;
+}
 
-  <!-- Chat bubble -->
-  <div class="chat-bubble" id="chatBubble">
-      <i class="fas fa-comment-dots"></i>
-  </div>
+.highlight-alt {
+  color: var(--secondary-accent);
+  font-weight: bold;
+}
 
-  <!-- Chat window -->
-  <div class="chat-window" id="chatWindow">
-      <div class="chat-header">
-          <h3>Chat with Mohamed</h3>
-          <button id="closeChat"><i class="fas fa-times"></i></button>
-      </div>
-      <div class="chat-messages" id="chatMessages">
-          <!-- Initial messages -->
-          <div class="message bot-message">
-              <div class="message-content">
-                  Hello, I'm Muhammad. Welcome to my personal site!
-              </div>
-              <div class="message-time">Just now</div>
-          </div>
-          <div class="message bot-message">
-              <div class="message-content">
-                  Feel free to ask me anything about cybersecurity, AI, or my journey. ✏️
-              </div>
-              <div class="message-time">Just now</div>
-          </div>
-      </div>
-      <div class="chat-input">
-          <input type="text" id="messageInput" placeholder="Type your message...">
-          <button id="sendMessage"><i class="fas fa-paper-plane"></i></button>
-      </div>
-  </div>
+/* --- Layout & Container --- */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px; /* Increased padding */
+}
 
-  <!-- Footer -->
-  <footer class="site-footer">
-      <div class="footer-content">
-          <div class="footer-name neon-text">© 2025 Mohamed Abdelaziz</div>
-          <div class="footer-role">Cybersecurity Engineer & AI Innovator</div>
-          <div class="footer-signature">Amrikyy</div>
-      </div>
-  </footer>
+/* --- Navigation --- */
+nav {
+  background: rgba(10, 15, 26, 0.8); /* Semi-transparent dark */
+  backdrop-filter: blur(10px);
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  transition: box-shadow 0.3s ease, background-color 0.3s ease;
+}
 
-  <!-- Link to external JavaScript file -->
-  <script src="script.js"></script>
-</body>
-</html>
+nav .logo {
+  font-family: var(--font-secondary);
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--primary-accent);
+  text-shadow: 0 0 8px var(--shadow-color);
+  letter-spacing: 2px;
+}
+
+nav ul.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px; /* Increased gap */
+  margin: 0;
+  padding: 0;
+}
+
+nav ul.nav-links a {
+  color: var(--text-color);
+  text-decoration: none;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+nav ul.nav-links a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--primary-accent);
+  transition: width 0.3s ease;
+}
+
+nav ul.nav-links a:hover,
+nav ul.nav-links a.active {
+  color: var(--primary-accent);
+  text-shadow: 0 0 8px var(--shadow-color);
+}
+
+nav ul.nav-links a:hover::after,
+nav ul.nav-links a.active::after {
+  width: 100%;
+}
+
+.menu-btn {
+  display: none; /* Handled by JS, but hide initially */
+  background: none;
+  border: none;
+  color: var(--primary-accent);
+  font-size: 1.8rem;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.menu-btn:hover {
+  transform: rotate(180deg);
+}
+
+/* --- Hero Section --- */
+.hero-section {
+  position: relative;
+  min-height: 100vh; /* Full viewport height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 0 40px; /* Adjust padding */
+  background-color: var(--dark-bg);
+  overflow: hidden;
+  /* Add subtle grid background */
+  background-image: 
+    linear-gradient(rgba(33, 230, 193, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(33, 230, 193, 0.05) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 20px;
+}
+
+.hero-text-container {
+  flex: 1;
+  text-align: left;
+  max-width: 650px; /* Increased max-width */
+}
+
+.hero-visual {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  min-width: 300px; /* Ensure visual doesn't collapse */
+}
+
+/* Futuristic Visual Element (Replaces .cyber-circuit) */
+.hero-visual .futuristic-sphere {
+  width: 350px;
+  height: 350px;
+  position: relative;
+}
+
+.futuristic-sphere .sphere-layer {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1px solid var(--border-color);
+  animation: rotate-sphere 15s linear infinite;
+}
+
+.futuristic-sphere .sphere-layer:nth-child(1) { animation-duration: 12s; opacity: 0.3; }
+.futuristic-sphere .sphere-layer:nth-child(2) { animation-duration: 18s; animation-direction: reverse; inset: 20px; opacity: 0.5; border-color: var(--secondary-accent); }
+.futuristic-sphere .sphere-layer:nth-child(3) { animation-duration: 10s; inset: 40px; opacity: 0.7; }
+.futuristic-sphere .sphere-layer:nth-child(4) { inset: 60px; border-style: dashed; animation: none; opacity: 0.2; }
+
+.futuristic-sphere .sphere-core {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle, var(--primary-accent) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: pulse-core 2s infinite alternate;
+}
+
+@keyframes rotate-sphere {
+  from { transform: rotate(0deg) scale(1); }
+  to { transform: rotate(360deg) scale(1.02); }
+}
+
+@keyframes pulse-core {
+  from { opacity: 0.6; transform: translate(-50%, -50%) scale(0.9); }
+  to { opacity: 1; transform: translate(-50%, -50%) scale(1.1); box-shadow: 0 0 20px var(--shadow-color); }
+}
+
+/* Hero Text Styling */
+.hero-text-container h1 {
+  font-size: 3.5rem; /* Larger */
+  margin-bottom: 15px;
+  line-height: 1.1;
+}
+
+.hero-subtitle {
+  font-family: var(--font-secondary);
+  font-size: 1.3rem;
+  color: var(--primary-accent);
+  margin-bottom: 25px;
+  display: inline-block; /* For border effect */
+  border-right: 3px solid var(--primary-accent);
+  white-space: nowrap;
+  overflow: hidden;
+  animation: typing 3s steps(30, end), blink-caret .75s step-end infinite;
+}
+
+/* Reusing typing animation */
+@keyframes typing { from { width: 0 } to { width: 100% } }
+@keyframes blink-caret { from, to { border-color: transparent } 50% { border-color: var(--primary-accent); } }
+
+.hero-description p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  color: var(--text-color);
+  opacity: 0.9;
+  max-width: 500px;
+}
+
+.hero-tech-icons {
+  display: flex;
+  gap: 25px;
+  margin-bottom: 30px;
+}
+
+.hero-tech-icons i {
+  font-size: 1.8rem; /* Slightly smaller */
+  color: var(--primary-accent);
+  opacity: 0.8;
+  transition: all .3s ease;
+}
+
+.hero-tech-icons i:hover {
+  transform: scale(1.2) rotate(10deg);
+  text-shadow: 0 0 10px var(--shadow-color);
+  opacity: 1;
+}
+
+/* Hero Button */
+.hero-btn {
+  display: inline-block;
+  padding: 14px 35px;
+  background-color: transparent;
+  color: var(--primary-accent);
+  text-decoration: none;
+  border-radius: 5px; /* Sharper edges */
+  font-weight: bold;
+  transition: all .3s ease;
+  border: 2px solid var(--primary-accent);
+  position: relative;
+  overflow: hidden;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.hero-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, var(--primary-accent), transparent);
+  transition: left 0.4s ease;
+}
+
+.hero-btn:hover {
+  background-color: var(--primary-accent);
+  color: var(--dark-bg);
+  box-shadow: 0 0 15px var(--shadow-color);
+}
+
+.hero-btn:hover::before {
+  left: 100%;
+}
+
+/* --- General Card/Panel Styling --- */
+.card, .panel /* Unified panel style */
+{
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 25px 30px; /* Increased padding */
+  margin: 30px 0;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2), inset 0 0 10px rgba(16, 21, 31, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  /* Add subtle top glow */
+}
+
+.card::before, .panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--primary-accent), transparent);
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover, .panel:hover {
+  transform: translateY(-5px) scale(1.01);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3), 0 0 15px var(--shadow-color), inset 0 0 10px rgba(16, 21, 31, 0.5);
+  border-color: var(--primary-accent);
+}
+
+.card:hover::before, .panel:hover::before {
+  opacity: 1;
+}
+
+/* --- Profile Card (About Section) --- */
+.profile-card {
+  padding: 0; /* Remove default padding */
+  overflow: hidden;
+}
+
+.profile-header {
+  position: relative;
+  height: 250px; /* Adjusted height */
+  overflow: hidden;
+  border-radius: 8px 8px 0 0;
+  background: linear-gradient(45deg, var(--darker-bg), var(--card-bg));
+  padding: 20px;
+  display: flex;
+  flex-direction: column; /* Align items vertically */
+  justify-content: flex-end; /* Align content to bottom */
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* Remove old background effects */
+.profile-header::after, .profile-header::before {
+  display: none;
+}
+
+/* Add new subtle background pattern */
+.profile-header {
+  background-image: 
+    radial-gradient(circle at 10% 10%, rgba(33, 230, 193, 0.1) 0%, transparent 30%),
+    radial-gradient(circle at 90% 80%, rgba(154, 22, 229, 0.1) 0%, transparent 30%);
+}
+
+.profile-image {
+  width: 100px; /* Adjusted size */
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid var(--primary-accent);
+  box-shadow: 0 0 15px var(--shadow-color);
+  margin-bottom: 15px;
+  transition: transform .3s ease, box-shadow .3s ease;
+  /* Position adjusted */
+  position: relative; 
+  margin-top: -60px; /* Overlap header */
+  margin-left: 30px;
+  z-index: 2;
+}
+
+.profile-card:hover .profile-image {
+  box-shadow: 0 0 25px var(--primary-accent);
+  transform: scale(1.05);
+}
+
+.profile-title-container { /* New container for title/subtitle */
+  padding: 0 30px 20px; /* Add padding below image */
+}
+
+.profile-title h1 {
+  color: var(--primary-accent);
+  margin: 0 0 5px 0;
+  font-size: 2rem;
+}
+
+.profile-subtitle {
+  margin-top: 0;
+  font-size: 1.1em;
+  color: var(--text-color);
+  opacity: 0.8;
+}
+
+.about-content {
+  padding: 20px 30px 30px; /* Consistent padding */
+  color: var(--text-color);
+}
+
+.tagline {
+  font-size: 1.3em;
+  font-weight: bold;
+  margin-bottom: 25px;
+  text-align: left; /* Align left */
+  color: var(--primary-accent);
+  border-left: 3px solid var(--secondary-accent);
+  padding-left: 15px;
+}
+
+.about-content h2 {
+  font-size: 1.6em;
+  border: none; /* Remove border */
+  padding-bottom: 0;
+  margin-bottom: 15px;
+}
+
+.about-content h3 {
+  font-size: 1.2em;
+  margin-top: 25px;
+  color: var(--secondary-accent);
+}
+
+.neon-icon {
+  margin-right: 10px;
+  color: var(--primary-accent);
+  text-shadow: 0 0 5px var(--shadow-color);
+  width: 20px; /* Ensure alignment */
+  text-align: center;
+}
+
+/* Badges in About section */
+.badges-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.badge-item {
+  background-color: var(--darker-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9em;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.badge-item:hover {
+  background-color: var(--hover-color);
+  border-color: var(--primary-accent);
+}
+
+.badge-item i {
+  color: var(--primary-accent);
+}
+
+/* --- Skills Section --- */
+.skills-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adjusted minmax */
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.skill-category {
+  background-color: var(--darker-bg); /* Darker background */
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 20px;
+  transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+}
+
+.skill-category:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0,0,0,.3), 0 0 10px var(--shadow-color);
+  border-color: var(--primary-accent);
+}
+
+.skill-category h3 {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: var(--primary-accent);
+  font-size: 1.3em;
+  border-bottom: 1px dashed var(--border-color);
+  padding-bottom: 10px;
+}
+
+.skill-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.skill-list li {
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  font-size: 0.95em;
+}
+
+.skill-list li i {
+  margin-right: 12px;
+  color: var(--primary-accent);
+  opacity: 0.8;
+  width: 20px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.skill-list li:hover i {
+  transform: scale(1.2);
+  opacity: 1;
+}
+
+/* --- Certifications Section --- */
+.certifications-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.certification-item {
+  background-color: var(--darker-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  align-items: center; /* Center vertically */
+  transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+}
+
+.certification-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0,0,0,.3), 0 0 10px var(--shadow-color);
+  border-color: var(--primary-accent);
+}
+
+.certification-icon {
+  background-color: var(--primary-accent);
+  color: var(--dark-bg);
+  width: 45px; /* Adjusted size */
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+  flex-shrink: 0;
+  box-shadow: 0 0 10px var(--shadow-color);
+}
+
+.certification-icon i {
+  font-size: 1.4em;
+}
+
+.certification-details h3 {
+  margin-top: 0;
+  margin-bottom: 5px; /* Reduced margin */
+  font-size: 1.1em;
+  color: var(--primary-accent);
+}
+
+.certification-details p {
+  margin-bottom: 0;
+  font-size: 0.9em;
+  opacity: .8;
+}
+
+/* --- Timeline Section --- */
+.timeline {
+  position: relative;
+  margin: 40px 0;
+  padding-left: 30px; /* Add padding for alignment */
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  width: 3px; /* Thicker line */
+  background: linear-gradient(to bottom, var(--primary-accent), var(--secondary-accent));
+  top: 10px;
+  bottom: 10px;
+  left: 10px; /* Adjusted position */
+  border-radius: 3px;
+  box-shadow: 0 0 8px var(--shadow-color);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 40px;
+  padding-left: 30px; /* Increased padding */
+}
+
+.timeline-dot {
+  position: absolute;
+  width: 18px; /* Larger dot */
+  height: 18px;
+  left: 2px; /* Adjusted position */
+  background-color: var(--primary-accent);
+  border-radius: 50%;
+  top: 5px;
+  border: 3px solid var(--dark-bg);
+  box-shadow: 0 0 10px var(--shadow-color);
+  transition: background-color 0.3s ease;
+}
+
+.timeline-item:hover .timeline-dot {
+  background-color: var(--secondary-accent);
+}
+
+.timeline-date {
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: var(--primary-accent);
+  font-family: var(--font-secondary);
+  font-size: 0.9em;
+}
+
+.timeline-content {
+  background-color: var(--darker-bg);
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-item:hover .timeline-content {
+  border-color: var(--primary-accent);
+  box-shadow: 0 0 10px var(--shadow-color);
+}
+
+.timeline-content h3 {
+  margin-top: 0;
+  color: var(--primary-accent);
+  font-size: 1.2em;
+}
+
+.timeline-content p {
+  margin-bottom: 8px;
+  font-size: 0.95em;
+  opacity: 0.9;
+}
+
+.partners {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 15px;
+}
+
+.partner {
+  background-color: var(--dark-bg);
+  color: var(--primary-accent);
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 0.85em;
+  border: 1px solid var(--border-color);
+  font-family: var(--font-secondary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.partner:hover {
+  background-color: var(--primary-accent);
+  color: var(--dark-bg);
+}
+
+/* --- Projects Section --- */
+.projects-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.project-item {
+  background-color: var(--darker-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column; /* Stack content */
+  transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+}
+
+.project-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0,0,0,.3), 0 0 10px var(--shadow-color);
+  border-color: var(--primary-accent);
+}
+
+.project-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.project-icon {
+  background-color: var(--primary-accent);
+  color: var(--dark-bg);
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 15px;
+  flex-shrink: 0;
+  box-shadow: 0 0 10px var(--shadow-color);
+}
+
+.project-icon i {
+  font-size: 1.4em;
+}
+
+.project-details h3 {
+  margin: 0;
+  font-size: 1.2em;
+  color: var(--primary-accent);
+}
+
+.project-details p {
+  margin-top: 10px; /* Add space */
+  margin-bottom: 0;
+  font-size: 0.9em;
+  opacity: .8;
+}
+
+/* --- Contact Section --- */
+.contact-info {
+  background-color: var(--darker-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 25px;
+  margin-top: 30px;
+}
+
+.contact-info p {
+  margin: 18px 0;
+  display: flex;
+  align-items: center;
+  font-size: 1em;
+}
+
+.contact-info i {
+  color: var(--primary-accent);
+  margin-right: 18px;
+  width: 20px;
+  text-align: center;
+  font-size: 1.2em;
+}
+
+.contact-info a {
+  color: var(--text-color);
+  text-decoration: none;
+  transition: color .3s ease, text-shadow .3s ease;
+  position: relative;
+}
+
+.contact-info a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: -2px;
+  left: 0;
+  background-color: var(--primary-accent);
+  transition: width 0.3s ease;
+}
+
+.contact-info a:hover {
+  color: var(--primary-accent);
+  text-shadow: 0 0 5px var(--shadow-color);
+}
+
+.contact-info a:hover::after {
+  width: 100%;
+}
+
+/* --- Footer --- */
+footer.site-footer {
+  text-align: center;
+  padding: 30px 20px; /* Increased padding */
+  margin-top: 60px;
+  background-color: var(--darker-bg);
+  border-top: 2px solid var(--primary-accent);
+  box-shadow: 0 -5px 20px rgba(33, 230, 193, 0.1);
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.95em;
+}
+
+.footer-name {
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: var(--text-color);
+}
+
+.footer-role {
+  opacity: .8;
+  font-size: .9em;
+}
+
+.footer-signature {
+  color: var(--primary-accent);
+  font-family: var(--font-secondary);
+  font-size: 1em;
+  letter-spacing: 2px;
+  margin-top: 5px;
+  animation: neonFlicker 2s infinite alternate;
+}
+
+/* --- Chat Bubble & Window --- */
+.chat-bubble {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  background-color: var(--primary-accent);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0,0,0,.3), 0 0 15px var(--shadow-color);
+  z-index: 1000;
+  transition: transform .3s ease, box-shadow .3s ease, background-color 0.3s ease;
+  border: 2px solid var(--dark-bg);
+}
+
+.chat-bubble:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(0,0,0,.4), 0 0 20px var(--shadow-color);
+  background-color: var(--secondary-accent);
+}
+
+.chat-bubble i {
+  font-size: 24px;
+  color: var(--dark-bg);
+}
+
+.chat-window {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 360px; /* Slightly wider */
+  height: 550px; /* Taller */
+  background-color: var(--card-bg);
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.5), 0 0 15px var(--shadow-color);
+  display: none; /* Controlled by JS */
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 1001;
+  border: 1px solid var(--primary-accent);
+}
+
+.chat-header {
+  background-color: var(--darker-bg);
+  padding: 12px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--primary-accent);
+  font-weight: bold;
+  border-bottom: 1px solid var(--border-color);
+  font-family: var(--font-secondary);
+  letter-spacing: 1px;
+}
+
+.chat-header .status-indicator {
+  width: 10px;
+  height: 10px;
+  background-color: var(--primary-accent);
+  border-radius: 50%;
+  margin-right: 8px;
+  animation: pulse-core 1.5s infinite alternate;
+}
+
+.chat-header button {
+  background: none;
+  border: none;
+  color: var(--primary-accent);
+  font-size: 18px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.chat-header button:hover {
+  color: var(--secondary-accent);
+}
+
+.chat-messages {
+  flex-grow: 1;
+  padding: 15px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  /* Custom scrollbar */
+}
+
+.chat-messages::-webkit-scrollbar {
+  width: 6px;
+}
+.chat-messages::-webkit-scrollbar-track {
+  background: var(--darker-bg);
+}
+.chat-messages::-webkit-scrollbar-thumb {
+  background: var(--primary-accent) !important;
+  border-radius: 3px;
+}
+
+.message {
+  display: flex;
+  flex-direction: column;
+  max-width: 85%;
+}
+
+.message-content {
+  padding: 10px 15px;
+  border-radius: 12px;
+  word-wrap: break-word;
+  font-size: 0.95em;
+  line-height: 1.5;
+}
+
+.message-time {
+  font-size: .7em;
+  color: #aaa;
+  margin-top: 4px;
+  font-family: var(--font-secondary);
+}
+
+.user-message {
+  align-self: flex-end;
+  align-items: flex-end;
+}
+
+.user-message .message-content {
+  background-color: var(--primary-accent);
+  color: var(--dark-bg);
+  border-radius: 12px 12px 0 12px;
+}
+
+.bot-message {
+  align-self: flex-start;
+  align-items: flex-start;
+}
+
+.bot-message .message-content {
+  background-color: var(--darker-bg);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  border-radius: 12px 12px 12px 0;
+}
+
+/* Typing indicator */
+.typing-indicator .message-content {
+  display: flex;
+  align-items: center;
+  padding: 12px 15px;
+}
+.typing-indicator .dot {
+  width: 8px;
+  height: 8px;
+  margin: 0 2px;
+  background-color: var(--primary-accent) !important;
+  border-radius: 50%;
+  opacity: 0.6;
+  animation: typing-dots 1.4s infinite ease-in-out both;
+}
+.typing-indicator .dot:nth-child(1) { animation-delay: -0.32s; }
+.typing-indicator .dot:nth-child(2) { animation-delay: -0.16s; }
+
+@keyframes typing-dots {
+  0%, 80%, 100% { transform: scale(0); }
+  40% { transform: scale(1.0); }
+}
+
+.chat-input {
+  display: flex;
+  padding: 12px;
+  border-top: 1px solid var(--border-color);
+  background-color: var(--darker-bg);
+}
+
+.chat-input input {
+  flex-grow: 1;
+  padding: 10px 15px;
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  margin-right: 10px;
+  font-size: 0.9em;
+  transition: border-color 0.3s ease;
+}
+
+.chat-input input:focus {
+  outline: none;
+  border-color: var(--primary-accent);
+  box-shadow: 0 0 8px var(--shadow-color);
+}
+
+.chat-input button {
+  background-color: var(--primary-accent);
+  border: none;
+  color: var(--dark-bg);
+  width: 40px; /* Fixed width */
+  height: 40px; /* Fixed height */
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color .3s ease, transform 0.2s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.chat-input button:hover {
+  background-color: var(--secondary-accent);
+  transform: scale(1.1);
+}
+
+/* --- Micro Background Animations Skeleton --- */
+body::before, body::after {
+  content: '';
+  position: fixed;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.18;
+  transition: opacity 0.4s;
+}
+
+body::before {
+  top: 0; left: 0; right: 0; height: 100px;
+  background: repeating-linear-gradient(90deg, var(--primary-accent) 0 2px, transparent 2px 40px);
+  animation: micro-bg-move-x 12s linear infinite;
+}
+
+body::after {
+  left: 0; top: 0; bottom: 0; width: 100px;
+  background: repeating-linear-gradient(180deg, var(--secondary-accent) 0 2px, transparent 2px 40px);
+  animation: micro-bg-move-y 18s linear infinite;
+}
+
+@keyframes micro-bg-move-x {
+  0% { background-position-x: 0; }
+  100% { background-position-x: 200px; }
+}
+@keyframes micro-bg-move-y {
+  0% { background-position-y: 0; }
+  100% { background-position-y: 200px; }
+}
+
+/* Micro floating dots */
+.micro-dot {
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0.12;
+  z-index: 0;
+  animation: micro-dot-float 10s linear infinite;
+  background: var(--primary-accent);
+}
+@keyframes micro-dot-float {
+  0% { transform: translateY(0) scale(1); opacity: 0.12; }
+  50% { opacity: 0.22; }
+  100% { transform: translateY(-60px) scale(1.2); opacity: 0.12; }
+}
+
+/* --- More Micro Background Animations --- */
+@keyframes micro-orbital {
+  0% { transform: translate(0,0) scale(1) rotate(0deg); opacity: 0.18; }
+  40% { opacity: 0.28; }
+  100% { transform: translate(40vw, 60vh) scale(1.3) rotate(360deg); opacity: 0.18; }
+}
+
+.micro-orb {
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.18;
+  background: radial-gradient(circle, var(--primary-accent) 0%, transparent 80%);
+  animation: micro-orbital 22s linear infinite;
+  filter: blur(2px);
+}
+
+@keyframes micro-pulse {
+  0%, 100% { opacity: 0.10; box-shadow: 0 0 12px 2px var(--primary-accent); }
+  50% { opacity: 0.22; box-shadow: 0 0 32px 8px var(--primary-accent); }
+}
+
+.micro-pulse-dot {
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  width: 18px;
+  height: 18px;
+  background: var(--primary-accent);
+  opacity: 0.13;
+  animation: micro-pulse 6s ease-in-out infinite;
+  filter: blur(1.5px);
+}
+
+/* Example: Add .micro-orb and .micro-pulse-dot via JS for more dynamic animated background elements */
+
+/* --- Animations --- */
+/* Reusing pulse-core for general pulse */
+.pulse {
+  animation: pulse-core 1.5s infinite alternate;
+}
+
+/* Neon Flicker for signature */
+@keyframes neonFlicker {
+  0%, 18%, 22%, 25%, 53%, 57%, 100% {
+    text-shadow: 0 0 4px var(--primary-accent), 0 0 10px var(--primary-accent), 0 0 18px var(--primary-accent), 0 0 30px var(--primary-accent);
+    opacity: 1;
+  }
+  20%, 24%, 55% {
+    text-shadow: none;
+    opacity: .7;
+  }
+}
+
+/* Scroll Reveal Animation */
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.scroll-animate.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.6rem; }
+  h3 { font-size: 1.3rem; }
+
+  .container { padding: 20px 15px; }
+
+  nav ul.nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: rgba(16, 21, 31, 0.95); /* Darker mobile menu */
+    position: absolute;
+    top: 65px; /* Adjust based on nav height */
+    left: 0;
+    padding: 10px 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,.3);
+    border-top: 1px solid var(--border-color);
+  }
+
+  nav ul.nav-links.active {
+    display: flex;
+  }
+
+  nav ul.nav-links li {
+    text-align: center;
+    padding: 12px 0;
+    width: 100%;
+  }
+
+  nav ul.nav-links a {
+    display: block; /* Make links full width */
+    width: 100%;
+  }
+
+  .menu-btn {
+    display: block;
+  }
+
+  .hero-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-text-container {
+    max-width: 100%;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .hero-visual {
+    margin-top: 30px;
+  }
+
+  .hero-visual .futuristic-sphere {
+    width: 280px;
+    height: 280px;
+  }
+
+  .hero-text-container h1 {
+    font-size: 2.8rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .hero-description p {
+    font-size: 1rem;
+  }
+
+  .hero-tech-icons {
+    justify-content: center;
+  }
+
+  .profile-header {
+    height: 200px;
+  }
+
+  .profile-image {
+    width: 80px;
+    height: 80px;
+    margin-top: -40px;
+    margin-left: 20px;
+  }
+
+  .profile-title h1 {
+    font-size: 1.6rem;
+  }
+
+  .profile-subtitle {
+    font-size: 1em;
+  }
+
+  .about-content {
+    padding: 15px 20px 20px;
+  }
+
+  .chat-window {
+    width: 90%;
+    height: 70%;
+    bottom: 20px;
+    right: 5%;
+    max-width: 360px;
+    max-height: 550px;
+  }
+
+  .chat-bubble {
+    bottom: 20px;
+    right: 20px;
+    width: 55px;
+    height: 55px;
+  }
+}
 
