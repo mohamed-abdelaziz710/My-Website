@@ -1100,148 +1100,159 @@ footer {
   }
 }
 
-/* RTL support */
-body.rtl {
-    direction: rtl;
-}
+/* Additional Responsive Adjustments */
+@media screen and (max-width: 768px) {
+  /* Badge adjustments */
+  .badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+  }
 
-body.rtl nav ul.nav-links {
-    gap: 20px;
-}
+  .badge {
+    font-size: 0.9rem;
+    padding: 6px 12px;
+  }
 
-body.rtl .language-toggle {
-    margin-left: 0;
-    margin-right: 20px;
-}
+  /* Skills container adjustments */
+  .skills-container {
+    grid-template-columns: 1fr;
+  }
 
-body.rtl .hero-text-container {
-    text-align: right;
-}
+  .skill-category {
+    padding: 15px;
+  }
 
-body.rtl .hero-tech-icons {
-    justify-content: flex-end;
-}
+  /* Timeline adjustments */
+  .timeline-item {
+    padding-left: 30px;
+  }
 
-body.rtl .hero-btn i {
-    transform: rotate(180deg);
-    margin-right: 5px;
-    margin-left: 0;
-}
+  .timeline-date {
+    position: relative;
+    left: 0;
+    top: 0;
+    margin-bottom: 10px;
+    padding: 5px 10px;
+    display: inline-block;
+  }
 
-body.rtl .profile-image {
-    left: auto;
-    right: 30px;
-}
+  /* Project items adjustments */
+  .project-item {
+    flex-direction: column;
+    text-align: center;
+    padding: 15px;
+  }
 
-body.rtl .about-content {
-    text-align: right;
-}
-
-body.rtl .tagline i {
+  .project-icon {
+    margin-bottom: 15px;
     margin-right: 0;
-    margin-left: 10px;
+  }
+
+  /* Chat window adjustments */
+  .chat-window {
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    max-height: none;
+    border-radius: 0;
+  }
+
+  .chat-bubble {
+    right: 10px;
+    bottom: 10px;
+  }
+
+  /* Contact section adjustments */
+  .contact-info {
+    padding: 15px;
+  }
+
+  .contact-info p {
+    font-size: 0.9rem;
+    word-break: break-all;
+  }
+
+  /* Footer adjustments */
+  .site-footer {
+    padding: 20px 15px;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
 }
 
-body.rtl h2 i {
-    margin-right: 0;
-    margin-left: 10px;
+/* Small phone adjustments */
+@media screen and (max-width: 380px) {
+  .container {
+    padding: 10px 5px;
+  }
+
+  .hero-btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .cyber-circuit {
+    width: 200px;
+    height: 200px;
+  }
+
+  .profile-image {
+    width: 80px;
+    height: 80px;
+  }
+
+  .profile-header {
+    height: 200px;
+  }
+
+  .tagline {
+    font-size: 1.2em;
+  }
+
+  .badge {
+    font-size: 0.8rem;
+    padding: 5px 10px;
+  }
 }
 
-body.rtl .skill-list li i {
-    margin-right: 0;
-    margin-left: 10px;
+/* Landscape orientation adjustments */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+  .hero-section {
+    min-height: auto;
+    padding: 20px 0;
+  }
+
+  .hero-content {
+    flex-direction: row;
+  }
+
+  .cyber-circuit {
+    width: 180px;
+    height: 180px;
+  }
+
+  .profile-header {
+    height: auto;
+    min-height: 200px;
+  }
 }
 
-body.rtl .certification-icon {
-    margin-right: 0;
-    margin-left: 15px;
-}
+/* Print styles */
+@media print {
+  .menu-btn,
+  .chat-bubble,
+  .chat-window {
+    display: none !important;
+  }
 
-body.rtl .timeline::before {
-    left: auto;
-    right: 20px;
-}
-
-body.rtl .timeline-item {
-    padding-left: 0;
-    padding-right: 50px;
-}
-
-body.rtl .timeline-dot {
-    left: auto;
-    right: 12px;
-}
-
-body.rtl .project-icon {
-    margin-right: 0;
-    margin-left: 15px;
-}
-
-body.rtl .contact-info p {
-    justify-content: flex-start;
-}
-
-body.rtl .contact-info i {
-    margin-right: 0;
-    margin-left: 15px;
-}
-
-body.rtl .chat-bubble {
-    right: auto;
-    left: 30px;
-}
-
-body.rtl .chat-window {
-    right: auto;
-    left: 30px;
-}
-
-body.rtl .chat-header button {
-    order: -1;
-}
-
-body.rtl .user-message {
-    align-self: flex-start;
-    align-items: flex-start;
-}
-
-body.rtl .user-message .message-content {
-    border-radius: 10px 10px 10px 0;
-}
-
-body.rtl .bot-message {
-    align-self: flex-end;
-    align-items: flex-end;
-}
-
-body.rtl .bot-message .message-content {
-    border-radius: 10px 10px 0 10px;
-}
-
-body.rtl .chat-input input {
-    margin-right: 0;
-    margin-left: 10px;
-}
-
-@media (max-width: 768px) {
-    body.rtl .profile-image {
-        right: 50%;
-        transform: translateX(50%);
-    }
-
-    body.rtl .timeline::before {
-        right: 10px;
-    }
-
-    body.rtl .timeline-item {
-        padding-right: 40px;
-    }
-
-    body.rtl .timeline-dot {
-        right: 2px;
-    }
-
-    body.rtl .chat-window {
-        left: 15px;
-    }
+  .card {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
 }
