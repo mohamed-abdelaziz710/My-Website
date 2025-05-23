@@ -285,7 +285,7 @@ See `style.css` for implementation and utility classes.
 <script src="https://kit.fontawesome.com/yourkit.js" crossorigin="anonymous"></script>
 ```
 
-**Button Styles**
+### Button Styles
 
 - **Primary Button (.btn-primary):**
   - Neon green background (`var(--color-neon)`), black text, no border
@@ -303,11 +303,13 @@ See `style.css` for implementation and utility classes.
   - Focus: Dotted neon outline
 
 **Accessibility:**
+
 - All buttons have clear focus states (outline or glow)
 - Text contrast meets or exceeds 4.5:1 WCAG ratio
 - Use `<button>` for actions, `<a>` for navigation
 
 **Example CSS:**
+
 ```css
 /* Primary Button */
 .btn-primary {

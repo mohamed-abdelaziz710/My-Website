@@ -373,41 +373,69 @@ nav ul.nav-links a.active::after {
   margin-bottom: 40px;
 }
 
-/* --- Card Placement Refinement --- */
+/* --- Reusable Card Component --- */
 .card {
-  margin-left: auto;
-  margin-right: auto;
+  background: var(--color-black);
+  color: var(--color-white);
+  border-radius: 8px;
+  overflow: hidden;
+  max-width: 300px;
+  box-shadow: 0 4px 18px rgba(33,230,193,0.08), 0 0 10px var(--shadow-color);
+  margin: 0 auto 32px auto;
+  display: flex;
+  flex-direction: column;
+}
+.card img {
+  width: 100%;
   display: block;
-  max-width: 900px;
-  margin-top: 32px;
-  margin-bottom: 32px;
-  box-sizing: border-box;
-  position: relative;
-  z-index: 1;
+  object-fit: cover;
+  max-height: 180px;
 }
+.card-content {
+  padding: 1rem;
+}
+.card h3 { margin-top: 0; }
 
-/* Remove double margin if .card is inside .container */
-.container > .card:first-child {
-  margin-top: 0;
+/* Card Grid Layout for Projects/Blog */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px;
 }
-.container > .card:last-child {
-  margin-bottom: 0;
-}
-
-/* Ensure .card does not overlap with section borders */
-.container, .card {
-  background-clip: padding-box;
-}
-
-/* Responsive: Card width and spacing on mobile */
-@media (max-width: 900px) {
-  .card {
-    max-width: 99vw;
-    margin-left: 1vw;
-    margin-right: 1vw;
-    margin-top: 20px;
-    margin-bottom: 20px;
+@media (max-width: 700px) {
+  .card-grid {
+    grid-template-columns: 1fr;
   }
+}
+
+/* --- Badges --- */
+.badge {
+  display: inline-block;
+  padding: 0.25em 0.5em;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 4px;
+  pointer-events: none;
+  user-select: none;
+  margin-right: 0.5em;
+  margin-bottom: 0.25em;
+}
+.badge-success {
+  background: var(--color-neon);
+  color: var(--color-black);
+}
+.badge-info {
+  background: var(--color-white);
+  color: var(--color-black);
+  border: 1px solid var(--color-neon);
+}
+.badge-warning {
+  background: #FFD600;
+  color: var(--color-black);
+}
+.badge-error {
+  background: #E53935;
+  color: var(--color-white);
 }
 
 /* --- Profile Card (About Section) --- */
