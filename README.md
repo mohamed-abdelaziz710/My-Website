@@ -378,3 +378,55 @@ See `style.css` for implementation and utility classes.
   outline-offset: 2px;
 }
 ```
+
+**Components: Cards, Badges, Projects**
+
+- **Cards:**
+  - Use the `.card` class for reusable content blocks (projects, blog posts, etc).
+  - Cards have a black background, white text, 8px border-radius, and uniform max-width.
+  - Use `.card-grid` for responsive grid layouts (auto-fit, min 300px columns; stacks on mobile).
+  - Always include alt text on card images for accessibility.
+  - Example:
+
+    ```html
+    <div class="card">
+      <img src="project1.png" alt="Screenshot of Project 1">
+      <div class="card-content">
+        <h3>Project One</h3>
+        <p>A short description of the project goes here.</p>
+        <button class="btn-secondary">Learn More</button>
+      </div>
+    </div>
+    ```
+
+- **Badges:**
+  - Use `.badge` for inline status/category labels (e.g. <span class="badge badge-success">New</span>).
+  - Badges are non-interactive (`pointer-events: none`) and always include text.
+  - Variants: `.badge-success` (neon), `.badge-info` (white w/ neon border), `.badge-warning` (yellow), `.badge-error` (red).
+  - Example:
+
+    ```html
+    <span class="badge badge-success">New</span>
+    <span class="badge badge-info">Info</span>
+    <span class="badge badge-warning">Beta</span>
+    <span class="badge badge-error">Error</span>
+    ```
+
+- **Project Lists:**
+  - Use `.card-grid` to display a grid of project cards.
+  - Each card should have an image (with alt), title, description, and optional badges/buttons.
+  - Example:
+
+    ```html
+    <div class="card-grid">
+      <div class="card"> ... </div>
+      <div class="card"> ... </div>
+    </div>
+    ```
+
+- **Accessibility:**
+  - All images must have descriptive alt text.
+  - Badges must not rely on color alone—always include text.
+  - Cards and badges are keyboard and screen reader friendly by default.
+
+See `style.css` for implementation and more details.
