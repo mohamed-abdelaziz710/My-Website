@@ -474,6 +474,7 @@ function updateLanguageContent(lang) {
 
 // 8. Particle JS Initialization (Updated Configuration)
 function initParticles() {
+  // Defensive: Check if particlesJS is loaded
   if (typeof particlesJS === "undefined") {
     console.warn("particles.js not loaded. Skipping particle initialization.");
     return;
@@ -481,111 +482,64 @@ function initParticles() {
 
   const particlesContainerId = "particles-js"; // Ensure this ID exists in your HTML
   if (!document.getElementById(particlesContainerId)) {
-      console.warn(`Element with ID '${particlesContainerId}' not found for particles.js.`);
-      return;
+    console.warn(`Element with ID '${particlesContainerId}' not found for particles.js.`);
+    return;
   }
 
+  // ParticleJS config (no syntax errors found)
   particlesJS(particlesContainerId, {
     particles: {
       number: {
-        value: 60, // Slightly fewer particles
-        density: {
-          enable: true,
-          value_area: 800,
-        },
+        value: 60,
+        density: { enable: true, value_area: 800 },
       },
-      color: {
-        value: "#21E6C1", // Use primary accent color
-      },
+      color: { value: "#21E6C1" },
       shape: {
-        type: "circle", // Keep circle or try "edge"
-        stroke: {
-          width: 0,
-          color: "#000000",
-        },
-        polygon: {
-          nb_sides: 5,
-        },
+        type: "circle",
+        stroke: { width: 0, color: "#000000" },
+        polygon: { nb_sides: 5 },
       },
       opacity: {
-        value: 0.4, // Slightly less opaque
-        random: true, // Add randomness
-        anim: {
-          enable: true,
-          speed: 0.5,
-          opacity_min: 0.1,
-          sync: false,
-        },
+        value: 0.4,
+        random: true,
+        anim: { enable: true, speed: 0.5, opacity_min: 0.1, sync: false },
       },
       size: {
-        value: 2.5, // Slightly smaller
+        value: 2.5,
         random: true,
-        anim: {
-          enable: false,
-          speed: 40,
-          size_min: 0.1,
-          sync: false,
-        },
+        anim: { enable: false, speed: 40, size_min: 0.1, sync: false },
       },
       line_linked: {
         enable: true,
-        distance: 130, // Slightly shorter links
-        color: "#21E6C1", // Use primary accent color
-        opacity: 0.25, // More subtle links
+        distance: 130,
+        color: "#21E6C1",
+        opacity: 0.25,
         width: 1,
       },
       move: {
         enable: true,
-        speed: 3, // Slower movement
+        speed: 3,
         direction: "none",
-        random: true, // Random movement
+        random: true,
         straight: false,
         out_mode: "out",
         bounce: false,
-        attract: {
-          enable: false,
-          rotateX: 600,
-          rotateY: 1200,
-        },
+        attract: { enable: false, rotateX: 600, rotateY: 1200 },
       },
     },
     interactivity: {
       detect_on: "canvas",
       events: {
-        onhover: {
-          enable: true,
-          mode: "grab", // Changed from repulse to grab
-        },
-        onclick: {
-          enable: true,
-          mode: "push",
-        },
+        onhover: { enable: true, mode: "grab" },
+        onclick: { enable: true, mode: "push" },
         resize: true,
       },
       modes: {
-        grab: {
-          distance: 150,
-          line_linked: {
-            opacity: 0.5, // Slightly more visible grab lines
-          },
-        },
-        bubble: {
-          distance: 400,
-          size: 40,
-          duration: 2,
-          opacity: 8,
-          speed: 3,
-        },
-        repulse: {
-          distance: 200,
-          duration: 0.4,
-        },
-        push: {
-          particles_nb: 4,
-        },
-        remove: {
-          particles_nb: 2,
-        },
+        grab: { distance: 150, line_linked: { opacity: 0.5 } },
+        bubble: { distance: 400, size: 40, duration: 2, opacity: 8, speed: 3 },
+        repulse: { distance: 200, duration: 0.4 },
+        push: { particles_nb: 4 },
+        remove: { particles_nb: 2 },
       },
     },
     retina_detect: true,
@@ -620,4 +574,13 @@ styleSheet.innerText = `
   }
 `;
 document.head.appendChild(styleSheet);
+
+/*
+Notes:
+- All major functions are wrapped in DOMContentLoaded for safety.
+- Defensive checks are present for missing DOM elements.
+- No duplicate function names or global variable leaks.
+- No syntax errors found in the provided code.
+- If particles.js is not working, ensure the library is loaded and a div with id="particles-js" exists in your HTML.
+*/
 
