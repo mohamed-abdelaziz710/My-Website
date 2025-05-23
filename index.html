@@ -6,7 +6,12 @@
 </header>
 
 <!-- Enhanced About Section with Spaceship UI/UX Theme -->
-<section id="about" class="container">
+<section id="about" class="container hero-section">
+  <!-- Animated Background Layer -->
+  <div class="hero-bg-animated">
+    <canvas id="hero-particles"></canvas>
+    <!-- fallback for non-canvas browsers -->
+  </div>
   <div class="profile-card card scroll-animate">
     <!-- Enhanced Profile Header with Holographic Effect -->
     <div class="profile-header">
@@ -35,10 +40,21 @@
       </div>
       
       <!-- Moved profile-image-container here for better placement -->
-      <div class="profile-image-container">
+      <div class="profile-image-container floating-profile-img">
         <div class="profile-image-hologram"></div>
         <img src="profile.jpg" alt="Mohamed Abdelaziz" class="profile-image">
         <div class="profile-scan-line"></div>
+      </div>
+      <!-- CTA Button: WhatsApp -->
+      <div class="cta-container">
+        <a 
+          href="https://wa.me/201234567890" 
+          target="_blank" 
+          class="cta-btn whatsapp-btn"
+          aria-label="Contact me on WhatsApp"
+        >
+          <i class="fab fa-whatsapp"></i> Contact Me on WhatsApp
+        </a>
       </div>
     </div>
     
@@ -98,21 +114,21 @@
         <span class="console-command">connect</span>
       </div>
       <div class="social-links-container">
-        <a href="#" target="_blank" class="social-link">
-          <div class="social-icon"><i class="fab fa-linkedin"></i></div>
-          <div class="social-text">LinkedIn</div>
+        <a href="#" target="_blank" class="social-link social-link-btn" aria-label="LinkedIn">
+          <span class="social-icon"><i class="fab fa-linkedin"></i></span>
+          <span class="social-text">LinkedIn</span>
         </a>
-        <a href="#" target="_blank" class="social-link">
-          <div class="social-icon"><i class="fab fa-github"></i></div>
-          <div class="social-text">GitHub</div>
+        <a href="#" target="_blank" class="social-link social-link-btn" aria-label="GitHub">
+          <span class="social-icon"><i class="fab fa-github"></i></span>
+          <span class="social-text">GitHub</span>
         </a>
-        <a href="mailto:amrikyy@gmail.com" class="social-link">
-          <div class="social-icon"><i class="fas fa-envelope"></i></div>
-          <div class="social-text">amrikyy@gmail.com</div>
+        <a href="mailto:amrikyy@gmail.com" class="social-link social-link-btn" aria-label="Email amrikyy@gmail.com">
+          <span class="social-icon"><i class="fas fa-envelope"></i></span>
+          <span class="social-text">amrikyy@gmail.com</span>
         </a>
-        <a href="mailto:mabdela1@students.kennesaw.edu" class="social-link">
-          <div class="social-icon"><i class="fas fa-envelope"></i></div>
-          <div class="social-text">mabdela1@students.kennesaw.edu</div>
+        <a href="mailto:mabdela1@students.kennesaw.edu" class="social-link social-link-btn" aria-label="Email mabdela1@students.kennesaw.edu">
+          <span class="social-icon"><i class="fas fa-envelope"></i></span>
+          <span class="social-text">mabdela1@students.kennesaw.edu</span>
         </a>
       </div>
     </div>
@@ -154,3 +170,46 @@
     </div>
   </div>
 </section>
+
+<script>
+/* Simple animated particles for hero background */
+const canvas = document.getElementById('hero-particles');
+if (canvas) {
+  const ctx = canvas.getContext('2d');
+  let particles = [];
+  const particleCount = 32;
+  function resize() {
+    canvas.width = window.innerWidth;
+    canvas.height = document.querySelector('.hero-section').offsetHeight;
+  }
+  window.addEventListener('resize', resize);
+  resize();
+  for (let i = 0; i < particleCount; i++) {
+    particles.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      r: 1.5 + Math.random() * 2.5,
+      dx: (Math.random() - 0.5) * 0.5,
+      dy: (Math.random() - 0.5) * 0.5,
+      alpha: 0.3 + Math.random() * 0.5
+    });
+  }
+  function draw() {
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    for (let p of particles) {
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, 2 * Math.PI);
+      ctx.fillStyle = `rgba(255,255,255,${p.alpha})`;
+      ctx.shadowColor = "#00c6ff";
+      ctx.shadowBlur = 8;
+      ctx.fill();
+      p.x += p.dx;
+      p.y += p.dy;
+      if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
+      if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+    }
+    requestAnimationFrame(draw);
+  }
+  draw();
+}
+</script>
