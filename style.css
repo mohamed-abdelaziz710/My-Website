@@ -419,11 +419,6 @@ nav ul.nav-links a.active::after {
 }
 
 /* --- Special Micro Background Animations: Quantum Matrix & Aurora Trails --- */
-body::before, body::after {
-  /* Remove old micro-bg lines */
-  display: none !important;
-}
-
 #micro-bg-anim {
   position: fixed;
   inset: 0;
@@ -1219,60 +1214,6 @@ body::after {
   0% { background-position-y: 0; }
   100% { background-position-y: 200px; }
 }
-
-/* Micro floating dots */
-.micro-dot {
-  position: fixed;
-  border-radius: 50%;
-  pointer-events: none;
-  opacity: 0.12;
-  z-index: 0;
-  animation: micro-dot-float 10s linear infinite;
-  background: var(--primary-accent);
-}
-@keyframes micro-dot-float {
-  0% { transform: translateY(0) scale(1); opacity: 0.12; }
-  50% { opacity: 0.22; }
-  100% { transform: translateY(-60px) scale(1.2); opacity: 0.12; }
-}
-
-/* --- More Micro Background Animations --- */
-@keyframes micro-orbital {
-  0% { transform: translate(0,0) scale(1) rotate(0deg); opacity: 0.18; }
-  40% { opacity: 0.28; }
-  100% { transform: translate(40vw, 60vh) scale(1.3) rotate(360deg); opacity: 0.18; }
-}
-
-.micro-orb {
-  position: fixed;
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 0;
-  opacity: 0.18;
-  background: radial-gradient(circle, var(--primary-accent) 0%, transparent 80%);
-  animation: micro-orbital 22s linear infinite;
-  filter: blur(2px);
-}
-
-@keyframes micro-pulse {
-  0%, 100% { opacity: 0.10; box-shadow: 0 0 12px 2px var(--primary-accent); }
-  50% { opacity: 0.22; box-shadow: 0 0 32px 8px var(--primary-accent); }
-}
-
-.micro-pulse-dot {
-  position: fixed;
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 0;
-  width: 18px;
-  height: 18px;
-  background: var(--primary-accent);
-  opacity: 0.13;
-  animation: micro-pulse 6s ease-in-out infinite;
-  filter: blur(1.5px);
-}
-
-/* Example: Add .micro-orb and .micro-pulse-dot via JS for more dynamic animated background elements */
 
 /* --- Animations --- */
 /* Reusing pulse-core for general pulse */
