@@ -811,51 +811,6 @@ footer {
   }
 }
 
-/* Badges styles */
-.badges {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin: 18px 0 0 0;
-  justify-content: flex-start;
-}
-
-.badge {
-  display: inline-flex;
-  align-items: center;
-  background: var(--card-bg);
-  color: var(--neon-green);
-  font-family: 'DM Sans', sans-serif;
-  font-size: 1rem;
-  padding: 7px 16px;
-  border-radius: 18px;
-  margin: 2px 0;
-  border: 1.5px solid var(--neon-green);
-  box-shadow: 0 1px 8px #39FF1422;
-  font-weight: 500;
-  letter-spacing: 0.02em;
-  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
-}
-
-.badge i {
-  margin-right: 8px;
-  color: #39FF14;
-  font-size: 1.2em;
-  vertical-align: middle;
-}
-
-.badge:hover, .badge:focus {
-  background: var(--hover-color);
-  color: #fff;
-  box-shadow: 0 2px 12px var(--neon-green);
-  outline: none;
-}
-
-.badge:hover i,
-.badge:focus i {
-  color: #fff;
-}
-
 /* Chat bubble */
 .chat-bubble {
     position: fixed;
@@ -1005,53 +960,6 @@ footer {
     background-color: #baff7a;
 }
 
-/* Animation for elements */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.card.animate {
-    animation: fadeInUp 0.5s ease forwards;
-}
-
-/* Glow effect for neon elements */
-.neon-glow {
-    text-shadow: 0 0 5px var(--neon-green), 0 0 10px var(--neon-green);
-}
-
-/* Custom scrollbar */
-::-webkit-scrollbar {
-    width: 10px;
-}
-
-::-webkit-scrollbar-track {
-    background: var(--dark-bg);
-}
-
-::-webkit-scrollbar-thumb {
-    background: var(--card-bg);
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: var(--neon-green);
-}
-
-/* Responsive design */
-@media (max-width: 992px) {
-    .skills-container,
-    .certifications-container,
-    .projects-container {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
 /* Responsive design */
 @media (max-width: 768px) {
     nav ul.nav-links {
@@ -1160,79 +1068,6 @@ footer {
         height: 70%;
         bottom: 15px;
         right: 15px;
-    }
-}
-
-@media (max-width: 600px) {
-    .badges {
-        gap: 8px;
-        justify-content: center;
-    }
-    
-    .badge {
-        font-size: 0.9rem;
-        padding: 5px 12px;
-    }
-    
-    .profile-header {
-        height: 250px;
-    }
-    
-    .profile-image {
-        width: 100px;
-        height: 100px;
-        bottom: 60px;
-        left: 20px;
-    }
-    
-    .chat-bubble {
-        bottom: 15px;
-        right: 15px;
-        width: 50px;
-        height: 50px;
-    }
-    
-    .chat-window {
-        width: 85%;
-        height: 70vh;
-        bottom: 80px;
-        right: 10px;
-    }
-    
-    .chat-header {
-        padding: 10px;
-    }
-    
-    .chat-input {
-        padding: 10px;
-    }
-    
-    .chat-input input {
-        padding: 8px 12px;
-    }
-    
-    .chat-input button {
-        width: 35px;
-        height: 35px;
-    }
-    
-    .hero-btn {
-        padding: 10px 20px;
-        font-size: 0.9rem;
-    }
-    
-    .timeline::before {
-        left: 15px;
-    }
-    
-    .timeline-item {
-        padding-left: 40px;
-    }
-    
-    .timeline-dot {
-        left: 7px;
-        width: 14px;
-        height: 14px;
     }
 }
 
