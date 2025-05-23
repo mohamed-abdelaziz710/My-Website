@@ -287,5 +287,16 @@
         <a href="https://github.com/mohamed-abdelaziz710" target="_blank" class="contact-btn"><i class="fab fa-github"></i> GitHub</a>
       </div>
     </section>
+
+    <!-- Force all main sections visible if JS fails -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('.scroll-animate').forEach(function(el) {
+          el.classList.add('visible');
+        });
+      });
+    </script>
+    <!-- Place this script at the end of body as well for normal JS -->
+    <script src="script.js"></script>
 </body>
 </html>
