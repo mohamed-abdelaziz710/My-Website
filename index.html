@@ -17,6 +17,14 @@
 <body>
     <!-- Header Section with Navigation and Social Media Icons -->
     <header>
+      <div style="display: flex; justify-content: flex-end; align-items: center; padding: 10px 24px 0 24px; background: transparent;">
+        <div class="header-social-icons">
+          <a href="https://www.linkedin.com/in/amrikyy" target="_blank" aria-label="LinkedIn" class="header-social-link"><i class="fab fa-linkedin"></i></a>
+          <a href="https://github.com/mohamed-abdelaziz710" target="_blank" aria-label="GitHub" class="header-social-link"><i class="fab fa-github"></i></a>
+          <a href="mailto:amrikyy@gmail.com" aria-label="Email" class="header-social-link"><i class="fas fa-envelope"></i></a>
+          <a href="https://twitter.com/amrikyy" target="_blank" aria-label="Twitter" class="header-social-link"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
       <nav>
         <div class="logo">Mohamed Abdelaziz</div>
         <ul class="nav-links">
@@ -25,18 +33,12 @@
           <li><a href="#projects" data-translate="nav-projects">Projects</a></li>
           <li><a href="#contact" data-translate="nav-contact">Contact</a></li>
         </ul>
-        <div class="header-social-icons">
-          <a href="https://www.linkedin.com/in/amrikyy" target="_blank" aria-label="LinkedIn" class="header-social-link"><i class="fab fa-linkedin"></i></a>
-          <a href="https://github.com/mohamed-abdelaziz710" target="_blank" aria-label="GitHub" class="header-social-link"><i class="fab fa-github"></i></a>
-          <a href="mailto:amrikyy@gmail.com" aria-label="Email" class="header-social-link"><i class="fas fa-envelope"></i></a>
-          <a href="https://twitter.com/amrikyy" target="_blank" aria-label="Twitter" class="header-social-link"><i class="fab fa-twitter"></i></a>
-        </div>
       </nav>
     </header>
     
     <!-- Enhanced About Section with Spaceship UI/UX Theme -->
-    <section id="about" class="container">
-      <div class="profile-card card scroll-animate">
+    <section id="about" class="container" style="margin-top: 40px; margin-bottom: 40px;">
+      <div class="profile-card card scroll-animate visible">
         <!-- Enhanced Profile Header with Holographic Effect -->
         <div class="profile-header">
           <!-- Animated Background Elements -->
@@ -150,7 +152,7 @@
     
     <!-- Enhanced Badges Section with Spaceship UI Elements -->
     <!-- Note: Unique ID 'badges' for navigation -->
-    <section id="badges" class="badges-container container">
+    <section id="badges" class="badges-container container card scroll-animate visible" style="margin-bottom: 40px;">
       <div class="badges-header">
         <div class="heading-indicator"></div>
         <h3>Credentials</h3>
@@ -186,7 +188,7 @@
     </section>
     
     <!-- Skills Section -->
-    <section id="skills" class="skills-container container card scroll-animate">
+    <section id="skills" class="skills-container container card scroll-animate visible" style="margin-bottom: 40px;">
       <h2>Skills</h2>
       <div class="skills-container">
         <div class="skill-category">
@@ -229,7 +231,7 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="projects-container container card scroll-animate">
+    <section id="projects" class="projects-container container card scroll-animate visible" style="margin-bottom: 40px;">
       <h2>Projects</h2>
       <div class="projects-container">
         <div class="project-item">
@@ -273,7 +275,7 @@
     
     <!-- Enhanced Contact Section with Modern UI Elements -->
     <!-- Note: Unique ID 'contact' for navigation -->
-    <section id="contact" class="contact-info container card scroll-animate">
+    <section id="contact" class="contact-info container card scroll-animate visible" style="margin-bottom: 40px;">
       <h2 data-translate="contact-title">Contact</h2>
       <!-- Contact emails -->
       <p><i class="fas fa-envelope"></i> amrikyy@gmail.com</p>
