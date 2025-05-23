@@ -1273,5 +1273,32 @@ footer.site-footer {
     width: 55px;
     height: 55px;
   }
+
+  .header-social-icons {
+    margin-left: 0;
+    gap: 12px;
+  }
+  .header-social-link {
+    font-size: 1.1em;
+  }
+}
+.header-social-icons {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  margin-left: 18px;
+}
+.header-social-link {
+  color: var(--primary-accent);
+  font-size: 1.35em;
+  transition: color 0.2s, transform 0.2s, text-shadow 0.2s;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+.header-social-link:hover {
+  color: var(--secondary-accent);
+  transform: scale(1.18) rotate(-8deg);
+  text-shadow: 0 0 8px var(--shadow-color);
 }
 
