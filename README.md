@@ -259,11 +259,11 @@ See `style.css` for implementation and utility classes.
   - Alter colors, stretch, or add effects to the logo.
   - Place on backgrounds with insufficient contrast.
 
-**Iconography**
+### Iconography
 
 - **Library:** Font Awesome 6 (include via CDN or kit)
 - **Usage:**
-  - Use <i class="fa-solid fa-gear" aria-hidden="true"></i> for UI actions (solid style, e.g. buttons, navigation)
+  - Use `&lt;i class="fa-solid fa-gear" aria-hidden="true"&gt;&lt;/i&gt;` for UI actions (solid style, e.g. buttons, navigation)
   - Use <i class="fa-brands fa-github" aria-label="GitHub"></i> for social/vendor logos (brands style)
   - Prefer solid (fa-solid/fas) for most UI icons; use brands (fa-brands/fab) only for social/vendor
   - Provide descriptive `aria-label` for icons conveying information; use `aria-hidden="true"` for decorative icons
