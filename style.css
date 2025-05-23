@@ -395,19 +395,109 @@ nav a:hover {
   }
 }
 
+/* Cybersecurity and cryptocurrency-themed animations */
+.profile-header::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCI+CiAgPHBhdGggZD0iTTUwIDBMNjAgMjBIMzBMMzAgNDBIMjIwTDEwIDMwTDEwIDQwSDUwTDYwIDYwSDUwTDYwIDQwSDUwTDYwIDIwSDUwTDUwIDBaIiBmaWxsPSIjMzlGRjE0Ii8+CiAgPHBhdGggZD0iTTUwIDBMNjAgMjBIMzBMMzAgNDBIMjBMMzAgNjBIMzBMMzAgODBIMzBMMzAgMTAwSDUwTDUwIDgwSDUwTDYwIDYwSDUwTDYwIDQwSDUwTDYwIDIwSDUwTDUwIDBaIiBzdHJva2U9IiMzOUZGMTQiIHN0cm9rZS13aWR0aD0iMiIvPgo8L3N2Zz4=') center/contain no-repeat;
+  opacity: 0.1;
+  animation: rotate-cyber 12s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes rotate-cyber {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Bitcoin and crypto icons */
+.profile-header .crypto-icons {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  gap: 20px;
+  opacity: 0.8;
+}
+
+.profile-header .crypto-icons i {
+  font-size: 2rem;
+  color: #39ff14;
+  animation: pulse-crypto 3s infinite;
+}
+
+@keyframes pulse-crypto {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
+/* Profile image glowing effect */
 .profile-image {
-    width: 120px;
-    height: 120px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 3px solid #39FF14;
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #39FF14;
+  box-shadow: 0 0 10px #39FF1444;
+  margin-bottom: 12px;
+  position: absolute;
+  bottom: 70px;
+  left: 30px;
+  z-index: 2;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: pulse-glow 2.5s infinite;
+}
+
+@keyframes pulse-glow {
+  0% {
     box-shadow: 0 0 10px #39FF1444;
-    margin-bottom: 12px;
-    position: absolute;
-    bottom: 70px;
-    left: 30px;
-    z-index: 2;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  50% {
+    box-shadow: 0 0 20px #39FF14;
+  }
+  100% {
+    box-shadow: 0 0 10px #39FF1444;
+  }
+}
+
+/* Subtle particle effect in profile header */
+.profile-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(57, 255, 20, 0.2) 0%, transparent 70%);
+  animation: particle-move 8s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes particle-move {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
 }
 
 .profile-card:hover .profile-image {
