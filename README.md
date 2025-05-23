@@ -14,7 +14,23 @@
   - [GitHub](https://github.com/yourusername)
   - [Twitter/X](https://twitter.com/yourhandle)
   - [Facebook](https://web.facebook.com/Hamood.Amriky0/)
+  - [Instagram](https://www.instagram.com/amrikyy?igsh=bzhlOHRycTN4bDAz&utm_source=qr)
+  - [TikTok](https://www.tiktok.com/@moecrypto710?_t=ZT-8wbeZ0H9A1z&_r=1)
+  - [Snapchat](https://snapchat.com/t/M9sQbCZu)
   - [Other](#)
+
+### Skills
+
+- Web Development: HTML, CSS, React, Angular
+- Web Design: HTML, CSS, Sketch, Figma
+- chatGPT
+- Google Drive
+- Brainstorming
+- Build AI agents
+- Python
+- Azure
+- Firebase
+- Amadeus Selling Platform
 
 ---
 

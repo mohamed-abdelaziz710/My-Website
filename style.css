@@ -388,6 +388,43 @@ nav ul.nav-links a.active::after {
   opacity: 1;
 }
 
+/* --- Card Placement Refinement --- */
+.card {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  max-width: 900px;
+  margin-top: 32px;
+  margin-bottom: 32px;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1;
+}
+
+/* Remove double margin if .card is inside .container */
+.container > .card:first-child {
+  margin-top: 0;
+}
+.container > .card:last-child {
+  margin-bottom: 0;
+}
+
+/* Ensure .card does not overlap with section borders */
+.container, .card {
+  background-clip: padding-box;
+}
+
+/* Responsive: Card width and spacing on mobile */
+@media (max-width: 900px) {
+  .card {
+    max-width: 99vw;
+    margin-left: 1vw;
+    margin-right: 1vw;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}
+
 /* --- Profile Card (About Section) --- */
 .profile-card {
   padding: 0; /* Remove default padding */
