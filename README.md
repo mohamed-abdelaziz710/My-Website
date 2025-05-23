@@ -34,6 +34,7 @@
 - Azure
 - Firebase
 - Amadeus Selling Platform
+
 ## Experience
 
 - **Cybersecurity Engineer**  
@@ -200,7 +201,7 @@ body, p, a, span {
 - Black: #000000 (deep backgrounds)
 - Neon Purple: #9A16E5 (secondary accent, for highlights)
 
-**Color Palette**
+### Color Palette
 
 - **Black:** `#000000` (primary background)
 - **White:** `#FFFFFF` (main text, card backgrounds)
@@ -280,7 +281,7 @@ See `style.css` for implementation and utility classes.
 - **Library:** Font Awesome 6 (include via CDN or kit)
 - **Usage:**
   - Use `&lt;i class="fa-solid fa-gear" aria-hidden="true"&gt;&lt;/i&gt;` for UI actions (solid style, e.g. buttons, navigation)
-  - Use <i class="fa-brands fa-github" aria-label="GitHub"></i> for social/vendor logos (brands style)
+  - Use ``<i class="fa-brands fa-github" aria-label="GitHub"></i>`` for social/vendor logos (brands style)
   - Prefer solid (fa-solid/fas) for most UI icons; use brands (fa-brands/fab) only for social/vendor
   - Provide descriptive `aria-label` for icons conveying information; use `aria-hidden="true"` for decorative icons
   - Maintain consistent icon size (e.g. `fa-lg`, `fa-2x` or CSS)
@@ -395,7 +396,7 @@ See `style.css` for implementation and utility classes.
 }
 ```
 
-**Components: Cards, Badges, Projects**
+### Components: Cards, Badges, Projects
 
 - **Cards:**
   - Use the `.card` class for reusable content blocks (projects, blog posts, etc).
@@ -482,11 +483,13 @@ See `style.css` and markup for implementation details.
 - Do not animate offscreen or hidden elements; pause or remove animations when not visible.
 - Avoid animating expensive CSS properties (e.g. `box-shadow`, `filter`, `blur`) as they can degrade performance.
 - Always provide a fallback for users who prefer reduced motion:
+
   ```css
   @media (prefers-reduced-motion: reduce) {
     .animated-element { transition: none !important; animation: none !important; }
   }
   ```
+
 - If using GSAP or Framer Motion, keep animations subtle (fade-ins, gentle slides, micro-interactions), limit duration (200–500ms), and use `ease-in-out` easing.
 - Test performance in multiple browsers and devices.
 
