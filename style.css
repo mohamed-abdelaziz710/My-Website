@@ -359,38 +359,124 @@ nav ul.nav-links a.active::after {
 /* --- General Card/Panel Styling --- */
 .card, .panel /* Unified panel style */
 {
-  background-color: var(--card-bg);
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  padding: 25px 30px; /* Increased padding */
-  margin: 30px 0;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2), inset 0 0 10px rgba(16, 21, 31, 0.5);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  background: linear-gradient(135deg, rgba(57,255,20,0.08) 0%, rgba(16,21,31,0.95) 100%);
+  box-shadow: 0 8px 40px 0 rgba(57,255,20,0.10), 0 0 32px var(--shadow-color), 0 0 0 2px rgba(255,255,255,0.03) inset;
+  border: 2.5px solid transparent;
+  border-radius: 18px;
+  overflow: visible;
   position: relative;
-  overflow: hidden;
-  /* Add subtle top glow */
 }
 
-.card::before, .panel::before {
+.card::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, var(--primary-accent), transparent);
+  inset: -3px;
+  border-radius: 22px;
+  pointer-events: none;
+  z-index: 2;
+  background: conic-gradient(from 0deg, #39ff14 0%, #fff 30%, #39ff14 60%, transparent 100%);
+  filter: blur(4px) brightness(1.5);
   opacity: 0.7;
-  transition: opacity 0.3s ease;
+  animation: fractal-border-spin 7s linear infinite;
 }
 
-.card:hover, .panel:hover {
-  transform: translateY(-5px) scale(1.01);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3), 0 0 15px var(--shadow-color), inset 0 0 10px rgba(16, 21, 31, 0.5);
-  border-color: var(--primary-accent);
+@keyframes fractal-border-spin {
+  0% { filter: blur(4px) brightness(1.5); transform: rotate(0deg); }
+  100% { filter: blur(8px) brightness(2.2); transform: rotate(360deg); }
 }
 
-.card:hover::before, .panel:hover::before {
-  opacity: 1;
+.card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  background: linear-gradient(120deg, rgba(255,255,255,0.08) 0%, rgba(57,255,20,0.04) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.card:hover {
+  box-shadow: 0 12px 48px 0 #39ff14, 0 0 32px 8px #fff, 0 0 0 4px #39ff14 inset;
+  background: linear-gradient(120deg, rgba(57,255,20,0.18) 0%, rgba(16,21,31,0.98) 100%);
+  filter: brightness(1.08) saturate(1.2);
+}
+
+.card .holo-glow {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  border-radius: 18px;
+  pointer-events: none;
+  z-index: 3;
+  background: radial-gradient(circle at 60% 40%, #39ff14 0%, transparent 70%);
+  opacity: 0.13;
+  filter: blur(12px);
+  animation: holo-glow-pulse 3.5s infinite alternate;
+}
+
+@keyframes holo-glow-pulse {
+  0% { opacity: 0.13; }
+  100% { opacity: 0.22; }
+}
+
+/* --- Special Micro Background Animations: Quantum Matrix & Aurora Trails --- */
+body::before, body::after {
+  /* Remove old micro-bg lines */
+  display: none !important;
+}
+
+#micro-bg-anim {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* Quantum Matrix: Animated hex-grid with glowing nodes */
+.quantum-hex {
+  position: absolute;
+  width: 80px;
+  height: 92px;
+  opacity: 0.13;
+  pointer-events: none;
+  animation: quantum-hex-move 18s linear infinite;
+  filter: blur(0.5px) brightness(1.2);
+}
+.quantum-hex .hex-node {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: radial-gradient(circle, var(--primary-accent) 0%, transparent 80%);
+  border-radius: 50%;
+  box-shadow: 0 0 16px 4px var(--primary-accent), 0 0 2px 1px #fff;
+  animation: quantum-node-pulse 2.5s infinite alternate;
+}
+@keyframes quantum-hex-move {
+  0% { transform: translateY(0) scale(1) rotate(0deg); }
+  100% { transform: translateY(-60px) scale(1.08) rotate(180deg); }
+}
+@keyframes quantum-node-pulse {
+  0% { opacity: 0.7; box-shadow: 0 0 8px 2px var(--primary-accent); }
+  100% { opacity: 1; box-shadow: 0 0 24px 8px var(--primary-accent), 0 0 4px 2px #fff; }
+}
+
+/* Aurora Trails: flowing, color-shifting neon ribbons */
+.aurora-trail {
+  position: absolute;
+  width: 220px;
+  height: 32px;
+  background: linear-gradient(120deg, #39ff14 0%, #fff 60%, #39ff14 100%);
+  opacity: 0.09;
+  border-radius: 32px;
+  filter: blur(8px) brightness(1.5);
+  animation: aurora-trail-flow 14s linear infinite;
+  mix-blend-mode: lighten;
+}
+@keyframes aurora-trail-flow {
+  0% { transform: translateX(-10vw) scaleX(1) skewY(0deg); opacity: 0.12; }
+  40% { opacity: 0.22; }
+  60% { filter: blur(16px) brightness(2.2); }
+  100% { transform: translateX(110vw) scaleX(1.2) skewY(8deg); opacity: 0.10; }
 }
 
 /* --- Profile Card (About Section) --- */

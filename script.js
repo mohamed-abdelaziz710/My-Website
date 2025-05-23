@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
   initParticles(); // Updated particle configuration
   initHeroEffects(); // Added effects for hero section
   initHoverEffects(); // Added subtle hover effects
+  createQuantumMatrix(); // New quantum matrix animation
 });
 
 // 1. Enhanced Scroll Animations
@@ -591,6 +592,43 @@ function initParticles() {
     retina_detect: true,
   });
 }
+
+// Quantum Matrix & Aurora Trails micro-animations
+function createQuantumMatrix() {
+  const container = document.getElementById('micro-bg-anim');
+  if (!container) return;
+  // Quantum hex grid
+  for (let i = 0; i < 7; i++) {
+    const hex = document.createElement('div');
+    hex.className = 'quantum-hex';
+    hex.style.left = Math.random() * 100 + 'vw';
+    hex.style.top = Math.random() * 100 + 'vh';
+    hex.style.animationDuration = (14 + Math.random() * 8) + 's';
+    // Place 6 nodes in a hex pattern
+    for (let j = 0; j < 6; j++) {
+      const node = document.createElement('div');
+      node.className = 'hex-node';
+      const angle = (Math.PI / 3) * j;
+      node.style.left = 34 + 28 * Math.cos(angle) + 'px';
+      node.style.top = 40 + 32 * Math.sin(angle) + 'px';
+      node.style.animationDelay = (Math.random() * 2) + 's';
+      hex.appendChild(node);
+    }
+    container.appendChild(hex);
+  }
+  // Aurora trails
+  for (let i = 0; i < 3; i++) {
+    const trail = document.createElement('div');
+    trail.className = 'aurora-trail';
+    trail.style.top = Math.random() * 100 + 'vh';
+    trail.style.left = (-20 + Math.random() * 20) + 'vw';
+    trail.style.animationDuration = (10 + Math.random() * 8) + 's';
+    trail.style.animationDelay = (Math.random() * 8) + 's';
+    container.appendChild(trail);
+  }
+}
+
+document.addEventListener('DOMContentLoaded', createQuantumMatrix);
 
 // Add CSS for chat window transition and message animation
 const styleSheet = document.createElement("style");
