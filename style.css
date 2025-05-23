@@ -6,16 +6,16 @@ Based on the original style.css and the spaceship concept.
 /* --- Core Variables --- */
 :root {
   /* Spaceship UI Theme Colors */
-  --dark-bg: #0A0F1A; /* Deep space blue/black */
+  --dark-bg: #0A0F1A; /* Deep space black/dark gray */
   --darker-bg: #050A15; /* Even darker for depth */
-  --card-bg: #10151F; /* Panel/Card background */
-  --primary-accent: #21E6C1; /* Electric Cyan */
-  --secondary-accent: #9A16E5; /* Neon Purple */
-  --tertiary-accent: #FFA500; /* Tech Orange (optional) */
-  --text-color: #E0E0E0; /* Light grey/off-white */
-  --border-color: rgba(33, 230, 193, 0.5); /* Semi-transparent cyan */
+  --card-bg: #10151F; /* Main dark gray for cards */
+  --primary-accent: #21E6C1; /* Neon Green */
+  --secondary-accent: #9A16E5; /* Neon Purple (for accent only) */
+  --tertiary-accent: #FFA500; /* Optional accent */
+  --text-color: #FFFFFF; /* White for main text */
+  --border-color: rgba(33, 230, 193, 0.5); /* Neon green border */
   --hover-color: #1A2030; /* Slightly lighter dark for hover */
-  --shadow-color: rgba(33, 230, 193, 0.3); /* Cyan shadow */
+  --shadow-color: rgba(33, 230, 193, 0.3); /* Neon green shadow */
 
   /* Fonts */
   --font-primary: 'Exo 2', 'Roboto', sans-serif;
@@ -23,14 +23,32 @@ Based on the original style.css and the spaceship concept.
 }
 
 /* --- Base Styles --- */
-body {
+body, html {
   margin: 0;
   padding: 0;
-  background-color: var(--dark-bg);
+  font-family: 'Exo 2', 'Roboto', sans-serif;
+  font-size: 1rem;
+  letter-spacing: 0.01em;
   color: var(--text-color);
-  font-family: var(--font-primary);
-  overflow-x: hidden;
-  line-height: 1.6;
+  background-color: var(--dark-bg);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px; /* Increased padding */
+  margin-top: 48px;
+  margin-bottom: 48px;
+}
+
+/* Center all main content sections horizontally */
+.badges-container,
+.skills-container,
+.projects-container,
+.contact-info {
+  margin-left: auto;
+  margin-right: auto;
+  /* Already has max-width, so this will center */
 }
 
 /* --- Font Imports --- */
@@ -38,12 +56,12 @@ body {
 
 /* --- Headings & Text --- */
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-primary);
-  color: var(--primary-accent);
+  font-family: 'Exo 2', 'Roboto', sans-serif;
   font-weight: 600;
-  margin: 10px 0;
+  color: var(--primary-accent);
+  letter-spacing: 0.04em;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  margin: 10px 0;
 }
 
 h1 {
@@ -76,25 +94,6 @@ code, .monospace {
 .highlight-alt {
   color: var(--secondary-accent);
   font-weight: bold;
-}
-
-/* --- Layout & Container --- */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 40px 20px; /* Increased padding */
-  margin-top: 48px;
-  margin-bottom: 48px;
-}
-
-/* Center all main content sections horizontally */
-.badges-container,
-.skills-container,
-.projects-container,
-.contact-info {
-  margin-left: auto;
-  margin-right: auto;
-  /* Already has max-width, so this will center */
 }
 
 /* --- Navigation --- */
@@ -352,40 +351,13 @@ nav ul.nav-links a.active::after {
 }
 
 /* --- General Card/Panel Styling --- */
-.card, .panel /* Unified panel style */
-{
+.card, .panel, .projects-container, .skills-container, .badges-container, .contact-info {
+  border-radius: 12px;
+  box-shadow: 0 5px 18px rgba(33,230,193,0.10), 0 0 10px var(--shadow-color);
+  padding: 32px 28px;
   background-color: var(--card-bg);
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  padding: 25px 30px; /* Increased padding */
-  margin: 30px 0;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2), inset 0 0 10px rgba(16, 21, 31, 0.5);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-  position: relative;
-  overflow: hidden;
-  /* Add subtle top glow */
-}
-
-.card::before, .panel::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, var(--primary-accent), transparent);
-  opacity: 0.7;
-  transition: opacity 0.3s ease;
-}
-
-.card:hover, .panel:hover {
-  transform: translateY(-5px) scale(1.01);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3), 0 0 15px var(--shadow-color), inset 0 0 10px rgba(16, 21, 31, 0.5);
-  border-color: var(--primary-accent);
-}
-
-.card:hover::before, .panel:hover::before {
-  opacity: 1;
+  color: var(--text-color);
+  margin-bottom: 40px;
 }
 
 /* --- Card Placement Refinement --- */
@@ -462,14 +434,14 @@ nav ul.nav-links a.active::after {
 }
 
 .profile-image {
-  width: 100px; /* Adjusted size */
-  height: 100px;
+  width: 160px; /* Increased size */
+  height: 160px;
   object-fit: cover;
   border-radius: 50%;
-  border: 3px solid var(--primary-accent);
-  box-shadow: 0 0 15px var(--shadow-color);
-  margin-bottom: 15px;
-  transition: transform .3s ease, box-shadow .3s ease;
+  border: 4px solid var(--primary-accent);
+  box-shadow: 0 0 32px 8px var(--primary-accent), 0 0 0 8px var(--card-bg);
+  margin-bottom: 10px;
+  transition: box-shadow 0.3s;
   /* Position adjusted */
   position: relative; 
   margin-top: -60px; /* Overlap header */
@@ -477,9 +449,8 @@ nav ul.nav-links a.active::after {
   z-index: 2;
 }
 
-.profile-card:hover .profile-image {
-  box-shadow: 0 0 25px var(--primary-accent);
-  transform: scale(1.05);
+.profile-image:hover {
+  box-shadow: 0 0 48px 12px var(--primary-accent), 0 0 0 8px var(--card-bg);
 }
 
 .profile-title-container { /* New container for title/subtitle */
@@ -957,31 +928,37 @@ footer.site-footer {
 /* --- Chat Bubble & Window --- */
 .chat-bubble {
   position: fixed;
-  bottom: 30px;
-  right: 30px;
-  width: 60px;
-  height: 60px;
-  background-color: var(--primary-accent);
+  bottom: 32px;
+  right: 32px;
+  width: 68px;
+  height: 68px;
+  background: linear-gradient(135deg, var(--primary-accent) 60%, var(--secondary-accent) 100%);
   border-radius: 50%;
+  box-shadow: 0 0 32px 8px var(--primary-accent), 0 0 0 8px var(--dark-bg);
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   cursor: pointer;
-  box-shadow: 0 4px 15px rgba(0,0,0,.3), 0 0 15px var(--shadow-color);
-  z-index: 1000;
-  transition: transform .3s ease, box-shadow .3s ease, background-color 0.3s ease;
-  border: 2px solid var(--dark-bg);
+  z-index: 1002;
+  transition: box-shadow 0.3s, transform 0.2s;
+  animation: bubblePulse 1.5s infinite alternate;
 }
 
 .chat-bubble:hover {
-  transform: scale(1.1);
-  box-shadow: 0 6px 20px rgba(0,0,0,.4), 0 0 20px var(--shadow-color);
-  background-color: var(--secondary-accent);
+  box-shadow: 0 0 48px 16px var(--secondary-accent), 0 0 0 8px var(--dark-bg);
+  transform: scale(1.08) rotate(-6deg);
 }
 
 .chat-bubble i {
-  font-size: 24px;
-  color: var(--dark-bg);
+  font-size: 2.5em;
+  color: #fff;
+  text-shadow: 0 0 16px var(--primary-accent), 0 0 8px var(--secondary-accent);
+  filter: drop-shadow(0 0 8px var(--primary-accent));
+}
+
+@keyframes bubblePulse {
+  0% { box-shadow: 0 0 32px 8px var(--primary-accent), 0 0 0 8px var(--dark-bg); }
+  100% { box-shadow: 0 0 48px 16px var(--secondary-accent), 0 0 0 8px var(--dark-bg); }
 }
 
 .chat-window {

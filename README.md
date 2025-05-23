@@ -125,4 +125,31 @@ This project is a modern, high-impact personal portfolio website for Mohamed Abd
 
 ---
 
+## Brand Style
+
+**Font Family:**
+- Exo 2, Roboto, sans-serif (primary)
+- Roboto Mono, monospace (secondary)
+
+**Writing Style:**
+- Modern, concise, and professional
+- Use clear section headings and bullet points
+- Consistent capitalization and spacing
+- Focus on clarity and visual hierarchy
+
+**Box Model:**
+- Use consistent padding and margin for all cards and containers
+- Border radius: 8px–14px for cards and buttons
+- Subtle box-shadow for depth
+- Responsive grid for sections (skills, projects, badges)
+
+**Brand Colors:**
+- Neon Green: #21E6C1 (primary accent)
+- Dark Gray: #10151F, #0A0F1A, #050A15 (backgrounds)
+- White: #FFFFFF (main text)
+- Black: #000000 (deep backgrounds)
+- Neon Purple: #9A16E5 (secondary accent, for highlights)
+
+These styles and colors are applied throughout the site for a cohesive, modern, and visually striking look.
+
 For questions or collaboration, contact [amrikyy@gmail.com](mailto:amrikyy@gmail.com) or connect via LinkedIn.
