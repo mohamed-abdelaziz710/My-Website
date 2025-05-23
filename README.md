@@ -9,7 +9,7 @@
 - **Tagline:** e.g. "Full Stack Developer | Space Enthusiast"
 - **Profile Image:** `profile.jpg` (replace with your own image if desired)
 - **Location:** e.g. "San Francisco, CA, USA"
-- **Email:** amrikyy@email.com
+- **Email:** <amrikyy@email.com>
 - **Social Links:**
   - [LinkedIn](https://www.linkedin.com/in/yourprofile)
   - [GitHub](https://github.com/yourusername)
