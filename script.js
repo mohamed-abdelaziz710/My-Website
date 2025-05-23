@@ -328,45 +328,145 @@ function initMobileMenu() {
 }
 
 // 6. Language Toggle Functionality (Keep existing logic, UI improved via CSS)
+function updateLanguageContent(lang) {
+  const translations = {
+    en: {
+      "nav-about": "About",
+      "nav-skills": "Skills",
+      "nav-projects": "Projects",
+      "nav-contact": "Contact",
+      "hero-title": "Mohamed Abdelaziz",
+      "hero-subtitle": "Cybersecurity Engineer & AI Innovator",
+      "hero-description": "Securing the digital frontier with innovative AI solutions",
+      "hero-btn": "Contact Me",
+      "profile-title": "Mohamed Abdelaziz",
+      "profile-subtitle-1": "Cybersecurity Engineer",
+      "profile-subtitle-2": "AI Innovator",
+      "tagline": "Cybersecurity Strategist. AI Innovator. Driven by Vision.",
+      "about-p1": "Egyptian American, 26 years old, specializing in Cybersecurity and Artificial Intelligence. Currently living in Cairo, Egypt. Will graduate in May 2026 as a Cybersecurity Engineer, looking forward to contributing to the development of innovative security solutions using AI technologies.",
+      "about-p2": "Currently writing a book called \"CodeX\" about quantum computing and AI integration and cryptocurrency.",
+      "badge-1": "Cybersecurity Engineer",
+      "badge-2": "AI Tools Builder",
+      "badge-3": "KSU \'26 – Cybersecurity Student",
+      "badge-4": "Multilingual: AR / EN",
+      "badge-5": "Replit Dev",
+      "badge-6": "Based in Cairo – Global Reach",
+      "skills-title": "Skills Matrix", // Updated title
+      "certifications-title": "Certifications",
+      "experience-title": "Experience Log", // Updated title
+      "education-title": "Education Record", // Updated title
+      "projects-title": "Projects Log", // Updated title
+      "contact-title": "Contact Comms", // Updated title
+      "chat-header": "SPACE COMMS v1.0", // Updated title
+      "chat-msg1": "Hello! I'm Mohamed's AI assistant. Welcome to the command center!",
+      "chat-msg2": "How can I assist you regarding cybersecurity, AI, or Mohamed's work?",
+      "chat-input": "Transmit message...", // Updated placeholder
+      "footer-name": `© ${new Date().getFullYear()} Mohamed Abdelaziz`, // Dynamic year
+      "footer-role": "Cybersecurity Engineer & AI Innovator",
+      "footer-signature": "Amrikyy",
+    },
+    ar: {
+      "nav-about": "نبذة عني",
+      "nav-skills": "المهارات",
+      "nav-projects": "المشاريع",
+      "nav-contact": "تواصل",
+      "hero-title": "محمد عبد العزيز",
+      "hero-subtitle": "مهندس أمن سيبراني ومبتكر ذكاء اصطناعي",
+      "hero-description": "تأمين المستقبل الرقمي بحلول ذكاء اصطناعي مبتكرة",
+      "hero-btn": "تواصل معي",
+      "profile-title": "محمد عبد العزيز",
+      "profile-subtitle-1": "مهندس أمن سيبراني",
+      "profile-subtitle-2": "مبتكر ذكاء اصطناعي",
+      "tagline": "استراتيجي أمن سيبراني. مبتكر ذكاء اصطناعي. رؤية للمستقبل.",
+      "about-p1": "مصري أمريكي، أعيش في القاهرة. متخصص في الأمن السيبراني والذكاء الاصطناعي. سأتخرج في مايو 2026 كمهندس أمن سيبراني وأسعى لتطوير حلول أمنية مبتكرة.",
+      "about-p2": "أعمل حالياً على تأليف كتاب \"CodeX\" حول الذكاء الاصطناعي والحوسبة والعملات الرقمية.",
+      "badge-1": "مهندس أمن سيبراني",
+      "badge-2": "مطور أدوات الذكاء الاصطناعي",
+      "badge-3": "طالب أمن سيبراني - KSU '26",
+      "badge-4": "يتحدث العربية والإنجليزية",
+      "badge-5": "مطور Replit",
+      "badge-6": "مقيم في القاهرة - تواصل عالمي",
+      "badge-7": "برنامج المسار المهني العالمي",
+      "badge-8": "جوجل",
+      "badge-9": "مايكروسوفت",
+      "badge-10": "أمازون ويب سيرفيسز",
+      "badge-11": "آبل",
+      "badge-12": "ميتا",
+      "badge-13": "لينكدإن",
+      "badge-14": "OpenAI",
+      "badge-15": "charity: water",
+      "badge-16": "لوريال",
+      "badge-17": "إنتل",
+      "skills-title": "مجالات المهارات",
+      "certifications-title": "الشهادات",
+      "experience-title": "الخبرات",
+      "education-title": "المؤهلات العلمية",
+      "projects-title": "سجل المشاريع",
+      "contact-title": "معلومات التواصل",
+      "chat-header": "مساعد الذكاء الاصطناعي",
+      "chat-msg1": "مرحباً! أنا مساعد محمد الذكي. كيف يمكنني مساعدتك اليوم؟",
+      "chat-msg2": "هل تحتاج إلى استشارة في الأمن السيبراني أو الذكاء الاصطناعي أو مشاريع محمد؟",
+      "chat-input": "اكتب رسالتك...",
+      "footer-name": `© ${new Date().getFullYear()} محمد عبد العزيز`,
+      "footer-role": "مهندس أمن سيبراني ومبتكر ذكاء اصطناعي",
+      "footer-signature": "Amrikyy"
+    }
+  };
+
+  document.querySelectorAll("[data-translate]").forEach((element) => {
+    const key = element.getAttribute("data-translate");
+    if (translations[lang] && translations[lang][key]) {
+      element.textContent = translations[lang][key];
+    }
+  });
+
+  // Update chat input placeholder specifically
+  const messageInput = document.getElementById("messageInput");
+  if (messageInput) {
+    messageInput.placeholder = translations[lang]["chat-input"];
+  }
+
+  // Update HTML lang attribute
+  document.documentElement.lang = lang;
+}
+
+// --- Modern Language Toggle UI ---
 function initLanguageToggle() {
   const toggleContainer = document.createElement("div");
   toggleContainer.className = "language-toggle";
-  toggleContainer.innerHTML = 
-    `<span class="lang-label">EN</span>
-     <label class="switch">
-       <input type="checkbox" id="languageSwitch">
-       <span class="slider round"></span>
-     </label>
-     <span class="lang-label">AR</span>`;
-
+  toggleContainer.innerHTML = `
+    <button id="lang-en" class="lang-btn">EN</button>
+    <div class="lang-switch">
+      <input type="checkbox" id="languageSwitch" class="lang-switch-input">
+      <span class="lang-slider"></span>
+    </div>
+    <button id="lang-ar" class="lang-btn">AR</button>
+  `;
   const nav = document.querySelector("nav");
   if (nav) {
-      // Append next to nav links if possible, or at the end
-      const navLinks = nav.querySelector(".nav-links");
-      if (navLinks && navLinks.parentNode === nav) {
-          nav.insertBefore(toggleContainer, navLinks.nextSibling);
-      } else {
-          nav.appendChild(toggleContainer);
-      }
+    const navLinks = nav.querySelector(".nav-links");
+    if (navLinks && navLinks.parentNode === nav) {
+      nav.insertBefore(toggleContainer, navLinks.nextSibling);
+    } else {
+      nav.appendChild(toggleContainer);
+    }
   } else {
-      console.warn("Navigation element not found for language toggle.");
-      return;
+    console.warn("Navigation element not found for language toggle.");
+    return;
   }
-
   const languageSwitch = document.getElementById("languageSwitch");
+  const langEnBtn = document.getElementById("lang-en");
+  const langArBtn = document.getElementById("lang-ar");
   const savedLanguage = localStorage.getItem("language");
-
   if (savedLanguage === "ar") {
     document.body.classList.add("rtl");
     languageSwitch.checked = true;
     updateLanguageContent("ar");
   } else {
-    // Default to English
     document.body.classList.remove("rtl");
     languageSwitch.checked = false;
     updateLanguageContent("en");
   }
-
   languageSwitch.addEventListener("change", function () {
     if (this.checked) {
       document.body.classList.add("rtl");
@@ -377,6 +477,18 @@ function initLanguageToggle() {
       localStorage.setItem("language", "en");
       updateLanguageContent("en");
     }
+  });
+  langEnBtn.addEventListener("click", function () {
+    document.body.classList.remove("rtl");
+    languageSwitch.checked = false;
+    localStorage.setItem("language", "en");
+    updateLanguageContent("en");
+  });
+  langArBtn.addEventListener("click", function () {
+    document.body.classList.add("rtl");
+    languageSwitch.checked = true;
+    localStorage.setItem("language", "ar");
+    updateLanguageContent("ar");
   });
 }
 
@@ -419,40 +531,51 @@ function updateLanguageContent(lang) {
       "footer-signature": "Amrikyy",
     },
     ar: {
-      "nav-about": "نبذة",
+      "nav-about": "نبذة عني",
       "nav-skills": "المهارات",
       "nav-projects": "المشاريع",
-      "nav-contact": "اتصال",
+      "nav-contact": "تواصل",
       "hero-title": "محمد عبد العزيز",
       "hero-subtitle": "مهندس أمن سيبراني ومبتكر ذكاء اصطناعي",
-      "hero-description": "تأمين الحدود الرقمية بحلول ذكاء اصطناعي مبتكرة",
-      "hero-btn": "اتصل بي",
+      "hero-description": "تأمين المستقبل الرقمي بحلول ذكاء اصطناعي مبتكرة",
+      "hero-btn": "تواصل معي",
       "profile-title": "محمد عبد العزيز",
       "profile-subtitle-1": "مهندس أمن سيبراني",
       "profile-subtitle-2": "مبتكر ذكاء اصطناعي",
-      "tagline": "استراتيجي أمن سيبراني. مبتكر ذكاء اصطناعي. مدفوع بالرؤية.",
-      "about-p1": "مصري أمريكي، 26 عامًا، متخصص في الأمن السيبراني والذكاء الاصطناعي. أعيش حاليًا في القاهرة، مصر. سأتخرج في مايو 2026 كمهندس أمن سيبراني، وأتطلع إلى المساهمة في تطوير حلول أمنية مبتكرة باستخدام تقنيات الذكاء الاصطناعي.",
-      "about-p2": "أعمل حاليًا على كتابة كتاب يسمى \"CodeX\" حول الحوسبة الكمومية ودمج الذكاء الاصطناعي والعملات المشفرة.",
+      "tagline": "استراتيجي أمن سيبراني. مبتكر ذكاء اصطناعي. رؤية للمستقبل.",
+      "about-p1": "مصري أمريكي، أعيش في القاهرة. متخصص في الأمن السيبراني والذكاء الاصطناعي. سأتخرج في مايو 2026 كمهندس أمن سيبراني وأسعى لتطوير حلول أمنية مبتكرة.",
+      "about-p2": "أعمل حالياً على تأليف كتاب \"CodeX\" حول الذكاء الاصطناعي والحوسبة والعملات الرقمية.",
       "badge-1": "مهندس أمن سيبراني",
-      "badge-2": "مطور أدوات ذكاء اصطناعي",
-      "badge-3": "طالب أمن سيبراني - KSU \'26",
-      "badge-4": "متعدد اللغات: عربي / إنجليزي",
+      "badge-2": "مطور أدوات الذكاء الاصطناعي",
+      "badge-3": "طالب أمن سيبراني - KSU '26",
+      "badge-4": "يتحدث العربية والإنجليزية",
       "badge-5": "مطور Replit",
       "badge-6": "مقيم في القاهرة - تواصل عالمي",
-      "skills-title": "مصفوفة المهارات", // Updated title
+      "badge-7": "برنامج المسار المهني العالمي",
+      "badge-8": "جوجل",
+      "badge-9": "مايكروسوفت",
+      "badge-10": "أمازون ويب سيرفيسز",
+      "badge-11": "آبل",
+      "badge-12": "ميتا",
+      "badge-13": "لينكدإن",
+      "badge-14": "OpenAI",
+      "badge-15": "charity: water",
+      "badge-16": "لوريال",
+      "badge-17": "إنتل",
+      "skills-title": "مجالات المهارات",
       "certifications-title": "الشهادات",
-      "experience-title": "سجل الخبرة", // Updated title
-      "education-title": "السجل التعليمي", // Updated title
-      "projects-title": "سجل المشاريع", // Updated title
-      "contact-title": "نظام الاتصال", // Updated title
-      "chat-header": "اتصالات الفضاء v1.0", // Updated title
-      "chat-msg1": "مرحباً! أنا مساعد محمد الافتراضي. أهلاً بك في مركز القيادة!",
-      "chat-msg2": "كيف يمكنني مساعدتك بخصوص الأمن السيبراني، الذكاء الاصطناعي، أو أعمال محمد؟",
-      "chat-input": "أرسل رسالة...", // Updated placeholder
-      "footer-name": `© ${new Date().getFullYear()} محمد عبد العزيز`, // Dynamic year
+      "experience-title": "الخبرات",
+      "education-title": "المؤهلات العلمية",
+      "projects-title": "سجل المشاريع",
+      "contact-title": "معلومات التواصل",
+      "chat-header": "مساعد الذكاء الاصطناعي",
+      "chat-msg1": "مرحباً! أنا مساعد محمد الذكي. كيف يمكنني مساعدتك اليوم؟",
+      "chat-msg2": "هل تحتاج إلى استشارة في الأمن السيبراني أو الذكاء الاصطناعي أو مشاريع محمد؟",
+      "chat-input": "اكتب رسالتك...",
+      "footer-name": `© ${new Date().getFullYear()} محمد عبد العزيز`,
       "footer-role": "مهندس أمن سيبراني ومبتكر ذكاء اصطناعي",
-      "footer-signature": "Amrikyy",
-    },
+      "footer-signature": "Amrikyy"
+    }
   };
 
   document.querySelectorAll("[data-translate]").forEach((element) => {

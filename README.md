@@ -6,23 +6,21 @@
 
 - **Name:** Mohamed H Abdelaziz
 - **Born:** July 10, 1999 (26 years old)
-- **Tagline:** e.g. "Full Stack Developer | Space Enthusiast"
-- **Profile Image:** `profile.jpg` (replace with your own image if desired)
+- **Tagline:** Cybersecurity Engineer | AI Innovator
+- **Profile Image:** `profile.jpg`
 - **Location:** Cairo, Egypt (Egyptian-American)
 - **Languages:** Arabic, English
 - **Email:** <amrikyy@email.com>
-- **Phone:** +1-470-839-8886
+- **Phone (Call & WhatsApp):** +20-109-422-8044
 - **WhatsApp (only):** +1-770-616-0211
-- **Call & WhatsApp:** +20-109-422-8044
 - **GitHub Development Program Member**
 - **Social Links:**
-  - [LinkedIn](https://www.linkedin.com/in/yourprofile)
-  - [GitHub](https://github.com/yourusername)
+  - [LinkedIn](https://www.linkedin.com/in/amrikyy)
+  - [GitHub](https://github.com/mohamed-abdelaziz710)
   - [Facebook](https://web.facebook.com/Hamood.Amriky0/)
   - [Instagram](https://www.instagram.com/amrikyy?igsh=bzhlOHRycTN4bDAz&utm_source=qr)
   - [TikTok](https://www.tiktok.com/@moecrypto710?_t=ZT-8wbeZ0H9A1z&_r=1)
   - [Snapchat](https://snapchat.com/t/M9sQbCZu)
-  - [Other](#)
 
 ### Skills
 
@@ -128,22 +126,26 @@ This project is a modern, high-impact personal portfolio website for Mohamed Abd
 ## Brand Style
 
 **Font Family:**
+
 - Exo 2, Roboto, sans-serif (primary)
 - Roboto Mono, monospace (secondary)
 
 **Writing Style:**
+
 - Modern, concise, and professional
 - Use clear section headings and bullet points
 - Consistent capitalization and spacing
 - Focus on clarity and visual hierarchy
 
 **Box Model:**
+
 - Use consistent padding and margin for all cards and containers
 - Border radius: 8px–14px for cards and buttons
 - Subtle box-shadow for depth
 - Responsive grid for sections (skills, projects, badges)
 
 **Brand Colors:**
+
 - Neon Green: #21E6C1 (primary accent)
 - Dark Gray: #10151F, #0A0F1A, #050A15 (backgrounds)
 - White: #FFFFFF (main text)
