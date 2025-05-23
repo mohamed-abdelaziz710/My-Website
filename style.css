@@ -85,6 +85,16 @@ code, .monospace {
   padding: 40px 20px; /* Increased padding */
 }
 
+/* Center all main content sections horizontally */
+.badges-container,
+.skills-container,
+.projects-container,
+.contact-info {
+  margin-left: auto;
+  margin-right: auto;
+  /* Already has max-width, so this will center */
+}
+
 /* --- Navigation --- */
 nav {
   background: rgba(10, 15, 26, 0.8); /* Semi-transparent dark */
@@ -1282,6 +1292,19 @@ footer.site-footer {
     font-size: 1.1em;
   }
 }
+
+/* Center text for all main sections except About (which may have custom layout) */
+#badges, #skills, #projects, #contact {
+  text-align: center;
+}
+
+/* Optionally, center the About section text on small screens only */
+@media (max-width: 900px) {
+  #about {
+    text-align: center;
+  }
+}
+
 .header-social-icons {
   display: flex;
   gap: 18px;
