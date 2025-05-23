@@ -20,7 +20,19 @@ Based on the original style.css and the spaceship concept.
   /* Fonts */
   --font-primary: 'Exo 2', 'Roboto', sans-serif;
   --font-secondary: 'Roboto Mono', monospace;
+
+  /* Brand Palette */
+  --color-black: #000000;
+  --color-white: #FFFFFF;
+  --color-gray:  #707070;   /* medium gray for neutral backgrounds/text */
+  --color-neon:  #2CFF05;   /* vibrant neon green accent */
 }
+
+/*
+Primary accent: neon green (#2CFF05) – use only on dark backgrounds (black/dark gray)
+Secondary: white, gray for neutral backgrounds/text
+Black backgrounds maximize neon pop
+*/
 
 /* --- Base Styles --- */
 body, html {

@@ -152,13 +152,35 @@ This project is a modern, high-impact personal portfolio website for Mohamed Abd
 - Black: #000000 (deep backgrounds)
 - Neon Purple: #9A16E5 (secondary accent, for highlights)
 
-These styles and colors are applied throughout the site for a cohesive, modern, and visually striking look.
+**Color Palette**
 
-For questions or collaboration, contact [amrikyy@gmail.com](mailto:amrikyy@gmail.com) or connect via LinkedIn.
+- **Black:** `#000000` (primary background)
+- **White:** `#FFFFFF` (main text, card backgrounds)
+- **Gray:** `#707070` (neutral backgrounds/text)
+- **Neon Green:** `#2CFF05` (primary accent, use only on black/dark backgrounds)
 
----
+**Usage Guidelines:**
+- Neon green (#2CFF05) is the primary accent and should only appear on black or very dark backgrounds for maximum contrast.
+- On hover, invert: use a black background with neon text/border.
+- White and gray are for neutral backgrounds and text.
+- Never use white text on neon backgrounds (poor contrast).
+- Neon text should only appear on black/dark gray backgrounds.
+- Use neon sparingly for CTAs, links, icons, or highlights.
+- All color combinations must meet WCAG contrast: normal text ≥4.5:1, large text ≥3:1.
 
-## Logo & Favicon Usage
+**Example CSS:**
+```css
+:root {
+  --color-black: #000000;
+  --color-white: #FFFFFF;
+  --color-gray:  #707070;
+  --color-neon:  #2CFF05;
+}
+```
+
+See `style.css` for implementation and utility classes.
+
+### Logo & Favicon Usage
 
 ### Logo Variants
 
@@ -181,7 +203,9 @@ For questions or collaboration, contact [amrikyy@gmail.com](mailto:amrikyy@gmail
 - `assets/icons/favicon.ico` (multi-size, Windows/legacy)
 
 **How to use:**
+
 - All favicon and Apple Touch icon links are included in `<head>` of `index.html`:
+
   ```html
   <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16x16.png">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png">
