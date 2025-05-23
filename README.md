@@ -12,7 +12,6 @@
 - **Social Links:**
   - [LinkedIn](https://www.linkedin.com/in/yourprofile)
   - [GitHub](https://github.com/yourusername)
-  - [Twitter/X](https://twitter.com/yourhandle)
   - [Facebook](https://web.facebook.com/Hamood.Amriky0/)
   - [Instagram](https://www.instagram.com/amrikyy?igsh=bzhlOHRycTN4bDAz&utm_source=qr)
   - [TikTok](https://www.tiktok.com/@moecrypto710?_t=ZT-8wbeZ0H9A1z&_r=1)
@@ -36,7 +35,7 @@
 
 ## Overview
 
-This project is a modern, high-impact personal portfolio website for Mohamed Abdelaziz, Cybersecurity Engineer & AI Innovator. The site is designed to showcase skills, projects, credentials, and contact information with a focus on:
+This project is a modern, high-impact personal portfolio website for Mohamed Abdelaziz, Cybersecurity Engineer & AI Innovator. The site is designed to showcase skills, credentials, and contact information with a focus on:
 
 - Enhanced user experience (UX)
 - Sophisticated animations and interactivity
@@ -49,7 +48,7 @@ This project is a modern, high-impact personal portfolio website for Mohamed Abd
 - **Custom Spaceship UI/UX Theme:** Unique, visually engaging design with animated elements and a futuristic aesthetic.
 - **Section Structure:**
   - Header with navigation and top-aligned social media icons
-  - About, Badges, Skills, Projects, and Contact sections, all centered and visually distinct
+  - About, Badges, Skills, and Contact sections, all centered and visually distinct
   - Modern, animated contact buttons and social links
 - **Accessibility & Performance:**
   - Mobile-first layout
