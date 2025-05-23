@@ -65,11 +65,12 @@ body, html {
 
 /* --- Font Imports --- */
 @import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;600;700&family=Roboto+Mono:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Source+Sans+Pro:wght@400&display=swap');
 
 /* --- Headings & Text --- */
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Exo 2', 'Roboto', sans-serif;
-  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
   color: var(--primary-accent);
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -77,12 +78,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 2.5rem; /* Adjusted size */
+  font-size: 3rem; /* ≈48px */
   text-shadow: 0 0 10px var(--shadow-color);
 }
 
 h2 {
-  font-size: 2rem;
+  font-size: 2.25rem; /* 36px */
   border-bottom: 1px solid var(--border-color);
   padding-bottom: 10px;
   margin-bottom: 30px;
@@ -90,7 +91,7 @@ h2 {
 }
 
 h3 {
-  font-size: 1.5rem;
+  font-size: 1.75rem; /* 28px */
   color: var(--secondary-accent);
 }
 

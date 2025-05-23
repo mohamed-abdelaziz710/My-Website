@@ -130,12 +130,44 @@ This project is a modern, high-impact personal portfolio website for Mohamed Abd
 - Exo 2, Roboto, sans-serif (primary)
 - Roboto Mono, monospace (secondary)
 
-**Writing Style:**
+**Typography**
 
-- Modern, concise, and professional
-- Use clear section headings and bullet points
-- Consistent capitalization and spacing
-- Focus on clarity and visual hierarchy
+- **Font Families:**
+  - Headings: Montserrat, bold (700)
+  - Body: Source Sans Pro, regular (400)
+- **Scale & Size:**
+  - h1: 3rem (≈48px)
+  - h2: 2.25rem (36px)
+  - h3: 1.75rem (28px)
+  - p, li, a: 1rem (16px base)
+  - small, .caption: 0.875rem (14px)
+- **Font Weight:**
+  - 700 for headings
+  - 400 for body
+  - 600 for bold/emphasis
+- **Line Height & Spacing:**
+  - 1.5 for body text
+  - Adequate margin-top on headings for flow
+  - Letter-spacing: 0.01em for headings
+- **Usage:**
+  - Montserrat headlines are bold and attention-grabbing
+  - Source Sans Pro is highly readable for paragraphs
+  - Maintain clear hierarchy and readability throughout
+
+**Example CSS:**
+
+```css
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Source+Sans+Pro:wght@400&display=swap');
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+}
+body, p, a, span {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+}
+```
 
 **Box Model:**
 
@@ -160,6 +192,7 @@ This project is a modern, high-impact personal portfolio website for Mohamed Abd
 - **Neon Green:** `#2CFF05` (primary accent, use only on black/dark backgrounds)
 
 **Usage Guidelines:**
+
 - Neon green (#2CFF05) is the primary accent and should only appear on black or very dark backgrounds for maximum contrast.
 - On hover, invert: use a black background with neon text/border.
 - White and gray are for neutral backgrounds and text.
@@ -169,6 +202,7 @@ This project is a modern, high-impact personal portfolio website for Mohamed Abd
 - All color combinations must meet WCAG contrast: normal text ≥4.5:1, large text ≥3:1.
 
 **Example CSS:**
+
 ```css
 :root {
   --color-black: #000000;
