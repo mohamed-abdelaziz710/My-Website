@@ -9,13 +9,13 @@ Based on the original style.css and the spaceship concept.
   --dark-bg: #0A0F1A; /* Deep space blue/black */
   --darker-bg: #050A15; /* Even darker for depth */
   --card-bg: #10151F; /* Panel/Card background */
-  --primary-accent: #21E6C1; /* Electric Cyan */
+  --primary-accent: #39ff14; /* Neon Green */
   --secondary-accent: #9A16E5; /* Neon Purple */
   --tertiary-accent: #FFA500; /* Tech Orange (optional) */
   --text-color: #E0E0E0; /* Light grey/off-white */
-  --border-color: rgba(33, 230, 193, 0.5); /* Semi-transparent cyan */
+  --border-color: rgba(57, 255, 20, 0.5); /* Neon Green border */
   --hover-color: #1A2030; /* Slightly lighter dark for hover */
-  --shadow-color: rgba(33, 230, 193, 0.3); /* Cyan shadow */
+  --shadow-color: rgba(57, 255, 20, 0.3); /* Neon Green shadow */
 
   /* Fonts */
   --font-primary: 'Exo 2', 'Roboto', sans-serif;
@@ -970,7 +970,7 @@ footer.site-footer {
   background: var(--darker-bg);
 }
 .chat-messages::-webkit-scrollbar-thumb {
-  background: var(--primary-accent);
+  background: var(--primary-accent) !important;
   border-radius: 3px;
 }
 
@@ -1028,7 +1028,7 @@ footer.site-footer {
   width: 8px;
   height: 8px;
   margin: 0 2px;
-  background-color: var(--primary-accent);
+  background-color: var(--primary-accent) !important;
   border-radius: 50%;
   opacity: 0.6;
   animation: typing-dots 1.4s infinite ease-in-out both;
