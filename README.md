@@ -258,3 +258,121 @@ See `style.css` for implementation and utility classes.
 - **Do not:**
   - Alter colors, stretch, or add effects to the logo.
   - Place on backgrounds with insufficient contrast.
+
+**Iconography**
+
+- **Library:** Font Awesome 6 (include via CDN or kit)
+- **Usage:**
+  - Use <i class="fa-solid fa-gear" aria-hidden="true"></i> for UI actions (solid style, e.g. buttons, navigation)
+  - Use <i class="fa-brands fa-github" aria-label="GitHub"></i> for social/vendor logos (brands style)
+  - Prefer solid (fa-solid/fas) for most UI icons; use brands (fa-brands/fab) only for social/vendor
+  - Provide descriptive `aria-label` for icons conveying information; use `aria-hidden="true"` for decorative icons
+  - Maintain consistent icon size (e.g. `fa-lg`, `fa-2x` or CSS)
+  - Icon color should follow the palette (match text or accent color)
+  - Use only official brand icons for social links
+  - Ensure icons have sufficient contrast (treat as text for WCAG)
+  - Do not mix filled/outlined styles arbitrarily
+  - All icons should be from Font Awesome’s 16px grid for crispness
+
+**Example HTML:**
+
+```html
+<!-- Solid (filled) icon for a settings action -->
+<i class="fa-solid fa-gear" aria-hidden="true"></i>
+<!-- Brand icon for social link (e.g. GitHub) -->
+<i class="fa-brands fa-github" aria-label="GitHub"></i>
+<!-- Include Font Awesome 6 via CDN/kit -->
+<script src="https://kit.fontawesome.com/yourkit.js" crossorigin="anonymous"></script>
+```
+
+**Button Styles**
+
+- **Primary Button (.btn-primary):**
+  - Neon green background (`var(--color-neon)`), black text, no border
+  - Hover: Invert (black background, neon text)
+  - Focus: Visible white outline
+  - Disabled: Grayed out, no pointer events
+- **Secondary Button (.btn-secondary):**
+  - White background, black text, neon border
+  - Hover: Neon background, black text
+  - Focus: White outline
+  - Disabled: Light gray background, muted border/text
+- **Link Button (.btn-link):**
+  - Text only, underline on hover
+  - Hover: Neon text
+  - Focus: Dotted neon outline
+
+**Accessibility:**
+- All buttons have clear focus states (outline or glow)
+- Text contrast meets or exceeds 4.5:1 WCAG ratio
+- Use `<button>` for actions, `<a>` for navigation
+
+**Example CSS:**
+```css
+/* Primary Button */
+.btn-primary {
+  background: var(--color-neon);
+  color: var(--color-black);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.btn-primary:hover {
+  background: var(--color-black);
+  color: var(--color-neon);
+}
+.btn-primary:focus {
+  outline: 2px solid var(--color-white);
+  outline-offset: 2px;
+}
+.btn-primary:disabled {
+  background: var(--color-gray);
+  color: #ddd;
+  cursor: not-allowed;
+}
+
+/* Secondary Button */
+.btn-secondary {
+  background: var(--color-white);
+  color: var(--color-black);
+  border: 2px solid var(--color-neon);
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.btn-secondary:hover {
+  background: var(--color-neon);
+  color: var(--color-black);
+}
+.btn-secondary:focus {
+  outline: 2px solid var(--color-white);
+  outline-offset: 2px;
+}
+.btn-secondary:disabled {
+  background: #f0f0f0;
+  color: #aaa;
+  border-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Link Button */
+.btn-link {
+  background: none;
+  color: var(--color-black);
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  text-decoration: underline;
+}
+.btn-link:hover {
+  color: var(--color-neon);
+}
+.btn-link:focus {
+  outline: 2px dotted var(--color-neon);
+  outline-offset: 2px;
+}
+```

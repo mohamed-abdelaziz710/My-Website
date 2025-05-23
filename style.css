@@ -1514,3 +1514,70 @@ footer.site-footer {
   }
 }
 
+/* Primary Button: neon background, black text */
+.btn-primary {
+  background: var(--color-neon);
+  color: var(--color-black);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.btn-primary:hover {
+  background: var(--color-black);
+  color: var(--color-neon);
+}
+.btn-primary:focus {
+  outline: 2px solid var(--color-white);
+  outline-offset: 2px;
+}
+.btn-primary:disabled {
+  background: var(--color-gray);
+  color: #ddd;
+  cursor: not-allowed;
+}
+
+/* Secondary Button: white background, neon border, black text */
+.btn-secondary {
+  background: var(--color-white);
+  color: var(--color-black);
+  border: 2px solid var(--color-neon);
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.btn-secondary:hover {
+  background: var(--color-neon);
+  color: var(--color-black);
+}
+.btn-secondary:focus {
+  outline: 2px solid var(--color-white);
+  outline-offset: 2px;
+}
+.btn-secondary:disabled {
+  background: #f0f0f0;
+  color: #aaa;
+  border-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Link Button: text only, underline on hover */
+.btn-link {
+  background: none;
+  color: var(--color-black);
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  text-decoration: underline;
+}
+.btn-link:hover {
+  color: var(--color-neon);
+}
+.btn-link:focus {
+  outline: 2px dotted var(--color-neon);
+  outline-offset: 2px;
+}
+
