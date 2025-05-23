@@ -8,8 +8,11 @@
 - **Born:** July 10, 1999 (26 years old)
 - **Tagline:** e.g. "Full Stack Developer | Space Enthusiast"
 - **Profile Image:** `profile.jpg` (replace with your own image if desired)
-- **Location:** e.g. "San Francisco, CA, USA"
+- **Location:** Cairo, Egypt (Egyptian-American)
 - **Email:** <amrikyy@email.com>
+- **Phone:** +1-470-839-8886
+- **WhatsApp (only):** +1-770-616-0211
+- **Call & WhatsApp:** +20-109-422-8044
 - **Social Links:**
   - [LinkedIn](https://www.linkedin.com/in/yourprofile)
   - [GitHub](https://github.com/yourusername)
@@ -38,6 +41,7 @@
 - Member of Blackroom Talent Community
 - Cisco Certified in Cybersecurity
 - Worked as a travel agent for 2 years (Amadeus Selling Platform experience)
+- Currently writing a book titled "CodeX"
 
 ### Education
 
