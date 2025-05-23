@@ -630,32 +630,27 @@ function createQuantumMatrix() {
 
 document.addEventListener('DOMContentLoaded', createQuantumMatrix);
 
-// Add CSS for chat window transition and message animation
-const styleSheet = document.createElement("style");
-styleSheet.type = "text/css";
-styleSheet.innerText = `
-  .chat-window-transition {
-    opacity: 0;
-    transform: translateY(20px) scale(0.95);
-    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
-    pointer-events: none;
-  }
-  .chat-window-transition.open {
+/* Chat window transition and message animation (moved from JS) */
+.chat-window-transition {
+  opacity: 0;
+  transform: translateY(20px) scale(0.95);
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+  pointer-events: none;
+}
+.chat-window-transition.open {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+.message-animate {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: messageFadeIn 0.4s ease-out forwards;
+}
+@keyframes messageFadeIn {
+  to {
     opacity: 1;
-    transform: translateY(0) scale(1);
-    pointer-events: auto;
+    transform: translateY(0);
   }
-  .message-animate {
-    opacity: 0;
-    transform: translateY(10px);
-    animation: messageFadeIn 0.4s ease-out forwards;
-  }
-  @keyframes messageFadeIn {
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-`;
-document.head.appendChild(styleSheet);
+}
 
