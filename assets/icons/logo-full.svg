@@ -1,0 +1,9 @@
+<svg width="180" height="48" viewBox="0 0 180 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g>
+    <!-- Stylized "A" logomark -->
+    <path d="M12 44L24 4L36 44H31L28 34H20L17 44H12Z" fill="#21E6C1"/>
+    <rect x="22" y="24" width="4" height="8" fill="#232946"/>
+    <!-- Wordmark "Amrikyy" -->
+    <text x="48" y="36" font-family="'Montserrat', Arial, sans-serif" font-size="32" fill="#232946" font-weight="bold" letter-spacing="2">Amrikyy</text>
+  </g>
+</svg>

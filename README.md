@@ -155,3 +155,48 @@ This project is a modern, high-impact personal portfolio website for Mohamed Abd
 These styles and colors are applied throughout the site for a cohesive, modern, and visually striking look.
 
 For questions or collaboration, contact [amrikyy@gmail.com](mailto:amrikyy@gmail.com) or connect via LinkedIn.
+
+---
+
+## Logo & Favicon Usage
+
+### Logo Variants
+
+- **Full Logo (Wordmark + Icon):**
+  - ![Full Logo](assets/icons/logo-full.svg)
+  - Usage: Main site header, social previews, large branding.
+- **Logomark (Icon Only):**
+  - ![Logomark](assets/icons/logo-icon.svg)
+  - Usage: Favicon, mobile nav, small badges, social avatars.
+- **Monochrome Logo:**
+  - ![Monochrome Logo](assets/icons/logo-mono.svg)
+  - Usage: Watermarks, print, dark/light backgrounds.
+
+### Favicon Files
+
+- `assets/icons/favicon-16x16.png` (standard browser tab)
+- `assets/icons/favicon-32x32.png` (high-res tab)
+- `assets/icons/favicon-96x96.png` (legacy/Win)
+- `assets/icons/favicon-180x180.png` (Apple Touch icon)
+- `assets/icons/favicon.ico` (multi-size, Windows/legacy)
+
+**How to use:**
+- All favicon and Apple Touch icon links are included in `<head>` of `index.html`:
+  ```html
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="assets/icons/favicon-96x96.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/favicon-180x180.png">
+  <link rel="shortcut icon" href="assets/icons/favicon.ico" type="image/x-icon">
+  ```
+
+### Logo Usage Guidelines
+
+- **Clear Space:**
+  - Leave at least 1× the height of the logomark as clear space around all logo variants.
+- **Minimum Size:**
+  - Logomark: 16×16 px (for favicon)
+  - Full logo: 120 px wide (for legibility)
+- **Do not:**
+  - Alter colors, stretch, or add effects to the logo.
+  - Place on backgrounds with insufficient contrast.
