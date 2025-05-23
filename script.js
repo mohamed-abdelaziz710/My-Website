@@ -630,7 +630,9 @@ function createQuantumMatrix() {
 
 document.addEventListener('DOMContentLoaded', createQuantumMatrix);
 
-/* Chat window transition and message animation (moved from JS) */
+// (CSS code removed from JS file. Please place the following in your main CSS file)
+
+/*
 .chat-window-transition {
   opacity: 0;
   transform: translateY(20px) scale(0.95);
@@ -653,4 +655,5 @@ document.addEventListener('DOMContentLoaded', createQuantumMatrix);
     transform: translateY(0);
   }
 }
+*/
 
