@@ -285,33 +285,20 @@
 
   <script src="script.js"></script>
   <script>
-    // Dynamically add micro background dots and orbs for spaceship effect
-    const microBg = document.getElementById('micro-bg-anim');
-    if (microBg) {
-      for (let i = 0; i < 8; i++) {
-        const dot = document.createElement('div');
-        dot.className = 'micro-dot';
-        dot.style.left = Math.random() * 100 + 'vw';
-        dot.style.top = Math.random() * 100 + 'vh';
-        dot.style.width = dot.style.height = (8 + Math.random() * 16) + 'px';
-        dot.style.animationDuration = (8 + Math.random() * 8) + 's';
-        microBg.appendChild(dot);
-      }
-      for (let i = 0; i < 3; i++) {
-        const orb = document.createElement('div');
-        orb.className = 'micro-orb';
-        orb.style.left = Math.random() * 100 + 'vw';
-        orb.style.top = Math.random() * 100 + 'vh';
-        orb.style.width = orb.style.height = (60 + Math.random() * 80) + 'px';
-        orb.style.animationDuration = (18 + Math.random() * 10) + 's';
-        microBg.appendChild(orb);
-      }
-      for (let i = 0; i < 4; i++) {
-        const pulse = document.createElement('div');
-        pulse.className = 'micro-pulse-dot';
-        pulse.style.left = Math.random() * 100 + 'vw';
-        pulse.style.top = Math.random() * 100 + 'vh';
-        microBg.appendChild(pulse);
+    // Remove old micro background dots/orbs
+    if (window.microBg) microBg.innerHTML = '';
+    // Add quantum matrix and aurora trails (handled by script.js)
+    // Fallback: add a few extra aurora trails for visual richness
+    const container = document.getElementById('micro-bg-anim');
+    if (container) {
+      for (let i = 0; i < 2; i++) {
+        const trail = document.createElement('div');
+        trail.className = 'aurora-trail';
+        trail.style.top = (10 + Math.random() * 80) + 'vh';
+        trail.style.left = (-10 + Math.random() * 20) + 'vw';
+        trail.style.animationDuration = (12 + Math.random() * 6) + 's';
+        trail.style.animationDelay = (Math.random() * 6) + 's';
+        container.appendChild(trail);
       }
     }
   </script>
