@@ -4,15 +4,16 @@
 
 > **Fill out this section with your real personal details before publishing!**
 
-- **Name:** YOUR NAME HERE
+- **Name:** Mohamed H Abdelaziz
 - **Tagline:** e.g. "Full Stack Developer | Space Enthusiast"
 - **Profile Image:** `profile.jpg` (replace with your own image if desired)
 - **Location:** e.g. "San Francisco, CA, USA"
-- **Email:** your@email.com
+- **Email:** amrikyy@email.com
 - **Social Links:**
   - [LinkedIn](https://www.linkedin.com/in/yourprofile)
   - [GitHub](https://github.com/yourusername)
   - [Twitter/X](https://twitter.com/yourhandle)
+  - [Facebook](https://web.facebook.com/Hamood.Amriky0/)
   - [Other](#)
 
 ---

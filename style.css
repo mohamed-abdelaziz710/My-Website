@@ -1177,27 +1177,60 @@ footer.site-footer {
   text-align: center;
 }
 
-/* Responsive: About section centering on mobile */
-@media (max-width: 900px) {
-  #about.container {
-    padding-top: 24px;
-    padding-bottom: 24px;
-    min-height: unset;
-  }
-  .profile-card {
-    max-width: 98vw;
-  }
+/* --- Section Box Debug/Design Borders & Centering --- */
+.container,
+.card,
+#about.container,
+#badges,
+#skills,
+#projects,
+#contact,
+.badges-container,
+.skills-container,
+.projects-container,
+.contact-info {
+  border: 2px solid var(--primary-accent);
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 14px;
+  background-clip: padding-box;
 }
 
-/* Add extra spacing between sections on small screens */
-@media (max-width: 600px) {
-  .container {
-    margin-top: 32px;
-    margin-bottom: 32px;
-  }
-  #badges, #skills, #projects, #contact {
-    margin-top: 32px;
-    margin-bottom: 32px;
+/* Increase vertical margin for main sections for clarity */
+#about.container,
+#badges,
+#skills,
+#projects,
+#contact {
+  margin-top: 56px;
+  margin-bottom: 56px;
+}
+
+/* Ensure text is centered for all main sections */
+#about .profile-title-container,
+#about .about-content,
+#about .metrics-display,
+#about .social-links,
+#badges,
+#skills,
+#projects,
+#contact {
+  text-align: center;
+}
+
+/* Responsive: keep centering and border on mobile */
+@media (max-width: 900px) {
+  .container,
+  .card,
+  #about.container,
+  #badges,
+  #skills,
+  #projects,
+  #contact {
+    border-width: 2.5px;
+    margin-top: 36px;
+    margin-bottom: 36px;
   }
 }
 
