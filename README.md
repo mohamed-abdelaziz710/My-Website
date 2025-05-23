@@ -9,10 +9,12 @@
 - **Tagline:** e.g. "Full Stack Developer | Space Enthusiast"
 - **Profile Image:** `profile.jpg` (replace with your own image if desired)
 - **Location:** Cairo, Egypt (Egyptian-American)
+- **Languages:** Arabic, English
 - **Email:** <amrikyy@email.com>
 - **Phone:** +1-470-839-8886
 - **WhatsApp (only):** +1-770-616-0211
 - **Call & WhatsApp:** +20-109-422-8044
+- **GitHub Development Program Member**
 - **Social Links:**
   - [LinkedIn](https://www.linkedin.com/in/yourprofile)
   - [GitHub](https://github.com/yourusername)
@@ -42,6 +44,7 @@
 - Cisco Certified in Cybersecurity
 - Worked as a travel agent for 2 years (Amadeus Selling Platform experience)
 - Currently writing a book titled "CodeX"
+- Participant in the Global Career Program with OpenAI, L'Oréal, charity: water, Intel, and Google
 
 ### Education
 
