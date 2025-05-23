@@ -93,7 +93,7 @@ function initChat() {
                 },
                 body: JSON.stringify({
                     message: message
-                })
+                } )
             })
             .then(response => {
                 if (!response.ok) {
@@ -410,205 +410,133 @@ function updateLanguageContent(language) {
             // Footer
             'footer-name': '© 2025 محمد عبد العزيز',
             'footer-role': 'مهندس أمن سيبراني ومبتكر ذكاء اصطناعي',
-            'footer-signature': 'أمريكي'
+            'footer-signature': 'Amrikyy'
         }
     };
     
-    // Get translation for current language
-    const translation = translations[language];
+    // Get elements with data-translate attribute
+    const elements = document.querySelectorAll('[data-translate]');
     
-    // Update navigation links
-    document.querySelectorAll('.nav-links a').forEach((link, index) => {
-        const key = `nav-${link.getAttribute('href').substring(1)}`;
-        if (translation[key]) {
-            link.textContent = translation[key];
+    // Update content based on language
+    elements.forEach(el => {
+        const key = el.getAttribute('data-translate');
+        if (translations[language] && translations[language][key]) {
+            el.textContent = translations[language][key];
         }
     });
     
-    // Update hero section
-    if (document.querySelector('.glitch-text')) {
-        document.querySelector('.glitch-text').textContent = translation['hero-title'];
-        document.querySelector('.glitch-text').setAttribute('data-text', translation['hero-title']);
-        document.querySelector('.typewriter').textContent = translation['hero-subtitle'];
-        document.querySelector('.hero-description p').textContent = translation['hero-description'];
-        document.querySelector('.hero-btn').innerHTML = translation['hero-btn'] + ' <i class="fas fa-arrow-right"></i>';
-    }
-    
-    // Update profile section
-    if (document.querySelector('.profile-title h1')) {
-        document.querySelector('.profile-title h1').textContent = translation['profile-title'];
-        document.querySelector('.profile-subtitle .highlight').textContent = translation['profile-subtitle-1'];
-        document.querySelector('.profile-subtitle .highlight-alt').textContent = translation['profile-subtitle-2'];
-        document.querySelector('.tagline .highlight').textContent = translation['tagline'];
-        
-        const aboutParagraphs = document.querySelectorAll('.about-content p:not(.tagline)');
-        if (aboutParagraphs.length >= 2) {
-            aboutParagraphs[0].textContent = translation['about-p1'];
-            aboutParagraphs[1].innerHTML = translation['about-p2'].replace('"CodeX"', '<span class="highlight">"CodeX"</span>');
-        }
-    }
-    
-    // Update badges
-    document.querySelectorAll('.badge').forEach((badge, index) => {
-        const key = `badge-${index + 1}`;
-        if (translation[key]) {
-            // Keep the icon, update only the text
-            const icon = badge.querySelector('i').outerHTML;
-            badge.innerHTML = icon + ' ' + translation[key];
-        }
-    });
-    
-    // Update section titles
-    const sectionTitles = {
-        '#skills': 'skills-title',
-        '#certifications': 'certifications-title',
-        '#experience': 'experience-title',
-        '#education': 'education-title',
-        '#projects': 'projects-title',
-        '#contact': 'contact-title'
-    };
-    
-    for (const [selector, key] of Object.entries(sectionTitles)) {
-        const element = document.querySelector(`h2${selector}`);
-        if (element && translation[key]) {
-            // Keep the icon, update only the text
-            const icon = element.querySelector('i').outerHTML;
-            element.innerHTML = icon + ' ' + translation[key];
-        }
-    }
-    
-    // Update chat elements
-    if (document.querySelector('.chat-header h3')) {
-        document.querySelector('.chat-header h3').textContent = translation['chat-header'];
-        
-        const chatMessages = document.querySelectorAll('.chat-messages .bot-message');
-        if (chatMessages.length >= 2) {
-            chatMessages[0].querySelector('.message-content').textContent = translation['chat-msg1'];
-            chatMessages[1].querySelector('.message-content').textContent = translation['chat-msg2'];
-        }
-        
-        document.querySelector('#messageInput').placeholder = translation['chat-input'];
-    }
-    
-    // Update footer
-    if (document.querySelector('.footer-name')) {
-        document.querySelector('.footer-name').innerHTML = translation['footer-name'].replace('Mohamed Abdelaziz', '<span class="neon-text">' + (language === 'en' ? 'Mohamed Abdelaziz' : 'محمد عبد العزيز') + '</span>');
-        document.querySelector('.footer-role').textContent = translation['footer-role'];
-        document.querySelector('.footer-signature').textContent = translation['footer-signature'];
+    // Update placeholder text for chat input
+    const chatInput = document.getElementById('messageInput');
+    if (chatInput) {
+        chatInput.placeholder = translations[language]['chat-input'];
     }
 }
 
 // Initialize particles.js
 function initParticles() {
-    if (typeof particlesJS !== 'undefined') {
-        particlesJS('particles-js', {
-            "particles": {
-                "number": {
-                    "value": 80,
-                    "density": {
-                        "enable": true,
-                        "value_area": 800
-                    }
-                },
-                "color": {
-                    "value": "#39ff14"
-                },
-                "shape": {
-                    "type": "circle",
-                    "stroke": {
-                        "width": 0,
-                        "color": "#000000"
-                    },
-                    "polygon": {
-                        "nb_sides": 5
-                    }
-                },
-                "opacity": {
-                    "value": 0.5,
-                    "random": true,
-                    "anim": {
-                        "enable": true,
-                        "speed": 1,
-                        "opacity_min": 0.1,
-                        "sync": false
-                    }
-                },
-                "size": {
-                    "value": 3,
-                    "random": true,
-                    "anim": {
-                        "enable": true,
-                        "speed": 2,
-                        "size_min": 0.1,
-                        "sync": false
-                    }
-                },
-                "line_linked": {
+    particlesJS('particles-js', {
+        "particles": {
+            "number": {
+                "value": 80,
+                "density": {
                     "enable": true,
-                    "distance": 150,
-                    "color": "#39ff14",
-                    "opacity": 0.4,
-                    "width": 1
-                },
-                "move": {
-                    "enable": true,
-                    "speed": 2,
-                    "direction": "none",
-                    "random": true,
-                    "straight": false,
-                    "out_mode": "out",
-                    "bounce": false,
-                    "attract": {
-                        "enable": false,
-                        "rotateX": 600,
-                        "rotateY": 1200
-                    }
+                    "value_area": 800
                 }
             },
-            "interactivity": {
-                "detect_on": "canvas",
-                "events": {
-                    "onhover": {
-                        "enable": true,
-                        "mode": "grab"
-                    },
-                    "onclick": {
-                        "enable": true,
-                        "mode": "push"
-                    },
-                    "resize": true
+            "color": {
+                "value": "#39ff14"
+            },
+            "shape": {
+                "type": "circle",
+                "stroke": {
+                    "width": 0,
+                    "color": "#000000"
                 },
-                "modes": {
-                    "grab": {
-                        "distance": 140,
-                        "line_linked": {
-                            "opacity": 1
-                        }
-                    },
-                    "bubble": {
-                        "distance": 400,
-                        "size": 40,
-                        "duration": 2,
-                        "opacity": 8,
-                        "speed": 3
-                    },
-                    "repulse": {
-                        "distance": 200,
-                        "duration": 0.4
-                    },
-                    "push": {
-                        "particles_nb": 4
-                    },
-                    "remove": {
-                        "particles_nb": 2
-                    }
+                "polygon": {
+                    "nb_sides": 5
                 }
             },
-            "retina_detect": true
-        });
-    }
+            "opacity": {
+                "value": 0.5,
+                "random": false,
+                "anim": {
+                    "enable": false,
+                    "speed": 1,
+                    "opacity_min": 0.1,
+                    "sync": false
+                }
+            },
+            "size": {
+                "value": 3,
+                "random": true,
+                "anim": {
+                    "enable": false,
+                    "speed": 40,
+                    "size_min": 0.1,
+                    "sync": false
+                }
+            },
+            "line_linked": {
+                "enable": true,
+                "distance": 150,
+                "color": "#39ff14",
+                "opacity": 0.4,
+                "width": 1
+            },
+            "move": {
+                "enable": true,
+                "speed": 6,
+                "direction": "none",
+                "random": false,
+                "straight": false,
+                "out_mode": "out",
+                "bounce": false,
+                "attract": {
+                    "enable": false,
+                    "rotateX": 600,
+                    "rotateY": 1200
+                }
+            }
+        },
+        "interactivity": {
+            "detect_on": "canvas",
+            "events": {
+                "onhover": {
+                    "enable": true,
+                    "mode": "repulse"
+                },
+                "onclick": {
+                    "enable": true,
+                    "mode": "push"
+                },
+                "resize": true
+            },
+            "modes": {
+                "grab": {
+                    "distance": 400,
+                    "line_linked": {
+                        "opacity": 1
+                    }
+                },
+                "bubble": {
+                    "distance": 400,
+                    "size": 40,
+                    "duration": 2,
+                    "opacity": 8,
+                    "speed": 3
+                },
+                "repulse": {
+                    "distance": 200,
+                    "duration": 0.4
+                },
+                "push": {
+                    "particles_nb": 4
+                },
+                "remove": {
+                    "particles_nb": 2
+                }
+            }
+        },
+        "retina_detect": true
+    });
 }
-
-document.getElementById('chatToggle').onclick=()=>{
-  document.querySelector('.chat-container').classList.toggle('show');
-};
