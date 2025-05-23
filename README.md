@@ -430,3 +430,27 @@ See `style.css` for implementation and utility classes.
   - Cards and badges are keyboard and screen reader friendly by default.
 
 See `style.css` for implementation and more details.
+
+---
+
+## Accessibility Guidelines
+
+- **Color Contrast:**
+  - All text and UI elements meet or exceed WCAG 2.1 Level AA contrast (normal text ≥4.5:1, large text ≥3:1).
+  - Black/neon and black/white combinations are compliant.
+  - Do not use color as the only means of conveying information—underline links, use icons, or add text labels.
+- **Keyboard Navigation:**
+  - All interactive elements (buttons, links, form controls) are keyboard accessible (Tab/Shift+Tab).
+  - Every focusable element has a clear visual focus indicator (outline, underline, or glow).
+  - No component traps focus; users can tab in/out of modals, dropdowns, etc.
+- **Alt Text & ARIA:**
+  - All meaningful images have descriptive alt text (e.g. `<img src="team.jpg" alt="Amrikyy development team">`).
+  - Icons that convey meaning use `aria-label` (e.g. `<i class="fa-solid fa-trash" aria-label="Delete"></i>`).
+  - Decorative icons use `aria-hidden="true"`.
+  - Semantic HTML is used throughout (`<button>`, `<nav>`, `<header>`, etc.).
+- **General:**
+  - Font sizes are ≥16px and line spacing is sufficient for readability.
+  - All forms use `<label>` tags for inputs.
+  - Motion/animation respects the user's `prefers-reduced-motion` setting.
+
+See `style.css` and markup for implementation details.

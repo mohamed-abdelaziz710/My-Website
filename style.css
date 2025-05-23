@@ -1650,3 +1650,35 @@ footer.site-footer {
   outline-offset: 2px;
 }
 
+/* --- Accessibility: prefers-reduced-motion --- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* --- Accessibility: Focus Outline for All Interactive Elements --- */
+a, button, input, select, textarea, .btn-primary, .btn-secondary, .btn-link {
+  outline-color: var(--color-neon);
+  outline-width: 2px;
+  outline-style: solid;
+  outline-offset: 2px;
+}
+
+/* --- Accessibility: Minimum Font Size and Line Height --- */
+body, p, a, span, li, input, button {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* --- Accessibility: Form Label Styling --- */
+label {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.25em;
+  display: block;
+}
+

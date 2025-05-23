@@ -8,11 +8,11 @@
     <!-- Link to External Stylesheet -->
     <link rel="stylesheet" href="style.css">
     
-    <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <!-- Font Awesome 6 (replace with your kit if needed) -->
+    <script src="https://kit.fontawesome.com/yourkit.js" crossorigin="anonymous"></script>
     
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts for Montserrat and Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Source+Sans+Pro:wght@400&display=swap" rel="stylesheet">
     
     <!-- Favicon and App Icons -->
     <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16x16.png">
@@ -339,6 +339,24 @@
         <a href="https://github.com/mohamed-abdelaziz710" target="_blank" class="contact-btn"><i class="fab fa-github"></i> GitHub</a>
       </div>
     </section>
+
+    <!-- Example: Accessible card with badge and alt text -->
+    <div class="card" role="region" aria-labelledby="project1-title">
+      <img src="project1.png" alt="Screenshot of Project 1 web app interface">
+      <div class="card-content">
+        <h3 id="project1-title">Project One</h3>
+        <span class="badge badge-success" aria-label="New project">New</span>
+        <p>A short description of the project goes here.</p>
+        <button class="btn-secondary" type="button">Learn More</button>
+      </div>
+    </div>
+
+    <!-- Example: Accessible form -->
+    <form>
+      <label for="contact-name">Name</label>
+      <input id="contact-name" name="name" type="text" required>
+      <button class="btn-primary" type="submit">Send</button>
+    </form>
 
     <!-- Force all main sections visible if JS fails -->
     <script>
