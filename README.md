@@ -5,6 +5,7 @@
 > **Fill out this section with your real personal details before publishing!**
 
 - **Name:** Mohamed H Abdelaziz
+- **Born:** July 10, 1999 (26 years old)
 - **Tagline:** e.g. "Full Stack Developer | Space Enthusiast"
 - **Profile Image:** `profile.jpg` (replace with your own image if desired)
 - **Location:** e.g. "San Francisco, CA, USA"
@@ -30,6 +31,19 @@
 - Azure
 - Firebase
 - Amadeus Selling Platform
+
+### Highlights & Achievements
+
+- Built a landing page project for charity: water
+- Member of Blackroom Talent Community
+- Cisco Certified in Cybersecurity
+- Worked as a travel agent for 2 years (Amadeus Selling Platform experience)
+
+### Education
+
+- Graduated 2017, El Shaheen High School, Kuwait City
+- Graduated 2021, Chattahoochee Technical College, Marietta, GA, USA
+- Will graduate May 2026, Kennesaw State University (Cybersecurity Engineering)
 
 ---
 
