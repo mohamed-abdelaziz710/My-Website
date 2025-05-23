@@ -83,6 +83,8 @@ code, .monospace {
   max-width: 1200px;
   margin: 0 auto;
   padding: 40px 20px; /* Increased padding */
+  margin-top: 48px;
+  margin-bottom: 48px;
 }
 
 /* Center all main content sections horizontally */
@@ -390,6 +392,11 @@ nav ul.nav-links a.active::after {
 .profile-card {
   padding: 0; /* Remove default padding */
   overflow: hidden;
+  width: 100%;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
 }
 
 .profile-header {
@@ -1137,6 +1144,61 @@ footer.site-footer {
 .chat-input button:hover {
   background-color: var(--secondary-accent);
   transform: scale(1.1);
+}
+
+/* --- Section Vertical Spacing & Centering Improvements --- */
+.container {
+  margin-top: 48px;
+  margin-bottom: 48px;
+}
+
+#about.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  margin-top: 64px;
+  margin-bottom: 48px;
+}
+
+/* Center About section text on all screens for visual consistency */
+#about .profile-title-container,
+#about .about-content,
+#about .metrics-display,
+#about .social-links {
+  text-align: center;
+}
+
+/* Ensure all main sections have consistent spacing */
+#badges, #skills, #projects, #contact {
+  margin-top: 48px;
+  margin-bottom: 48px;
+  text-align: center;
+}
+
+/* Responsive: About section centering on mobile */
+@media (max-width: 900px) {
+  #about.container {
+    padding-top: 24px;
+    padding-bottom: 24px;
+    min-height: unset;
+  }
+  .profile-card {
+    max-width: 98vw;
+  }
+}
+
+/* Add extra spacing between sections on small screens */
+@media (max-width: 600px) {
+  .container {
+    margin-top: 32px;
+    margin-bottom: 32px;
+  }
+  #badges, #skills, #projects, #contact {
+    margin-top: 32px;
+    margin-bottom: 32px;
+  }
 }
 
 /* --- Animations --- */
