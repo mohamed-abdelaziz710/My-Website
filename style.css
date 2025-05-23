@@ -834,6 +834,49 @@ nav ul.nav-links a.active::after {
   width: 100%;
 }
 
+/* --- Contact Section Buttons --- */
+.contact-info .contact-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 28px;
+  margin: 12px 8px 0 0;
+  background: linear-gradient(90deg, var(--primary-accent) 60%, var(--secondary-accent) 100%);
+  color: var(--dark-bg);
+  border: none;
+  border-radius: 30px;
+  font-size: 1em;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 2px 12px var(--shadow-color);
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s, transform 0.2s, box-shadow 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+.contact-info .contact-btn i {
+  font-size: 1.2em;
+  transition: transform 0.3s;
+}
+.contact-info .contact-btn:hover {
+  background: linear-gradient(90deg, var(--secondary-accent) 0%, var(--primary-accent) 100%);
+  color: var(--text-color);
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 6px 24px var(--shadow-color);
+}
+.contact-info .contact-btn:hover i {
+  transform: scale(1.2) rotate(-10deg);
+}
+@media (max-width: 768px) {
+  .contact-info .contact-btn {
+    width: 100%;
+    justify-content: center;
+    margin: 10px 0 0 0;
+    font-size: 0.98em;
+  }
+}
+
 /* --- Footer --- */
 footer.site-footer {
   text-align: center;
