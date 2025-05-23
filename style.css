@@ -374,11 +374,25 @@ nav a:hover {
 }
 
 .profile-header {
-    position: relative;
-    height: 300px;
-    overflow: hidden;
-    border-radius: 10px 10px 0 0;
-    background: var(--dark-bg);
+  position: relative;
+  height: 300px;
+  overflow: hidden;
+  border-radius: 10px 10px 0 0;
+  background: linear-gradient(45deg, #39ff14, #23272a, #181a1b);
+  background-size: 200% 200%;
+  animation: gradient-shift 6s ease infinite;
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .profile-image {
