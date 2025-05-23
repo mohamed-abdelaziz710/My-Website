@@ -1,5 +1,4 @@
-// JavaScript content provided by user at May 23 2025 17:44:30 +0000
-// Enhanced Spaceship UI/UX Theme JavaScript - Manus v2 - Language Toggle Update
+// Enhanced Spaceship UI/UX Theme JavaScript
 
 document.addEventListener("DOMContentLoaded", function () {
   initScrollAnimations(); // Enhanced scroll animations
@@ -36,9 +35,7 @@ function initScrollAnimations() {
       }
     );
 
-    animatedElements.forEach((el, index) => {
-      // Add staggered delay based on index
-      el.style.transitionDelay = `${index * 0.05}s`; 
+    animatedElements.forEach((el) => {
       observer.observe(el);
     });
   } else {
@@ -77,14 +74,13 @@ function initHeroEffects() {
     });
   }
 
-  // Typing effect for subtitle (if needed, currently CSS handles it)
-  // const subtitleSpan = document.querySelector(".hero-subtitle .typewriter");
-  // if (subtitleSpan) { /* Add typing logic here */ }
+  // Optional: Add JS-driven typing/glitch effect if CSS isn't sufficient
+  // (Current implementation uses CSS for typing effect)
 }
 
 // 3. Enhanced Hover Effects (Example: Card Tilt)
 function initHoverEffects() {
-  const cards = document.querySelectorAll(".card, .panel, .skill-category, .project-item, .certification-item, .badge-item"); // Added badges
+  const cards = document.querySelectorAll(".card, .panel, .skill-category, .project-item, .certification-item");
 
   cards.forEach(card => {
     card.addEventListener("mousemove", (e) => {
@@ -95,9 +91,8 @@ function initHoverEffects() {
       const centerY = rect.height / 2;
       const rotateX = (y - centerY) * 0.03; // Adjust sensitivity
       const rotateY = (centerX - x) * 0.03;
-      const scale = card.classList.contains("badge-item") ? 1.05 : 1.03; // Smaller scale for badges
 
-      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(${scale})`; 
+      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`; // Combine with existing hover scale
       card.style.transition = "transform 0.1s ease-out";
     });
 
@@ -114,10 +109,10 @@ function initChat() {
   const chatWindow = document.getElementById("chatWindow");
   const closeChat = document.getElementById("closeChat");
   const messageInput = document.getElementById("messageInput");
-  const sendMessageBtn = document.getElementById("sendMessage"); // Renamed for clarity
+  const sendMessage = document.getElementById("sendMessage");
   const chatMessages = document.getElementById("chatMessages");
 
-  if (!chatBubble || !chatWindow || !closeChat || !messageInput || !sendMessageBtn || !chatMessages) {
+  if (!chatBubble || !chatWindow || !closeChat || !messageInput || !sendMessage || !chatMessages) {
     console.warn("Chat elements not found.");
     return;
   }
@@ -125,23 +120,10 @@ function initChat() {
   // Add classes for CSS transitions
   chatWindow.classList.add("chat-window-transition");
 
-  // Add initial bot messages
-  function addInitialMessages() {
-      const lang = document.documentElement.lang || 'en';
-      const initialMsg1 = getTranslation("chat-msg1", lang);
-      const initialMsg2 = getTranslation("chat-msg2", lang);
-      appendMessage(initialMsg1, "bot");
-      setTimeout(() => appendMessage(initialMsg2, "bot"), 600); // Delayed second message
-  }
-
   chatBubble.addEventListener("click", function () {
+    // chatWindow.style.display = "flex"; // Replaced by class toggle
     chatWindow.classList.add("open");
-    chatWindow.style.display = "flex"; // Ensure display is flex
     chatBubble.style.display = "none";
-    // Add initial messages only if chat is empty
-    if (chatMessages.children.length === 0) {
-        addInitialMessages();
-    }
     // Scroll to bottom after animation
     setTimeout(() => {
         chatMessages.scrollTop = chatMessages.scrollHeight;
@@ -149,19 +131,14 @@ function initChat() {
   });
 
   closeChat.addEventListener("click", function () {
+    // chatWindow.style.display = "none"; // Replaced by class toggle
     chatWindow.classList.remove("open");
-    // Wait for animation to finish before hiding
-    setTimeout(() => {
-        if (!chatWindow.classList.contains("open")) { // Check if still closed
-             chatWindow.style.display = "none";
-        }
-    }, 300); 
     chatBubble.style.display = "flex";
   });
 
   function appendMessage(message, type) {
     const messageWrapper = document.createElement("div");
-    messageWrapper.className = `message ${type}-message`; // Base classes
+    messageWrapper.className = `message ${type}-message message-animate`; // Add animation class
 
     const messageContent = document.createElement("div");
     messageContent.className = "message-content";
@@ -169,29 +146,17 @@ function initChat() {
 
     const messageTime = document.createElement("div");
     messageTime.className = "message-time";
-    const now = new Date();
-    messageTime.textContent = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    messageTime.textContent = "Just now"; // Or format timestamp
 
     messageWrapper.appendChild(messageContent);
     messageWrapper.appendChild(messageTime);
     chatMessages.appendChild(messageWrapper);
-
-    // Add animation class after appending
-    requestAnimationFrame(() => {
-        messageWrapper.classList.add("message-animate");
-    });
 
     // Ensure scroll to bottom
     chatMessages.scrollTop = chatMessages.scrollHeight;
   }
 
   function showTypingIndicator() {
-      // Remove existing indicator if any
-      const existingIndicator = chatMessages.querySelector(".typing-indicator");
-      if (existingIndicator) {
-          chatMessages.removeChild(existingIndicator);
-      }
-      
       const typingIndicator = document.createElement("div");
       typingIndicator.className = "message bot-message typing-indicator";
       typingIndicator.innerHTML = 
@@ -220,11 +185,11 @@ function initChat() {
       body: JSON.stringify({ message: messageText }),
     })
       .then((response) => {
-        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+        if (!response.ok) throw new Error("Network response was not ok");
         return response.json();
       })
       .then((data) => {
-        if (typingIndicatorElement && typingIndicatorElement.parentNode === chatMessages) {
+        if (typingIndicatorElement.parentNode === chatMessages) {
             chatMessages.removeChild(typingIndicatorElement);
         }
         let reply = "";
@@ -233,25 +198,43 @@ function initChat() {
           reply = data.candidates[0].content.parts[0].text;
         } else {
           // Fallback messages
-          const fallbackKey = Math.random() < 0.5 ? "chat-fallback-1" : "chat-fallback-2";
-          reply = getTranslation(fallbackKey, isRTL ? 'ar' : 'en');
+          const fallbackMessagesEN = [
+            "Sorry, there was a connection error. You can reach me through the social media platforms listed in the contact section.",
+            "I'm experiencing some technical issues at the moment. I'll be back soon! 🔧",
+          ];
+          const fallbackMessagesAR = [
+            "عذراً، حدث خطأ في الاتصال. يمكنك التواصل معي عبر وسائل التواصل الاجتماعي المذكورة في قسم الاتصال.",
+            "أواجه بعض المشاكل التقنية حالياً. سأكون متاحاً قريباً! 🔧",
+          ];
+          reply = (isRTL ? fallbackMessagesAR : fallbackMessagesEN)[
+            Math.floor(Math.random() * 2)
+          ];
         }
         appendMessage(reply, "bot");
       })
       .catch((error) => {
         console.error("Error connecting to backend:", error);
-        if (typingIndicatorElement && typingIndicatorElement.parentNode === chatMessages) {
+        if (typingIndicatorElement.parentNode === chatMessages) {
             chatMessages.removeChild(typingIndicatorElement);
         }
         // Error messages
-        const errorKey = Math.random() < 0.5 ? "chat-error-1" : "chat-error-2";
-        const errorMessage = getTranslation(errorKey, isRTL ? 'ar' : 'en');
+        const errorMessagesEN = [
+          "Sorry, there seems to be an issue connecting to the server. You can reach me directly through social media. 🔌",
+          "I can't reach the server right now. Could you try again later? 🛠️",
+        ];
+        const errorMessagesAR = [
+          "عذراً، يبدو أن هناك مشكلة في الاتصال بالخادم. يمكنك التواصل معي مباشرة عبر وسائل التواصل الاجتماعي. 🔌",
+          "لا يمكنني الوصول إلى الخادم حالياً. هل يمكنك المحاولة مرة أخرى لاحقاً؟ 🛠️",
+        ];
+        const errorMessage = (isRTL ? errorMessagesAR : errorMessagesEN)[
+          Math.floor(Math.random() * 2)
+        ];
         appendMessage(errorMessage, "bot");
       });
     // --- End Backend Fetch ---
   }
 
-  sendMessageBtn.addEventListener("click", handleSendMessage);
+  sendMessage.addEventListener("click", handleSendMessage);
   messageInput.addEventListener("keypress", function (e) {
     if (e.key === "Enter") {
       handleSendMessage();
@@ -259,7 +242,7 @@ function initChat() {
   });
 }
 
-// 5. Mobile Menu Functionality (Enhanced)
+// 5. Mobile Menu Functionality (Keep existing logic, UI improved via CSS)
 function initMobileMenu() {
   const menuBtn = document.createElement("button");
   menuBtn.className = "menu-btn";
@@ -272,54 +255,41 @@ function initMobileMenu() {
 
   const nav = document.querySelector("nav");
   const navLinks = document.querySelector(".nav-links");
-  const socialLinks = document.querySelector(".nav-social-links");
-  const langToggle = document.querySelector(".language-toggle"); // Get lang toggle
 
-  if (!nav || !navLinks || !socialLinks || !langToggle) { // Check all elements
+  if (!nav || !navLinks) {
     console.warn("Navigation elements not found for mobile menu.");
     return;
   }
 
-  // Insert button at the end of nav
-  nav.appendChild(menuBtn);
+  // Insert before the navLinks list
+  nav.insertBefore(menuBtn, navLinks);
 
   menuBtn.addEventListener("click", function () {
-    const isActive = nav.classList.contains("menu-open");
-    nav.classList.toggle("menu-open");
+    const isActive = navLinks.classList.contains("active");
     navLinks.classList.toggle("active");
-    socialLinks.classList.toggle("active");
-    langToggle.classList.toggle("active"); // Toggle language toggle visibility
     menuBtn.setAttribute("aria-expanded", String(!isActive));
     // Toggle icon SVG
-    menuBtn.innerHTML = !isActive
+    menuBtn.innerHTML = isActive
       ? `<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-         </svg>` // Close icon
-      : `<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-         </svg>`; // Menu icon
+         </svg>`
+      : `<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+         </svg>`;
     // Prevent body scroll when menu is open
-    document.body.style.overflow = !isActive ? "hidden" : "";
+    document.body.style.overflow = isActive ? "" : "hidden";
   });
 
-  // Function to close menu
-  function closeMenu() {
-      nav.classList.remove("menu-open");
+  // Close menu when clicking outside
+  document.addEventListener("click", function (event) {
+    if (!event.target.closest("nav") && navLinks.classList.contains("active")) {
       navLinks.classList.remove("active");
-      socialLinks.classList.remove("active");
-      langToggle.classList.remove("active");
       menuBtn.innerHTML = 
         `<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
          </svg>`;
       menuBtn.setAttribute("aria-expanded", "false");
       document.body.style.overflow = "";
-  }
-
-  // Close menu when clicking outside
-  document.addEventListener("click", function (event) {
-    if (!event.target.closest("nav") && nav.classList.contains("menu-open")) {
-      closeMenu();
     }
   });
 
@@ -327,30 +297,37 @@ function initMobileMenu() {
   const links = navLinks.querySelectorAll("a");
   links.forEach((link) => {
     link.addEventListener("click", function () {
-        if (window.innerWidth <= 992) { // Only close on mobile
-            closeMenu();
-        }
-        // Smooth scroll logic (if needed, otherwise handled by browser/CSS)
-        const targetId = this.getAttribute("href");
-        if (targetId && targetId.startsWith("#")) {
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                // Add smooth scroll if browser doesn't support scroll-behavior: smooth
-                // targetElement.scrollIntoView({ behavior: "smooth" }); 
-            }
-        }
+      navLinks.classList.remove("active");
+      menuBtn.innerHTML = 
+        `<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+         </svg>`;
+      menuBtn.setAttribute("aria-expanded", "false");
+      document.body.style.overflow = "";
+      // Smooth scroll logic (if needed, otherwise handled by browser)
+      // const targetId = this.getAttribute("href").substring(1);
+      // const targetElement = document.getElementById(targetId);
+      // if (targetElement) {
+      //   targetElement.scrollIntoView({ behavior: "smooth" });
+      // }
     });
   });
 
   // Close menu on Escape key
   document.addEventListener("keydown", function (event) {
-    if (event.key === "Escape" && nav.classList.contains("menu-open")) {
-      closeMenu();
+    if (event.key === "Escape" && navLinks.classList.contains("active")) {
+      navLinks.classList.remove("active");
+      menuBtn.innerHTML = 
+        `<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+         </svg>`;
+      menuBtn.setAttribute("aria-expanded", "false");
+      document.body.style.overflow = "";
     }
   });
 }
 
-// 6. Language Toggle Functionality (Enhanced Insertion)
+// 6. Language Toggle Functionality (Keep existing logic, UI improved via CSS)
 function initLanguageToggle() {
   const toggleContainer = document.createElement("div");
   toggleContainer.className = "language-toggle";
@@ -363,11 +340,11 @@ function initLanguageToggle() {
      <span class="lang-label">AR</span>`;
 
   const nav = document.querySelector("nav");
-  const socialLinks = document.querySelector(".nav-social-links"); // Find social links
   if (nav) {
-      // Insert before social links if they exist, otherwise append to nav
-      if (socialLinks) {
-          nav.insertBefore(toggleContainer, socialLinks);
+      // Append next to nav links if possible, or at the end
+      const navLinks = nav.querySelector(".nav-links");
+      if (navLinks && navLinks.parentNode === nav) {
+          nav.insertBefore(toggleContainer, navLinks.nextSibling);
       } else {
           nav.appendChild(toggleContainer);
       }
@@ -377,32 +354,35 @@ function initLanguageToggle() {
   }
 
   const languageSwitch = document.getElementById("languageSwitch");
-  const savedLanguage = localStorage.getItem("language") || 'en'; // Default to 'en'
+  const savedLanguage = localStorage.getItem("language");
 
   if (savedLanguage === "ar") {
     document.body.classList.add("rtl");
     languageSwitch.checked = true;
+    updateLanguageContent("ar");
   } else {
+    // Default to English
     document.body.classList.remove("rtl");
     languageSwitch.checked = false;
+    updateLanguageContent("en");
   }
-  // Initial content update based on saved/default language
-  updateLanguageContent(savedLanguage);
 
   languageSwitch.addEventListener("change", function () {
-    const newLang = this.checked ? "ar" : "en";
     if (this.checked) {
       document.body.classList.add("rtl");
+      localStorage.setItem("language", "ar");
+      updateLanguageContent("ar");
     } else {
       document.body.classList.remove("rtl");
+      localStorage.setItem("language", "en");
+      updateLanguageContent("en");
     }
-    localStorage.setItem("language", newLang);
-    updateLanguageContent(newLang);
   });
 }
 
-// Centralized Translations Object
-const translations = {
+// 7. Update Language Content (Keep existing logic)
+function updateLanguageContent(lang) {
+  const translations = {
     en: {
       "nav-about": "About",
       "nav-skills": "Skills",
@@ -415,32 +395,26 @@ const translations = {
       "profile-title": "Mohamed Abdelaziz",
       "profile-subtitle-1": "Cybersecurity Engineer",
       "profile-subtitle-2": "AI Innovator",
-      "tagline": "Launching Secure Futures",
-      "about-title": "About Me",
-      "about-p1": "I'm Mohamed Abdelaziz, a passionate Cybersecurity Engineer and AI Innovator based in Cairo. I specialize in building robust security systems and intelligent AI solutions to tackle the challenges of tomorrow's digital landscape.",
-      "about-p2": "As a dedicated lifelong learner, I'm constantly exploring new technologies and methodologies to enhance my skills and deliver cutting-edge solutions. Let's connect and explore the endless possibilities in the realms of Cybersecurity and AI.",
+      "tagline": "Cybersecurity Strategist. AI Innovator. Driven by Vision.",
+      "about-p1": "Egyptian American, 26 years old, specializing in Cybersecurity and Artificial Intelligence. Currently living in Cairo, Egypt. Will graduate in May 2026 as a Cybersecurity Engineer, looking forward to contributing to the development of innovative security solutions using AI technologies.",
+      "about-p2": "Currently writing a book called \"CodeX\" about quantum computing and AI integration and cryptocurrency.",
       "badge-1": "Cybersecurity Engineer",
       "badge-2": "AI Tools Builder",
-      "badge-3": "KSU '26 – Cybersecurity Student",
+      "badge-3": "KSU \'26 – Cybersecurity Student",
       "badge-4": "Multilingual: AR / EN",
       "badge-5": "Replit Dev",
       "badge-6": "Based in Cairo – Global Reach",
-      "skills-title": "Skills Matrix", 
+      "skills-title": "Skills Matrix", // Updated title
       "certifications-title": "Certifications",
-      "experience-title": "Experience Log", 
-      "projects-title": "Projects Log", 
-      "project-link": "View Project",
-      "contact-title": "Contact Comms", 
-      "contact-btn": "Send a Message",
-      "chat-header": "SPACE COMMS v1.0", 
+      "experience-title": "Experience Log", // Updated title
+      "education-title": "Education Record", // Updated title
+      "projects-title": "Projects Log", // Updated title
+      "contact-title": "Contact Comms", // Updated title
+      "chat-header": "SPACE COMMS v1.0", // Updated title
       "chat-msg1": "Hello! I'm Mohamed's AI assistant. Welcome to the command center!",
       "chat-msg2": "How can I assist you regarding cybersecurity, AI, or Mohamed's work?",
-      "chat-input": "Transmit message...", 
-      "chat-fallback-1": "Sorry, there was a connection error. You can reach me through the social media platforms listed.",
-      "chat-fallback-2": "I'm experiencing some technical issues. I'll be back soon! 🔧",
-      "chat-error-1": "Sorry, there seems to be an issue connecting. You can reach me directly through social media. 🔌",
-      "chat-error-2": "I can't reach the server right now. Could you try again later? 🛠️",
-      "footer-name": `© ${new Date().getFullYear()} Mohamed Abdelaziz`, 
+      "chat-input": "Transmit message...", // Updated placeholder
+      "footer-name": `© ${new Date().getFullYear()} Mohamed Abdelaziz`, // Dynamic year
       "footer-role": "Cybersecurity Engineer & AI Innovator",
       "footer-signature": "Amrikyy",
     },
@@ -456,215 +430,169 @@ const translations = {
       "profile-title": "محمد عبد العزيز",
       "profile-subtitle-1": "مهندس أمن سيبراني",
       "profile-subtitle-2": "مبتكر ذكاء اصطناعي",
-      "tagline": "إطلاق مستقبل آمن",
-      "about-title": "عني",
-      "about-p1": "أنا محمد عبد العزيز، مهندس أمن سيبراني شغوف ومبتكر في مجال الذكاء الاصطناعي مقيم في القاهرة. متخصص في بناء أنظمة أمنية قوية وحلول ذكاء اصطناعي لمواجهة تحديات المشهد الرقمي المستقبلي.",
-      "about-p2": "كمتعلم دائم ملتزم، أستكشف باستمرار التقنيات والمنهجيات الجديدة لتعزيز مهاراتي وتقديم حلول متطورة. لنتواصل ونستكشف الإمكانيات اللامحدودة في مجالات الأمن السيبراني والذكاء الاصطناعي.",
+      "tagline": "استراتيجي أمن سيبراني. مبتكر ذكاء اصطناعي. مدفوع بالرؤية.",
+      "about-p1": "مصري أمريكي، 26 عامًا، متخصص في الأمن السيبراني والذكاء الاصطناعي. أعيش حاليًا في القاهرة، مصر. سأتخرج في مايو 2026 كمهندس أمن سيبراني، وأتطلع إلى المساهمة في تطوير حلول أمنية مبتكرة باستخدام تقنيات الذكاء الاصطناعي.",
+      "about-p2": "أعمل حاليًا على كتابة كتاب يسمى \"CodeX\" حول الحوسبة الكمومية ودمج الذكاء الاصطناعي والعملات المشفرة.",
       "badge-1": "مهندس أمن سيبراني",
       "badge-2": "مطور أدوات ذكاء اصطناعي",
-      "badge-3": "طالب أمن سيبراني - KSU '26",
+      "badge-3": "طالب أمن سيبراني - KSU \'26",
       "badge-4": "متعدد اللغات: عربي / إنجليزي",
       "badge-5": "مطور Replit",
       "badge-6": "مقيم في القاهرة - تواصل عالمي",
-      "skills-title": "مصفوفة المهارات", 
+      "skills-title": "مصفوفة المهارات", // Updated title
       "certifications-title": "الشهادات",
-      "experience-title": "سجل الخبرة", 
-      "projects-title": "سجل المشاريع", 
-      "project-link": "عرض المشروع",
-      "contact-title": "نظام الاتصال", 
-      "contact-btn": "أرسل رسالة",
-      "chat-header": "اتصالات الفضاء v1.0", 
+      "experience-title": "سجل الخبرة", // Updated title
+      "education-title": "السجل التعليمي", // Updated title
+      "projects-title": "سجل المشاريع", // Updated title
+      "contact-title": "نظام الاتصال", // Updated title
+      "chat-header": "اتصالات الفضاء v1.0", // Updated title
       "chat-msg1": "مرحباً! أنا مساعد محمد الافتراضي. أهلاً بك في مركز القيادة!",
       "chat-msg2": "كيف يمكنني مساعدتك بخصوص الأمن السيبراني، الذكاء الاصطناعي، أو أعمال محمد؟",
-      "chat-input": "أرسل رسالة...", 
-      "chat-fallback-1": "عذراً، حدث خطأ في الاتصال. يمكنك التواصل معي عبر وسائل التواصل الاجتماعي المذكورة.",
-      "chat-fallback-2": "أواجه بعض المشاكل التقنية حالياً. سأكون متاحاً قريباً! 🔧",
-      "chat-error-1": "عذراً، يبدو أن هناك مشكلة في الاتصال. يمكنك التواصل معي مباشرة عبر وسائل التواصل الاجتماعي. 🔌",
-      "chat-error-2": "لا يمكنني الوصول إلى الخادم حالياً. هل يمكنك المحاولة مرة أخرى لاحقاً؟ 🛠️",
-      "footer-name": `© ${new Date().getFullYear()} محمد عبد العزيز`, 
+      "chat-input": "أرسل رسالة...", // Updated placeholder
+      "footer-name": `© ${new Date().getFullYear()} محمد عبد العزيز`, // Dynamic year
       "footer-role": "مهندس أمن سيبراني ومبتكر ذكاء اصطناعي",
       "footer-signature": "Amrikyy",
     },
-};
+  };
 
-// Helper function to get translation safely
-function getTranslation(key, lang) {
-    return translations[lang]?.[key] || translations['en']?.[key] || key; // Fallback to English then key itself
-}
-
-// 7. Update Language Content (Refactored)
-function updateLanguageContent(lang) {
   document.querySelectorAll("[data-translate]").forEach((element) => {
     const key = element.getAttribute("data-translate");
-    element.textContent = getTranslation(key, lang);
+    if (translations[lang] && translations[lang][key]) {
+      element.textContent = translations[lang][key];
+    }
   });
 
-  // Update specific elements like placeholders or titles not using data-translate
+  // Update chat input placeholder specifically
   const messageInput = document.getElementById("messageInput");
   if (messageInput) {
-    messageInput.placeholder = getTranslation("chat-input", lang);
+    messageInput.placeholder = translations[lang]["chat-input"];
   }
 
-  // Update HTML lang attribute and body direction class
+  // Update HTML lang attribute
   document.documentElement.lang = lang;
-  if (lang === 'ar') {
-      document.body.classList.add('rtl');
-  } else {
-      document.body.classList.remove('rtl');
-  }
-
-  // Re-initialize chat with initial messages if window is open and empty
-  const chatWindow = document.getElementById("chatWindow");
-  const chatMessages = document.getElementById("chatMessages");
-  if (chatWindow && chatWindow.classList.contains('open') && chatMessages && chatMessages.children.length === 0) {
-      // Clear potential old messages before adding new ones (optional)
-      // chatMessages.innerHTML = ''; 
-      addInitialMessages(); // Defined within initChat scope
-  }
 }
 
 // 8. Particle JS Initialization (Updated Configuration)
 function initParticles() {
   if (typeof particlesJS === "undefined") {
-    // Attempt to load particles.js if not found (e.g., if script moved)
-    const script = document.createElement('script');
-    script.src = 'https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js';
-    script.onload = () => {
-        console.log("particles.js loaded dynamically.");
-        setupParticles();
-    };
-    script.onerror = () => {
-        console.error("Failed to load particles.js dynamically.");
-    };
-    document.body.appendChild(script);
-    return; 
+    console.warn("particles.js not loaded. Skipping particle initialization.");
+    return;
   }
-  setupParticles(); // If already loaded
-}
 
-function setupParticles() {
-    const particlesContainerId = "particles-js"; // Ensure this ID exists in your HTML
-    const particlesElement = document.getElementById(particlesContainerId);
-    if (!particlesElement) {
-        console.warn(`Element with ID '${particlesContainerId}' not found for particles.js.`);
-        return;
-    }
+  const particlesContainerId = "particles-js"; // Ensure this ID exists in your HTML
+  if (!document.getElementById(particlesContainerId)) {
+      console.warn(`Element with ID '${particlesContainerId}' not found for particles.js.`);
+      return;
+  }
 
-    particlesJS(particlesContainerId, {
-      particles: {
-        number: {
-          value: 50, // Reduced further for performance
-          density: {
-            enable: true,
-            value_area: 800,
-          },
-        },
-        color: {
-          value: ["#39ff14", "#ffffff", "#00BFFF"], // Array of colors (Neon Green, White, Crypto Blue)
-        },
-        shape: {
-          type: ["circle", "edge"], // Mix of shapes
-          stroke: {
-            width: 0,
-            color: "#000000",
-          },
-          polygon: {
-            nb_sides: 5,
-          },
-        },
-        opacity: {
-          value: 0.4, // Slightly less opaque
-          random: true, // Add randomness
-          anim: {
-            enable: true,
-            speed: 0.6, // Slightly faster flicker
-            opacity_min: 0.1,
-            sync: false,
-          },
-        },
-        size: {
-          value: 2.5, // Slightly smaller
-          random: true,
-          anim: {
-            enable: true, // Enable size animation
-            speed: 4, // Slow size pulse
-            size_min: 1,
-            sync: false,
-          },
-        },
-        line_linked: {
+  particlesJS(particlesContainerId, {
+    particles: {
+      number: {
+        value: 60, // Slightly fewer particles
+        density: {
           enable: true,
-          distance: 120, // Reduced distance
-          color: "#ffffff", // White links
-          opacity: 0.15, // Very subtle links
-          width: 1,
-          triangles: { // Add triangles for a more complex network
-              enable: true,
-              color: "#0A0F1A", // Match dark background
-              opacity: 0.05
-          }
-        },
-        move: {
-          enable: true,
-          speed: 2, // Slower movement
-          direction: "none",
-          random: true, // Random movement
-          straight: false,
-          out_mode: "out",
-          bounce: false,
-          attract: {
-            enable: true, // Enable attract mode
-            rotateX: 600,
-            rotateY: 1200,
-          },
+          value_area: 800,
         },
       },
-      interactivity: {
-        detect_on: "canvas",
-        events: {
-          onhover: {
-            enable: true,
-            mode: "grab", // Changed from repulse to grab
-          },
-          onclick: {
-            enable: true,
-            mode: "push",
-          },
-          resize: true,
+      color: {
+        value: "#21E6C1", // Use primary accent color
+      },
+      shape: {
+        type: "circle", // Keep circle or try "edge"
+        stroke: {
+          width: 0,
+          color: "#000000",
         },
-        modes: {
-          grab: {
-            distance: 140,
-            line_linked: {
-              opacity: 0.3, // More visible grab lines
-            },
-          },
-          bubble: {
-            distance: 400,
-            size: 40,
-            duration: 2,
-            opacity: 8,
-            speed: 3,
-          },
-          repulse: {
-            distance: 200,
-            duration: 0.4,
-          },
-          push: {
-            particles_nb: 4,
-          },
-          remove: {
-            particles_nb: 2,
-          },
+        polygon: {
+          nb_sides: 5,
         },
       },
-      retina_detect: true,
-    });
+      opacity: {
+        value: 0.4, // Slightly less opaque
+        random: true, // Add randomness
+        anim: {
+          enable: true,
+          speed: 0.5,
+          opacity_min: 0.1,
+          sync: false,
+        },
+      },
+      size: {
+        value: 2.5, // Slightly smaller
+        random: true,
+        anim: {
+          enable: false,
+          speed: 40,
+          size_min: 0.1,
+          sync: false,
+        },
+      },
+      line_linked: {
+        enable: true,
+        distance: 130, // Slightly shorter links
+        color: "#21E6C1", // Use primary accent color
+        opacity: 0.25, // More subtle links
+        width: 1,
+      },
+      move: {
+        enable: true,
+        speed: 3, // Slower movement
+        direction: "none",
+        random: true, // Random movement
+        straight: false,
+        out_mode: "out",
+        bounce: false,
+        attract: {
+          enable: false,
+          rotateX: 600,
+          rotateY: 1200,
+        },
+      },
+    },
+    interactivity: {
+      detect_on: "canvas",
+      events: {
+        onhover: {
+          enable: true,
+          mode: "grab", // Changed from repulse to grab
+        },
+        onclick: {
+          enable: true,
+          mode: "push",
+        },
+        resize: true,
+      },
+      modes: {
+        grab: {
+          distance: 150,
+          line_linked: {
+            opacity: 0.5, // Slightly more visible grab lines
+          },
+        },
+        bubble: {
+          distance: 400,
+          size: 40,
+          duration: 2,
+          opacity: 8,
+          speed: 3,
+        },
+        repulse: {
+          distance: 200,
+          duration: 0.4,
+        },
+        push: {
+          particles_nb: 4,
+        },
+        remove: {
+          particles_nb: 2,
+        },
+      },
+    },
+    retina_detect: true,
+  });
 }
 
-// Add CSS for chat window transition and message animation (already present in HTML via style tag in original JS)
-// Consider moving this CSS to the main style.css file for better organization
-/*
+// Add CSS for chat window transition and message animation
 const styleSheet = document.createElement("style");
 styleSheet.type = "text/css";
 styleSheet.innerText = `
@@ -692,4 +620,4 @@ styleSheet.innerText = `
   }
 `;
 document.head.appendChild(styleSheet);
-*/
+

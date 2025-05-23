@@ -1,6 +1,5 @@
-/* CSS content provided by user at May 23 2025 17:44:14 +0000 */
 /*
-Enhanced Spaceship UI/UX Theme CSS - Manus v1 - Background Focus
+Enhanced Spaceship UI/UX Theme CSS
 Based on the original style.css and the spaceship concept.
 */
 
@@ -10,15 +9,13 @@ Based on the original style.css and the spaceship concept.
   --dark-bg: #0A0F1A; /* Deep space blue/black */
   --darker-bg: #050A15; /* Even darker for depth */
   --card-bg: #10151F; /* Panel/Card background */
-  --primary-accent: #39ff14; /* Neon Green */
-  --secondary-accent: #fff; /* White */
+  --primary-accent: #21E6C1; /* Electric Cyan */
+  --secondary-accent: #9A16E5; /* Neon Purple */
   --tertiary-accent: #FFA500; /* Tech Orange (optional) */
   --text-color: #E0E0E0; /* Light grey/off-white */
-  --border-color: rgba(57, 255, 20, 0.5); /* Neon Green border */
+  --border-color: rgba(33, 230, 193, 0.5); /* Semi-transparent cyan */
   --hover-color: #1A2030; /* Slightly lighter dark for hover */
-  --shadow-color: rgba(57, 255, 20, 0.3); /* Neon Green shadow */
-  --crypto-blue: #00BFFF; /* Deep Sky Blue for crypto elements */
-  --cyber-purple: #9400D3; /* Dark Violet for cyber elements */
+  --shadow-color: rgba(33, 230, 193, 0.3); /* Cyan shadow */
 
   /* Fonts */
   --font-primary: 'Exo 2', 'Roboto', sans-serif;
@@ -34,7 +31,6 @@ body {
   font-family: var(--font-primary);
   overflow-x: hidden;
   line-height: 1.6;
-  position: relative; /* Needed for pseudo-elements */
 }
 
 /* --- Font Imports --- */
@@ -87,20 +83,18 @@ code, .monospace {
   max-width: 1200px;
   margin: 0 auto;
   padding: 40px 20px; /* Increased padding */
-  position: relative; /* Ensure content is above background elements */
-  z-index: 2;
 }
 
 /* --- Navigation --- */
 nav {
-  background: rgba(10, 15, 26, 0.85); /* Slightly less transparent */
-  backdrop-filter: blur(12px);
+  background: rgba(10, 15, 26, 0.8); /* Semi-transparent dark */
+  backdrop-filter: blur(10px);
   padding: 16px 24px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
   border-bottom: 1px solid var(--border-color);
   position: sticky;
   top: 0;
@@ -115,9 +109,6 @@ nav .logo {
   color: var(--primary-accent);
   text-shadow: 0 0 8px var(--shadow-color);
   letter-spacing: 2px;
-  display: flex; /* Align icon and text */
-  align-items: center;
-  gap: 8px;
 }
 
 nav ul.nav-links {
@@ -126,7 +117,6 @@ nav ul.nav-links {
   gap: 30px; /* Increased gap */
   margin: 0;
   padding: 0;
-  align-items: center; /* Align items vertically */
 }
 
 nav ul.nav-links a {
@@ -137,9 +127,6 @@ nav ul.nav-links a {
   letter-spacing: 1px;
   position: relative;
   transition: color 0.3s ease, text-shadow 0.3s ease;
-  display: flex; /* Align icon and text */
-  align-items: center;
-  gap: 6px;
 }
 
 nav ul.nav-links a::after {
@@ -165,98 +152,6 @@ nav ul.nav-links a.active::after {
   width: 100%;
 }
 
-/* Social Links in Nav */
-.nav-social-links {
-    display: flex;
-    gap: 18px;
-    align-items: center;
-    margin-left: 20px; /* Space from nav links */
-}
-
-.nav-social-links a {
-    color: var(--text-color);
-    font-size: 1.1rem;
-    transition: color 0.3s ease, transform 0.3s ease;
-}
-
-.nav-social-links a:hover {
-    color: var(--primary-accent);
-    transform: scale(1.2);
-}
-
-/* Language Toggle Styles (Placeholder - JS adds the element) */
-.language-toggle {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-left: 20px; /* Space from social links */
-}
-
-.language-toggle .lang-label {
-    font-size: 0.8rem;
-    color: var(--text-color);
-    font-family: var(--font-secondary);
-    text-transform: uppercase;
-}
-
-.language-toggle .switch {
-    position: relative;
-    display: inline-block;
-    width: 40px; /* Smaller toggle */
-    height: 20px;
-}
-
-.language-toggle .switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
-
-.language-toggle .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: var(--hover-color);
-    transition: .4s;
-    border: 1px solid var(--border-color);
-}
-
-.language-toggle .slider:before {
-    position: absolute;
-    content: "";
-    height: 14px;
-    width: 14px;
-    left: 2px;
-    bottom: 2px;
-    background-color: var(--secondary-accent);
-    transition: .4s;
-}
-
-.language-toggle input:checked + .slider {
-    background-color: var(--primary-accent);
-}
-
-.language-toggle input:focus + .slider {
-    box-shadow: 0 0 1px var(--primary-accent);
-}
-
-.language-toggle input:checked + .slider:before {
-    transform: translateX(20px);
-    background-color: var(--dark-bg);
-}
-
-.language-toggle .slider.round {
-    border-radius: 20px;
-}
-
-.language-toggle .slider.round:before {
-    border-radius: 50%;
-}
-
-/* Mobile Menu Button (Placeholder - JS adds the element) */
 .menu-btn {
   display: none; /* Handled by JS, but hide initially */
   background: none;
@@ -265,12 +160,6 @@ nav ul.nav-links a.active::after {
   font-size: 1.8rem;
   cursor: pointer;
   transition: transform 0.3s ease;
-  margin-left: 15px; /* Space from language toggle */
-}
-
-.menu-btn svg {
-    width: 24px;
-    height: 24px;
 }
 
 .menu-btn:hover {
@@ -284,29 +173,14 @@ nav ul.nav-links a.active::after {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 80px 20px 40px; /* Adjusted padding */
+  padding: 80px 0 40px; /* Adjust padding */
   background-color: var(--dark-bg);
   overflow: hidden;
-  /* Removed old grid background, replaced by advanced effects */
-}
-
-.hero-particles {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-}
-
-.hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(ellipse at center, rgba(10, 15, 26, 0.1) 0%, rgba(10, 15, 26, 0.8) 70%, var(--dark-bg) 100%);
-    z-index: 2;
+  /* Add subtle grid background */
+  background-image: 
+    linear-gradient(rgba(33, 230, 193, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(33, 230, 193, 0.05) 1px, transparent 1px);
+  background-size: 30px 30px;
 }
 
 .hero-content {
@@ -384,56 +258,6 @@ nav ul.nav-links a.active::after {
   line-height: 1.1;
 }
 
-/* Glitch Text Effect */
-.glitch-text {
-  position: relative;
-  color: var(--primary-accent);
-  text-shadow: 0 0 5px var(--shadow-color);
-}
-
-.glitch-text::before,
-.glitch-text::after {
-  content: attr(data-text);
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: var(--dark-bg); /* Match background */
-  overflow: hidden;
-}
-
-.glitch-text::before {
-  left: 2px;
-  text-shadow: -1px 0 var(--crypto-blue);
-  animation: glitch-anim-1 2s infinite linear alternate-reverse;
-}
-
-.glitch-text::after {
-  left: -2px;
-  text-shadow: -1px 0 var(--cyber-purple);
-  animation: glitch-anim-2 3s infinite linear alternate-reverse;
-}
-
-@keyframes glitch-anim-1 {
-  0% { clip-path: inset(10% 0 80% 0); }
-  20% { clip-path: inset(90% 0 5% 0); }
-  40% { clip-path: inset(40% 0 45% 0); }
-  60% { clip-path: inset(70% 0 10% 0); }
-  80% { clip-path: inset(25% 0 60% 0); }
-  100% { clip-path: inset(5% 0 90% 0); }
-}
-
-@keyframes glitch-anim-2 {
-  0% { clip-path: inset(85% 0 5% 0); }
-  20% { clip-path: inset(15% 0 70% 0); }
-  40% { clip-path: inset(60% 0 30% 0); }
-  60% { clip-path: inset(35% 0 50% 0); }
-  80% { clip-path: inset(90% 0 2% 0); }
-  100% { clip-path: inset(45% 0 40% 0); }
-}
-
-
 .hero-subtitle {
   font-family: var(--font-secondary);
   font-size: 1.3rem;
@@ -479,9 +303,7 @@ nav ul.nav-links a.active::after {
 
 /* Hero Button */
 .hero-btn {
-  display: inline-flex; /* Use flex for icon alignment */
-  align-items: center;
-  gap: 8px;
+  display: inline-block;
   padding: 14px 35px;
   background-color: transparent;
   color: var(--primary-accent);
@@ -494,7 +316,6 @@ nav ul.nav-links a.active::after {
   overflow: hidden;
   text-transform: uppercase;
   letter-spacing: 1px;
-  z-index: 1; /* Ensure button text is above pseudo-elements */
 }
 
 .hero-btn::before {
@@ -506,7 +327,6 @@ nav ul.nav-links a.active::after {
   height: 100%;
   background: linear-gradient(90deg, transparent, var(--primary-accent), transparent);
   transition: left 0.4s ease;
-  z-index: -1;
 }
 
 .hero-btn:hover {
@@ -519,33 +339,6 @@ nav ul.nav-links a.active::after {
   left: 100%;
 }
 
-/* Pulse effect for button */
-.pulse-btn::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100%;
-    height: 100%;
-    background: var(--primary-accent);
-    border-radius: 5px;
-    transform: translate(-50%, -50%) scale(1);
-    opacity: 0;
-    z-index: -2;
-    animation: pulse-effect 2s infinite;
-}
-
-@keyframes pulse-effect {
-    0% {
-        transform: translate(-50%, -50%) scale(1);
-        opacity: 0.6;
-    }
-    100% {
-        transform: translate(-50%, -50%) scale(1.5);
-        opacity: 0;
-    }
-}
-
 /* --- General Card/Panel Styling --- */
 .card, .panel /* Unified panel style */
 {
@@ -553,13 +346,12 @@ nav ul.nav-links a.active::after {
   border: 1px solid var(--border-color);
   border-radius: 8px;
   padding: 25px 30px; /* Increased padding */
-  margin: 30px auto; /* Center cards */
-  max-width: 1100px; /* Limit card width */
+  margin: 30px 0;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2), inset 0 0 10px rgba(16, 21, 31, 0.5);
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
   position: relative;
   overflow: hidden;
-  z-index: 2; /* Ensure cards are above background */
+  /* Add subtle top glow */
 }
 
 .card::before, .panel::before {
@@ -587,13 +379,12 @@ nav ul.nav-links a.active::after {
 /* --- Profile Card (About Section) --- */
 .profile-card {
   padding: 0; /* Remove default padding */
-  overflow: visible; /* Allow image to overlap */
-  margin-top: 60px; /* Space from hero */
+  overflow: hidden;
 }
 
 .profile-header {
   position: relative;
-  height: 200px; /* Reduced height */
+  height: 250px; /* Adjusted height */
   overflow: hidden;
   border-radius: 8px 8px 0 0;
   background: linear-gradient(45deg, var(--darker-bg), var(--card-bg));
@@ -612,33 +403,33 @@ nav ul.nav-links a.active::after {
 /* Add new subtle background pattern */
 .profile-header {
   background-image: 
-    radial-gradient(circle at 10% 10%, rgba(57, 255, 20, 0.08) 0%, transparent 30%),
-    radial-gradient(circle at 90% 80%, rgba(0, 191, 255, 0.08) 0%, transparent 30%);
+    radial-gradient(circle at 10% 10%, rgba(33, 230, 193, 0.1) 0%, transparent 30%),
+    radial-gradient(circle at 90% 80%, rgba(154, 22, 229, 0.1) 0%, transparent 30%);
 }
 
 .profile-image {
-  width: 120px; /* Increased size */
-  height: 120px;
+  width: 100px; /* Adjusted size */
+  height: 100px;
   object-fit: cover;
   border-radius: 50%;
-  border: 4px solid var(--primary-accent);
-  box-shadow: 0 0 20px var(--shadow-color);
+  border: 3px solid var(--primary-accent);
+  box-shadow: 0 0 15px var(--shadow-color);
   margin-bottom: 15px;
   transition: transform .3s ease, box-shadow .3s ease;
-  position: absolute; /* Position absolutely */
-  top: -60px; /* Overlap header */
-  left: 30px;
-  z-index: 3; /* Above header content */
+  /* Position adjusted */
+  position: relative; 
+  margin-top: -60px; /* Overlap header */
+  margin-left: 30px;
+  z-index: 2;
 }
 
 .profile-card:hover .profile-image {
-  box-shadow: 0 0 30px var(--primary-accent);
-  transform: scale(1.08) rotate(-3deg); /* Add slight rotation */
+  box-shadow: 0 0 25px var(--primary-accent);
+  transform: scale(1.05);
 }
 
-.profile-title-container { /* Container for title/subtitle */
+.profile-title-container { /* New container for title/subtitle */
   padding: 0 30px 20px; /* Add padding below image */
-  margin-top: 70px; /* Space for the overlapping image */
 }
 
 .profile-title h1 {
@@ -667,9 +458,6 @@ nav ul.nav-links a.active::after {
   color: var(--primary-accent);
   border-left: 3px solid var(--secondary-accent);
   padding-left: 15px;
-  display: flex; /* Align icon */
-  align-items: center;
-  gap: 8px;
 }
 
 .about-content h2 {
@@ -693,82 +481,36 @@ nav ul.nav-links a.active::after {
   text-align: center;
 }
 
-/* Social Links in Profile Card */
-.social-links {
-    padding: 0 30px 30px; /* Add padding */
-    display: flex;
-    gap: 20px;
-    justify-content: flex-start; /* Align left */
-}
-
-.social-link {
-    color: var(--text-color);
-    text-decoration: none;
-    font-size: 0.9em;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    transition: color 0.3s ease, text-shadow 0.3s ease;
-}
-
-.social-link i {
-    font-size: 1.2em;
-    color: var(--primary-accent);
-    transition: transform 0.3s ease;
-}
-
-.social-link:hover {
-    color: var(--primary-accent);
-    text-shadow: 0 0 5px var(--shadow-color);
-}
-
-.social-link:hover i {
-    transform: scale(1.1);
-}
-
-/* Badges section */
+/* Badges in About section */
 .badges-container {
-  display: flex; /* Use flexbox */
-  flex-wrap: wrap; /* Allow wrapping */
-  gap: 15px;
-  margin: 30px auto; /* Center container */
-  padding: 0 20px; /* Add padding */
-  max-width: 1100px;
-  justify-content: center; /* Center badges */
-  position: relative; /* For z-index */
-  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+  margin-top: 20px;
 }
 
 .badge-item {
   background-color: var(--darker-bg);
   border: 1px solid var(--border-color);
   border-radius: 4px;
-  padding: 10px 15px; /* Increased padding */
+  padding: 8px 12px;
   display: flex;
   align-items: center;
-  gap: 10px; /* Increased gap */
+  gap: 8px;
   font-size: 0.9em;
-  transition: all 0.3s ease;
-  cursor: default;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .badge-item:hover {
   background-color: var(--hover-color);
   border-color: var(--primary-accent);
-  transform: translateY(-3px);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3), 0 0 8px var(--shadow-color);
 }
 
 .badge-item i {
   color: var(--primary-accent);
-  font-size: 1.1em; /* Slightly larger icon */
 }
 
 /* --- Skills Section --- */
-#skills.container {
-    padding-top: 60px; /* Add padding top */
-}
-
 .skills-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adjusted minmax */
@@ -798,10 +540,6 @@ nav ul.nav-links a.active::after {
   font-size: 1.3em;
   border-bottom: 1px dashed var(--border-color);
   padding-bottom: 10px;
-  display: flex; /* Align icon */
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
 }
 
 .skill-list {
@@ -823,12 +561,11 @@ nav ul.nav-links a.active::after {
   opacity: 0.8;
   width: 20px;
   text-align: center;
-  transition: transform 0.3s ease, text-shadow 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
 .skill-list li:hover i {
   transform: scale(1.2);
-  text-shadow: 0 0 5px var(--shadow-color);
   opacity: 1;
 }
 
@@ -868,11 +605,6 @@ nav ul.nav-links a.active::after {
   margin-right: 20px;
   flex-shrink: 0;
   box-shadow: 0 0 10px var(--shadow-color);
-  transition: transform 0.3s ease;
-}
-
-.certification-item:hover .certification-icon {
-    transform: rotate(15deg) scale(1.1);
 }
 
 .certification-icon i {
@@ -927,12 +659,11 @@ nav ul.nav-links a.active::after {
   top: 5px;
   border: 3px solid var(--dark-bg);
   box-shadow: 0 0 10px var(--shadow-color);
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  transition: background-color 0.3s ease;
 }
 
 .timeline-item:hover .timeline-dot {
   background-color: var(--secondary-accent);
-  transform: scale(1.2);
 }
 
 .timeline-date {
@@ -992,10 +723,6 @@ nav ul.nav-links a.active::after {
 }
 
 /* --- Projects Section --- */
-#projects.container {
-    padding-top: 60px; /* Add padding top */
-}
-
 .projects-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -1011,8 +738,6 @@ nav ul.nav-links a.active::after {
   display: flex;
   flex-direction: column; /* Stack content */
   transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
-  position: relative; /* For link positioning */
-  overflow: hidden; /* Hide overflowing elements */
 }
 
 .project-item:hover {
@@ -1039,11 +764,6 @@ nav ul.nav-links a.active::after {
   margin-right: 15px;
   flex-shrink: 0;
   box-shadow: 0 0 10px var(--shadow-color);
-  transition: transform 0.3s ease;
-}
-
-.project-item:hover .project-icon {
-    transform: rotate(-15deg) scale(1.1);
 }
 
 .project-icon i {
@@ -1058,81 +778,70 @@ nav ul.nav-links a.active::after {
 
 .project-details p {
   margin-top: 10px; /* Add space */
-  margin-bottom: 15px; /* Space before link */
+  margin-bottom: 0;
   font-size: 0.9em;
   opacity: .8;
-  flex-grow: 1; /* Push link to bottom */
-}
-
-.project-link {
-    display: inline-block;
-    margin-top: auto; /* Push to bottom */
-    padding: 8px 15px;
-    background-color: transparent;
-    color: var(--primary-accent);
-    text-decoration: none;
-    border: 1px solid var(--primary-accent);
-    border-radius: 4px;
-    font-size: 0.85em;
-    text-align: center;
-    transition: all 0.3s ease;
-    align-self: flex-start; /* Align to left */
-}
-
-.project-link:hover {
-    background-color: var(--primary-accent);
-    color: var(--dark-bg);
-    box-shadow: 0 0 8px var(--shadow-color);
 }
 
 /* --- Contact Section --- */
-#contact.container {
-    padding-top: 60px; /* Add padding top */
-}
-
 .contact-info {
   background-color: var(--darker-bg);
   border: 1px solid var(--border-color);
   border-radius: 8px;
-  padding: 30px; /* Increased padding */
+  padding: 25px;
   margin-top: 30px;
-  text-align: center; /* Center content */
-}
-
-.contact-info h2 {
-    margin-bottom: 30px;
 }
 
 .contact-info p {
   margin: 18px 0;
   display: flex;
   align-items: center;
-  justify-content: center; /* Center items */
   font-size: 1em;
-  gap: 12px; /* Gap between icon and text */
 }
 
 .contact-info i {
   color: var(--primary-accent);
+  margin-right: 18px;
   width: 20px;
   text-align: center;
   font-size: 1.2em;
 }
 
-.contact-info a.hero-btn {
-    margin-top: 30px; /* Space above button */
+.contact-info a {
+  color: var(--text-color);
+  text-decoration: none;
+  transition: color .3s ease, text-shadow .3s ease;
+  position: relative;
+}
+
+.contact-info a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: -2px;
+  left: 0;
+  background-color: var(--primary-accent);
+  transition: width 0.3s ease;
+}
+
+.contact-info a:hover {
+  color: var(--primary-accent);
+  text-shadow: 0 0 5px var(--shadow-color);
+}
+
+.contact-info a:hover::after {
+  width: 100%;
 }
 
 /* --- Footer --- */
 footer.site-footer {
   text-align: center;
-  padding: 40px 20px; /* Increased padding */
+  padding: 30px 20px; /* Increased padding */
   margin-top: 60px;
   background-color: var(--darker-bg);
   border-top: 2px solid var(--primary-accent);
-  box-shadow: 0 -5px 20px rgba(57, 255, 20, 0.15); /* Enhanced shadow */
-  position: relative; /* For z-index */
-  z-index: 2;
+  box-shadow: 0 -5px 20px rgba(33, 230, 193, 0.1);
 }
 
 .footer-content {
@@ -1222,18 +931,12 @@ footer.site-footer {
   letter-spacing: 1px;
 }
 
-.chat-header > div { /* Target the div containing indicator and text */
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
 .chat-header .status-indicator {
   width: 10px;
   height: 10px;
   background-color: var(--primary-accent);
   border-radius: 50%;
-  /* margin-right: 8px; Removed, using gap */
+  margin-right: 8px;
   animation: pulse-core 1.5s infinite alternate;
 }
 
@@ -1383,122 +1086,6 @@ footer.site-footer {
   transform: scale(1.1);
 }
 
-/* --- Micro Background Animations - Enhanced --- */
-/* Remove old body::before/after */
-body::before, body::after { display: none; }
-
-/* New Background Container */
-.background-effect {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0; /* Behind content */
-    pointer-events: none;
-    overflow: hidden;
-    background: var(--dark-bg);
-}
-
-/* Layer 1: Subtle Grid */
-.background-effect::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background-image:
-        linear-gradient(rgba(57, 255, 20, 0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(57, 255, 20, 0.05) 1px, transparent 1px);
-    background-size: 40px 40px;
-    opacity: 0.5;
-    animation: subtle-pan 60s linear infinite;
-}
-
-@keyframes subtle-pan {
-    0% { background-position: 0 0; }
-    100% { background-position: 400px 400px; }
-}
-
-/* Layer 2: Data Stream Lines */
-.background-effect::after {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: 
-        repeating-linear-gradient(
-            45deg,
-            transparent,
-            transparent 10px,
-            rgba(0, 191, 255, 0.08) 10px,
-            rgba(0, 191, 255, 0.08) 12px
-        ),
-        repeating-linear-gradient(
-            -45deg,
-            transparent,
-            transparent 10px,
-            rgba(148, 0, 211, 0.08) 10px,
-            rgba(148, 0, 211, 0.08) 12px
-        );
-    background-size: 100px 100px;
-    opacity: 0.6;
-    animation: data-stream 25s linear infinite;
-}
-
-@keyframes data-stream {
-    0% { background-position: 0 0; }
-    100% { background-position: -200px 200px; }
-}
-
-/* Micro floating dots (Keep from JS, but style here) */
-.micro-dot {
-  position: fixed;
-  border-radius: 50%;
-  pointer-events: none;
-  opacity: 0.15; /* Slightly more visible */
-  z-index: 0;
-  animation: micro-dot-float 10s linear infinite alternate; /* Add alternate */
-  background: var(--primary-accent);
-  filter: blur(1px); /* Add blur */
-}
-@keyframes micro-dot-float {
-  0% { transform: translateY(0) translateX(0) scale(0.8); opacity: 0.1; }
-  100% { transform: translateY(-80px) translateX(20px) scale(1.2); opacity: 0.25; }
-}
-
-/* Micro Orbs (Keep from JS, but style here) */
-.micro-orb {
-  position: fixed;
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 0;
-  opacity: 0.1;
-  background: radial-gradient(circle, var(--crypto-blue) 0%, transparent 70%);
-  animation: micro-orbital 25s linear infinite alternate; /* Add alternate */
-  filter: blur(3px);
-}
-@keyframes micro-orbital {
-  0% { transform: translate(0,0) scale(1) rotate(0deg); opacity: 0.05; }
-  100% { transform: translate(30vw, -40vh) scale(1.4) rotate(180deg); opacity: 0.15; }
-}
-
-/* Micro Pulse Dots (Keep from JS, but style here) */
-.micro-pulse-dot {
-  position: fixed;
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 0;
-  width: 18px;
-  height: 18px;
-  background: var(--cyber-purple);
-  opacity: 0.1;
-  animation: micro-pulse 5s ease-in-out infinite;
-  filter: blur(2px);
-  box-shadow: 0 0 10px 2px var(--cyber-purple);
-}
-@keyframes micro-pulse {
-  0%, 100% { opacity: 0.05; transform: scale(0.8); box-shadow: 0 0 8px 1px var(--cyber-purple); }
-  50% { opacity: 0.20; transform: scale(1.2); box-shadow: 0 0 25px 6px var(--cyber-purple); }
-}
-
 /* --- Animations --- */
 /* Reusing pulse-core for general pulse */
 .pulse {
@@ -1520,8 +1107,8 @@ body::before, body::after { display: none; }
 /* Scroll Reveal Animation */
 .scroll-animate {
   opacity: 0;
-  transform: translateY(40px); /* Slightly more movement */
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
 .scroll-animate.visible {
@@ -1529,79 +1116,45 @@ body::before, body::after { display: none; }
   transform: translateY(0);
 }
 
-/* Add delay variations for scroll animation */
-.scroll-animate:nth-child(2) { transition-delay: 0.1s; }
-.scroll-animate:nth-child(3) { transition-delay: 0.2s; }
-/* Add more if needed */
-
 /* --- Responsive Design --- */
-@media (max-width: 992px) { /* Adjust breakpoint */
-    nav {
-        justify-content: space-between; /* Ensure logo and button are spaced */
-    }
-    nav ul.nav-links,
-    .nav-social-links,
-    .language-toggle {
-        display: none; /* Hide these elements initially */
-        order: 3; /* Move below logo and button */
-        width: 100%;
-        flex-direction: column;
-        align-items: center;
-        gap: 0; /* Reset gap for column layout */
-        padding: 10px 0;
-    }
-
-    nav ul.nav-links.active,
-    .nav-social-links.active,
-    .language-toggle.active {
-        display: flex; /* Show when active */
-    }
-
-    nav ul.nav-links li {
-        text-align: center;
-        padding: 15px 0; /* Increase padding */
-        width: 100%;
-        border-bottom: 1px solid rgba(57, 255, 20, 0.1); /* Separator */
-    }
-    nav ul.nav-links li:last-child {
-        border-bottom: none;
-    }
-
-    nav ul.nav-links a {
-        display: block; /* Make links full width */
-        width: 100%;
-        justify-content: center; /* Center icon and text */
-    }
-
-    .nav-social-links {
-        flex-direction: row; /* Keep social links horizontal */
-        justify-content: center;
-        padding: 15px 0;
-        gap: 25px;
-        border-bottom: 1px solid rgba(57, 255, 20, 0.1);
-    }
-
-    .language-toggle {
-        padding: 15px 0;
-    }
-
-    .menu-btn {
-        display: block;
-        order: 2; /* Place button after logo */
-    }
-
-    /* Adjust nav background when menu is open */
-    nav.menu-open {
-        background-color: rgba(10, 15, 26, 0.98); /* More opaque */
-    }
-}
-
 @media (max-width: 768px) {
   h1 { font-size: 2rem; }
   h2 { font-size: 1.6rem; }
   h3 { font-size: 1.3rem; }
 
   .container { padding: 20px 15px; }
+
+  nav ul.nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: rgba(16, 21, 31, 0.95); /* Darker mobile menu */
+    position: absolute;
+    top: 65px; /* Adjust based on nav height */
+    left: 0;
+    padding: 10px 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,.3);
+    border-top: 1px solid var(--border-color);
+  }
+
+  nav ul.nav-links.active {
+    display: flex;
+  }
+
+  nav ul.nav-links li {
+    text-align: center;
+    padding: 12px 0;
+    width: 100%;
+  }
+
+  nav ul.nav-links a {
+    display: block; /* Make links full width */
+    width: 100%;
+  }
+
+  .menu-btn {
+    display: block;
+  }
 
   .hero-content {
     flex-direction: column;
@@ -1640,33 +1193,26 @@ body::before, body::after { display: none; }
   }
 
   .profile-header {
-    height: 150px; /* Adjust height */
+    height: 200px;
   }
 
   .profile-image {
-    width: 100px;
-    height: 100px;
-    top: -50px; /* Adjust overlap */
-    left: 50%; /* Center horizontally */
-    transform: translateX(-50%); /* Center horizontally */
+    width: 80px;
+    height: 80px;
+    margin-top: -40px;
+    margin-left: 20px;
   }
 
-  .profile-title-container {
-      margin-top: 60px; /* Adjust space for centered image */
-      text-align: center; /* Center text */
+  .profile-title h1 {
+    font-size: 1.6rem;
   }
 
   .profile-subtitle {
-      justify-content: center; /* Center subtitle items */
+    font-size: 1em;
   }
 
   .about-content {
     padding: 15px 20px 20px;
-  }
-
-  .social-links {
-      justify-content: center; /* Center social links */
-      padding: 0 20px 20px;
   }
 
   .chat-window {
@@ -1684,121 +1230,5 @@ body::before, body::after { display: none; }
     width: 55px;
     height: 55px;
   }
-}
-
-/* RTL Specific Styles */
-body.rtl {
-    direction: rtl;
-}
-
-body.rtl nav ul.nav-links a::after {
-    left: auto;
-    right: 50%;
-    transform: translateX(50%);
-}
-
-body.rtl .hero-subtitle {
-    border-right: none;
-    border-left: 3px solid var(--primary-accent);
-    animation: typing-rtl 3s steps(30, end), blink-caret-rtl .75s step-end infinite;
-}
-
-@keyframes typing-rtl { from { width: 0 } to { width: 100% } }
-@keyframes blink-caret-rtl { from, to { border-color: transparent } 50% { border-color: var(--primary-accent); } }
-
-body.rtl .tagline {
-    border-left: none;
-    border-right: 3px solid var(--secondary-accent);
-    padding-left: 0;
-    padding-right: 15px;
-}
-
-body.rtl .skill-list li i {
-    margin-right: 0;
-    margin-left: 12px;
-}
-
-body.rtl .certification-icon {
-    margin-right: 0;
-    margin-left: 20px;
-}
-
-body.rtl .timeline::before {
-    left: auto;
-    right: 10px;
-}
-
-body.rtl .timeline-item {
-    padding-left: 0;
-    padding-right: 30px;
-}
-
-body.rtl .timeline-dot {
-    left: auto;
-    right: 2px;
-}
-
-body.rtl .project-icon {
-    margin-right: 0;
-    margin-left: 15px;
-}
-
-body.rtl .project-link {
-    align-self: flex-end; /* Align to right */
-}
-
-body.rtl .contact-info p {
-    flex-direction: row-reverse; /* Reverse icon and text */
-}
-
-body.rtl .contact-info i {
-    margin-right: 0;
-    margin-left: 12px;
-}
-
-body.rtl .chat-messages {
-    /* Scrollbar might need specific RTL adjustments if issues arise */
-}
-
-body.rtl .user-message {
-    align-self: flex-start;
-    align-items: flex-start;
-}
-
-body.rtl .user-message .message-content {
-    border-radius: 12px 12px 12px 0;
-}
-
-body.rtl .bot-message {
-    align-self: flex-end;
-    align-items: flex-end;
-}
-
-body.rtl .bot-message .message-content {
-    border-radius: 12px 12px 0 12px;
-}
-
-body.rtl .chat-input {
-    flex-direction: row-reverse;
-}
-
-body.rtl .chat-input input {
-    margin-right: 0;
-    margin-left: 10px;
-}
-
-body.rtl .nav-social-links {
-    margin-left: 0;
-    margin-right: 20px;
-}
-
-body.rtl .language-toggle {
-    margin-left: 0;
-    margin-right: 20px;
-}
-
-body.rtl .menu-btn {
-    margin-left: 0;
-    margin-right: 15px;
 }
 

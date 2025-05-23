@@ -1,313 +1,149 @@
-<!DOCTYPE html>
-<html lang="en"> <!-- Default lang set to en -->
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Updated Title -->
-  <title data-translate="page-title">Mohamed Abdelaziz | Spaceship Portfolio</title> 
-  <link rel="stylesheet" href="style.css">
-  <!-- Add a placeholder favicon link, user can replace favicon_new.png -->
-  <link rel="icon" type="image/png" href="favicon_new.png"> 
-  <!-- Font Awesome Kit -->
-  <script src="https://kit.fontawesome.com/2b8e1e1e2a.js" crossorigin="anonymous"></script>
-</head>
-<body>
-  <!-- Background Effect Container (Managed by CSS) -->
-  <div class="background-effect"></div>
-  <!-- Micro background animation container (Managed by JS/CSS) -->
-  <div id="micro-bg-anim"></div> 
-
-  <!-- Navigation bar -->
-  <nav>
-    <!-- Logo with Icon -->
-    <div class="logo"><i class="fas fa-rocket"></i> <span data-translate="nav-logo">Mohamed Abdelaziz</span></div>
-    <!-- Navigation Links -->
-    <ul class="nav-links">
-      <li><a href="#about"><i class="fas fa-user-astronaut"></i> <span data-translate="nav-about">About</span></a></li>
-      <li><a href="#skills"><i class="fas fa-satellite-dish"></i> <span data-translate="nav-skills">Skills</span></a></li>
-      <li><a href="#projects"><i class="fas fa-space-shuttle"></i> <span data-translate="nav-projects">Projects</span></a></li>
-      <li><a href="#contact"><i class="fas fa-envelope-open-text"></i> <span data-translate="nav-contact">Contact</span></a></li>
-    </ul>
-    <!-- Language Toggle (JS will insert this) -->
-    <!-- Social Media Links -->
-    <div class="nav-social-links">
-      <a href="#" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a> <!-- Placeholder Link -->
-      <a href="#" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a> <!-- Placeholder Link -->
-      <a href="mailto:your-email@example.com" aria-label="Email"><i class="fas fa-envelope"></i></a> <!-- Placeholder Email -->
+<!-- Enhanced About Section with Spaceship UI/UX Theme -->
+<section id="about" class="container">
+  <div class="profile-card card scroll-animate">
+    <!-- Enhanced Profile Header with Holographic Effect -->
+    <div class="profile-header">
+      <!-- Animated Background Elements -->
+      <div class="space-grid"></div>
+      <div class="space-particles"></div>
+      
+      <!-- Holographic Profile Image Container -->
+      <div class="profile-image-container">
+        <div class="profile-image-hologram"></div>
+        <img src="profile.jpg" alt="Mohamed Abdelaziz" class="profile-image">
+        <div class="profile-scan-line"></div>
+      </div>
     </div>
-    <!-- Mobile Menu Button (JS will insert this) -->
-  </nav>
-
-  <!-- Hero section -->
-  <section class="hero-section" id="hero">
-    <!-- Particles Container -->
-    <div class="hero-particles" id="particles-js"></div> 
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <div class="hero-text-container scroll-animate">
-        <!-- Use data-text for glitch effect -->
-        <h1 class="glitch-text" data-text="Mohamed Abdelaziz" data-translate="hero-title">Mohamed Abdelaziz</h1>
-        <div class="hero-subtitle">
-          <!-- Typewriter text needs to be updated by JS -->
-          <span class="typewriter" data-translate="hero-subtitle">Cybersecurity Engineer & AI Innovator</span>
+    
+    <!-- Enhanced Title Container with Command Console Styling -->
+    <div class="profile-title-container">
+      <div class="console-line">
+        <span class="console-prompt">></span>
+        <span class="console-command">identify</span>
+        <div class="profile-title">
+          <h1 data-translate="profile-title">Mohamed Abdelaziz</h1>
         </div>
-        <div class="hero-description">
-          <p data-translate="hero-description">Securing the digital frontier with innovative AI solutions</p>
+      </div>
+      <div class="console-line">
+        <span class="console-prompt">></span>
+        <span class="console-command">status</span>
+        <div class="profile-subtitle">
+          <span data-translate="profile-subtitle-1">Cybersecurity Engineer</span> 
+          <span class="divider-icon">⬢</span> 
+          <span data-translate="profile-subtitle-2">AI Innovator</span>
         </div>
-        <!-- Tech Icons -->
-        <div class="hero-tech-icons">
-          <i class="fab fa-python" title="Python"></i>
-          <i class="fas fa-shield-alt" title="Cybersecurity"></i>
-          <i class="fas fa-brain" title="AI"></i>
-          <i class="fab fa-js-square" title="JavaScript"></i>
-          <i class="fab fa-react" title="React"></i>
+      </div>
+    </div>
+    
+    <!-- Enhanced About Content with Spaceship UI Elements -->
+    <div class="about-content">
+      <!-- Mission Statement with Animated Icon -->
+      <div class="mission-statement">
+        <div class="mission-icon">
+          <i class="fas fa-rocket"></i>
         </div>
-        <!-- Hero Button -->
-        <a href="#contact" class="hero-btn pulse-btn">
-          <i class="fas fa-paper-plane"></i> <span data-translate="hero-btn">Contact Me</span>
+        <div class="tagline">
+          <span data-translate="tagline">Launching Secure Futures</span>
+        </div>
+      </div>
+      
+      <!-- Section Heading with Spaceship Console Style -->
+      <div class="section-heading">
+        <div class="heading-indicator"></div>
+        <h2 data-translate="about-title">About Me</h2>
+        <div class="heading-line"></div>
+      </div>
+      
+      <!-- Bio Text with Tech-Inspired Styling -->
+      <div class="bio-container">
+        <p class="bio-text" data-translate="about-p1">I'm Mohamed Abdelaziz, a passionate Cybersecurity Engineer and AI Innovator based in Cairo. I specialize in building robust security systems and intelligent AI solutions to tackle the challenges of tomorrow's digital landscape.</p>
+        
+        <div class="tech-separator">
+          <span></span>
+          <i class="fas fa-microchip"></i>
+          <span></span>
+        </div>
+        
+        <p class="bio-text" data-translate="about-p2">As a dedicated lifelong learner, I'm constantly exploring new technologies and methodologies to enhance my skills and deliver cutting-edge solutions. Let's connect and explore the endless possibilities in the realms of Cybersecurity and AI.</p>
+      </div>
+      
+      <!-- Data Metrics Display -->
+      <div class="metrics-display">
+        <div class="metric-item">
+          <div class="metric-value">5+</div>
+          <div class="metric-label">Years Experience</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-value">15+</div>
+          <div class="metric-label">Projects</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-value">3+</div>
+          <div class="metric-label">Certifications</div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Enhanced Social Links with Spaceship UI Styling -->
+    <div class="social-links">
+      <div class="social-links-header">
+        <span class="console-prompt">></span>
+        <span class="console-command">connect</span>
+      </div>
+      <div class="social-links-container">
+        <a href="#" target="_blank" class="social-link">
+          <div class="social-icon"><i class="fab fa-linkedin"></i></div>
+          <div class="social-text">LinkedIn</div>
+        </a>
+        <a href="#" target="_blank" class="social-link">
+          <div class="social-icon"><i class="fab fa-github"></i></div>
+          <div class="social-text">GitHub</div>
+        </a>
+        <a href="mailto:amrikyy@gmail.com" class="social-link">
+          <div class="social-icon"><i class="fas fa-envelope"></i></div>
+          <div class="social-text">amrikyy@gmail.com</div>
+        </a>
+        <a href="mailto:mabdela1@students.kennesaw.edu" class="social-link">
+          <div class="social-icon"><i class="fas fa-envelope"></i></div>
+          <div class="social-text">mabdela1@students.kennesaw.edu</div>
         </a>
       </div>
-      <!-- Futuristic Visual Element -->
-      <div class="hero-visual scroll-animate">
-        <div class="futuristic-sphere">
-          <div class="sphere-layer"></div>
-          <div class="sphere-layer"></div>
-          <div class="sphere-layer"></div>
-          <div class="sphere-layer"></div>
-          <div class="sphere-core"></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- About Section (Profile Card) -->
-  <section id="about" class="container">
-    <div class="profile-card card scroll-animate">
-      <div class="profile-header">
-        <!-- Profile Image -->
-        <img src="profile.jpg" alt="Mohamed Abdelaziz" class="profile-image"> <!-- Real Image -->
-      </div>
-      <div class="profile-title-container">
-          <div class="profile-title">
-            <h1 data-translate="profile-title">Mohamed Abdelaziz</h1>
-          </div>
-          <div class="profile-subtitle">
-            <span data-translate="profile-subtitle-1">Cybersecurity Engineer</span> | <span data-translate="profile-subtitle-2">AI Innovator</span>
-          </div>
-      </div>
-      <div class="about-content">
-        <div class="tagline"><i class="fas fa-crosshairs neon-icon"></i><span data-translate="tagline">Launching Secure Futures</span></div>
-        <h2 data-translate="about-title">About Me</h2>
-        <p data-translate="about-p1">I'm Mohamed Abdelaziz, a passionate Cybersecurity Engineer and AI Innovator based in Cairo. I specialize in building robust security systems and intelligent AI solutions to tackle the challenges of tomorrow's digital landscape.</p>
-        <p data-translate="about-p2">As a dedicated lifelong learner, I'm constantly exploring new technologies and methodologies to enhance my skills and deliver cutting-edge solutions. Let's connect and explore the endless possibilities in the realms of Cybersecurity and AI.</p>
-      </div>
-       <!-- Social Links within Profile -->
-       <div class="social-links">
-          <a href="#" target="_blank" class="social-link"><i class="fab fa-linkedin"></i> LinkedIn</a> <!-- Placeholder -->
-          <a href="#" target="_blank" class="social-link"><i class="fab fa-github"></i> GitHub</a> <!-- Placeholder -->
-          <a href="mailto:amrikyy@gmail.com" class="social-link"><i class="fas fa-envelope"></i> amrikyy@gmail.com</a>
-          <a href="mailto:mabdela1@students.kennesaw.edu" class="social-link"><i class="fas fa-envelope"></i> mabdela1@students.kennesaw.edu</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Badges Section -->
-  <section class="badges-container container">
-      <div class="badge-item scroll-animate"><i class="fas fa-user-shield"></i><span data-translate="badge-1">Cybersecurity Engineer</span></div>
-      <div class="badge-item scroll-animate"><i class="fas fa-tools"></i><span data-translate="badge-2">AI Tools Builder</span></div>
-      <div class="badge-item scroll-animate"><i class="fas fa-graduation-cap"></i><span data-translate="badge-3">KSU '26 – Cybersecurity Student</span></div>
-      <div class="badge-item scroll-animate"><i class="fas fa-language"></i><span data-translate="badge-4">Multilingual: AR / EN</span></div>
-      <div class="badge-item scroll-animate"><i class="fab fa-replit"></i><span data-translate="badge-5">Replit Dev</span></div>
-      <div class="badge-item scroll-animate"><i class="fas fa-map-marker-alt"></i><span data-translate="badge-6">Based in Cairo – Global Reach</span></div>
-  </section>
-
-  <!-- Skills Section -->
-  <section id="skills" class="container">
-    <h2 class="scroll-animate" data-translate="skills-title">Skills Matrix</h2>
-    <div class="skills-container">
-      <!-- Category 1 -->
-      <div class="skill-category card scroll-animate">
-        <h3><i class="fas fa-shield-alt neon-icon"></i> Cybersecurity</h3>
-        <ul class="skill-list">
-          <li><i class="fas fa-network-wired"></i> Network Security</li>
-          <li><i class="fas fa-lock"></i> Cryptography</li>
-          <li><i class="fas fa-bug"></i> Penetration Testing</li>
-          <li><i class="fas fa-user-secret"></i> Threat Intelligence</li>
-          <li><i class="fas fa-file-code"></i> Secure Coding</li>
-        </ul>
-      </div>
-      <!-- Category 2 -->
-      <div class="skill-category card scroll-animate">
-        <h3><i class="fas fa-brain neon-icon"></i> Artificial Intelligence</h3>
-        <ul class="skill-list">
-          <li><i class="fas fa-robot"></i> Machine Learning</li>
-          <li><i class="fas fa-code"></i> Python (AI Libraries)</li>
-          <li><i class="fas fa-database"></i> Data Analysis</li>
-          <li><i class="fas fa-lightbulb"></i> AI Model Development</li>
-          <li><i class="fas fa-cogs"></i> AI Tool Integration</li>
-        </ul>
-      </div>
-      <!-- Category 3 -->
-      <div class="skill-category card scroll-animate">
-        <h3><i class="fas fa-laptop-code neon-icon"></i> Development</h3>
-        <ul class="skill-list">
-          <li><i class="fab fa-html5"></i> HTML5 & CSS3</li>
-          <li><i class="fab fa-js-square"></i> JavaScript (ES6+)</li>
-          <li><i class="fab fa-react"></i> React & Next.js</li>
-          <li><i class="fab fa-node-js"></i> Node.js</li>
-          <li><i class="fas fa-server"></i> API Development</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- Certifications Section -->
-  <section id="certifications" class="container">
-      <h2 class="scroll-animate" data-translate="certifications-title">Certifications</h2>
-      <div class="certifications-container">
-          <!-- Certification Item 1 -->
-          <div class="certification-item card scroll-animate">
-              <div class="certification-icon"><i class="fas fa-certificate"></i></div>
-              <div class="certification-details">
-                  <h3>CompTIA Security+</h3>
-                  <p>Issued by CompTIA</p>
-              </div>
-          </div>
-          <!-- Certification Item 2 -->
-          <div class="certification-item card scroll-animate">
-              <div class="certification-icon"><i class="fas fa-award"></i></div>
-              <div class="certification-details">
-                  <h3>Google Cybersecurity Certificate</h3>
-                  <p>Issued by Google</p>
-              </div>
-          </div>
-           <!-- Add more certifications as needed -->
-      </div>
-  </section>
-
-  <!-- Experience Timeline Section -->
-  <section id="experience" class="container">
-      <h2 class="scroll-animate" data-translate="experience-title">Experience Log</h2>
-      <div class="timeline">
-          <!-- Timeline Item 1 -->
-          <div class="timeline-item scroll-animate">
-              <div class="timeline-dot"></div>
-              <div class="timeline-date">2023 - Present</div>
-              <div class="timeline-content">
-                  <h3>Freelance Cybersecurity Consultant</h3>
-                  <p>Provided security assessments and AI tool development for various clients.</p>
-                  <div class="partners">
-                      <span class="partner">Client A</span>
-                      <span class="partner">Startup B</span>
-                  </div>
-              </div>
-          </div>
-          <!-- Timeline Item 2 -->
-          <div class="timeline-item scroll-animate">
-              <div class="timeline-dot"></div>
-              <div class="timeline-date">2022 - 2023</div>
-              <div class="timeline-content">
-                  <h3>AI Developer Intern</h3>
-                  <p>Contributed to developing AI-powered security monitoring tools.</p>
-                   <div class="partners">
-                      <span class="partner">Tech Company C</span>
-                  </div>
-              </div>
-          </div>
-          <!-- Add more experience items -->
-      </div>
-  </section>
-
-  <!-- Projects Section -->
-  <section id="projects" class="container">
-    <h2 class="scroll-animate" data-translate="projects-title">Projects Log</h2>
-    <div class="projects-container">
-      <!-- Project Item 1 -->
-      <div class="project-item card scroll-animate">
-        <div class="project-header">
-          <div class="project-icon"><i class="fas fa-project-diagram"></i></div>
-          <div class="project-details">
-            <h3>AI Phishing Detector</h3>
-          </div>
-        </div>
-        <p>Developed an AI model to detect phishing emails with high accuracy using NLP techniques.</p>
-        <a href="#" target="_blank" class="project-link" data-translate="project-link">View Project</a> <!-- Placeholder -->
-      </div>
-      <!-- Project Item 2 -->
-      <div class="project-item card scroll-animate">
-        <div class="project-header">
-          <div class="project-icon"><i class="fas fa-network-wired"></i></div>
-          <div class="project-details">
-            <h3>Secure Network Scanner</h3>
-          </div>
-        </div>
-        <p>Built a custom network scanner focusing on secure coding practices and vulnerability detection.</p>
-        <a href="#" target="_blank" class="project-link" data-translate="project-link">View Project</a> <!-- Placeholder -->
-      </div>
-      <!-- Project Item 3 -->
-      <div class="project-item card scroll-animate">
-        <div class="project-header">
-          <div class="project-icon"><i class="fas fa-comments-dollar"></i></div>
-          <div class="project-details">
-            <h3>Crypto Price Predictor</h3>
-          </div>
-        </div>
-        <p>Experimental project using ML to predict cryptocurrency price trends (educational purposes).</p>
-        <a href="#" target="_blank" class="project-link" data-translate="project-link">View Project</a> <!-- Placeholder -->
-      </div>
-      <!-- Add more project items -->
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact" class="container">
-    <div class="contact-info panel scroll-animate">
-      <h2 data-translate="contact-title">Contact Comms</h2>
-      <p><i class="fas fa-map-marker-alt"></i> Cairo, Egypt (Available Globally)</p>
-      <p><i class="fas fa-envelope"></i> <a href="mailto:amrikyy@gmail.com">amrikyy@gmail.com</a></p>
-      <p><i class="fas fa-envelope"></i> <a href="mailto:mabdela1@students.kennesaw.edu">mabdela1@students.kennesaw.edu</a></p>
-      <p><i class="fab fa-linkedin"></i> <a href="#" target="_blank">linkedin.com/in/yourprofile</a></p> <!-- Placeholder -->
-      <a href="#" class="hero-btn pulse-btn" data-translate="contact-btn"><i class="fas fa-comment-dots"></i> Send a Message</a> <!-- Link to chat or form -->
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="site-footer">
-    <div class="footer-content">
-      <div class="footer-name" data-translate="footer-name">© 2025 Mohamed Abdelaziz</div>
-      <div class="footer-role" data-translate="footer-role">Cybersecurity Engineer & AI Innovator</div>
-      <div class="footer-signature" data-translate="footer-signature">Amrikyy</div>
-    </div>
-  </footer>
-
-  <!-- Chat Bubble -->
-  <div class="chat-bubble" id="chatBubble">
-    <i class="fas fa-comment-dots"></i>
-  </div>
-
-  <!-- Chat Window -->
-  <div class="chat-window" id="chatWindow">
-    <div class="chat-header">
-      <div> <!-- Wrapper for status and title -->
-        <span class="status-indicator"></span>
-        <span data-translate="chat-header">SPACE COMMS v1.0</span>
-      </div>
-      <button id="closeChat" aria-label="Close Chat"><i class="fas fa-times"></i></button>
-    </div>
-    <div class="chat-messages" id="chatMessages">
-      <!-- Messages will be appended here by JS -->
-    </div>
-    <div class="chat-input">
-      <input type="text" id="messageInput" placeholder="Transmit message..." data-translate-placeholder="chat-input">
-      <button id="sendMessage" aria-label="Send Message"><i class="fas fa-paper-plane"></i></button>
     </div>
   </div>
+</section>
 
-  <!-- Scripts -->
-  <!-- Particles.js Library -->
-  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-  <!-- Main Script -->
-  <script src="script.js"></script>
-
-</body>
-</html>
+<!-- Enhanced Badges Section with Spaceship UI Elements -->
+<section class="badges-container container">
+  <div class="badges-header">
+    <div class="heading-indicator"></div>
+    <h3>Credentials</h3>
+    <div class="heading-line"></div>
+  </div>
+  
+  <div class="badges-grid">
+    <div class="badge-item scroll-animate">
+      <div class="badge-icon"><i class="fas fa-user-shield"></i></div>
+      <div class="badge-text"><span data-translate="badge-1">Cybersecurity Engineer</span></div>
+    </div>
+    <div class="badge-item scroll-animate">
+      <div class="badge-icon"><i class="fas fa-tools"></i></div>
+      <div class="badge-text"><span data-translate="badge-2">AI Tools Builder</span></div>
+    </div>
+    <div class="badge-item scroll-animate">
+      <div class="badge-icon"><i class="fas fa-graduation-cap"></i></div>
+      <div class="badge-text"><span data-translate="badge-3">KSU '26 – Cybersecurity Student</span></div>
+    </div>
+    <div class="badge-item scroll-animate">
+      <div class="badge-icon"><i class="fas fa-language"></i></div>
+      <div class="badge-text"><span data-translate="badge-4">Multilingual: AR / EN</span></div>
+    </div>
+    <div class="badge-item scroll-animate">
+      <div class="badge-icon"><i class="fab fa-replit"></i></div>
+      <div class="badge-text"><span data-translate="badge-5">Replit Dev</span></div>
+    </div>
+    <div class="badge-item scroll-animate">
+      <div class="badge-icon"><i class="fas fa-map-marker-alt"></i></div>
+      <div class="badge-text"><span data-translate="badge-6">Based in Cairo – Global Reach</span></div>
+    </div>
+  </div>
+</section>
