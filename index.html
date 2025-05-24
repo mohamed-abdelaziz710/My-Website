@@ -23,6 +23,15 @@
 
   <!-- قسم الترحيب (Hero) -->
   <section id="hero" class="hero-section">
+    <div id="hero-animation">
+      <lottie-player
+        src="assets/quantum-animation.json"
+        background="transparent"
+        speed="1"
+        style="width: 200px; height: 200px; margin: auto;"
+        loop autoplay>
+      </lottie-player>
+    </div>
     <h1>مرحبًا بك في بورتفوليو محمد عبدالعزيز</h1>
     <p>مهندس أمن سيبراني ومطور أدوات ذكاء اصطناعي.</p>
     <button id="btn-get-in-touch">تواصل الآن</button>
@@ -38,16 +47,16 @@
   <section id="projects" class="projects-section">
     <h2>المشاريع</h2>
     <div class="projects-container">
-      <div class="project-card glass">
-        <h3>AI Automation Suite</h3>
+      <div class="project-card glass ripple-hover">
+        <h3 class="glitch">AI Automation Suite</h3>
         <p>منصة أتمتة تعتمد على الذكاء الاصطناعي لتحسين العمليات.</p>
       </div>
-      <div class="project-card glass">
-        <h3>Secure Network Framework</h3>
+      <div class="project-card glass ripple-hover">
+        <h3 class="glitch">Secure Network Framework</h3>
         <p>إطار عمل لتأمين الشبكات وحماية البيانات.</p>
       </div>
-      <div class="project-card glass">
-        <h3>Quantum Data Explorer</h3>
+      <div class="project-card glass ripple-hover">
+        <h3 class="glitch">Quantum Data Explorer</h3>
         <p>أداة استكشاف البيانات بالمفاهيم الكمية.</p>
       </div>
     </div>
@@ -81,7 +90,23 @@
     </form>
   </section>
 
+  <!-- زر فقاعة الشات -->
+  <div class="chat-bubble" id="chatBubble"></div>
+
+  <!-- نافذة الشات العائمة -->
+  <div class="chatbot-window" id="chatbotWindow">
+    <header>
+      <span>🤖 شات الذكاء الاصطناعي</span>
+      <button id="closeChat">✕</button>
+    </header>
+    <div class="messages">
+      <div class="message bot">مرحباً! كيف أقدر أساعدك اليوم؟</div>
+    </div>
+    <input type="text" id="chatInput" placeholder="اكتب رسالتك..." autocomplete="off" />
+  </div>
+
   <script src="assets/particles.min.js"></script>
   <script src="script.js"></script>
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 </body>
 </html>
