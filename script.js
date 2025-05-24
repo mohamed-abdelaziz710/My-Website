@@ -99,3 +99,68 @@ function initHoverEffects() {
     });
   });
 }
+
+// Example: Add your real info for contact, skills, projects, education, experiences
+// You can use these objects to populate your site dynamically if needed
+
+const myInfo = {
+  name: "Mohamed Abdelaziz",
+  phone: "+20 100 123 4567",
+  email: "mohamed.abdelaziz@example.com",
+  location: "Cairo, Egypt",
+  linkedin: "https://www.linkedin.com/in/mohamed-abdelaziz",
+  github: "https://github.com/mohamed-abdelaziz710",
+  skills: [
+    "Cybersecurity",
+    "AI Tools Development",
+    "Python",
+    "JavaScript",
+    "Linux",
+    "Network Security",
+    "Machine Learning",
+    "Penetration Testing",
+    "Cloud Security",
+    "Quantum Computing (Basics)"
+  ],
+  projects: [
+    {
+      title: "AI Automation Suite",
+      description: "منصة أتمتة تعتمد على الذكاء الاصطناعي لتحسين العمليات.",
+      link: "https://github.com/mohamed-abdelaziz710/ai-automation-suite"
+    },
+    {
+      title: "Secure Network Framework",
+      description: "إطار عمل لتأمين الشبكات وحماية البيانات.",
+      link: "https://github.com/mohamed-abdelaziz710/secure-network-framework"
+    },
+    {
+      title: "Quantum Data Explorer",
+      description: "أداة استكشاف البيانات بالمفاهيم الكمية.",
+      link: "https://github.com/mohamed-abdelaziz710/quantum-data-explorer"
+    }
+  ],
+  education: [
+    {
+      degree: "B.Sc. in Cybersecurity Engineering",
+      university: "King Saud University (KSU)",
+      location: "Riyadh, Saudi Arabia",
+      year: "Expected 2026"
+    }
+  ],
+  experiences: [
+    {
+      title: "Cybersecurity Intern",
+      company: "CyberSec Solutions",
+      location: "Cairo, Egypt",
+      period: "Summer 2023",
+      description: "Worked on penetration testing and vulnerability assessment for enterprise clients."
+    },
+    {
+      title: "AI Tools Developer (Freelance)",
+      company: "Self-employed",
+      location: "Remote",
+      period: "2022 - Present",
+      description: "Developed custom AI-powered automation tools for small businesses."
+    }
+  ]
+};
