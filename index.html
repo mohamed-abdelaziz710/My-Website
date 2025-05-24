@@ -395,6 +395,56 @@
         height: 110px;
       }
     }
+
+    /* Neon gradient animation for headline */
+    @keyframes neon-gradient {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+    .animate-neon-gradient {
+      background-size: 200% 200%;
+      animation: neon-gradient 4s ease-in-out infinite;
+    }
+    /* Typing animation */
+    .typing {
+      border-right: 2px solid #21E6C1;
+      white-space: nowrap;
+      overflow: hidden;
+      display: inline-block;
+      min-width: 1ch;
+      animation: blink-caret 0.8s step-end infinite;
+    }
+    @keyframes blink-caret {
+      0%, 100% { border-color: #21E6C1; }
+      50% { border-color: transparent; }
+    }
+    /* Sphere spin */
+    .animate-spin-slow {
+      animation: spin 12s linear infinite;
+    }
+    .animate-spin-reverse {
+      animation: spin-reverse 18s linear infinite;
+    }
+    @keyframes spin {
+      100% { transform: rotate(360deg); }
+    }
+    @keyframes spin-reverse {
+      100% { transform: rotate(-360deg); }
+    }
+    /* Fade-in on scroll */
+    .fade-in-up {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.7s cubic-bezier(.4,0,.2,1), transform 0.7s cubic-bezier(.4,0,.2,1);
+    }
+    .fade-in-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    /* Responsive sphere */
+    @media (max-width: 600px) {
+      #hero-sphere { width: 220px; height: 220px; }
+    }
   </style>
 </head>
 <body class="bg-gradient-to-br from-[#0A0F1A] to-[#161b26] min-h-screen text-white">
@@ -435,20 +485,33 @@
     </nav>
   </header>
 
-  <section id="hero" class="hero-section">
-    <div class="hero-text">
-      <h1>Mohamed Abdelaziz</h1>
-      <p>Cybersecurity Engineer & AI Innovator <br> Securing the digital frontier with innovative AI solutions.</p>
-      <button class="hero-btn">Contact Me 🚀</button>
+  <!-- Neon Hero Section -->
+  <section id="hero" class="relative flex flex-col md:flex-row items-center justify-between min-h-screen max-w-7xl mx-auto px-4 py-8 md:py-0">
+    <!-- Hero Text -->
+    <div class="flex-1 flex flex-col items-center md:items-start justify-center z-10">
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-4 text-center md:text-left bg-gradient-to-r from-[#21E6C1] via-[#39FF14] to-[#9A16E5] bg-clip-text text-transparent animate-neon-gradient drop-shadow-[0_0_24px_#21E6C1]">
+        Mohamed Abdelaziz
+      </h1>
+      <span class="block h-8 mb-6">
+        <span id="typed-subtitle" class="text-xl sm:text-2xl md:text-3xl font-semibold text-[#21E6C1] tracking-wide typing"></span>
+      </span>
+      <button class="mt-2 px-8 py-3 rounded-full bg-gradient-to-r from-[#39FF14] to-[#21E6C1] text-[#0A0F1A] font-bold text-lg shadow-[0_0_24px_#21E6C1] transition-all duration-200 hover:from-[#0A0F1A] hover:to-[#39FF14] hover:text-[#39FF14] hover:shadow-[0_0_48px_#21E6C1] focus:outline-none">
+        Contact Me 🚀
+      </button>
     </div>
-    <div class="hero-visual">
-      <div class="futuristic-sphere">
-        <div class="sphere-layer"></div>
-        <div class="sphere-layer"></div>
-        <div class="sphere-layer"></div>
-        <div class="sphere-layer"></div>
-        <div class="sphere-core"></div>
+    <!-- Futuristic 3D Sphere -->
+    <div class="flex-1 flex items-center justify-center mt-12 md:mt-0">
+      <div id="hero-sphere" class="relative w-[320px] h-[320px] md:w-[400px] md:h-[400px]">
+        <div class="absolute inset-0 rounded-full border-2 border-[#21E6C1] opacity-40 animate-spin-slow"></div>
+        <div class="absolute inset-6 rounded-full border-2 border-[#39FF14] opacity-30 animate-spin-reverse"></div>
+        <div class="absolute inset-12 rounded-full border-2 border-[#9A16E5] opacity-20 animate-spin-slow"></div>
+        <div class="absolute inset-20 rounded-full border-dashed border-2 border-[#21E6C1] opacity-10"></div>
+        <div class="absolute top-1/2 left-1/2 w-28 h-28 bg-gradient-radial from-[#21E6C1] via-[#39FF14] to-transparent rounded-full shadow-[0_0_48px_#21E6C1] -translate-x-1/2 -translate-y-1/2 animate-pulse"></div>
       </div>
+    </div>
+    <!-- Neon Glow Overlay -->
+    <div class="pointer-events-none absolute inset-0 z-0">
+      <div class="absolute left-1/2 top-1/2 w-[800px] h-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#21E6C1] opacity-10 blur-3xl"></div>
     </div>
   </section>
 
@@ -507,6 +570,64 @@
   </div>
 
   <script>
+    // Typing animation for subtitle
+    const roles = [
+      "Cybersecurity Engineer & AI Innovator",
+      "Building Secure AI Solutions",
+      "Futuristic UI/UX Enthusiast"
+    ];
+    let roleIdx = 0, charIdx = 0, typing = true;
+    const subtitle = document.getElementById('typed-subtitle');
+    function typeRole() {
+      if (!subtitle) return;
+      const role = roles[roleIdx];
+      if (typing) {
+        subtitle.textContent = role.slice(0, charIdx++);
+        if (charIdx <= role.length) {
+          setTimeout(typeRole, 60);
+        } else {
+          typing = false;
+          setTimeout(typeRole, 1200);
+        }
+      } else {
+        if (charIdx > 0) {
+          subtitle.textContent = role.slice(0, --charIdx);
+          setTimeout(typeRole, 30);
+        } else {
+          typing = true;
+          roleIdx = (roleIdx + 1) % roles.length;
+          setTimeout(typeRole, 500);
+        }
+      }
+    }
+    typeRole();
+
+    // 3D Sphere subtle mouse move effect
+    const sphere = document.getElementById('hero-sphere');
+    if (sphere) {
+      sphere.addEventListener('mousemove', (e) => {
+        const rect = sphere.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        sphere.style.transform = `perspective(900px) rotateY(${x * 0.07}deg) rotateX(${-y * 0.07}deg) scale(1.04)`;
+      });
+      sphere.addEventListener('mouseleave', () => {
+        sphere.style.transform = 'perspective(900px) rotateY(0deg) rotateX(0deg) scale(1)';
+      });
+    }
+
+    // Fade-in on scroll for hero section
+    function fadeInOnScroll() {
+      document.querySelectorAll('.fade-in-up').forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 60) {
+          el.classList.add('visible');
+        }
+      });
+    }
+    window.addEventListener('scroll', fadeInOnScroll);
+    window.addEventListener('DOMContentLoaded', fadeInOnScroll);
+
     // Language toggle behavior (simple example)
     const enBtn = document.getElementById('en-btn');
     const arBtn = document.getElementById('ar-btn');
