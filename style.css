@@ -10,12 +10,13 @@ Based on the original style.css and the spaceship concept.
   --darker-bg: #050A15; /* Even darker for depth */
   --card-bg: #10151F; /* Main dark gray for cards */
   --primary-accent: #21E6C1; /* Neon Green */
+  --color-neon: #21E6C1; /* vibrant neon green accent */
   --secondary-accent: #9A16E5; /* Neon Purple (for accent only) */
   --tertiary-accent: #FFA500; /* Optional accent */
   --text-color: #FFFFFF; /* White for main text */
   --border-color: rgba(33, 230, 193, 0.5); /* Neon green border */
   --hover-color: #1A2030; /* Slightly lighter dark for hover */
-  --shadow-color: rgba(33, 230, 193, 0.3); /* Neon green shadow */
+  --shadow-color: #21E6C1; /* Neon green shadow */
 
   /* Fonts */
   --font-primary: 'Exo 2', 'Roboto', sans-serif;
@@ -25,7 +26,6 @@ Based on the original style.css and the spaceship concept.
   --color-black: #000000;
   --color-white: #FFFFFF;
   --color-gray:  #707070;   /* medium gray for neutral backgrounds/text */
-  --color-neon:  #2CFF05;   /* vibrant neon green accent */
 }
 
 /*
