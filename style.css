@@ -247,3 +247,46 @@ body {
   box-shadow: 0 0 10px var(--color-neon-purple);
 }
 
+/* ظهور تدريجي للأقسام والبطاقات */
+section, .project-card, .blog-card {
+  opacity: 0;
+  transform: translateY(40px) scale(0.98);
+  transition: all 0.7s cubic-bezier(.48,.29,.63,.99);
+}
+section.visible, .project-card.visible, .blog-card.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* تفاعل Pulse للزر */
+.pulse {
+  animation: pulse-animation 0.5s;
+}
+@keyframes pulse-animation {
+  0% { box-shadow: 0 0 0px var(--color-neon-green);}
+  50% { box-shadow: 0 0 16px 8px var(--color-neon-green);}
+  100% { box-shadow: 0 0 0px var(--color-neon-green);}
+}
+
+/* فقاعة الشات */
+.chat-bubble {
+  position: fixed;
+  bottom: 32px;
+  left: 32px;
+  background: linear-gradient(135deg, var(--color-neon-blue), var(--color-neon-purple));
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  box-shadow: 0 0 20px var(--color-neon-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.3s;
+  z-index: 1200;
+}
+.chat-bubble:hover {
+  transform: scale(1.12) rotate(-8deg);
+  box-shadow: 0 0 32px var(--color-neon-green);
+}
+

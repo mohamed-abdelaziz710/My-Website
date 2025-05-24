@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
   initParticles(); // Updated particle configuration
   initHeroEffects(); // Added effects for hero section
   initHoverEffects(); // Added subtle hover effects
+  revealSections(); // Added section reveal on scroll
 });
 
 // 1. Enhanced Scroll Animations
@@ -888,3 +889,37 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
+
+// ظهور تدريجي للأقسام عند التمرير
+const revealSections = () => {
+  const sections = document.querySelectorAll('section, .project-card, .blog-card');
+  sections.forEach(section => {
+    const sectionTop = section.getBoundingClientRect().top;
+    if (sectionTop < window.innerHeight - 100) {
+      section.classList.add('visible');
+    }
+  });
+};
+window.addEventListener('scroll', revealSections);
+window.addEventListener('DOMContentLoaded', revealSections);
+
+// تفاعل زر CTA
+const ctaBtn = document.getElementById('btn-get-in-touch');
+if (ctaBtn) {
+  ctaBtn.addEventListener('mouseenter', e => {
+    e.target.classList.add('pulse');
+  });
+  ctaBtn.addEventListener('mouseleave', e => {
+    e.target.classList.remove('pulse');
+  });
+}
+
+// فقاعة الشات
+const chatBubble = document.createElement('div');
+chatBubble.className = 'chat-bubble';
+chatBubble.innerHTML = `<svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" stroke="white" stroke-width="2"/><path d="M8 12h.01M12 12h.01M16 12h.01" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>`;
+document.body.appendChild(chatBubble);
+
+chatBubble.onclick = () => {
+  alert('مرحباً! كيف يمكنني مساعدتك؟');
+};
