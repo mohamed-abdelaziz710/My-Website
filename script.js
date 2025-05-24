@@ -835,3 +835,56 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
+
+// Remove duplicate DOMContentLoaded for initHeroVisualEffects (if not defined elsewhere)
+document.addEventListener("DOMContentLoaded", function () {
+  // Lazy loading for all images if not set
+  document.querySelectorAll("img").forEach(img => {
+    if (!img.hasAttribute("loading")) {
+      img.setAttribute("loading", "lazy");
+    }
+  });
+
+  // زيادة تباين النصوص الصغيرة على الخلفية الداكنة
+  const contrastSelectors = [
+    ".text-gray-300",
+    ".text-gray-400",
+    ".text-sm",
+    ".text-xs"
+  ];
+  document.querySelectorAll(contrastSelectors.join(",")).forEach(el => {
+    el.style.color = "#f4fff4";
+    el.style.textShadow = "0 0 2px #10151F, 0 0 8px #21E6C144";
+    el.style.letterSpacing = "0.01em";
+    el.style.fontWeight = "500";
+  });
+
+  // تحسين حجم أيقونة الدردشة وتفاعل اللمس
+  const chatBubble = document.getElementById("chatbot-bubble");
+  if (chatBubble) {
+    function resizeChatBubble() {
+      if (window.innerWidth <= 600) {
+        chatBubble.style.width = "72px";
+        chatBubble.style.height = "72px";
+        const icon = chatBubble.querySelector("i");
+        if (icon) icon.style.fontSize = "2.7rem";
+      } else {
+        chatBubble.style.width = "64px";
+        chatBubble.style.height = "64px";
+        const icon = chatBubble.querySelector("i");
+        if (icon) icon.style.fontSize = "2.3rem";
+      }
+    }
+    resizeChatBubble();
+    window.addEventListener("resize", resizeChatBubble);
+
+    chatBubble.style.touchAction = "manipulation";
+    chatBubble.style.webkitTapHighlightColor = "rgba(33,230,193,0.15)";
+    chatBubble.addEventListener("touchstart", function () {
+      chatBubble.style.boxShadow = "0 0 0 6px #39FF14, 0 0 32px #21E6C1cc";
+    });
+    chatBubble.addEventListener("touchend", function () {
+      chatBubble.style.boxShadow = "";
+    });
+  }
+});

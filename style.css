@@ -323,6 +323,17 @@ footer .footer-name { color: var(--primary); font-weight: bold; }
   transition: box-shadow 0.42s cubic-bezier(.4,0,.2,1), transform 0.32s cubic-bezier(.4,0,.2,1);
 }
 
+/* Ensure responsive sizing for mobile */
+@media (max-width: 600px) {
+  #chatBubble {
+    width: 72px;
+    height: 72px;
+    font-size: 2.7rem;
+    right: 16px;
+    bottom: 16px;
+  }
+}
+
 /* === Focus Styles for Accessibility === */
 button:focus-visible,
 [role="button"]:focus-visible,
@@ -336,7 +347,20 @@ select:focus-visible,
 #closeChat:focus-visible {
   outline: 3px solid #39FF14 !important;
   outline-offset: 2px !important;
-  box-shadow: 0 0 0 4px #21E6C1bb, 0 0 12px #39FF1499;
+  box-shadow: 0 0 0 4px #21E6C1bb, 0 0 12px #39FF1499 !important;
   z-index: 10;
+  /* Fix for some browsers that ignore outline on custom buttons */
+  background-clip: padding-box;
+}
+
+/* Improve color contrast for small/subtle text */
+.text-gray-300,
+.text-gray-400,
+.text-sm,
+.text-xs {
+  color: #f4fff4 !important;
+  text-shadow: 0 0 2px #10151F, 0 0 8px #21E6C144;
+  letter-spacing: 0.01em;
+  font-weight: 500;
 }
 
