@@ -16,11 +16,9 @@
 
 1. **Clone the repo:**
 
-
    ```bash
    git clone https://github.com/YOUR_USERNAME/your-portfolio-repo.git
    ```
-
 
 2. **Add your assets:**
 

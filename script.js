@@ -8,23 +8,6 @@ document.addEventListener("DOMContentLoaded", function () {
   initParticles(); // Updated particle configuration
   initHeroEffects(); // Added effects for hero section
   initHoverEffects(); // Added subtle hover effects
-
-  // --- Particles.js direct initialization for spaceship neon effect ---
-  if (window.particlesJS) {
-    particlesJS('particles-js', {
-      particles: {
-        number: { value: 44, density: { enable: true, value_area: 600 }},
-        color: { value: "#21e6c1" },
-        shape: { type: "circle" },
-        opacity: { value: 0.38, random: true },
-        size: { value: 2.4, random: true },
-        line_linked: { enable: true, distance: 110, color: "#9a16e5", opacity: 0.14, width: 1.3 },
-        move: { enable: true, speed: 2.4, random: true, out_mode: "out" }
-      },
-      interactivity: { events: { onhover: { enable: true, mode: "repulse" } } },
-      retina_detect: true
-    });
-  }
 });
 
 // 1. Enhanced Scroll Animations
