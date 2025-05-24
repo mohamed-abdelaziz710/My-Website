@@ -8,8 +8,16 @@
   --font: 'Inter', sans-serif;
 }
 
-/* Global */
-* { margin: 0; padding: 0; box-sizing: border-box; }
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html, body {
+  width: 100%;
+  height: 100%;
+}
 body {
   background: var(--bg-dark);
   font-family: var(--font);
@@ -17,18 +25,21 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
   overflow: hidden;
 }
+
+/* Particles Layer */
 #particles-js {
   position: fixed;
-  top: 0; left: 0;
-  width: 100vw; height: 100vh;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
   z-index: 0;
   pointer-events: none;
 }
 
-/* Smart Card */
+/* Smart Card Container */
 .smart-card {
   position: relative;
   z-index: 1;
@@ -37,18 +48,21 @@ body {
   background: var(--glass-bg);
   backdrop-filter: blur(12px);
   border-radius: 16px;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.7);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.6);
   padding: 1.5rem;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
-/* Header */
+/* Card Header */
 .card-header {
   text-align: center;
-  margin-bottom: 1rem;
 }
 .hero-visual .lottie {
-  width: 120px; height: 120px;
+  width: 120px;
+  height: 120px;
   margin: auto;
 }
 .card-header h1 {
@@ -59,9 +73,10 @@ body {
 .card-header p {
   font-size: 0.95rem;
   color: var(--neon-purple);
-  margin-bottom: 0.75rem;
 }
 .primary-btn {
+  display: inline-block;
+  margin-top: 0.5rem;
   padding: 0.5rem 1.2rem;
   border: 2px solid var(--neon-green);
   background: transparent;
@@ -81,7 +96,8 @@ body {
 .card-tabs {
   display: flex;
   justify-content: space-around;
-  margin: 1rem 0;
+  margin: 0.5rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
 }
 .tab-btn {
   background: none;
@@ -98,9 +114,15 @@ body {
 }
 
 /* Tab Content */
-.tab-content { display: none; animation: fadeIn .5s ease-out; }
-.tab-content.active { display: block; }
+.tab-content {
+  display: none;
+  animation: fadeIn 0.5s ease-out;
+}
+.tab-content.active {
+  display: block;
+}
 
+/* About Tab */
 .about-img {
   width: 80px;
   height: 80px;
@@ -108,38 +130,52 @@ body {
   display: block;
   margin: 0.5rem auto;
 }
+.about p {
+  font-size: 0.9rem;
+  text-align: center;
+  color: #eee;
+}
+
+/* Projects Tab */
 .projects-list {
   list-style: none;
+  padding-left: 1rem;
 }
 .projects-list li {
   padding: 0.4rem 0;
   border-left: 3px solid var(--neon-purple);
-  margin: 0.5rem 0;
-  padding-left: 0.8rem;
+  margin-bottom: 0.5rem;
+  color: #ddd;
   font-size: 0.9rem;
 }
 
+/* Contact Tab */
+.form-glass {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
 .form-glass input,
 .form-glass textarea {
   width: 100%;
-  background: rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.1);
   border: none;
   padding: 0.5rem;
-  margin-bottom: 0.6rem;
   border-radius: 6px;
   color: #fff;
   font-size: 0.85rem;
   outline: none;
 }
 .primary-btn.small {
+  align-self: flex-end;
   padding: 0.4rem 0.8rem;
   font-size: 0.85rem;
 }
 
-/* Scroll animation */
+/* Scroll Animate */
 .scroll-animate {
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(15px);
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 .scroll-animate.visible {
@@ -152,7 +188,7 @@ body {
   to { opacity: 1; }
 }
 
-/* Small responsiveness */
+/* Responsive */
 @media (max-width: 400px) {
   .smart-card { padding: 1rem; }
   .hero-visual .lottie { width: 100px; height: 100px; }
