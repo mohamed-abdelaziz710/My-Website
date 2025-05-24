@@ -164,16 +164,161 @@
         0 0 38px #39FF14cc,
         0 0 48px #21E6C1cc;
     }
+
+    /* Section styles */
+    .section-container {
+      max-width: 1200px;
+      width: 90%;
+      margin: 4rem auto;
+      padding: 2rem;
+      background: rgba(22, 28, 36, 0.85);
+      border-radius: 1.5rem;
+      box-shadow: 0 0 32px #000a;
+      backdrop-filter: blur(10px);
+    }
+
+    .section-title {
+      color: #39FF14;
+      font-family: 'Space Grotesk', Inter, sans-serif;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title:after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 4px;
+      bottom: -6px;
+      left: 0;
+      background: linear-gradient(90deg, #39FF14 0%, #21E6C1 100%);
+      border-radius: 2rem;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card-item {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      text-align: center;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+    }
+
+    .card-item h4 {
+      margin: 0.5rem 0;
+      font-size: 1.2rem;
+      color: #39FF14;
+    }
+
+    .card-subtitle {
+      font-size: 0.9rem;
+      color: #A0A0A0;
+      margin-bottom: 0.8rem;
+      display: block;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .section-title {
+        font-size: 1.75rem;
+      }
+
+      .card-item h4 {
+        font-size: 1.1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .section-title {
+        font-size: 1.5rem;
+      }
+
+      .btn-cta {
+        font-size: 0.9rem;
+        padding: 0.7em 1.8em;
+      }
+    }
   </style>
 </head>
 <body>
-  <div class="card-spaceship">
-    <div class="avatar-neon">
-      <img src="https://i.imgur.com/2DhmtJ4.jpg" alt="Amrikyy" />
+    <div class="card-spaceship">
+      <div class="avatar-neon">
+        <img src="https://i.imgur.com/2DhmtJ4.jpg" alt="Amrikyy" />
+      </div>
+      <h2 class="username">Mohamed Abdelaziz</h2>
+      <p class="subtitle">Cybersecurity Engineer &amp; AI Innovator</p>
+      <button class="btn-cta">Contact Me 🚀</button>
     </div>
-    <h2 class="username">Mohamed Abdelaziz</h2>
-    <p class="subtitle">Cybersecurity Engineer &amp; AI Innovator</p>
-    <button class="btn-cta">Contact Me 🚀</button>
-  </div>
-</body>
+
+    <section id="skills" class="section-container">
+      <h3 class="section-title">Skills</h3>
+      <div class="cards-grid">
+        <div class="card-item">Cybersecurity</div>
+        <div class="card-item">AI Development</div>
+        <div class="card-item">UI/UX Design</div>
+        <div class="card-item">Figma Pro</div>
+        <div class="card-item">React & Tailwind CSS</div>
+        <div class="card-item">Python & Firebase</div>
+      </div>
+    </section>
+
+    <section id="experience" class="section-container">
+      <h3 class="section-title">Experience</h3>
+      <div class="cards-grid">
+        <div class="card-item">
+          <h4>Cybersecurity Intern</h4>
+          <span class="card-subtitle">Intel - Summer 2024</span>
+          <p>Worked on penetration testing and network security protocols.</p>
+        </div>
+        <div class="card-item">
+          <h4>AI Developer</h4>
+          <span class="card-subtitle">OpenAI Internship 2025</span>
+          <p>Built AI tools and automated content generation pipelines.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="education" class="section-container">
+      <h3 class="section-title">Education</h3>
+      <div class="cards-grid">
+        <div class="card-item">
+          <h4>Kennesaw State University</h4>
+          <span class="card-subtitle">BSc Cybersecurity Engineering, 2026</span>
+        </div>
+        <div class="card-item">
+          <h4>Chattahoochee Technical College</h4>
+          <span class="card-subtitle">Associate Degree in Computer Science, 2021</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section-container">
+      <h3 class="section-title">Projects</h3>
+      <div class="cards-grid">
+        <div class="card-item">
+          <h4>Zentix AI Platform</h4>
+          <p>Developed a collection of AI agent templates for business automation.</p>
+        </div>
+        <div class="card-item">
+          <h4>Personal Portfolio Website</h4>
+          <p>Designed and coded a modern personal website with React and Tailwind.</p>
+        </div>
+      </div>
+    </section>
+  </body>
 </html>
