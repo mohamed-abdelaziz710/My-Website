@@ -758,61 +758,61 @@ Notes:
 - If particles.js is not working, ensure the library is loaded and a div with id="particles-js" exists in your HTML.
 */
 
-document.addEventListener("DOMContentLoaded", () => {
-    // 1. Initialize Hero Section Visual Effects
-    initHeroVisualEffects();
-
-    // 2. Enhanced Hover Effects
-    initHoverEffects();
-
+document.addEventListener("DOMContentLoaded", () => {--
+    // 1. Initialize Hero Section Visual Effects => {
+    initHeroVisualEffects();o image
+  var images = document.querySelectorAll('.parallax-img');
+    // 2. Enhanced Hover EffectsmpleParallax !== 'undefined') {
+    initHoverEffects();images, {
+      scale: 1.18,
     // 3. Chat Functionality
-    initChat();
-
+    initChat();n: 'cubic-bezier(0,0,0,1)'
+    });
     // 4. Mobile Menu Functionality
     initMobileMenu();
-
-    // 5. Language Toggle Functionality
+  // CTA button pulse effect
+    // 5. Language Toggle FunctionalitymentById('btn-get-in-touch');
     initLanguageToggle();
-
+    btnGetInTouch.addEventListener('mouseenter', e => {
     // 6. Update Language Content based on saved preference
     const savedLanguage = localStorage.getItem("language") || "en";
-    updateLanguageContent(savedLanguage);
-
+    updateLanguageContent(savedLanguage);leave', e => {
+      e.target.classList.remove('pulse');
     // 7. Initialize Particles.js
-    initParticles();
-  });
-
+    initParticles();dEventListener('click', () => {
+  }); document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+    });
 // تحسين تحميل الصور: إضافة lazy loading تلقائياً لكل الصور إن لم يكن موجوداً
 document.addEventListener("DOMContentLoaded", function () {
   // Lazy loading for all images if not set
-  document.querySelectorAll("img").forEach(img => {
-    if (!img.hasAttribute("loading")) {
-      img.setAttribute("loading", "lazy");
-    }
+  document.querySelectorAll("img").forEach(img => {ubble');
+    if (!img.hasAttribute("loading")) {mentById('chatbotWindow');
+      img.setAttribute("loading", "lazy");d('closeChat');
+    }st chatInput = document.getElementById('chatInput');
   });
-
+  if (chatBubble && chatbotWindow && closeChat && chatInput) {
   // زيادة تباين النصوص الصغيرة على الخلفية الداكنة
-  const contrastSelectors = [
+  const contrastSelectors = [play = 'block';
     ".text-gray-300",
-    ".text-gray-400",
-    ".text-sm",
+    ".text-gray-400",tListener('click', () => {
+    ".text-sm",ndow.style.display = 'none';
     ".text-xs"
-  ];
+  ];chatInput.addEventListener('keypress', (e) => {
   document.querySelectorAll(contrastSelectors.join(",")).forEach(el => {
-    el.style.color = "#f4fff4";
+    el.style.color = "#f4fff4";ument.createElement('div');
     el.style.textShadow = "0 0 2px #10151F, 0 0 8px #21E6C144";
-    el.style.letterSpacing = "0.01em";
-    el.style.fontWeight = "500";
-  });
-
+    el.style.letterSpacing = "0.01em";Input.value;
+    el.style.fontWeight = "500";tor('.messages').appendChild(userMessage);
+  });   chatInput.value = '';
+      }
   // تحسين حجم أيقونة الدردشة وتفاعل اللمس
   const chatBubble = document.getElementById("chatbot-bubble");
   if (chatBubble) {
     // زيادة الحجم على الشاشات الصغيرة
-    function resizeChatBubble() {
-      if (window.innerWidth <= 600) {
-        chatBubble.style.width = "72px";
-        chatBubble.style.height = "72px";
+    function resizeChatBubble() {loading تلقائياً لكل الصور إن لم يكن موجوداً
+      if (window.innerWidth <= 600) {Loaded", function () {
+        chatBubble.style.width = "72px";set
+        chatBubble.style.height = "72px";h(img => {
         const icon = chatBubble.querySelector("i");
         if (icon) icon.style.fontSize = "2.7rem";
       } else {
@@ -820,130 +820,64 @@ document.addEventListener("DOMContentLoaded", function () {
         chatBubble.style.height = "64px";
         const icon = chatBubble.querySelector("i");
         if (icon) icon.style.fontSize = "2.3rem";
-      }
-    }
+      }ext-gray-300",
+    }.text-gray-400",
     resizeChatBubble();
     window.addEventListener("resize", resizeChatBubble);
-
-    // تحسين التفاعل مع اللمس
+  ];
+    // تحسين التفاعل مع اللمسontrastSelectors.join(",")).forEach(el => {
     chatBubble.style.touchAction = "manipulation";
     chatBubble.style.webkitTapHighlightColor = "rgba(33,230,193,0.15)";
     chatBubble.addEventListener("touchstart", function () {
       chatBubble.style.boxShadow = "0 0 0 6px #39FF14, 0 0 32px #21E6C1cc";
     });
     chatBubble.addEventListener("touchend", function () {
-      chatBubble.style.boxShadow = "";
-    });
-  }
-});
-
+      chatBubble.style.boxShadow = "";للمس
+    }); chatBubble = document.getElementById("chatbot-bubble");
+  }f (chatBubble) {
+}); // زيادة الحجم على الشاشات الصغيرة
+    function resizeChatBubble() {
 // إصلاح ظهور الأقسام: إزالة تكرار revealSections والتأكد من إضافة كلاس visible عند التمرير فقط
-(function() {
-  function revealSections() {
+(function() {ubble.style.width = "72px";
+  function revealSections() {ht = "72px";
     const sections = document.querySelectorAll('section, .project-card, .blog-card');
-    sections.forEach(section => {
+    sections.forEach(section => {Size = "2.7rem";
       const sectionTop = section.getBoundingClientRect().top;
       if (sectionTop < window.innerHeight - 100) {
         section.classList.add('visible');
-      }
-    });
-  }
+      } const icon = chatBubble.querySelector("i");
+    }); if (icon) icon.style.fontSize = "2.3rem";
+  }   }
   window.addEventListener('scroll', revealSections);
   window.addEventListener('DOMContentLoaded', revealSections);
-})();
+})();indow.addEventListener("resize", resizeChatBubble);
 
-// تفاعل زر CTA
+// تفاعل زر CTAتفاعل مع اللمس
 const ctaBtn = document.getElementById('btn-get-in-touch');
-if (ctaBtn) {
-  ctaBtn.addEventListener('mouseenter', e => {
-    e.target.classList.add('pulse');
-  });
-  ctaBtn.addEventListener('mouseleave', e => {
+if (ctaBtn) {e.style.webkitTapHighlightColor = "rgba(33,230,193,0.15)";
+  ctaBtn.addEventListener('mouseenter', e => {function () {
+    e.target.classList.add('pulse');0 0 0 6px #39FF14, 0 0 32px #21E6C1cc";
+  }););
+  ctaBtn.addEventListener('mouseleave', e => {nction () {
     e.target.classList.remove('pulse');
-  });
-}
-
-// Consolidated variables chat bubble and chatbot window functionality
-const chatBubble = document.getElementById('chatBubble');ubble');
-const chatbotWindow = document.getElementById('chatbotWindow');mentById('chatbotWindow');
+  }););
+} }
+});
+// --- Consolidated Chat Bubble & Chatbot Window Logic ---
+const chatBubble = document.getElementById('chatBubble'); من إضافة كلاس visible عند التمرير فقط
+const chatbotWindow = document.getElementById('chatbotWindow');
 const closeChat = document.getElementById('closeChat');
-const chatInput = document.getElementById('chatInput');yId('chatInput');
+const chatInput = document.getElementById('chatInput');, .project-card, .blog-card');
 const btnGetInTouch = document.getElementById('btn-get-in-touch');
-dow && closeChat && chatInput) {
-// Event listeners() => {
-if (chatBubble) {  chatbotWindow.style.display = 'block';
-  chatBubble.addEventListener('click', () => {  });
+      const sectionTop = section.getBoundingClientRect().top;
+if (chatBubble && chatbotWindow && closeChat && chatInput) {closeChat && chatInput) {
+  chatBubble.addEventListener('click', () => {
     chatbotWindow.style.display = 'block';
+    chatBubble.style.display = 'none';
   });
-}    chatbotWindow.style.display = 'none';
-
-if (closeChat) {
-  closeChat.addEventListener('click', () => {
-    chatbotWindow.style.display = 'none';ey === 'Enter' && chatInput.value.trim() !== '') {
-  });nt('div');
-}ge user';
- userMessage.textContent = chatInput.value;
-if (chatInput) {.appendChild(userMessage);
-  chatInput.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter' && chatInput.value.trim() !== '') {
-      const userMessage = document.createElement('div'); });
-      userMessage.className = 'message user';}
-      userMessage.textContent = chatInput.value;
-      chatbotWindow.querySelector('.messages').appendChild(userMessage);y
-      chatInput.value = '';mentById('btn-get-in-touch');
-    }
-  });
-}
-
-if (btnGetInTouch) {
-  btnGetInTouch.addEventListener('click', () => {
-    document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-  });
-}.className = 'chat-bubble';
-idth="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" stroke="white" stroke-width="2"/><path d="M8 12h.01M12 12h.01M16 12h.01" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>`;
-// إنشاء فقاعة شات متحركة (SVG Animated Chatbot Bubble)atBubble);
-const chatBubble = document.createElement('div');
-chatBubble.className = 'chat-bubble';atBubble.onclick = () => {
-chatBubble.innerHTML = `;
-  <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">};
-    <circle cx="19" cy="19" r="16" stroke="#21D4FD" stroke-width="3" fill="#9B59B6" />
-    <ellipse cx="19" cy="19" rx="12" ry="7" fill="#39FF14" fill-opacity="0.6">جي للأقسام والبطاقات عند التمرير
-      <animate attributeName="rx" values="12;14;12" dur="1.6s" repeatCount="indefinite" />ctions المعرفة أعلاه)
-      <animate attributeName="fill-opacity" values="0.6;1;0.6" dur="1.6s" repeatCount="indefinite" />
-    </ellipse>// تفاعل زر CTA (Pulse)
-    <text x="50%" y="56%" text-anchor="middle" fill="#fff" font-size="1.2em" dy=".3em" font-family="Inter,Arial">💬</text>e declaration of ctaBtn to avoid "Cannot redeclare block-scoped variable" error
-  </svg>`;)
-chatBubble.title = 'تحدث معي';
-chatBubble.onclick = () => {  ctaBtn.addEventListener('mouseenter', e => {
-  alert('مرحباً! كيف يمكنني مساعدتك؟');
-};
-document.body.appendChild(chatBubble);
-ulse');
-// دعم ظهور تدريجي للفقاعة عند تحميل الصفحة
-setTimeout(() => {
-  chatBubble.classList.add('visible');
-}, 600);ء فقاعة شات متحركة (SVG Animated Chatbot Bubble)
-st chatBubble = document.createElement('div');
-// Parallax effecttBubble.className = 'chat-bubble';
-
-
-
-
-
-
-
-
-
-
-
-
-
-});  }    });      transition: 'cubic-bezier(0,0,0,1)'      delay: .16,      scale: 1.18,    new simpleParallax(images, {  if(images.length && typeof simpleParallax !== 'undefined'){  var images = document.querySelectorAll('.parallax-img');document.addEventListener('DOMContentLoaded', function() {// يعمل على كل عنصر يحمل كلاس parallax-img// تأكد من تحميل simpleParallax.min.js في index.htmlchatBubble.innerHTML = `
-  <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="19" cy="19" r="16" stroke="#21D4FD" stroke-width="3" fill="#9B59B6" />
-    <ellipse cx="19" cy="19" rx="12" ry="7" fill="#39FF14" fill-opacity="0.6">
-      <animate attributeName="rx" values="12;14;12" dur="1.6s" repeatCount="indefinite" />
-      <animate attributeName="fill-opacity" values="0.6;1;0.6" dur="1.6s" repeatCount="indefinite" />
+  window.addEventListener('scroll', revealSections);
+  closeChat.addEventListener('click', () => { revealSections);  closeChat.addEventListener('click', () => {
+    chatbotWindow.style.display = 'none';    chatBubble.style.display = 'block';  });  chatInput.addEventListener('keypress', (e) => {    if (e.key === 'Enter' && chatInput.value.trim() !== '') {      const userMessage = document.createElement('div');      userMessage.className = 'message user';      userMessage.textContent = chatInput.value;      chatbotWindow.querySelector('.messages').appendChild(userMessage);      // --- Backend Fetch for Chatbot (Replit) ---      fetch('https://0e45fe78-86ad-4c8f-b665-f561edd3e592-00-ezbtmwl50c4e.riker.replit.dev:5000/chat', {        method: 'POST',        headers: { 'Content-Type': 'application/json' },        body: JSON.stringify({ message: chatInput.value })      })      .then(res => res.json())      .then(data => {        let reply = '';        if (data?.candidates?.[0]?.content?.parts?.[0]?.text) {          reply = data.candidates[0].content.parts[0].text;        } else {          reply = 'عذراً، حدث خطأ في الاتصال. يمكنك التواصل معي عبر وسائل التواصل الاجتماعي.';        }        const botMessage = document.createElement('div');        botMessage.className = 'message bot';        botMessage.textContent = reply;        chatbotWindow.querySelector('.messages').appendChild(botMessage);        chatbotWindow.querySelector('.messages').scrollTop = chatbotWindow.querySelector('.messages').scrollHeight;      })      .catch(() => {        const botMessage = document.createElement('div');        botMessage.className = 'message bot';        botMessage.textContent = 'عذراً، حدث خطأ في الاتصال بالخادم.';        chatbotWindow.querySelector('.messages').appendChild(botMessage);      });      chatInput.value = '';    }  });}if (btnGetInTouch) {  btnGetInTouch.addEventListener('click', () => {    document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });  });}// إنشاء فقاعة شات متحركة (SVG Animated Chatbot Bubble)const chatBubble = document.createElement('div');chatBubble.className = 'chat-bubble';chatBubble.innerHTML = `  <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">    <circle cx="19" cy="19" r="16" stroke="#21D4FD" stroke-width="3" fill="#9B59B6" />    <ellipse cx="19" cy="19" rx="12" ry="7" fill="#39FF14" fill-opacity="0.6">      <animate attributeName="rx" values="12;14;12" dur="1.6s" repeatCount="indefinite" />      <animate attributeName="fill-opacity" values="0.6;1;0.6" dur="1.6s" repeatCount="indefinite" />
     </ellipse>
     <text x="50%" y="56%" text-anchor="middle" fill="#fff" font-size="1.2em" dy=".3em" font-family="Inter,Arial">💬</text>
   </svg>`;
