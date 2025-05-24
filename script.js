@@ -242,6 +242,52 @@ function initChat() {
   });
 }
 
+// --- Simple Chat Bubble/Window Demo Logic ---
+document.addEventListener("DOMContentLoaded", () => {
+  const chatBubble = document.getElementById("chatBubble");
+  const chatWindow = document.getElementById("chatWindow");
+  const closeChat = document.getElementById("closeChat");
+  const messageInput = document.getElementById("messageInput");
+  const sendMessage = document.getElementById("sendMessage");
+  const chatMessages = document.getElementById("chatMessages");
+
+  function appendMessage(text, type = "bot") {
+    const msgDiv = document.createElement("div");
+    msgDiv.className = type === "user" ? "user-msg" : "bot-msg";
+    msgDiv.textContent = text;
+    chatMessages.appendChild(msgDiv);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+  }
+
+  chatBubble.addEventListener("click", () => {
+    chatWindow.classList.add("open");
+    chatBubble.style.display = "none";
+    chatWindow.setAttribute("aria-hidden", "false");
+  });
+
+  closeChat.addEventListener("click", () => {
+    chatWindow.classList.remove("open");
+    chatBubble.style.display = "flex";
+    chatWindow.setAttribute("aria-hidden", "true");
+  });
+
+  function sendChat() {
+    const message = messageInput.value.trim();
+    if (!message) return;
+    appendMessage(message, "user");
+    messageInput.value = "";
+    // Simulate bot reply after 1s for demo
+    setTimeout(() => {
+      appendMessage("Thanks for your message! I'll reply soon.", "bot");
+    }, 1000);
+  }
+
+  sendMessage.addEventListener("click", sendChat);
+  messageInput.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") sendChat();
+  });
+});
+
 // 5. Mobile Menu Functionality (Keep existing logic, UI improved via CSS)
 function initMobileMenu() {
   const menuBtn = document.createElement("button");
