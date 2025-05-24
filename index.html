@@ -1,420 +1,594 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Amrikyy Portfolio - Demo</title>
-<style>
-  /* ===== CSS مقتبس من ستايلك مع تبسيط لتركيز على الهيكل ===== */
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Amrikyy Portfolio - Demo</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/38f5fbd09d.js" crossorigin="anonymous"></script>
+  <style>
+    /* ===== CSS مقتبس من ستايلك مع تبسيط لتركيز على الهيكل ===== */
 
-  :root {
-    --primary-accent: #21E6C1;
-    --secondary-accent: #9A16E5;
-    --dark-bg: #0A0F1A;
-    --card-bg: #10151F;
-    --text-color: #FFFFFF;
-    --border-color: rgba(33, 230, 193, 0.5);
-    --shadow-color: #21E6C1;
-    --font-primary: 'Exo 2', 'Roboto', sans-serif;
-    --font-secondary: 'Roboto Mono', monospace;
-  }
-
-  /* Reset */
-  * {
-    box-sizing: border-box;
-  }
-
-  body {
-    margin: 0;
-    font-family: var(--font-primary);
-    background: linear-gradient(115deg, var(--dark-bg) 85%, #161b26 100%);
-    color: var(--text-color);
-    min-height: 100vh;
-  }
-
-  a {
-    color: var(--primary-accent);
-    text-decoration: none;
-  }
-  a:hover {
-    color: var(--secondary-accent);
-  }
-
-  /* --- Header --- */
-  header {
-    position: sticky;
-    top: 0;
-    background: rgba(10, 15, 26, 0.8);
-    backdrop-filter: blur(10px);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.75rem 2rem;
-    border-bottom: 1px solid var(--border-color);
-    z-index: 999;
-  }
-  .logo {
-    font-family: var(--font-secondary);
-    font-weight: 700;
-    font-size: 1.3rem;
-    color: var(--primary-accent);
-    letter-spacing: 2px;
-    text-shadow: 0 0 8px var(--shadow-color);
-  }
-  nav ul {
-    display: flex;
-    list-style: none;
-    gap: 2rem;
-    margin: 0;
-    padding: 0;
-  }
-  nav ul li a {
-    text-transform: uppercase;
-    font-weight: 600;
-    letter-spacing: 1.2px;
-    padding: 0.25rem 0;
-    position: relative;
-  }
-  nav ul li a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: -5px;
-    left: 50%;
-    background-color: var(--primary-accent);
-    transition: 0.3s;
-    transform: translateX(-50%);
-  }
-  nav ul li a:hover::after {
-    width: 100%;
-  }
-
-  /* --- Language Toggle (simplified) --- */
-  .language-toggle {
-    display: flex;
-    gap: 0.8rem;
-  }
-  .language-toggle button {
-    background: none;
-    border: 2px solid var(--primary-accent);
-    color: var(--primary-accent);
-    padding: 0.2rem 0.7rem;
-    border-radius: 6px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: background 0.25s, color 0.25s;
-  }
-  .language-toggle button.active,
-  .language-toggle button:hover {
-    background: var(--primary-accent);
-    color: var(--dark-bg);
-  }
-
-  /* --- Hero Section --- */
-  .hero-section {
-    min-height: 85vh;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 3rem auto;
-    padding: 0 1rem;
-  }
-  .hero-text {
-    flex: 1;
-    max-width: 600px;
-  }
-  .hero-text h1 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 3.5rem;
-    margin-bottom: 1rem;
-    background: linear-gradient(90deg, var(--primary-accent), var(--secondary-accent));
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: neon-text 1.5s infinite alternate;
-  }
-  .hero-text p {
-    font-size: 1.3rem;
-    line-height: 1.4;
-    margin-bottom: 2rem;
-    opacity: 0.9;
-  }
-  .hero-btn {
-    background: transparent;
-    border: 2px solid var(--primary-accent);
-    color: var(--primary-accent);
-    padding: 0.8rem 2.5rem;
-    font-weight: 700;
-    font-size: 1.1rem;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-  .hero-btn:hover {
-    background: var(--primary-accent);
-    color: var(--dark-bg);
-    box-shadow: 0 0 20px var(--shadow-color);
-  }
-  @keyframes neon-text {
-    from { filter: drop-shadow(0 0 18px var(--primary-accent)); }
-    to { filter: drop-shadow(0 0 30px var(--secondary-accent)); }
-  }
-
-  /* Sphere visual */
-  .hero-visual {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .futuristic-sphere {
-    position: relative;
-    width: 320px;
-    height: 320px;
-    border-radius: 50%;
-  }
-  .futuristic-sphere .sphere-layer {
-    position: absolute;
-    inset: 0;
-    border-radius: 50%;
-    border: 1px solid var(--border-color);
-    animation: rotate-sphere 15s linear infinite;
-  }
-  .futuristic-sphere .sphere-layer:nth-child(1) {
-    animation-duration: 12s;
-    opacity: 0.3;
-  }
-  .futuristic-sphere .sphere-layer:nth-child(2) {
-    animation-duration: 18s;
-    animation-direction: reverse;
-    inset: 20px;
-    opacity: 0.5;
-    border-color: var(--secondary-accent);
-  }
-  .futuristic-sphere .sphere-layer:nth-child(3) {
-    animation-duration: 10s;
-    inset: 40px;
-    opacity: 0.7;
-  }
-  .futuristic-sphere .sphere-layer:nth-child(4) {
-    inset: 60px;
-    border-style: dashed;
-    animation: none;
-    opacity: 0.2;
-  }
-  .futuristic-sphere .sphere-core {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 80px;
-    height: 80px;
-    background: radial-gradient(circle, var(--primary-accent) 0%, transparent 70%);
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    animation: pulse-core 2s infinite alternate;
-  }
-  @keyframes rotate-sphere {
-    from { transform: rotate(0deg) scale(1); }
-    to { transform: rotate(360deg) scale(1.02); }
-  }
-  @keyframes pulse-core {
-    from { opacity: 0.6; transform: translate(-50%, -50%) scale(0.9); }
-    to { opacity: 1; transform: translate(-50%, -50%) scale(1.1); box-shadow: 0 0 20px var(--shadow-color); }
-  }
-
-  /* --- About Section --- */
-  #about {
-    max-width: 900px;
-    margin: 4rem auto;
-    background: var(--card-bg);
-    border-radius: 14px;
-    box-shadow: 0 8px 32px var(--shadow-color);
-    padding: 2rem 3rem;
-    text-align: center;
-  }
-  #about img {
-    width: 140px;
-    height: 140px;
-    border-radius: 50%;
-    border: 3px solid var(--primary-accent);
-    box-shadow: 0 0 32px var(--primary-accent);
-    margin-bottom: 1.25rem;
-    object-fit: cover;
-  }
-  #about h2 {
-    color: var(--primary-accent);
-    font-family: 'Montserrat', sans-serif;
-    margin-bottom: 0.4rem;
-  }
-  #about p {
-    max-width: 650px;
-    margin: 0 auto 1.5rem auto;
-    font-size: 1.1rem;
-    opacity: 0.85;
-    line-height: 1.5;
-  }
-  #about .badges {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-  #about .badge {
-    background: transparent;
-    border: 2px solid var(--primary-accent);
-    color: var(--primary-accent);
-    border-radius: 30px;
-    padding: 0.35rem 1.2rem;
-    font-weight: 600;
-    font-size: 0.95rem;
-    cursor: default;
-    user-select: none;
-    transition: background 0.25s;
-  }
-  #about .badge:hover {
-    background: var(--primary-accent);
-    color: var(--dark-bg);
-  }
-
-  /* --- Chat Bubble --- */
-  .chat-bubble {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    width: 65px;
-    height: 65px;
-    background: linear-gradient(135deg, var(--primary-accent) 60%, var(--secondary-accent) 100%);
-    border-radius: 50%;
-    box-shadow: 0 0 36px 10px var(--primary-accent), 0 0 0 8px var(--dark-bg);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    z-index: 1100;
-    animation: bubblePulse 1.5s infinite alternate;
-  }
-  .chat-bubble:hover {
-    box-shadow: 0 0 48px 16px var(--secondary-accent), 0 0 0 8px var(--dark-bg);
-    transform: scale(1.08) rotate(-6deg);
-  }
-  .chat-bubble i {
-    font-size: 2.8rem;
-    color: #fff;
-    text-shadow: 0 0 18px var(--primary-accent), 0 0 8px var(--secondary-accent);
-    filter: drop-shadow(0 0 10px var(--primary-accent));
-  }
-  @keyframes bubblePulse {
-    0% {
-      box-shadow: 0 0 36px 10px var(--primary-accent), 0 0 0 8px var(--dark-bg);
+    :root {
+      --primary-accent: #21E6C1;
+      --secondary-accent: #9A16E5;
+      --dark-bg: #0A0F1A;
+      --card-bg: #10151F;
+      --text-color: #FFFFFF;
+      --border-color: rgba(33, 230, 193, 0.5);
+      --shadow-color: #21E6C1;
+      --font-primary: 'Exo 2', 'Roboto', sans-serif;
+      --font-secondary: 'Roboto Mono', monospace;
     }
-    100% {
-      box-shadow: 0 0 48px 16px var(--secondary-accent), 0 0 0 8px var(--dark-bg);
-    }
-  }
 
-  /* --- Responsive --- */
-  @media (max-width: 768px) {
+    /* Reset */
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font-primary);
+      background: linear-gradient(115deg, var(--dark-bg) 85%, #161b26 100%);
+      color: var(--text-color);
+      min-height: 100vh;
+    }
+
+    a {
+      color: var(--primary-accent);
+      text-decoration: none;
+    }
+    a:hover {
+      color: var(--secondary-accent);
+    }
+
+    /* --- Header --- */
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(10, 15, 26, 0.8);
+      backdrop-filter: blur(10px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.75rem 2rem;
+      border-bottom: 1px solid var(--border-color);
+      z-index: 999;
+    }
+    .logo {
+      font-family: var(--font-secondary);
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: var(--primary-accent);
+      letter-spacing: 2px;
+      text-shadow: 0 0 8px var(--shadow-color);
+    }
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+      margin: 0;
+      padding: 0;
+    }
+    nav ul li a {
+      text-transform: uppercase;
+      font-weight: 600;
+      letter-spacing: 1.2px;
+      padding: 0.25rem 0;
+      position: relative;
+    }
+    nav ul li a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -5px;
+      left: 50%;
+      background-color: var(--primary-accent);
+      transition: 0.3s;
+      transform: translateX(-50%);
+    }
+    nav ul li a:hover::after {
+      width: 100%;
+    }
+
+    /* --- Language Toggle (simplified) --- */
+    .language-toggle {
+      display: flex;
+      gap: 0.8rem;
+    }
+    .language-toggle button {
+      background: none;
+      border: 2px solid var(--primary-accent);
+      color: var(--primary-accent);
+      padding: 0.2rem 0.7rem;
+      border-radius: 6px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.25s, color 0.25s;
+    }
+    .language-toggle button.active,
+    .language-toggle button:hover {
+      background: var(--primary-accent);
+      color: var(--dark-bg);
+    }
+
+    /* --- Hero Section --- */
     .hero-section {
-      flex-direction: column;
+      min-height: 85vh;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 3rem auto;
       padding: 0 1rem;
     }
     .hero-text {
-      max-width: 100%;
-      text-align: center;
+      flex: 1;
+      max-width: 600px;
+    }
+    .hero-text h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+      background: linear-gradient(90deg, var(--primary-accent), var(--secondary-accent));
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: neon-text 1.5s infinite alternate;
+    }
+    .hero-text p {
+      font-size: 1.3rem;
+      line-height: 1.4;
       margin-bottom: 2rem;
+      opacity: 0.9;
     }
+    .hero-btn {
+      background: transparent;
+      border: 2px solid var(--primary-accent);
+      color: var(--primary-accent);
+      padding: 0.8rem 2.5rem;
+      font-weight: 700;
+      font-size: 1.1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .hero-btn:hover {
+      background: var(--primary-accent);
+      color: var(--dark-bg);
+      box-shadow: 0 0 20px var(--shadow-color);
+    }
+    @keyframes neon-text {
+      from { filter: drop-shadow(0 0 18px var(--primary-accent)); }
+      to { filter: drop-shadow(0 0 30px var(--secondary-accent)); }
+    }
+
+    /* Sphere visual */
     .hero-visual {
-      margin-top: 1.5rem;
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
+    .futuristic-sphere {
+      position: relative;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+    }
+    .futuristic-sphere .sphere-layer {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      border: 1px solid var(--border-color);
+      animation: rotate-sphere 15s linear infinite;
+    }
+    .futuristic-sphere .sphere-layer:nth-child(1) {
+      animation-duration: 12s;
+      opacity: 0.3;
+    }
+    .futuristic-sphere .sphere-layer:nth-child(2) {
+      animation-duration: 18s;
+      animation-direction: reverse;
+      inset: 20px;
+      opacity: 0.5;
+      border-color: var(--secondary-accent);
+    }
+    .futuristic-sphere .sphere-layer:nth-child(3) {
+      animation-duration: 10s;
+      inset: 40px;
+      opacity: 0.7;
+    }
+    .futuristic-sphere .sphere-layer:nth-child(4) {
+      inset: 60px;
+      border-style: dashed;
+      animation: none;
+      opacity: 0.2;
+    }
+    .futuristic-sphere .sphere-core {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 80px;
+      height: 80px;
+      background: radial-gradient(circle, var(--primary-accent) 0%, transparent 70%);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      animation: pulse-core 2s infinite alternate;
+    }
+    @keyframes rotate-sphere {
+      from { transform: rotate(0deg) scale(1); }
+      to { transform: rotate(360deg) scale(1.02); }
+    }
+    @keyframes pulse-core {
+      from { opacity: 0.6; transform: translate(-50%, -50%) scale(0.9); }
+      to { opacity: 1; transform: translate(-50%, -50%) scale(1.1); box-shadow: 0 0 20px var(--shadow-color); }
+    }
+
+    /* --- About Section --- */
     #about {
-      padding: 1.5rem 1rem;
-      margin: 3rem 1rem;
-    }
-    #about p {
-      font-size: 1rem;
+      max-width: 900px;
+      margin: 4rem auto;
+      background: var(--card-bg);
+      border-radius: 14px;
+      box-shadow: 0 8px 32px var(--shadow-color);
+      padding: 2rem 3rem;
+      text-align: center;
     }
     #about img {
-      width: 110px;
-      height: 110px;
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      border: 3px solid var(--primary-accent);
+      box-shadow: 0 0 32px var(--primary-accent);
+      margin-bottom: 1.25rem;
+      object-fit: cover;
     }
-  }
-</style>
-<script src="https://kit.fontawesome.com/38f5fbd09d.js" crossorigin="anonymous"></script>
+    #about h2 {
+      color: var(--primary-accent);
+      font-family: 'Montserrat', sans-serif;
+      margin-bottom: 0.4rem;
+    }
+    #about p {
+      max-width: 650px;
+      margin: 0 auto 1.5rem auto;
+      font-size: 1.1rem;
+      opacity: 0.85;
+      line-height: 1.5;
+    }
+    #about .badges {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    #about .badge {
+      background: transparent;
+      border: 2px solid var(--primary-accent);
+      color: var(--primary-accent);
+      border-radius: 30px;
+      padding: 0.35rem 1.2rem;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: default;
+      user-select: none;
+      transition: background 0.25s;
+    }
+    #about .badge:hover {
+      background: var(--primary-accent);
+      color: var(--dark-bg);
+    }
+
+    /* --- Chat Bubble --- */
+    .chat-bubble {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 65px;
+      height: 65px;
+      background: linear-gradient(135deg, var(--primary-accent) 60%, var(--secondary-accent) 100%);
+      border-radius: 50%;
+      box-shadow: 0 0 36px 10px var(--primary-accent), 0 0 0 8px var(--dark-bg);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      z-index: 1100;
+      animation: bubblePulse 1.5s infinite alternate;
+    }
+    .chat-bubble:hover {
+      box-shadow: 0 0 48px 16px var(--secondary-accent), 0 0 0 8px var(--dark-bg);
+      transform: scale(1.08) rotate(-6deg);
+    }
+    .chat-bubble i {
+      font-size: 2.8rem;
+      color: #fff;
+      text-shadow: 0 0 18px var(--primary-accent), 0 0 8px var(--secondary-accent);
+      filter: drop-shadow(0 0 10px var(--primary-accent));
+    }
+    @keyframes bubblePulse {
+      0% {
+        box-shadow: 0 0 36px 10px var(--primary-accent), 0 0 0 8px var(--dark-bg);
+      }
+      100% {
+        box-shadow: 0 0 48px 16px var(--secondary-accent), 0 0 0 8px var(--dark-bg);
+      }
+    }
+
+    /* Neon glow for nav links */
+    .nav-link {
+      position: relative;
+      transition: color 0.18s, text-shadow 0.18s;
+    }
+    .nav-link:focus,
+    .nav-link:hover {
+      color: #21E6C1 !important;
+      text-shadow: 0 0 8px #21E6C1, 0 0 16px #21E6C1;
+      outline: none;
+    }
+    .nav-link.active {
+      color: #21E6C1 !important;
+      text-shadow: 0 0 8px #21E6C1;
+    }
+    .nav-link:after {
+      content: '';
+      display: block;
+      margin: 0 auto;
+      width: 0;
+      height: 2px;
+      background: #21E6C1;
+      transition: width 0.3s;
+    }
+    .nav-link:hover:after,
+    .nav-link:focus:after,
+    .nav-link.active:after {
+      width: 80%;
+    }
+    /* Hamburger animation */
+    .hamburger-bar {
+      transition: all 0.3s;
+      background: #21E6C1;
+    }
+    .hamburger.open .bar1 {
+      transform: rotate(45deg) translate(6px, 6px);
+    }
+    .hamburger.open .bar2 {
+      opacity: 0;
+    }
+    .hamburger.open .bar3 {
+      transform: rotate(-45deg) translate(7px, -7px);
+    }
+    /* Mobile nav animation */
+    .mobile-nav {
+      transition: max-height 0.35s cubic-bezier(0.4,0,0.2,1);
+      overflow: hidden;
+      background: #10151F;
+      box-shadow: 0 8px 32px #21E6C133;
+    }
+
+    /* --- Responsive --- */
+    @media (max-width: 768px) {
+      .hero-section {
+        flex-direction: column;
+        padding: 0 1rem;
+      }
+      .hero-text {
+        max-width: 100%;
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+      .hero-visual {
+        margin-top: 1.5rem;
+      }
+      #about {
+        padding: 1.5rem 1rem;
+        margin: 3rem 1rem;
+      }
+      #about p {
+        font-size: 1rem;
+      }
+      #about img {
+        width: 110px;
+        height: 110px;
+      }
+    }
+  </style>
 </head>
-<body>
+<body class="bg-gradient-to-br from-[#0A0F1A] to-[#161b26] min-h-screen text-white">
 
-<header>
-  <div class="logo">AMRIKYY</div>
-  <nav>
-    <ul>
-      <li><a href="#hero">Home</a></li>
-      <li><a href="#about">About Me</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-  <div class="language-toggle">
-    <button id="en-btn" class="active">EN</button>
-    <button id="ar-btn">AR</button>
-  </div>
-</header>
-
-<section id="hero" class="hero-section">
-  <div class="hero-text">
-    <h1>Mohamed Abdelaziz</h1>
-    <p>Cybersecurity Engineer & AI Innovator <br> Securing the digital frontier with innovative AI solutions.</p>
-    <button class="hero-btn">Contact Me 🚀</button>
-  </div>
-  <div class="hero-visual">
-    <div class="futuristic-sphere">
-      <div class="sphere-layer"></div>
-      <div class="sphere-layer"></div>
-      <div class="sphere-layer"></div>
-      <div class="sphere-layer"></div>
-      <div class="sphere-core"></div>
+  <!-- Modern Responsive Header -->
+  <header class="w-full sticky top-0 z-50 bg-[#0A0F1A]/90 backdrop-blur border-b border-[#21E6C1]/50">
+    <div class="max-w-7xl mx-auto flex items-center justify-between px-4 py-3">
+      <!-- Logo -->
+      <a href="#" class="text-2xl font-bold tracking-widest text-[#21E6C1] drop-shadow-[0_0_8px_#21E6C1] focus:outline-none" aria-label="Homepage">
+        AMRIKYY
+      </a>
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex gap-8" aria-label="Main navigation">
+        <a href="#hero" class="nav-link text-base font-semibold transition" tabindex="0">Home</a>
+        <a href="#about" class="nav-link text-base font-semibold transition" tabindex="0">About</a>
+        <a href="#skills" class="nav-link text-base font-semibold transition" tabindex="0">Skills</a>
+        <a href="#projects" class="nav-link text-base font-semibold transition" tabindex="0">Projects</a>
+        <a href="#contact" class="nav-link text-base font-semibold transition" tabindex="0">Contact</a>
+      </nav>
+      <!-- Hamburger Button -->
+      <button id="navToggle"
+        class="hamburger flex flex-col justify-center items-center md:hidden w-10 h-10 focus:outline-none"
+        aria-label="Open navigation menu" aria-controls="mobileNav" aria-expanded="false" tabindex="0">
+        <span class="bar1 hamburger-bar block w-7 h-1 mb-1 rounded transition"></span>
+        <span class="bar2 hamburger-bar block w-7 h-1 mb-1 rounded transition"></span>
+        <span class="bar3 hamburger-bar block w-7 h-1 rounded transition"></span>
+      </button>
     </div>
+    <!-- Mobile Nav -->
+    <nav id="mobileNav"
+      class="mobile-nav max-h-0 md:hidden flex flex-col gap-2 px-6"
+      aria-label="Mobile navigation">
+      <a href="#hero" class="nav-link block py-3 text-base font-semibold transition" tabindex="0">Home</a>
+      <a href="#about" class="nav-link block py-3 text-base font-semibold transition" tabindex="0">About</a>
+      <a href="#skills" class="nav-link block py-3 text-base font-semibold transition" tabindex="0">Skills</a>
+      <a href="#projects" class="nav-link block py-3 text-base font-semibold transition" tabindex="0">Projects</a>
+      <a href="#contact" class="nav-link block py-3 text-base font-semibold transition" tabindex="0">Contact</a>
+    </nav>
+  </header>
+
+  <section id="hero" class="hero-section">
+    <div class="hero-text">
+      <h1>Mohamed Abdelaziz</h1>
+      <p>Cybersecurity Engineer & AI Innovator <br> Securing the digital frontier with innovative AI solutions.</p>
+      <button class="hero-btn">Contact Me 🚀</button>
+    </div>
+    <div class="hero-visual">
+      <div class="futuristic-sphere">
+        <div class="sphere-layer"></div>
+        <div class="sphere-layer"></div>
+        <div class="sphere-layer"></div>
+        <div class="sphere-layer"></div>
+        <div class="sphere-core"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <img src="https://i.imgur.com/2DhmtJ4.jpg" alt="Mohamed Abdelaziz" />
+    <h2>About Me</h2>
+    <p>I'm a passionate cybersecurity engineer and AI enthusiast currently working on integrating cutting-edge AI technologies with security solutions.</p>
+    <div class="badges">
+      <div class="badge">Cybersecurity Engineer</div>
+      <div class="badge">AI Tools Builder</div>
+      <div class="badge">KSU '26 Student</div>
+      <div class="badge">Multilingual (AR/EN)</div>
+    </div>
+  </section>
+
+  <!-- Responsive Neon Skills Section (Tailwind CSS) -->
+  <section id="skills" class="w-full max-w-5xl mx-auto px-4 py-12">
+    <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 text-[#39FF14] tracking-wide drop-shadow-[0_0_12px_#21E6C1]">Skills</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-7">
+      <div class="flex flex-col items-center bg-[#181E2A] rounded-2xl shadow-[0_0_24px_#39FF14aa] border border-[#21E6C1] p-7 transition-transform hover:scale-105 hover:shadow-[0_0_38px_#21E6C1]">
+        <span class="text-4xl mb-3 text-[#21E6C1]"><i class="fas fa-shield-alt"></i></span>
+        <span class="font-semibold text-lg text-[#39FF14] mb-1">Cybersecurity</span>
+        <span class="text-gray-300 text-sm text-center">Penetration Testing, Network Security, SIEM</span>
+      </div>
+      <div class="flex flex-col items-center bg-[#181E2A] rounded-2xl shadow-[0_0_24px_#39FF14aa] border border-[#21E6C1] p-7 transition-transform hover:scale-105 hover:shadow-[0_0_38px_#21E6C1]">
+        <span class="text-4xl mb-3 text-[#21E6C1]"><i class="fas fa-robot"></i></span>
+        <span class="font-semibold text-lg text-[#39FF14] mb-1">AI Development</span>
+        <span class="text-gray-300 text-sm text-center">Python, LLMs, Automation, Prompt Engineering</span>
+      </div>
+      <div class="flex flex-col items-center bg-[#181E2A] rounded-2xl shadow-[0_0_24px_#39FF14aa] border border-[#21E6C1] p-7 transition-transform hover:scale-105 hover:shadow-[0_0_38px_#21E6C1]">
+        <span class="text-4xl mb-3 text-[#21E6C1]"><i class="fas fa-pencil-ruler"></i></span>
+        <span class="font-semibold text-lg text-[#39FF14] mb-1">UI/UX Design</span>
+        <span class="text-gray-300 text-sm text-center">Figma, Prototyping, User Flows</span>
+      </div>
+      <div class="flex flex-col items-center bg-[#181E2A] rounded-2xl shadow-[0_0_24px_#39FF14aa] border border-[#21E6C1] p-7 transition-transform hover:scale-105 hover:shadow-[0_0_38px_#21E6C1]">
+        <span class="text-4xl mb-3 text-[#21E6C1]"><i class="fab fa-react"></i></span>
+        <span class="font-semibold text-lg text-[#39FF14] mb-1">React & Tailwind CSS</span>
+        <span class="text-gray-300 text-sm text-center">Modern Web Apps, Responsive Design</span>
+      </div>
+      <div class="flex flex-col items-center bg-[#181E2A] rounded-2xl shadow-[0_0_24px_#39FF14aa] border border-[#21E6C1] p-7 transition-transform hover:scale-105 hover:shadow-[0_0_38px_#21E6C1]">
+        <span class="text-4xl mb-3 text-[#21E6C1]"><i class="fab fa-python"></i></span>
+        <span class="font-semibold text-lg text-[#39FF14] mb-1">Python & Firebase</span>
+        <span class="text-gray-300 text-sm text-center">APIs, Automation, Cloud Functions</span>
+      </div>
+      <div class="flex flex-col items-center bg-[#181E2A] rounded-2xl shadow-[0_0_24px_#39FF14aa] border border-[#21E6C1] p-7 transition-transform hover:scale-105 hover:shadow-[0_0_38px_#21E6C1]">
+        <span class="text-4xl mb-3 text-[#21E6C1]"><i class="fas fa-language"></i></span>
+        <span class="font-semibold text-lg text-[#39FF14] mb-1">Multilingual</span>
+        <span class="text-gray-300 text-sm text-center">Arabic, English, Localization</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Chat Bubble -->
+  <div class="chat-bubble" title="Chat with me">
+    <i class="fas fa-robot"></i>
   </div>
-</section>
 
-<section id="about">
-  <img src="https://i.imgur.com/2DhmtJ4.jpg" alt="Mohamed Abdelaziz" />
-  <h2>About Me</h2>
-  <p>I'm a passionate cybersecurity engineer and AI enthusiast currently working on integrating cutting-edge AI technologies with security solutions.</p>
-  <div class="badges">
-    <div class="badge">Cybersecurity Engineer</div>
-    <div class="badge">AI Tools Builder</div>
-    <div class="badge">KSU '26 Student</div>
-    <div class="badge">Multilingual (AR/EN)</div>
-  </div>
-</section>
+  <script>
+    // Language toggle behavior (simple example)
+    const enBtn = document.getElementById('en-btn');
+    const arBtn = document.getElementById('ar-btn');
 
-<!-- Chat Bubble -->
-<div class="chat-bubble" title="Chat with me">
-  <i class="fas fa-robot"></i>
-</div>
+    enBtn.addEventListener('click', () => {
+      enBtn.classList.add('active');
+      arBtn.classList.remove('active');
+      alert('Switch to English (functionality not implemented)');
+    });
 
-<script>
-  // Language toggle behavior (simple example)
-  const enBtn = document.getElementById('en-btn');
-  const arBtn = document.getElementById('ar-btn');
+    arBtn.addEventListener('click', () => {
+      arBtn.classList.add('active');
+      enBtn.classList.remove('active');
+      alert('Switch to Arabic (functionality not implemented)');
+    });
 
-  enBtn.addEventListener('click', () => {
-    enBtn.classList.add('active');
-    arBtn.classList.remove('active');
-    alert('Switch to English (functionality not implemented)');
-  });
+    // Hamburger menu logic with ARIA and keyboard support
+    const navToggle = document.getElementById('navToggle');
+    const mobileNav = document.getElementById('mobileNav');
+    let navOpen = false;
 
-  arBtn.addEventListener('click', () => {
-    arBtn.classList.add('active');
-    enBtn.classList.remove('active');
-    alert('Switch to Arabic (functionality not implemented)');
-  });
-</script>
+    function toggleNav(open) {
+      navOpen = typeof open === "boolean" ? open : !navOpen;
+      navToggle.classList.toggle('open', navOpen);
+      mobileNav.style.maxHeight = navOpen ? mobileNav.scrollHeight + "px" : "0";
+      navToggle.setAttribute('aria-expanded', navOpen ? "true" : "false");
+      mobileNav.setAttribute('aria-hidden', navOpen ? "false" : "true");
+      if (navOpen) {
+        // Focus first link for accessibility
+        setTimeout(() => {
+          const firstLink = mobileNav.querySelector('a');
+          if (firstLink) firstLink.focus();
+        }, 200);
+      }
+    }
+
+    navToggle.addEventListener('click', () => toggleNav());
+    navToggle.addEventListener('keydown', (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        toggleNav();
+      }
+      if (e.key === "Escape" && navOpen) {
+        toggleNav(false);
+        navToggle.focus();
+      }
+    });
+
+    // Close mobile nav on link click or Escape
+    mobileNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => toggleNav(false));
+      link.addEventListener('keydown', (e) => {
+        if (e.key === "Escape") {
+          toggleNav(false);
+          navToggle.focus();
+        }
+      });
+    });
+
+    // Close nav if clicking outside
+    document.addEventListener('click', (e) => {
+      if (navOpen && !mobileNav.contains(e.target) && !navToggle.contains(e.target)) {
+        toggleNav(false);
+      }
+    });
+    // Keyboard navigation: trap focus inside mobile nav when open
+    mobileNav.addEventListener('keydown', (e) => {
+      if (!navOpen) return;
+      const focusable = Array.from(mobileNav.querySelectorAll('a'));
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (e.key === "Tab") {
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+    });
+  </script>
 
 </body>
 </html>
