@@ -1824,5 +1824,63 @@ label {
   }
 }
 
+/* --- Smart Skills Card & Badges Grid --- */
+.smart-skills-card {
+  background: #10151F;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px 0 rgba(33,230,193,0.10), 0 2px 8px 0 rgba(0,0,0,0.10);
+  padding: 2rem 2.5rem;
+  max-width: 700px;
+  margin: 2rem auto 2.5rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.smart-skills-card h2 {
+  margin-bottom: 1.2rem;
+  color: #21E6C1;
+  font-size: 2rem;
+  font-family: 'Montserrat', 'Exo 2', sans-serif;
+}
+.badges-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  width: 100%;
+}
+.badge {
+  background: #181F2A;
+  color: #21E6C1;
+  border-radius: 999px;
+  padding: 0.38em 1.2em;
+  font-size: 1rem;
+  font-family: 'Montserrat', 'Exo 2', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  border: 1.5px solid #21E6C1;
+  box-shadow: 0 1px 4px 0 rgba(33,230,193,0.08);
+  transition: background 0.18s, color 0.18s, border 0.18s;
+  margin-bottom: 0.2em;
+  display: inline-block;
+}
+.badge:hover, .badge:focus {
+  background: #21E6C1;
+  color: #10151F;
+  border: 1.5px solid #21E6C1;
+  outline: none;
+}
+@media (max-width: 700px) {
+  .smart-skills-card {
+    padding: 1.2rem 1rem;
+  }
+  .badges-grid {
+    gap: 0.4rem;
+  }
+  .badge {
+    font-size: 0.95rem;
+    padding: 0.32em 0.9em;
+  }
+}
+
 /* ...existing code... */
 
