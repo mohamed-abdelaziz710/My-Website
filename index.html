@@ -1,20 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Amrikyy Spaceship Card</title>
-  <!-- Google Fonts for modern look -->
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&family=IBM+Plex+Sans:wght@400;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Amrikyy | Futuristic Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&family=IBM+Plex+Sans:wght@400;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
     body {
       background: linear-gradient(120deg, #0D0D0D 60%, #11131a 100%);
       min-height: 100vh;
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      color: #fff;
+    }
+    /* Header */
+    header {
+      width: 100%;
+      padding: 1.5rem 0 1.2rem 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(15,17,23,0.88);
+      border-bottom: 1.5px solid #21E6C180;
+      box-shadow: 0 6px 32px #21E6C130;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .logo {
+      font-family: 'Space Grotesk', Inter, sans-serif;
+      color: #39FF14;
+      font-size: 2rem;
+      font-weight: bold;
+      letter-spacing: 2px;
+      margin-left: 2.2rem;
+      text-shadow: 0 0 8px #39FF1477;
+      user-select: none;
+    }
+    nav {
+      margin-right: 2.2rem;
+      display: flex;
+      gap: 2.5rem;
+    }
+    nav a {
+      color: #A0A0A0;
+      font-family: 'IBM Plex Sans', sans-serif;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      transition: color 0.15s;
+      user-select: none;
+    }
+    nav a:hover,
+    nav a.active {
+      color: #39FF14;
+      text-shadow: 0 0 8px #21E6C1;
+    }
+    /* Hero Section */
+    .hero-section {
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: 'Inter', sans-serif;
+      flex-direction: column;
+      padding: 4.5rem 1.5rem 2.5rem 1.5rem;
+      text-align: center;
+      background: none;
+      user-select: none;
     }
+    .hero-title {
+      font-family: 'Space Grotesk', Inter, sans-serif;
+      font-size: 2.8rem;
+      color: #39FF14;
+      font-weight: bold;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.45em;
+      text-shadow: 0 0 14px #21E6C166;
+    }
+    .hero-subtitle {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 1.25rem;
+      color: #A0A0A0;
+      font-weight: 500;
+      margin-bottom: 1.2em;
+      max-width: 520px;
+      line-height: 1.4;
+    }
+    .hero-cta {
+      background: linear-gradient(90deg, #39FF14 0%, #21E6C1 100%);
+      color: #0D0D0D;
+      border: none;
+      border-radius: 2rem;
+      font-size: 1.13rem;
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      letter-spacing: 0.09em;
+      padding: 0.8em 2.6em;
+      box-shadow: 0 0 18px #39FF14, 0 4px 22px #21E6C1cc;
+      cursor: pointer;
+      transition: background 0.18s, box-shadow 0.18s, transform 0.14s;
+      user-select: none;
+    }
+    .hero-cta:hover,
+    .hero-cta:focus {
+      background: linear-gradient(90deg, #0D0D0D 10%, #39FF14 100%);
+      color: #39FF14;
+      box-shadow: 0 0 34px #39FF14cc;
+      transform: scale(1.06) translateY(-2px);
+    }
+    /* Card Styles */
     .card-spaceship {
       background: rgba(22, 28, 36, 0.90);
       border-radius: 2rem;
@@ -28,6 +122,11 @@
       backdrop-filter: blur(12px) saturate(160%);
       transition: box-shadow 0.25s;
       z-index: 2;
+      margin: 0 auto 2.4rem auto;
+      cursor: default;
+      user-select: none;
+      animation: fadeInScale 0.6s ease forwards;
+      opacity: 0;
     }
     .card-spaceship:after {
       content: "";
@@ -89,24 +188,80 @@
       overflow: hidden;
       z-index: 2;
     }
-    .btn-cta:hover, .btn-cta:focus {
+    .btn-cta:hover,
+    .btn-cta:focus {
       background: linear-gradient(90deg, #0D0D0D 10%, #39FF14 100%);
       color: #39FF14;
       box-shadow: 0 0 34px #39FF14cc;
       transform: scale(1.09) translateY(-2px);
     }
-    @media (max-width: 400px) {
-      .card-spaceship {
-        max-width: 99vw;
-        width: 99vw;
-        padding: 2rem 0.5rem 1.5rem 0.5rem;
-      }
-      .about-section {
-        padding: 1.7rem 0.5rem 2rem 0.5rem;
-      }
+    /* Section containers */
+    .section-container {
+      max-width: 960px;
+      margin: 2.8rem auto 3.5rem auto;
+      padding: 0 1.5rem;
+      background: rgba(15, 17, 23, 0.74);
+      border-radius: 1.8rem;
+      box-shadow: 0 0 36px #39FF1480, 0 6px 38px #000c;
+      border: 1.5px solid #21E6C166;
+      animation: fadeInScale 0.7s ease forwards;
+      opacity: 0;
+      user-select: none;
     }
-
-    /* Animation keyframes */
+    .section-title {
+      font-family: 'Space Grotesk', Inter, sans-serif;
+      color: #39FF14;
+      font-size: 2.3rem;
+      font-weight: 700;
+      margin-bottom: 1.2rem;
+      letter-spacing: 0.12em;
+      text-shadow: 0 0 12px #21E6C199;
+    }
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.6rem 2.3rem;
+    }
+    .card-item {
+      background: rgba(22, 28, 36, 0.85);
+      border-radius: 1.6rem;
+      padding: 1.7rem 1.4rem;
+      color: #c5c5c5;
+      box-shadow: 0 0 24px #39FF1477, 0 6px 28px #000a;
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 400;
+      cursor: default;
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+      user-select: none;
+      position: relative;
+      overflow-wrap: break-word;
+    }
+    .card-item:hover {
+      transform: translateY(-6px) scale(1.05);
+      box-shadow:
+        0 0 28px #39FF14,
+        0 0 42px #21E6C1,
+        0 6px 38px #39FF14cc;
+      color: #fff;
+      z-index: 10;
+    }
+    .card-item h4 {
+      color: #39FF14;
+      font-family: 'Space Grotesk', Inter, sans-serif;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+      font-size: 1.25rem;
+      letter-spacing: 0.06em;
+    }
+    .card-subtitle {
+      font-size: 0.92rem;
+      color: #a3a3a3;
+      font-style: italic;
+      margin-bottom: 0.6rem;
+      font-weight: 500;
+    }
+    /* Fade in keyframes */
     @keyframes fadeInScale {
       0% {
         opacity: 0;
@@ -117,145 +272,162 @@
         transform: scale(1);
       }
     }
-
-    /* Fade-in + scale on load */
-    .card-spaceship, .about-section {
-      animation: fadeInScale 0.6s ease forwards;
-      opacity: 0; /* initial hidden, shown after animation */
-      animation-delay: 0.3s;
-      animation-fill-mode: forwards;
+    /* Responsive tweaks */
+    @media (max-width: 700px) {
+      header {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem 0 0.7rem 0;
+      }
+      nav {
+        margin-right: 0;
+        gap: 1.5rem;
+      }
+      .logo {
+        margin-left: 1rem;
+      }
+      .card-spaceship {
+        max-width: 96vw;
+        width: 96vw;
+      }
+      .section-container {
+        max-width: 98vw;
+      }
+    }
+    @media (max-width: 400px) {
+      .card-spaceship {
+        max-width: 99vw;
+        width: 99vw;
+        padding: 2rem 0.5rem 1.5rem 0.5rem;
+      }
+      .section-container {
+        padding: 1.7rem 0.5rem 2rem 0.5rem;
+      }
+      .section-title {
+        font-size: 1.85rem;
+      }
+      .card-item {
+        font-size: 0.95rem;
+        padding: 1.3rem 1rem;
+      }
     }
 
-    /* Hover 3D tilt + glow effect on card */
-    .card-spaceship {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      will-change: transform;
+    /* Chatbot styles */
+    #chatBubble {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 60px;
+      height: 60px;
+      background: #39FF14;
+      color: #0D0D0D;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
       cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      z-index: 1000;
+      transition: transform 0.2s;
     }
-
-    .card-spaceship:hover {
-      transform: perspective(600px) rotateX(6deg) rotateY(-6deg) scale(1.05);
-      box-shadow:
-        0 0 20px #39FF14,
-        0 0 40px #21E6C1,
-        0 0 60px #39FF14,
-        0 0 80px #21E6C1;
-    }
-
-    /* Badge hover glow */
-    .about-badge {
-      transition: box-shadow 0.3s ease, transform 0.3s ease;
-    }
-
-    .about-badge:hover {
-      box-shadow: 0 0 12px #39FF14, 0 0 22px #21E6C1cc;
+    #chatBubble:hover {
       transform: scale(1.1);
     }
-
-    /* Button hover updated (already good, but نزيد smoothness) */
-    .btn-cta, .hero-cta {
-      transition: background 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease;
-    }
-
-    .btn-cta:hover, .btn-cta:focus,
-    .hero-cta:hover, .hero-cta:focus {
-      transform: scale(1.1) translateY(-3px);
-      box-shadow:
-        0 0 38px #39FF14cc,
-        0 0 48px #21E6C1cc;
-    }
-
-    /* Section styles */
-    .section-container {
-      max-width: 1200px;
-      width: 90%;
-      margin: 4rem auto;
-      padding: 2rem;
-      background: rgba(22, 28, 36, 0.85);
-      border-radius: 1.5rem;
-      box-shadow: 0 0 32px #000a;
-      backdrop-filter: blur(10px);
-    }
-
-    .section-title {
-      color: #39FF14;
-      font-family: 'Space Grotesk', Inter, sans-serif;
-      font-size: 2rem;
-      margin-bottom: 1.5rem;
-      position: relative;
-      display: inline-block;
-    }
-
-    .section-title:after {
-      content: '';
-      position: absolute;
-      width: 100%;
-      height: 4px;
-      bottom: -6px;
-      left: 0;
-      background: linear-gradient(90deg, #39FF14 0%, #21E6C1 100%);
-      border-radius: 2rem;
-    }
-
-    .cards-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .card-item {
-      background: rgba(255, 255, 255, 0.05);
+    #chatWindow {
+      position: fixed;
+      bottom: 70px;
+      right: 2rem;
+      width: 350px;
+      max-width: 80%;
+      background: rgba(15, 17, 23, 0.9);
       border-radius: 1rem;
-      padding: 1.5rem;
-      text-align: center;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.6);
+      z-index: 1001;
+      display: none;
+      flex-direction: column;
+      animation: slideIn 0.4s forwards;
+    }
+    #chatHeader {
+      background: #39FF14;
+      color: #0D0D0D;
+      padding: 0.8rem 1rem;
+      border-top-left-radius: 1rem;
+      border-top-right-radius: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 500;
+    }
+    #chatMessages {
+      padding: 1rem;
+      flex-grow: 1;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+    #chatInputArea {
+      display: flex;
+      padding: 0.8rem 1rem;
+      border-top: 1px solid #333;
+      gap: 0.5rem;
+    }
+    #messageInput {
+      flex-grow: 1;
+      padding: 0.6rem;
+      border: none;
+      border-radius: 0.5rem;
+      background: #222;
       color: #fff;
-      position: relative;
-      overflow: hidden;
-      transition: transform 0.3s, box-shadow 0.3s;
+      font-size: 1rem;
+    }
+    #sendMessage {
+      background: #39FF14;
+      color: #0D0D0D;
+      border: none;
+      border-radius: 0.5rem;
+      padding: 0.6rem 1.2rem;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.2s;
+    }
+    #sendMessage:hover {
+      background: #32cc12;
     }
 
-    .card-item:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
-    }
-
-    .card-item h4 {
-      margin: 0.5rem 0;
-      font-size: 1.2rem;
-      color: #39FF14;
-    }
-
-    .card-subtitle {
-      font-size: 0.9rem;
-      color: #A0A0A0;
-      margin-bottom: 0.8rem;
-      display: block;
-    }
-
-    /* Responsive adjustments */
-    @media (max-width: 768px) {
-      .section-title {
-        font-size: 1.75rem;
+    /* Animations */
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
       }
-
-      .card-item h4 {
-        font-size: 1.1rem;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .section-title {
-        font-size: 1.5rem;
-      }
-
-      .btn-cta {
-        font-size: 0.9rem;
-        padding: 0.7em 1.8em;
+      to {
+        opacity: 1;
+        transform: translateY(0);
       }
     }
   </style>
 </head>
 <body>
+  <header>
+    <div class="logo">amrikyy</div>
+    <nav>
+      <a href="#" class="active">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+  <main>
+    <section class="hero-section">
+      <h1 class="hero-title">Hi, I’m Mohamed Abdelaziz</h1>
+      <div class="hero-subtitle">Cybersecurity Engineer &amp; AI Innovator &mdash; Building the Future with Tech, Design, and a Bit of Magic ✦</div>
+      <button class="hero-cta">Let’s Connect</button>
+    </section>
     <div class="card-spaceship">
       <div class="avatar-neon">
         <img src="https://i.imgur.com/2DhmtJ4.jpg" alt="Amrikyy" />
@@ -264,7 +436,23 @@
       <p class="subtitle">Cybersecurity Engineer &amp; AI Innovator</p>
       <button class="btn-cta">Contact Me 🚀</button>
     </div>
-
+    <section class="about-section section-container" id="about">
+      <div class="about-title section-title">About Me</div>
+      <div class="about-text">
+        I’m Mohamed (aka Amrikyy), a creative and visionary engineer blending cybersecurity with futuristic UI/UX, AI tools, and creative digital products.<br /><br />
+        I love designing out-of-the-box, eye-catching interfaces and automating digital workflows. Born in Syria, raised in Kuwait, now based in Cairo &mdash; I live for building things that break the mold.<br /><br />
+        Currently writing my book <b>CodeX</b> and crafting unique platforms.
+      </div>
+      <div class="about-badges">
+        <span class="about-badge">Cybersecurity</span>
+        <span class="about-badge">AI Development</span>
+        <span class="about-badge">UI/UX Design</span>
+        <span class="about-badge">Figma Pro</span>
+        <span class="about-badge">Replit Dev</span>
+        <span class="about-badge">Multilingual</span>
+        <span class="about-badge">Branding</span>
+      </div>
+    </section>
     <section id="skills" class="section-container">
       <h3 class="section-title">Skills</h3>
       <div class="cards-grid">
@@ -276,7 +464,6 @@
         <div class="card-item">Python & Firebase</div>
       </div>
     </section>
-
     <section id="experience" class="section-container">
       <h3 class="section-title">Experience</h3>
       <div class="cards-grid">
@@ -292,7 +479,6 @@
         </div>
       </div>
     </section>
-
     <section id="education" class="section-container">
       <h3 class="section-title">Education</h3>
       <div class="cards-grid">
@@ -306,7 +492,6 @@
         </div>
       </div>
     </section>
-
     <section id="projects" class="section-container">
       <h3 class="section-title">Projects</h3>
       <div class="cards-grid">
@@ -320,5 +505,24 @@
         </div>
       </div>
     </section>
-  </body>
+
+    <!-- Chatbot Bubble -->
+    <div id="chatBubble" title="Chat with me" aria-label="Open chat" role="button" tabindex="0">
+      💬
+    </div>
+
+    <!-- Chat Window -->
+    <div id="chatWindow" aria-live="polite" aria-hidden="true" role="dialog" aria-label="AI Chat Assistant">
+      <div id="chatHeader">
+        <span>SPACE COMMS v1.0</span>
+        <button id="closeChat" aria-label="Close chat window">&times;</button>
+      </div>
+      <div id="chatMessages"></div>
+      <div id="chatInputArea">
+        <input id="messageInput" type="text" placeholder="Transmit message..." aria-label="Chat message input" />
+        <button id="sendMessage" aria-label="Send message">➤</button>
+      </div>
+    </div>
+  </main>
+</body>
 </html>
