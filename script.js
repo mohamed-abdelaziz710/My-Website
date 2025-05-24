@@ -891,7 +891,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // ظهور تدريجي للأقسام عند التمرير
-const revealSections = () => {
+function revealSections() {
   const sections = document.querySelectorAll('section, .project-card, .blog-card');
   sections.forEach(section => {
     const sectionTop = section.getBoundingClientRect().top;
@@ -899,7 +899,7 @@ const revealSections = () => {
       section.classList.add('visible');
     }
   });
-};
+}
 window.addEventListener('scroll', revealSections);
 window.addEventListener('DOMContentLoaded', revealSections);
 
@@ -925,20 +925,11 @@ chatBubble.onclick = () => {
 };
 
 // تأثير ظهور تدريجي للأقسام والبطاقات عند التمرير
-const revealSections = () => {
-  const sections = document.querySelectorAll('section, .project-card, .blog-card');
-  sections.forEach(section => {
-    const sectionTop = section.getBoundingClientRect().top;
-    if (sectionTop < window.innerHeight - 100) {
-      section.classList.add('visible');
-    }
-  });
-};
-window.addEventListener('scroll', revealSections);
-window.addEventListener('DOMContentLoaded', revealSections);
+// (تمت إزالة التكرار: استخدم revealSections المعرفة أعلاه)
 
 // تفاعل زر CTA (Pulse)
-const ctaBtn = document.getElementById('btn-get-in-touch');
+// Remove duplicate declaration of ctaBtn to avoid "Cannot redeclare block-scoped variable" error
+// (Already declared above, so do NOT redeclare here)
 if(ctaBtn){
   ctaBtn.addEventListener('mouseenter', e => {
     e.target.classList.add('pulse');
@@ -981,42 +972,40 @@ setTimeout(() => {
       if (sectionTop < window.innerHeight - 100) {
         section.classList.add('visible');
       }
-    });
-  };
-  window.addEventListener('scroll', revealSections);
-  window.addEventListener('DOMContentLoaded', revealSections);
+// إزالة التعريفات المكررة إن وجدت
+// ظهور تدريجي للأقسام عند التمرير
+// (تمت إزالة التكرار: استخدم revealSections المعرفة أعلاه)
 
-  // تفاعل زر CTA (Pulse)
-  const ctaBtn = document.getElementById('btn-get-in-touch');
-  if(ctaBtn){
-    ctaBtn.addEventListener('mouseenter', e => {
-      e.target.classList.add('pulse');
-    });
-    ctaBtn.addEventListener('mouseleave', e => {
-      e.target.classList.remove('pulse');
-    });
-  }
+// تفاعل زر CTA (Pulse)
+const ctaBtn2 = document.getElementById('btn-get-in-touch');
+if(ctaBtn2){
+  ctaBtn2.addEventListener('mouseenter', e => {
+    e.target.classList.add('pulse');
+  });
+  ctaBtn2.addEventListener('mouseleave', e => {
+    e.target.classList.remove('pulse');
+  });
+}
 
-  // إنشاء فقاعة شات متحركة (SVG Animated Chatbot Bubble)
-  const chatBubble = document.createElement('div');
-  chatBubble.className = 'chat-bubble';
-  chatBubble.innerHTML = `
-    <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="19" cy="19" r="16" stroke="#21D4FD" stroke-width="3" fill="#9B59B6" />
-      <ellipse cx="19" cy="19" rx="12" ry="7" fill="#39FF14" fill-opacity="0.6">
-        <animate attributeName="rx" values="12;14;12" dur="1.6s" repeatCount="indefinite" />
-        <animate attributeName="fill-opacity" values="0.6;1;0.6" dur="1.6s" repeatCount="indefinite" />
-      </ellipse>
-      <text x="50%" y="56%" text-anchor="middle" fill="#fff" font-size="1.2em" dy=".3em" font-family="Inter,Arial">💬</text>
-    </svg>`;
-  chatBubble.title = 'تحدث معي';
-  chatBubble.onclick = () => {
-    alert('مرحباً! كيف يمكنني مساعدتك؟');
-  };
-  document.body.appendChild(chatBubble);
+// إنشاء فقاعة شات متحركة (SVG Animated Chatbot Bubble)
+const chatBubble2 = document.createElement('div');
+chatBubble2.className = 'chat-bubble';
+chatBubble2.innerHTML = `
+  <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="19" cy="19" r="16" stroke="#21D4FD" stroke-width="3" fill="#9B59B6" />
+    <ellipse cx="19" cy="19" rx="12" ry="7" fill="#39FF14" fill-opacity="0.6">
+      <animate attributeName="rx" values="12;14;12" dur="1.6s" repeatCount="indefinite" />
+      <animate attributeName="fill-opacity" values="0.6;1;0.6" dur="1.6s" repeatCount="indefinite" />
+    </ellipse>
+    <text x="50%" y="56%" text-anchor="middle" fill="#fff" font-size="1.2em" dy=".3em" font-family="Inter,Arial">💬</text>
+  </svg>`;
+chatBubble2.title = 'تحدث معي';
+chatBubble2.onclick = () => {
+  alert('مرحباً! كيف يمكنني مساعدتك؟');
+};
+document.body.appendChild(chatBubble2);
 
-  // دعم ظهور تدريجي للفقاعة عند تحميل الصفحة
-  setTimeout(() => {
-    chatBubble.classList.add('visible');
-  }, 600);
-})();
+// دعم ظهور تدريجي للفقاعة عند تحميل الصفحة
+setTimeout(() => {
+  chatBubble2.classList.add('visible');
+}, 600);
