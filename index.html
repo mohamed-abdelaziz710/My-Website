@@ -174,10 +174,20 @@
     </div>
   </section>
 
-  <!-- Chatbot Bubble (fixed, accessible, 3D) -->
-  <div class="chat-bubble" id="chatBubble" aria-label="Open chat" tabindex="0">
-    <i class="fa-solid fa-robot" aria-hidden="true"></i>
-  </div>
+  <!-- Chatbot Bubble (fixed, accessible, 3D, custom SVG) -->
+  <div id="chatBubble" style="
+  position:fixed;bottom:28px;right:22px;width:66px;height:66px;z-index:999;
+  border-radius:50%;background:linear-gradient(135deg,#21E6C1 70%,#9A16E5 100%);
+  box-shadow:0 0 36px 0 #21E6C1AA,0 0 0 9px #10151F;
+  display:flex;align-items:center;justify-content:center;cursor:pointer;transition:box-shadow .22s;"
+  aria-label="Open chat" tabindex="0">
+  <svg width="36" height="36" viewBox="0 0 38 38" aria-hidden="true" focusable="false">
+    <circle cx="19" cy="19" r="17" stroke="#fff" stroke-width="2" fill="none"/>
+    <path d="M12 18.5c0-2 2.3-3.5 7-3.5s7 1.5 7 3.5-2.3 3.5-7 3.5-7-1.5-7-3.5z" stroke="#fff" stroke-width="2"/>
+    <ellipse cx="15.3" cy="17.7" rx="1.2" ry="1.9" fill="#fff"/>
+    <ellipse cx="22.7" cy="17.7" rx="1.2" ry="1.9" fill="#fff"/>
+  </svg>
+</div>
   <!-- Chat Window (remains as in script.js) -->
 
   <!-- Particles.js CDN and Initialization -->
