@@ -805,38 +805,36 @@ document.addEventListener("DOMContentLoaded", function () {
     el.style.fontWeight = "500";tor('.messages').appendChild(userMessage);
   });   chatInput.value = '';
       }
-  // تحسين حجم أيقونة الدردشة وتفاعل اللمس
-  const chatBubble = document.getElementById("chatbot-bubble");
-  if (chatBubble) {
-    // زيادة الحجم على الشاشات الصغيرة
-    function resizeChatBubble() {loading تلقائياً لكل الصور إن لم يكن موجوداً
-      if (window.innerWidth <= 600) {Loaded", function () {
-        chatBubble.style.width = "72px";set
-        chatBubble.style.height = "72px";h(img => {
-        const icon = chatBubble.querySelector("i");
-        if (icon) icon.style.fontSize = "2.7rem";
-      } else {
-        chatBubble.style.width = "64px";
-        chatBubble.style.height = "64px";
-        const icon = chatBubble.querySelector("i");
-        if (icon) icon.style.fontSize = "2.3rem";
-      }ext-gray-300",
-    }.text-gray-400",
-    resizeChatBubble();
-    window.addEventListener("resize", resizeChatBubble);
-  ];
-    // تحسين التفاعل مع اللمسontrastSelectors.join(",")).forEach(el => {
-    chatBubble.style.touchAction = "manipulation";
-    chatBubble.style.webkitTapHighlightColor = "rgba(33,230,193,0.15)";
-    chatBubble.addEventListener("touchstart", function () {
-      chatBubble.style.boxShadow = "0 0 0 6px #39FF14, 0 0 32px #21E6C1cc";
-    });
-    chatBubble.addEventListener("touchend", function () {
-      chatBubble.style.boxShadow = "";للمس
-    }); chatBubble = document.getElementById("chatbot-bubble");
-  }f (chatBubble) {
-}); // زيادة الحجم على الشاشات الصغيرة
-    function resizeChatBubble() {
+// تحسين حجم أيقونة الدردشة وتفاعل اللمس
+const chatBubble = document.getElementById("chatbot-bubble");
+if (chatBubble) {
+  // زيادة الحجم على الشاشات الصغيرة
+  function resizeChatBubble() {
+    if (window.innerWidth <= 600) {
+      chatBubble.style.width = "72px";
+      chatBubble.style.height = "72px";
+      const icon = chatBubble.querySelector("i");
+      if (icon) icon.style.fontSize = "2.7rem";
+    } else {
+      chatBubble.style.width = "64px";
+      chatBubble.style.height = "64px";
+      const icon = chatBubble.querySelector("i");
+      if (icon) icon.style.fontSize = "2.3rem";
+    }
+  }
+  resizeChatBubble();
+  window.addEventListener("resize", resizeChatBubble);
+
+  // تحسين التفاعل مع اللمس
+  chatBubble.style.touchAction = "manipulation";
+  chatBubble.style.webkitTapHighlightColor = "rgba(33,230,193,0.15)";
+  chatBubble.addEventListener("touchstart", function () {
+    chatBubble.style.boxShadow = "0 0 0 6px #39FF14, 0 0 32px #21E6C1cc";
+  });
+  chatBubble.addEventListener("touchend", function () {
+    chatBubble.style.boxShadow = "";
+  });
+}
 // إصلاح ظهور الأقسام: إزالة تكرار revealSections والتأكد من إضافة كلاس visible عند التمرير فقط
 (function() {ubble.style.width = "72px";
   function revealSections() {ht = "72px";
@@ -856,28 +854,66 @@ document.addEventListener("DOMContentLoaded", function () {
 const ctaBtn = document.getElementById('btn-get-in-touch');
 if (ctaBtn) {e.style.webkitTapHighlightColor = "rgba(33,230,193,0.15)";
   ctaBtn.addEventListener('mouseenter', e => {function () {
-    e.target.classList.add('pulse');0 0 0 6px #39FF14, 0 0 32px #21E6C1cc";
-  }););
-  ctaBtn.addEventListener('mouseleave', e => {nction () {
+    e.target.classList.add('pulse');
+  });
+  ctaBtn.addEventListener('mouseleave', e => {
     e.target.classList.remove('pulse');
-  }););
-} }
-});
-// --- Consolidated Chat Bubble & Chatbot Window Logic ---
-const chatBubble = document.getElementById('chatBubble'); من إضافة كلاس visible عند التمرير فقط
-const chatbotWindow = document.getElementById('chatbotWindow');
-const closeChat = document.getElementById('closeChat');
-const chatInput = document.getElementById('chatInput');, .project-card, .blog-card');
-const btnGetInTouch = document.getElementById('btn-get-in-touch');
-      const sectionTop = section.getBoundingClientRect().top;
-if (chatBubble && chatbotWindow && closeChat && chatInput) {closeChat && chatInput) {
+  });
+}
   chatBubble.addEventListener('click', () => {
     chatbotWindow.style.display = 'block';
     chatBubble.style.display = 'none';
   });
   window.addEventListener('scroll', revealSections);
-  closeChat.addEventListener('click', () => { revealSections);  closeChat.addEventListener('click', () => {
-    chatbotWindow.style.display = 'none';    chatBubble.style.display = 'block';  });  chatInput.addEventListener('keypress', (e) => {    if (e.key === 'Enter' && chatInput.value.trim() !== '') {      const userMessage = document.createElement('div');      userMessage.className = 'message user';      userMessage.textContent = chatInput.value;      chatbotWindow.querySelector('.messages').appendChild(userMessage);      // --- Backend Fetch for Chatbot (Replit) ---      fetch('https://0e45fe78-86ad-4c8f-b665-f561edd3e592-00-ezbtmwl50c4e.riker.replit.dev:5000/chat', {        method: 'POST',        headers: { 'Content-Type': 'application/json' },        body: JSON.stringify({ message: chatInput.value })      })      .then(res => res.json())      .then(data => {        let reply = '';        if (data?.candidates?.[0]?.content?.parts?.[0]?.text) {          reply = data.candidates[0].content.parts[0].text;        } else {          reply = 'عذراً، حدث خطأ في الاتصال. يمكنك التواصل معي عبر وسائل التواصل الاجتماعي.';        }        const botMessage = document.createElement('div');        botMessage.className = 'message bot';        botMessage.textContent = reply;        chatbotWindow.querySelector('.messages').appendChild(botMessage);        chatbotWindow.querySelector('.messages').scrollTop = chatbotWindow.querySelector('.messages').scrollHeight;      })      .catch(() => {        const botMessage = document.createElement('div');        botMessage.className = 'message bot';        botMessage.textContent = 'عذراً، حدث خطأ في الاتصال بالخادم.';        chatbotWindow.querySelector('.messages').appendChild(botMessage);      });      chatInput.value = '';    }  });}if (btnGetInTouch) {  btnGetInTouch.addEventListener('click', () => {    document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });  });}// إنشاء فقاعة شات متحركة (SVG Animated Chatbot Bubble)const chatBubble = document.createElement('div');chatBubble.className = 'chat-bubble';chatBubble.innerHTML = `  <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">    <circle cx="19" cy="19" r="16" stroke="#21D4FD" stroke-width="3" fill="#9B59B6" />    <ellipse cx="19" cy="19" rx="12" ry="7" fill="#39FF14" fill-opacity="0.6">      <animate attributeName="rx" values="12;14;12" dur="1.6s" repeatCount="indefinite" />      <animate attributeName="fill-opacity" values="0.6;1;0.6" dur="1.6s" repeatCount="indefinite" />
+  closeChat.addEventListener('click', () => {
+    chatbotWindow.style.display = 'none';
+    chatBubble.style.display = 'block';
+  });
+  chatInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter' && chatInput.value.trim() !== '') {
+      const userMessage = document.createElement('div');
+      userMessage.className = 'message user';
+      userMessage.textContent = chatInput.value;
+      chatbotWindow.querySelector('.messages').appendChild(userMessage);
+      // --- Backend Fetch for Chatbot (Replit) ---
+      fetch('https://0e45fe78-86ad-4c8f-b665-f561edd3e592-00-ezbtmwl50c4e.riker.replit.dev:5000/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: chatInput.value })
+      })
+      .then(res => res.json())
+      .then(data => {
+        let reply = '';
+        if (data?.candidates?.[0]?.content?.parts?.[0]?.text) {
+          reply = data.candidates[0].content.parts[0].text;
+        } else {
+          reply = 'عذراً، حدث خطأ في الاتصال. يمكنك التواصل معي عبر وسائل التواصل الاجتماعي.';
+        }
+        const botMessage = document.createElement('div');
+        botMessage.className = 'message bot';
+        botMessage.textContent = reply;
+        chatbotWindow.querySelector('.messages').appendChild(botMessage);
+        chatbotWindow.querySelector('.messages').scrollTop = chatbotWindow.querySelector('.messages').scrollHeight;
+      })
+      .catch(() => {
+        const botMessage = document.createElement('div');
+        botMessage.className = 'message bot';
+        botMessage.textContent = 'عذراً، حدث خطأ في الاتصال بالخادم.';
+        chatbotWindow.querySelector('.messages').appendChild(botMessage);
+      });
+      chatInput.value = '';
+    }
+  });
+}
+if (btnGetInTouch) {
+  btnGetInTouch.addEventListener('click', () => {
+    document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+  });
+}
+// إنشاء فقاعة شات متحركة (SVG Animated Chatbot Bubble)
+const chatBubble = document.createElement('div');
+chatBubble.className = 'chat-bubble';
+chatBubble.innerHTML = `  <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">    <circle cx="19" cy="19" r="16" stroke="#21D4FD" stroke-width="3" fill="#9B59B6" />    <ellipse cx="19" cy="19" rx="12" ry="7" fill="#39FF14" fill-opacity="0.6">      <animate attributeName="rx" values="12;14;12" dur="1.6s" repeatCount="indefinite" />      <animate attributeName="fill-opacity" values="0.6;1;0.6" dur="1.6s" repeatCount="indefinite" />
     </ellipse>
     <text x="50%" y="56%" text-anchor="middle" fill="#fff" font-size="1.2em" dy=".3em" font-family="Inter,Arial">💬</text>
   </svg>`;
