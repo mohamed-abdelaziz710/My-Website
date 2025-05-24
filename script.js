@@ -923,3 +923,100 @@ document.body.appendChild(chatBubble);
 chatBubble.onclick = () => {
   alert('مرحباً! كيف يمكنني مساعدتك؟');
 };
+
+// تأثير ظهور تدريجي للأقسام والبطاقات عند التمرير
+const revealSections = () => {
+  const sections = document.querySelectorAll('section, .project-card, .blog-card');
+  sections.forEach(section => {
+    const sectionTop = section.getBoundingClientRect().top;
+    if (sectionTop < window.innerHeight - 100) {
+      section.classList.add('visible');
+    }
+  });
+};
+window.addEventListener('scroll', revealSections);
+window.addEventListener('DOMContentLoaded', revealSections);
+
+// تفاعل زر CTA (Pulse)
+const ctaBtn = document.getElementById('btn-get-in-touch');
+if(ctaBtn){
+  ctaBtn.addEventListener('mouseenter', e => {
+    e.target.classList.add('pulse');
+  });
+  ctaBtn.addEventListener('mouseleave', e => {
+    e.target.classList.remove('pulse');
+  });
+}
+
+// إنشاء فقاعة شات متحركة (SVG Animated Chatbot Bubble)
+const chatBubble = document.createElement('div');
+chatBubble.className = 'chat-bubble';
+chatBubble.innerHTML = `
+  <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="19" cy="19" r="16" stroke="#21D4FD" stroke-width="3" fill="#9B59B6" />
+    <ellipse cx="19" cy="19" rx="12" ry="7" fill="#39FF14" fill-opacity="0.6">
+      <animate attributeName="rx" values="12;14;12" dur="1.6s" repeatCount="indefinite" />
+      <animate attributeName="fill-opacity" values="0.6;1;0.6" dur="1.6s" repeatCount="indefinite" />
+    </ellipse>
+    <text x="50%" y="56%" text-anchor="middle" fill="#fff" font-size="1.2em" dy=".3em" font-family="Inter,Arial">💬</text>
+  </svg>`;
+chatBubble.title = 'تحدث معي';
+chatBubble.onclick = () => {
+  alert('مرحباً! كيف يمكنني مساعدتك؟');
+};
+document.body.appendChild(chatBubble);
+
+// دعم ظهور تدريجي للفقاعة عند تحميل الصفحة
+setTimeout(() => {
+  chatBubble.classList.add('visible');
+}, 600);
+
+// إزالة التعريفات المكررة إن وجدت
+// ظهور تدريجي للأقسام عند التمرير
+(function() {
+  const revealSections = () => {
+    const sections = document.querySelectorAll('section, .project-card, .blog-card');
+    sections.forEach(section => {
+      const sectionTop = section.getBoundingClientRect().top;
+      if (sectionTop < window.innerHeight - 100) {
+        section.classList.add('visible');
+      }
+    });
+  };
+  window.addEventListener('scroll', revealSections);
+  window.addEventListener('DOMContentLoaded', revealSections);
+
+  // تفاعل زر CTA (Pulse)
+  const ctaBtn = document.getElementById('btn-get-in-touch');
+  if(ctaBtn){
+    ctaBtn.addEventListener('mouseenter', e => {
+      e.target.classList.add('pulse');
+    });
+    ctaBtn.addEventListener('mouseleave', e => {
+      e.target.classList.remove('pulse');
+    });
+  }
+
+  // إنشاء فقاعة شات متحركة (SVG Animated Chatbot Bubble)
+  const chatBubble = document.createElement('div');
+  chatBubble.className = 'chat-bubble';
+  chatBubble.innerHTML = `
+    <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="19" cy="19" r="16" stroke="#21D4FD" stroke-width="3" fill="#9B59B6" />
+      <ellipse cx="19" cy="19" rx="12" ry="7" fill="#39FF14" fill-opacity="0.6">
+        <animate attributeName="rx" values="12;14;12" dur="1.6s" repeatCount="indefinite" />
+        <animate attributeName="fill-opacity" values="0.6;1;0.6" dur="1.6s" repeatCount="indefinite" />
+      </ellipse>
+      <text x="50%" y="56%" text-anchor="middle" fill="#fff" font-size="1.2em" dy=".3em" font-family="Inter,Arial">💬</text>
+    </svg>`;
+  chatBubble.title = 'تحدث معي';
+  chatBubble.onclick = () => {
+    alert('مرحباً! كيف يمكنني مساعدتك؟');
+  };
+  document.body.appendChild(chatBubble);
+
+  // دعم ظهور تدريجي للفقاعة عند تحميل الصفحة
+  setTimeout(() => {
+    chatBubble.classList.add('visible');
+  }, 600);
+})();
