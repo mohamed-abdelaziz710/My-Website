@@ -1,16 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Amrikyy Portfolio - Demo</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>بورتفوليو محمد عبد العزيز</title>
+  <link rel="stylesheet" href="style.css">
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link href="/style.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <!-- لو عندك سكربتات إضافية مثل script.js أو مكتبات جافاسكريبت خارجية أضف defer أو async -->
-  <!-- مثال: -->
-  <!-- <script src="script.js" defer></script> -->
-  <!-- <script src="particles.min.js" defer></script> -->
   <style>
     /* ===== CSS مقتبس من ستايلك مع تبسيط لتركيز على الهيكل ===== */
 
@@ -760,10 +756,9 @@
   </style>
 </head>
 <body class="bg-gradient-to-br from-[#0A0F1A] to-[#161b26] min-h-screen text-white">
-  <div id="particles-js" style="position:fixed;z-index:0;top:0;left:0;width:100vw;height:100vh;"></div>
 
-  <!-- Modern Responsive Header -->
-  <header class="w-full sticky top-0 z-50 bg-[#0A0F1A]/90 backdrop-blur border-b border-[#21E6C1]/50">
+  <!-- شريط التنقل -->
+  <nav id="navbar" class="w-full sticky top-0 z-50 bg-[#0A0F1A]/90 backdrop-blur border-b border-[#21E6C1]/50">
     <div class="max-w-7xl mx-auto flex items-center justify-between px-4 py-3">
       <!-- Logo: always stick to far left -->
       <div class="flex-1 flex items-center">
@@ -773,11 +768,11 @@
       </div>
       <!-- Desktop Nav -->
       <nav class="hidden md:flex gap-8" aria-label="Main navigation">
-        <a href="#hero" class="nav-link text-base font-semibold transition" tabindex="0">Home</a>
-        <a href="#about" class="nav-link text-base font-semibold transition" tabindex="0">About</a>
-        <a href="#skills" class="nav-link text-base font-semibold transition" tabindex="0">Skills</a>
-        <a href="#projects" class="nav-link text-base font-semibold transition" tabindex="0">Projects</a>
-        <a href="#contact" class="nav-link text-base font-semibold transition" tabindex="0">Contact</a>
+        <a href="#hero" class="nav-link text-base font-semibold transition" tabindex="0">الرئيسية</a>
+        <a href="#about" class="nav-link text-base font-semibold transition" tabindex="0">من أنا</a>
+        <a href="#skills" class="nav-link text-base font-semibold transition" tabindex="0">المهارات</a>
+        <a href="#projects" class="nav-link text-base font-semibold transition" tabindex="0">المشاريع</a>
+        <a href="#contact" class="nav-link text-base font-semibold transition" tabindex="0">تواصل معي</a>
       </nav>
       <!-- Hamburger Button -->
       <button id="navToggle"
@@ -792,26 +787,26 @@
     <nav id="mobileNav"
       class="mobile-nav max-h-0 md:hidden flex flex-col gap-2 px-6"
       aria-label="Mobile navigation">
-      <a href="#hero" class="nav-link block py-3 text-base font-semibold transition" tabindex="0">Home</a>
-      <a href="#about" class="nav-link block py-3 text-base font-semibold transition" tabindex="0">About</a>
-      <a href="#skills" class="nav-link block py-3 text-base font-semibold transition" tabindex="0">Skills</a>
-      <a href="#projects" class="nav-link block py-3 text-base font-semibold transition" tabindex="0">Projects</a>
-      <a href="#contact" class="nav-link block py-3 text-base font-semibold transition" tabindex="0">Contact</a>
+      <a href="#hero" class="nav-link block py-3 text-base font-semibold transition" tabindex="0">الرئيسية</a>
+      <a href="#about" class="nav-link block py-3 text-base font-semibold transition" tabindex="0">من أنا</a>
+      <a href="#skills" class="nav-link block py-3 text-base font-semibold transition" tabindex="0">المهارات</a>
+      <a href="#projects" class="nav-link block py-3 text-base font-semibold transition" tabindex="0">المشاريع</a>
+      <a href="#contact" class="nav-link block py-3 text-base font-semibold transition" tabindex="0">تواصل معي</a>
     </nav>
   </header>
 
-  <!-- Neon Hero Section -->
+  <!-- قسم الترحيب (Hero) -->
   <section id="hero" class="relative flex flex-col md:flex-row items-center justify-between min-h-screen max-w-7xl mx-auto px-4 py-8 md:py-0">
     <!-- Hero Text -->
     <div class="flex-1 flex flex-col items-center md:items-start justify-center z-10">
-      <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-4 text-center md:text-left bg-gradient-to-r from-[#21E6C1] via-[#39FF14] to-[#9A16E5] bg-clip-text text-transparent animate-neon-gradient drop-shadow-[0_0_24px_#21E6C1]">
-        Mohamed Abdelaziz
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-4 text-center md:text-right bg-gradient-to-r from-[#21E6C1] via-[#39FF14] to-[#9A16E5] bg-clip-text text-transparent animate-neon-gradient drop-shadow-[0_0_24px_#21E6C1]">
+        محمد عبد العزيز
       </h1>
       <span class="block h-8 mb-6">
         <span id="typed-subtitle" class="text-xl sm:text-2xl md:text-3xl font-semibold text-[#21E6C1] tracking-wide typing"></span>
       </span>
       <button class="mt-2 px-8 py-3 rounded-full bg-gradient-to-r from-[#39FF14] to-[#21E6C1] text-[#0A0F1A] font-bold text-lg shadow-[0_0_24px_#21E6C1] transition-all duration-200 hover:from-[#0A0F1A] hover:to-[#39FF14] hover:text-[#39FF14] hover:shadow-[0_0_48px_#21E6C1] focus:outline-none">
-        Contact Me 🚀
+        تواصل الآن 🚀
       </button>
     </div>
     <!-- Futuristic 3D Sphere -->
@@ -830,505 +825,8 @@
     </div>
   </section>
 
-  <!-- Modern About Section with Neon Card and Glassmorphism -->
-  <section id="about" class="w-full flex justify-center items-center py-16 px-4">
-    <div class="about-card fade-in-up flex flex-col md:flex-row items-center md:items-stretch max-w-4xl w-full bg-white/10 backdrop-blur-md rounded-3xl shadow-[0_8px_40px_#21E6C155] border border-[#21E6C1]/40 overflow-hidden transition-all duration-700 mx-auto">
-      <!-- Left: Profile Image -->
-      <div class="flex-shrink-0 flex items-center justify-center p-8 md:p-12 bg-gradient-to-br from-[#181E2A] to-[#10151F]">
-        <div class="relative">
-          <img src="https://i.imgur.com/2DhmtJ4.jpg" alt="Mohamed Abdelaziz" class="w-40 h-40 md:w-48 md:h-48 rounded-full object-cover border-4 border-[#21E6C1] shadow-[0_0_32px_#21E6C1cc]" loading="lazy">
-          <span class="absolute inset-0 rounded-full border-4 border-[#39FF14] animate-pulse pointer-events-none"></span>
-        </div>
-      </div>
-      <!-- Right: Text Content -->
-      <div class="flex-1 flex flex-col justify-center px-6 py-8 md:py-12">
-        <h2 class="text-3xl md:text-4xl font-extrabold mb-2 bg-gradient-to-r from-[#21E6C1] via-[#39FF14] to-[#9A16E5] bg-clip-text text-transparent animate-neon-gradient">
-          Mohamed Abdelaziz
-        </h2>
-      <div class="text-lg md:text-xl font-semibold text-[#21E6C1] mb-2 typing" style="animation:none;">
-        <div class="flex flex-col items-center bg-[#181E2A] rounded-2xl shadow-[0_0_24px_#39FF14aa] border border-[#21E6C1] p-7 transition-transform hover:scale-105 hover:shadow-[0_0_38px_#21E6C1]">
-          <span class="text-4xl mb-3 text-[#21E6C1]"><i class="fas fa-shield-alt"></i></span>
-          <span class="font-semibold text-lg text-[#39FF14] mb-1">Cybersecurity</span>
-          <span class="text-gray-300 text-sm text-center">Penetration Testing, Network Security, SIEM</span>
-        </div>
-        <div class="flex flex-col items-center bg-[#181E2A] rounded-2xl shadow-[0_0_24px_#39FF14aa] border border-[#21E6C1] p-7 transition-transform hover:scale-105 hover:shadow-[0_0_38px_#21E6C1]">
-          <span class="text-4xl mb-3 text-[#21E6C1]"><i class="fas fa-robot"></i></span>
-          <span class="font-semibold text-lg text-[#39FF14] mb-1">AI Development</span>
-          <span class="text-gray-300 text-sm text-center">Python, LLMs, Automation, Prompt Engineering</span>
-        </div>
-        <div class="flex flex-col items-center bg-[#181E2A] rounded-2xl shadow-[0_0_24px_#39FF14aa] border border-[#21E6C1] p-7 transition-transform hover:scale-105 hover:shadow-[0_0_38px_#21E6C1]">
-          <span class="text-4xl mb-3 text-[#21E6C1]"><i class="fas fa-pencil-ruler"></i></span>
-          <span class="font-semibold text-lg text-[#39FF14] mb-1">UI/UX Design</span>
-          <span class="text-gray-300 text-sm text-center">Figma, Prototyping, User Flows</span>
-        </div>
-        <div class="flex flex-col items-center bg-[#181E2A] rounded-2xl shadow-[0_0_24px_#39FF14aa] border border-[#21E6C1] p-7 transition-transform hover:scale-105 hover:shadow-[0_0_38px_#21E6C1]">
-          <span class="text-4xl mb-3 text-[#21E6C1]"><i class="fab fa-react"></i></span>
-          <span class="font-semibold text-lg text-[#39FF14] mb-1">React & Tailwind CSS</span>
-          <span class="text-gray-300 text-sm text-center">Modern Web Apps, Responsive Design</span>
-        </div>
-        <div class="flex flex-col items-center bg-[#181E2A] rounded-2xl shadow-[0_0_24px_#39FF14aa] border border-[#21E6C1] p-7 transition-transform hover:scale-105 hover:shadow-[0_0_38px_#21E6C1]">
-          <span class="text-4xl mb-3 text-[#21E6C1]"><i class="fab fa-python"></i></span>
-          <span class="font-semibold text-lg text-[#39FF14] mb-1">Python & Firebase</span>
-          <span class="text-gray-300 text-sm text-center">APIs, Automation, Cloud Functions</span>
-        </div>
-        <div class="flex flex-col items-center bg-[#181E2A] rounded-2xl shadow-[0_0_24px_#39FF14aa] border border-[#21E6C1] p-7 transition-transform hover:scale-105 hover:shadow-[0_0_38px_#21E6C1]">
-          <span class="text-4xl mb-3 text-[#21E6C1]"><i class="fas fa-language"></i></span>
-          <span class="font-semibold text-lg text-[#39FF14] mb-1">Multilingual</span>
-          <span class="text-gray-300 text-sm text-center">Arabic, English, Localization</span>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- سيبدأ هنا باقي الأقسام -->
 
-  <!-- Skills Section: Neon Cards Grid -->
-<section id="skills" class="w-full max-w-6xl mx-auto px-4 py-16">
-  <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-[#39FF14] tracking-wide drop-shadow-[0_0_12px_#21E6C1]">Skills</h2>
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-    <!-- Skill Card 1 -->
-    <div class="fade-in-up bg-[#181E2A] border-2 border-[#21E6C1] rounded-2xl shadow-[0_0_32px_#21E6C1aa] p-7 flex flex-col items-center transition-transform duration-300 hover:scale-105 hover:shadow-[0_0_48px_#39FF14]">
-      <span class="text-4xl mb-4 text-[#21E6C1] drop-shadow-[0_0_12px_#21E6C1]"><i class="fas fa-shield-alt"></i></span>
-      <h3 class="font-semibold text-xl text-[#39FF14] mb-3">Cybersecurity</h3>
-      <div class="flex flex-wrap gap-2 justify-center mb-2">
-        <span class="bg-[#21E6C1]/20 text-[#21E6C1] px-3 py-1 rounded-full text-xs font-semibold shadow-[0_0_8px_#21E6C1]">Penetration Testing</span>
-        <span class="bg-[#21E6C1]/20 text-[#21E6C1] px-3 py-1 rounded-full text-xs font-semibold shadow-[0_0_8px_#21E6C1]">Network Security</span>
-        <span class="bg-[#21E6C1]/20 text-[#21E6C1] px-3 py-1 rounded-full text-xs font-semibold shadow-[0_0_8px_#21E6C1]">SIEM</span>
-      </div>
-      <div class="w-full bg-[#10151F] rounded-full h-2 mt-3">
-        <div class="bg-gradient-to-r from-[#21E6C1] to-[#39FF14] h-2 rounded-full" style="width: 90%"></div>
-      </div>
-    </div>
-    <!-- Skill Card 2 -->
-    <div class="fade-in-up bg-[#181E2A] border-2 border-[#21E6C1] rounded-2xl shadow-[0_0_32px_#21E6C1aa] p-7 flex flex-col items-center transition-transform duration-300 hover:scale-105 hover:shadow-[0_0_48px_#39FF14]">
-      <span class="text-4xl mb-4 text-[#21E6C1] drop-shadow-[0_0_12px_#21E6C1]"><i class="fas fa-robot"></i></span>
-      <h3 class="font-semibold text-xl text-[#39FF14] mb-3">AI Development</h3>
-      <div class="flex flex-wrap gap-2 justify-center mb-2">
-        <span class="bg-[#21E6C1]/20 text-[#21E6C1] px-3 py-1 rounded-full text-xs font-semibold shadow-[0_0_8px_#21E6C1]">Python</span>
-        <span class="bg-[#21E6C1]/20 text-[#21E6C1] px-3 py-1 rounded-full text-xs font-semibold shadow-[0_0_8px_#21E6C1]">LLMs</span>
-        <span class="bg-[#21E6C1]/20 text-[#21E6C1] px-3 py-1 rounded-full text-xs font-semibold shadow-[0_0_8px_#21E6C1]">Automation</span>
-        <span class="bg-[#21E6C1]/20 text-[#21E6C1] px-3 py-1 rounded-full text-xs font-semibold shadow-[0_0_8px_#21E6C1]">Prompt Engineering</span>
-      </div>
-      <div class="w-full bg-[#10151F] rounded-full h-2 mt-3">
-        <div class="bg-gradient-to-r from-[#21E6C1] to-[#39FF14] h-2 rounded-full" style="width: 85%"></div>
-      </div>
-    </div>
-    <!-- Skill Card 3 -->
-    <div class="fade-in-up bg-[#181E2A] border-2 border-[#21E6C1] rounded-2xl shadow-[0_0_32px_#21E6C1aa] p-7 flex flex-col items-center transition-transform duration-300 hover:scale-105 hover:shadow-[0_0_48px_#39FF14]">
-      <span class="text-4xl mb-4 text-[#21E6C1] drop-shadow-[0_0_12px_#21E6C1]"><i class="fas fa-pencil-ruler"></i></span>
-      <h3 class="font-semibold text-xl text-[#39FF14] mb-3">UI/UX Design</h3>
-      <div class="flex flex-wrap gap-2 justify-center mb-2">
-        <span class="bg-[#21E6C1]/20 text-[#21E6C1] px-3 py-1 rounded-full text-xs font-semibold shadow-[0_0_8px_#21E6C1]">Figma</span>
-        <span class="bg-[#21E6C1]/20 text-[#21E6C1] px-3 py-1 rounded-full text-xs font-semibold shadow-[0_0_8px_#21E6C1]">Prototyping</span>
-        <span class="bg-[#21E6C1]/20 text-[#21E6C1] px-3 py-1 rounded-full text-xs font-semibold shadow-[0_0_8px_#21E6C1]">User Flows</span>
-      </div>
-      <div class="w-full bg-[#10151F] rounded-full h-2 mt-3">
-        <div class="bg-gradient-to-r from-[#21E6C1] to-[#39FF14] h-2 rounded-full" style="width: 80%"></div>
-      </div>
-    </div>
-    <!-- Skill Card 4 -->
-    <div class="fade-in-up bg-[#181E2A] border-2 border-[#21E6C1] rounded-2xl shadow-[0_0_32px_#21E6C1aa] p-7 flex flex-col items-center transition-transform duration-300 hover:scale-105 hover:shadow-[0_0_48px_#39FF14]">
-      <span class="text-4xl mb-4 text-[#21E6C1] drop-shadow-[0_0_12px_#21E6C1]"><i class="fab fa-react"></i></span>
-      <h3 class="font-semibold text-xl text-[#39FF14] mb-3">React & Tailwind CSS</h3>
-      <div class="flex flex-wrap gap-2 justify-center mb-2">
-        <span class="bg-[#21E6C1]/20 text-[#21E6C1] px-3 py-1 rounded-full text-xs font-semibold shadow-[0_0_8px_#21E6C1]">React</span>
-        <span class="bg-[#21E6C1]/20 text-[#21E6C1] px-3 py-1 rounded-full text-xs font-semibold shadow-[0_0_8px_#21E6C1]">Tailwind CSS</span>
-        <span class="bg-[#21E6C1]/20 text-[#21E6C1] px-3 py-1 rounded-full text-xs font-semibold shadow-[0_0_8px_#21E6C1]">Responsive Design</span>
-      </div>
-      <div class="w-full bg-[#10151F] rounded-full h-2 mt-3">
-        <div class="bg-gradient-to-r from-[#21E6C1] to-[#39FF14] h-2 rounded-full" style="width: 85%"></div>
-      </div>
-    </div>
-    <!-- Skill Card 5 -->
-    <div class="fade-in-up bg-[#181E2A] border-2 border-[#21E6C1] rounded-2xl shadow-[0_0_32px_#21E6C1aa] p-7 flex flex-col items-center transition-transform duration-300 hover:scale-105 hover:shadow-[0_0_48px_#39FF14]">
-      <span class="text-4xl mb-4 text-[#21E6C1] drop-shadow-[0_0_12px_#21E6C1]"><i class="fab fa-python"></i></span>
-      <h3 class="font-semibold text-xl text-[#39FF14] mb-3">Python & Firebase</h3>
-      <div class="flex flex-wrap gap-2 justify-center mb-2">
-        <span class="bg-[#21E6C1]/20 text-[#21E6C1] px-3 py-1 rounded-full text-xs font-semibold shadow-[0_0_8px_#21E6C1]">APIs</span>
-        <span class="bg-[#21E6C1]/20 text-[#21E6C1] px-3 py-1 rounded-full text-xs font-semibold shadow-[0_0_8px_#21E6C1]">Automation</span>
-        <span class="bg-[#21E6C1]/20 text-[#21E6C1] px-3 py-1 rounded-full text-xs font-semibold shadow-[0_0_8px_#21E6C1]">Cloud Functions</span>
-      </div>
-      <div class="w-full bg-[#10151F] rounded-full h-2 mt-3">
-        <div class="bg-gradient-to-r from-[#21E6C1] to-[#39FF14] h-2 rounded-full" style="width: 75%"></div>
-      </div>
-    </div>
-    <!-- Skill Card 6 -->
-    <div class="fade-in-up bg-[#181E2A] border-2 border-[#21E6C1] rounded-2xl shadow-[0_0_32px_#21E6C1aa] p-7 flex flex-col items-center transition-transform duration-300 hover:scale-105 hover:shadow-[0_0_48px_#39FF14]">
-      <span class="text-4xl mb-4 text-[#21E6C1] drop-shadow-[0_0_12px_#21E6C1]"><i class="fas fa-language"></i></span>
-      <h3 class="font-semibold text-xl text-[#39FF14] mb-3">Multilingual</h3>
-      <div class="flex flex-wrap gap-2 justify-center mb-2">
-        <span class="bg-[#21E6C1]/20 text-[#21E6C1] px-3 py-1 rounded-full text-xs font-semibold shadow-[0_0_8px_#21E6C1]">Arabic</span>
-        <span class="bg-[#21E6C1]/20 text-[#21E6C1] px-3 py-1 rounded-full text-xs font-semibold shadow-[0_0_8px_#21E6C1]">English</span>
-        <span class="bg-[#21E6C1]/20 text-[#21E6C1] px-3 py-1 rounded-full text-xs font-semibold shadow-[0_0_8px_#21E6C1]">Localization</span>
-      </div>
-      <div class="w-full bg-[#10151F] rounded-full h-2 mt-3">
-        <div class="bg-gradient-to-r from-[#21E6C1] to-[#39FF14] h-2 rounded-full" style="width: 70%"></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-  <!-- Projects Section: Neon Cards Grid -->
-<section id="projects" class="w-full max-w-6xl mx-auto px-4 py-16">
-  <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-[#39FF14] tracking-wide drop-shadow-[0_0_12px_#21E6C1]">Projects</h2>
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-    <!-- Project Card 1 -->
-    <div class="bg-[#181E2A] border-2 border-[#21E6C1] rounded-2xl shadow-[0_0_32px_#21E6C1aa] flex flex-col items-center p-6 transition-transform duration-300 hover:scale-105 hover:shadow-[0_0_48px_#39FF14] min-h-[420px]">
-      <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=400&q=80" alt="Zentix AI Platform" class="w-full h-40 object-cover rounded-xl mb-5 border border-[#21E6C1]/40 shadow-[0_0_16px_#21E6C1]" loading="lazy" />
-      <div class="flex items-center gap-2 mb-2">
-        <span class="bg-[#21E6C1]/20 text-[#21E6C1] px-3 py-1 rounded-full text-xs font-semibold shadow-[0_0_8px_#21E6C1]">Completed</span>
-      </div>
-      <h3 class="font-semibold text-xl text-[#39FF14] mb-2 text-center">Zentix AI Platform</h3>
-      <p class="text-gray-300 text-sm text-center mb-4 flex-1">Developed a collection of AI agent templates for business automation.</p>
-      <div class="flex gap-3 mt-auto">
-        <a href="https://zentix.example.com" target="_blank" class="px-4 py-2 rounded-full bg-gradient-to-r from-[#21E6C1] to-[#39FF14] text-[#0A0F1A] font-bold text-sm shadow-[0_0_12px_#21E6C1] transition-all duration-200 hover:from-[#0A0F1A] hover:to-[#39FF14] hover:text-[#39FF14] hover:shadow-[0_0_24px_#21E6C1]">Live Demo</a>
-        <a href="https://github.com/amrikyy/zentix-ai" target="_blank" class="px-4 py-2 rounded-full border-2 border-[#21E6C1] text-[#21E6C1] font-bold text-sm transition-all duration-200 hover:bg-[#21E6C1] hover:text-[#0A0F1A] hover:shadow-[0_0_24px_#21E6C1]">GitHub</a>
-      </div>
-    </div>
-    <!-- Project Card 2 -->
-    <div class="bg-[#181E2A] border-2 border-[#21E6C1] rounded-2xl shadow-[0_0_32px_#21E6C1aa] flex flex-col items-center p-6 transition-transform duration-300 hover:scale-105 hover:shadow-[0_0_48px_#39FF14] min-h-[420px]">
-      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Personal Portfolio Website" class="w-full h-40 object-cover rounded-xl mb-5 border border-[#21E6C1]/40 shadow-[0_0_16px_#21E6C1]" loading="lazy" />
-      <div class="flex items-center gap-2 mb-2">
-        <span class="bg-[#21E6C1]/20 text-[#21E6C1] px-3 py-1 rounded-full text-xs font-semibold shadow-[0_0_8px_#21E6C1]">In Progress</span>
-      </div>
-      <h3 class="font-semibold text-xl text-[#39FF14] mb-2 text-center">Personal Portfolio Website</h3>
-      <p class="text-gray-300 text-sm text-center mb-4 flex-1">Designed and coded a modern personal website with React and Tailwind.</p>
-      <div class="flex gap-3 mt-auto">
-        <a href="https://amrikyy.com" target="_blank" class="px-4 py-2 rounded-full bg-gradient-to-r from-[#21E6C1] to-[#39FF14] text-[#0A0F1A] font-bold text-sm shadow-[0_0_12px_#21E6C1] transition-all duration-200 hover:from-[#0A0F1A] hover:to-[#39FF14] hover:text-[#39FF14] hover:shadow-[0_0_24px_#21E6C1]">Live Demo</a>
-        <a href="https://github.com/amrikyy/portfolio" target="_blank" class="px-4 py-2 rounded-full border-2 border-[#21E6C1] text-[#21E6C1] font-bold text-sm transition-all duration-200 hover:bg-[#21E6C1] hover:text-[#0A0F1A] hover:shadow-[0_0_24px_#21E6C1]">GitHub</a>
-      </div>
-    </div>
-    <!-- Project Card 3 -->
-    <div class="bg-[#181E2A] border-2 border-[#21E6C1] rounded-2xl shadow-[0_0_32px_#21E6C1aa] flex flex-col items-center p-6 transition-transform duration-300 hover:scale-105 hover:shadow-[0_0_48px_#39FF14] min-h-[420px]">
-      <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80" alt="Charity: water Landing Page" class="w-full h-40 object-cover rounded-xl mb-5 border border-[#21E6C1]/40 shadow-[0_0_16px_#21E6C1]" loading="lazy" />
-      <div class="flex items-center gap-2 mb-2">
-        <span class="bg-[#39FF14]/20 text-[#39FF14] px-3 py-1 rounded-full text-xs font-semibold shadow-[0_0_8px_#39FF14]">Completed</span>
-        <span class="bg-[#21E6C1]/20 text-[#21E6C1] px-3 py-1 rounded-full text-xs font-semibold shadow-[0_0_8px_#21E6C1]">Collaboration</span>
-      </div>
-      <h3 class="font-semibold text-xl text-[#39FF14] mb-2 text-center">Charity: water Landing Page</h3>
-      <p class="text-gray-300 text-sm text-center mb-4 flex-1">Designed and developed a landing page project in collaboration with charity: water to support clean water initiatives.</p>
-      <div class="flex gap-3 mt-auto">
-        <a href="https://charitywater.amrikyy.com" target="_blank" class="px-4 py-2 rounded-full bg-gradient-to-r from-[#21E6C1] to-[#39FF14] text-[#0A0F1A] font-bold text-sm shadow-[0_0_12px_#21E6C1] transition-all duration-200 hover:from-[#0A0F1A] hover:to-[#39FF14] hover:text-[#39FF14] hover:shadow-[0_0_24px_#21E6C1]">Live Demo</a>
-        <a href="https://github.com/amrikyy/charity-water-landing" target="_blank" class="px-4 py-2 rounded-full border-2 border-[#21E6C1] text-[#21E6C1] font-bold text-sm transition-all duration-200 hover:bg-[#21E6C1] hover:text-[#0A0F1A] hover:shadow-[0_0_24px_#21E6C1]">GitHub</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-  <!-- Experience Timeline Section -->
-<section id="experience" class="w-full max-w-4xl mx-auto px-4 py-16">
-  <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-[#39FF14] tracking-wide drop-shadow-[0_0_12px_#21E6C1]">Experience</h2>
-  <div class="relative border-l-4 border-[#21E6C1]/60 pl-8">
-    <!-- Timeline Item 1 -->
-    <div class="group mb-12 relative fade-in-up">
-      <span class="absolute -left-5 top-2 w-5 h-5 rounded-full bg-[#21E6C1] shadow-[0_0_18px_#21E6C1] border-4 border-[#10151F] group-hover:shadow-[0_0_32px_#39FF14] transition"></span>
-      <div class="bg-[#181E2A] rounded-xl p-6 shadow-[0_0_18px_#21E6C1aa] border border-[#21E6C1]/40 group-hover:shadow-[0_0_32px_#39FF14] transition">
-        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-1">
-          <span class="text-sm text-[#21E6C1] font-bold mb-1 md:mb-0">Summer 2024</span>
-          <span class="text-base font-semibold text-[#39FF14]">Cybersecurity Intern</span>
-        </div>
-        <span class="block text-sm text-gray-400 mb-2">Intel</span>
-        <p class="text-gray-300 text-sm">Worked on penetration testing and network security protocols.</p>
-      </div>
-    </div>
-    <!-- Timeline Item 2 -->
-    <div class="group mb-12 relative fade-in-up">
-      <span class="absolute -left-5 top-2 w-5 h-5 rounded-full bg-[#21E6C1] shadow-[0_0_18px_#21E6C1] border-4 border-[#10151F] group-hover:shadow-[0_0_32px_#39FF14] transition"></span>
-      <div class="bg-[#181E2A] rounded-xl p-6 shadow-[0_0_18px_#21E6C1aa] border border-[#21E6C1]/40 group-hover:shadow-[0_0_32px_#39FF14] transition">
-        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-1">
-          <span class="text-sm text-[#21E6C1] font-bold mb-1 md:mb-0">2025</span>
-          <span class="text-base font-semibold text-[#39FF14]">AI Developer</span>
-        </div>
-        <span class="block text-sm text-gray-400 mb-2">OpenAI Internship</span>
-        <p class="text-gray-300 text-sm">Built AI tools and automated content generation pipelines.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Education Timeline Section -->
-<section id="education" class="w-full max-w-4xl mx-auto px-4 py-16">
-  <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-[#39FF14] tracking-wide drop-shadow-[0_0_12px_#21E6C1]">Education</h2>
-  <div class="relative border-l-4 border-[#21E6C1]/60 pl-8">
-    <!-- Timeline Item 1 -->
-    <div class="group mb-12 relative fade-in-up">
-      <span class="absolute -left-5 top-2 w-5 h-5 rounded-full bg-[#21E6C1] shadow-[0_0_18px_#21E6C1] border-4 border-[#10151F] group-hover:shadow-[0_0_32px_#39FF14] transition"></span>
-      <div class="bg-[#181E2A] rounded-xl p-6 shadow-[0_0_18px_#21E6C1aa] border border-[#21E6C1]/40 group-hover:shadow-[0_0_32px_#39FF14] transition">
-        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-1">
-          <span class="text-sm text-[#21E6C1] font-bold mb-1 md:mb-0">2026</span>
-          <span class="text-base font-semibold text-[#39FF14]">BSc Cybersecurity Engineering</span>
-        </div>
-        <span class="block text-sm text-gray-400 mb-2">Kennesaw State University</span>
-        <p class="text-gray-300 text-sm">Expected graduation May 2026.</p>
-      </div>
-    </div>
-    <!-- Timeline Item 2 -->
-    <div class="group mb-12 relative fade-in-up">
-      <span class="absolute -left-5 top-2 w-5 h-5 rounded-full bg-[#21E6C1] shadow-[0_0_18px_#21E6C1] border-4 border-[#10151F] group-hover:shadow-[0_0_32px_#39FF14] transition"></span>
-      <div class="bg-[#181E2A] rounded-xl p-6 shadow-[0_0_18px_#21E6C1aa] border border-[#21E6C1]/40 group-hover:shadow-[0_0_32px_#39FF14] transition">
-        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-1">
-          <span class="text-sm text-[#21E6C1] font-bold mb-1 md:mb-0">2021</span>
-          <span class="text-base font-semibold text-[#39FF14]">Associate Degree in Computer Science</span>
-        </div>
-        <span class="block text-sm text-gray-400 mb-2">Chattahoochee Technical College</span>
-        <p class="text-gray-300 text-sm">Graduated with a focus on software development and IT.</p>
-      </div>
-    </div>
-    <!-- Timeline Item 3 -->
-    <div class="group mb-4 relative fade-in-up">
-      <span class="absolute -left-5 top-2 w-5 h-5 rounded-full bg-[#21E6C1] shadow-[0_0_18px_#21E6C1] border-4 border-[#10151F] group-hover:shadow-[0_0_32px_#39FF14] transition"></span>
-      <div class="bg-[#181E2A] rounded-xl p-6 shadow-[0_0_18px_#21E6C1aa] border border-[#21E6C1]/40 group-hover:shadow-[0_0_32px_#39FF14] transition">
-        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-1">
-          <span class="text-sm text-[#21E6C1] font-bold mb-1 md:mb-0">2017</span>
-          <span class="text-base font-semibold text-[#39FF14]">High School Diploma</span>
-        </div>
-        <span class="block text-sm text-gray-400 mb-2">El Shaheen High School, Kuwait City</span>
-        <p class="text-gray-300 text-sm">Graduated with honors.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-  <!-- Chatbot Bubble -->
-  <div id="chatbot-bubble" class="fixed bottom-6 right-6 z-50 flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-[#21E6C1] to-[#39FF14] shadow-[0_0_32px_#21E6C1cc] animate-pulse-glow cursor-pointer transition-transform duration-200 hover:scale-110">
-    <i class="fas fa-robot text-3xl text-white drop-shadow-[0_0_12px_#21E6C1]"></i>
-  </div>
-
-  <!-- Chatbot Window -->
-  <div id="chatbot-window" class="fixed bottom-28 right-6 z-50 w-[350px] max-w-[95vw] bg-[#181E2A]/90 backdrop-blur-md border-2 border-[#21E6C1] rounded-2xl shadow-[0_0_48px_#21E6C1bb] flex flex-col transition-all duration-300 opacity-0 pointer-events-none scale-95">
-    <div class="flex items-center justify-between px-5 py-3 border-b border-[#21E6C1]/40 bg-gradient-to-r from-[#181E2A] to-[#10151F] rounded-t-2xl">
-      <span class="font-bold text-[#21E6C1] tracking-wide">AI Chatbot</span>
-      <button id="chatbot-close" class="text-[#21E6C1] text-2xl font-bold hover:text-[#39FF14] focus:outline-none" aria-label="Close chat">&times;</button>
-    </div>
-    <div id="chatbot-messages" class="flex-1 px-5 py-4 overflow-y-auto text-sm text-gray-200 space-y-3" style="max-height:300px;">
-      <div class="text-[#21E6C1]">🤖 Hi! How can I help you today?</div>
-    </div>
-    <form id="chatbot-form" class="flex items-center gap-2 px-5 py-3 border-t border-[#21E6C1]/40 bg-[#10151F] rounded-b-2xl">
-      <input id="chatbot-input" type="text" autocomplete="off" placeholder="Type your message..." class="flex-1 bg-transparent border border-[#21E6C1]/40 rounded-full px-4 py-2 text-white placeholder-gray-400 focus:outline-none focus:border-[#21E6C1]" />
-      <button type="submit" class="px-4 py-2 rounded-full bg-gradient-to-r from-[#21E6C1] to-[#39FF14] text-[#0A0F1A] font-bold shadow-[0_0_12px_#21E6C1] hover:from-[#0A0F1A] hover:to-[#39FF14] hover:text-[#39FF14] transition-all duration-200">
-        <i class="fas fa-paper-plane"></i>
-      </button>
-    </form>
-  </div>
-
-  <style>
-    @keyframes pulse-glow {
-      0%, 100% { box-shadow: 0 0 32px #21E6C144, 0 0 0 #39FF1400; }
-      50% { box-shadow: 0 0 48px #39FF14cc, 0 0 24px #21E6C1aa; }
-    }
-    .animate-pulse-glow {
-      animation: pulse-glow 1.6s infinite alternate;
-    }
-    /* #chatbot-window { Already styled for glassmorphism and neon borders } */
-    #chatbot-window.open {
-      opacity: 1 !important;
-      pointer-events: auto !important;
-      scale: 1 !important;
-    }
-    @media (max-width: 500px) {
-      #chatbot-window {
-        right: 2vw;
-        left: 2vw;
-        width: 96vw;
-        min-width:  0;
-        max-width: 98vw;
-      }
-    }
-  </style>
-
-  <script>
-    // Typing animation for subtitle
-    const roles = [
-      "Cybersecurity Engineer & AI Innovator",
-      "Building Secure AI Solutions",
-      "Futuristic UI/UX Enthusiast"
-    ];
-    let roleIdx = 0, charIdx = 0, typing = true;
-    const subtitle = document.getElementById('typed-subtitle');
-    function typeRole() {
-      if (!subtitle) return;
-      const role = roles[roleIdx];
-      if (typing) {
-        subtitle.textContent = role.slice(0, charIdx++);
-        if (charIdx <= role.length) {
-          setTimeout(typeRole, 60);
-        } else {
-          typing = false;
-          setTimeout(typeRole, 1200);
-        }
-      } else {
-        if (charIdx > 0) {
-          subtitle.textContent = role.slice(0, --charIdx);
-          setTimeout(typeRole, 30);
-        } else {
-          typing = true;
-          roleIdx = (roleIdx + 1) % roles.length;
-          setTimeout(typeRole, 500);
-        }
-      }
-    }
-    typeRole();
-
-    // 3D Sphere subtle mouse move effect
-    const sphere = document.getElementById('hero-sphere');
-    if (sphere) {
-      sphere.addEventListener('mousemove', (e) => {
-        const rect = sphere.getBoundingClientRect();
-        const x = e.clientX - rect.left - rect.width / 2;
-        const y = e.clientY - rect.top - rect.height / 2;
-        sphere.style.transform = `perspective(900px) rotateY(${x * 0.07}deg) rotateX(${-y * 0.07}deg) scale(1.04)`;
-      });
-      sphere.addEventListener('mouseleave', () => {
-        sphere.style.transform = 'perspective(900px) rotateY(0deg) rotateX(0deg) scale(1)';
-      });
-    }
-
-    // Fade-in on scroll for hero section
-    function fadeInOnScroll() {
-      document.querySelectorAll('.fade-in-up').forEach(el => {
-        const rect = el.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 60) {
-          el.classList.add('visible');
-        }
-      });
-    }
-    window.addEventListener('scroll', fadeInOnScroll);
-    window.addEventListener('DOMContentLoaded', fadeInOnScroll);
-
-    // Language toggle behavior (simple example)
-    const enBtn = document.getElementById('en-btn');
-    const arBtn = document.getElementById('ar-btn');
-
-    enBtn.addEventListener('click', () => {
-      enBtn.classList.add('active');
-      arBtn.classList.remove('active');
-      alert('Switch to English (functionality not implemented)');
-    });
-
-    arBtn.addEventListener('click', () => {
-      arBtn.classList.add('active');
-      enBtn.classList.remove('active');
-      alert('Switch to Arabic (functionality not implemented)');
-    });
-
-    // Hamburger menu logic with ARIA and keyboard support
-    const navToggle = document.getElementById('navToggle');
-    const mobileNav = document.getElementById('mobileNav');
-    let navOpen = false;
-
-    function toggleNav(open) {
-      navOpen = typeof open === "boolean" ? open : !navOpen;
-      navToggle.classList.toggle('open', navOpen);
-      mobileNav.style.maxHeight = navOpen ? mobileNav.scrollHeight + "px" : "0";
-      navToggle.setAttribute('aria-expanded', navOpen ? "true" : "false");
-      mobileNav.setAttribute('aria-hidden', navOpen ? "false" : "true");
-      if (navOpen) {
-        // Focus first link for accessibility
-        setTimeout(() => {
-          const firstLink = mobileNav.querySelector('a');
-          if (firstLink) firstLink.focus();
-        }, 200);
-      }
-    }
-
-    navToggle.addEventListener('click', () => toggleNav());
-    navToggle.addEventListener('keydown', (e) => {
-      if (e.key === "Enter" || e.key === " ") {
-        e.preventDefault();
-        toggleNav();
-      }
-      if (e.key === "Escape" && navOpen) {
-        toggleNav(false);
-        navToggle.focus();
-      }
-    });
-
-    // تحسين: إغلاق القائمة عند الضغط على أي رابط في الموبايل
-    mobileNav.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', function (e) {
-        // فقط أغلق إذا القائمة مفتوحة
-        if (navOpen) {
-          toggleNav(false);
-        }
-      });
-      link.addEventListener('keydown', (e) => {
-        if (e.key === "Escape") {
-          toggleNav(false);
-          navToggle.focus();
-        }
-      });
-    });
-
-    // Close nav if clicking outside
-    document.addEventListener('click', (e) => {
-      if (navOpen && !mobileNav.contains(e.target) && !navToggle.contains(e.target)) {
-        toggleNav(false);
-      }
-    });
-    // Keyboard navigation: trap focus inside mobile nav when open
-    mobileNav.addEventListener('keydown', (e) => {
-      if (!navOpen) return;
-      const focusable = Array.from(mobileNav.querySelectorAll('a'));
-      const first = focusable[0];
-      const last = focusable[focusable.length - 1];
-      if (e.key === "Tab") {
-        if (e.shiftKey && document.activeElement === first) {
-          e.preventDefault();
-          last.focus();
-        } else if (!e.shiftKey && document.activeElement === last) {
-          e.preventDefault();
-          first.focus();
-        }
-      }
-    });
-
-    // Chatbot open/close logic
-    const bubble = document.getElementById('chatbot-bubble');
-    const windowEl = document.getElementById('chatbot-window');
-    const closeBtn = document.getElementById('chatbot-close');
-    const form = document.getElementById('chatbot-form');
-    const input = document.getElementById('chatbot-input');
-    const messages = document.getElementById('chatbot-messages');
-
-    function openChatbot() {
-      windowEl.classList.add('open');
-      bubble.style.display = 'none';
-      setTimeout(() => { input.focus(); }, 300);
-    }
-    function closeChatbot() {
-      windowEl.classList.remove('open');
-      bubble.style.display = 'flex';
-    }
-    bubble.addEventListener('click', openChatbot);
-    closeBtn.addEventListener('click', closeChatbot);
-
-    // Submit form with Enter, send message, and auto-scroll
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const userInput = input.value.trim();
-      if (!userInput) return;
-      appendMessage('user', userInput);
-      input.value = '';
-      setTimeout(() => {
-        // Simulate bot response
-        appendMessage('bot', "This is a simulated response.");
-        scrollToBottom();
-      }, 600);
-    });
-
-    function appendMessage(sender, text) {
-      const messageEl = document.createElement('div');
-      messageEl.className = `chatbot-message ${sender}`;
-      messageEl.innerHTML = text.replace(/</g, "&lt;").replace(/>/g, "&gt;");
-      messages.appendChild(messageEl);
-      scrollToBottom();
-    }
-
-    function scrollToBottom() {
-      setTimeout(() => {
-        windowEl.scrollTop = windowEl.scrollHeight;
-      }, 100);
-    }
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js" defer></script>
-  <script src="script.js" defer></script>
+  <script src="script.js"></script>
 </body>
 </html>
