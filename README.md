@@ -45,9 +45,15 @@ My-Website/
 
 Feel free to reach out via the contact form on the website or connect with me through the following platforms:
 
-- **LinkedIn**: [linkedin.com/in/mohamed-abdelaziz](https://www.linkedin.com/in/mohamed-abdelaziz)
-- **GitHub**: [github.com/mohamed-abdelaziz710](https://github.com/mohamed-abdelaziz710)
-- **Email**: [your.email@example.com](mailto:your.email@example.com)
+- **LinkedIn**: [linkedin.com/in/YOUR-LINKEDIN-USERNAME](https://www.linkedin.com/in/YOUR-LINKEDIN-USERNAME)
+- **GitHub**: [github.com/YOUR-GITHUB-USERNAME](https://github.com/YOUR-GITHUB-USERNAME)
+- **Email**: [your.email@domain.com](mailto:your.email@domain.com)
+
+---
+
+## ⚠️ ملاحظة للتحديث
+
+يرجى مراجعة وتحديث الأقسام أعلاه بمحتوى يعكس خبراتك ومشاريعك الفعلية.
 
 ---
 
