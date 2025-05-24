@@ -707,3 +707,55 @@ Notes:
 - If particles.js is not working, ensure the library is loaded and a div with id="particles-js" exists in your HTML.
 */
 
+document.addEventListener("DOMContentLoaded", function () {
+  // 1. Initialize Hero Section Visual Effects
+  initHeroVisualEffects();
+
+  // 2. Enhanced Hover Effects
+  initHoverEffects();
+
+  // 3. Chat Functionality
+  initChat();
+
+  // 4. Mobile Menu Functionality
+  initMobileMenu();
+
+  // 5. Language Toggle Functionality
+  initLanguageToggle();
+
+  // 6. Update Language Content based on saved preference
+  const savedLanguage = localStorage.getItem("language") || "en";
+  updateLanguageContent(savedLanguage);
+
+  // 7. Initialize Particles.js
+  initParticles();
+});
+// 1. Hero Section Visual Effects (Improved Perspective and Rotation)
+function initHeroVisualEffects() {
+  const heroSection = document.querySelector(".hero");
+  const heroVisual = document.querySelector(".hero-visual");
+
+  if (!heroSection || !heroVisual) {
+    console.warn("Hero section or visual element not found.");
+    return;
+  }
+
+  // Add classes for CSS transitions
+  heroVisual.classList.add("hero-visual-transition");
+
+  // Add perspective to the hero section
+  heroSection.style.perspective = "1000px";
+
+  // Mouse move effect
+  if (window.innerWidth > 768) { // Only apply on larger screens
+    heroSection.addEventListener("mousemove", (e) => {
+      const rect = heroSection.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const rotateY = (x - centerX) * 0.05; // Adjust sensitivity
+      const rotateX = (centerY - y) * 0.05;
+
+      heroVisual.style.transform = `perspective(1000px) rotateY(${rotateY}deg) rotateX(${rotateX}deg) scale(1.05)`; // Combine with existing hover scale
+      heroVisual.style.transition = "transform 0.1s ease-out"; // Faster transition for hover effect

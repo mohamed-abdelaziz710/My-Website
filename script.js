@@ -707,3 +707,26 @@ Notes:
 - If particles.js is not working, ensure the library is loaded and a div with id="particles-js" exists in your HTML.
 */
 
+document.addEventListener("DOMContentLoaded", function () {
+  // 1. Initialize Hero Section Visual Effects
+  initHeroVisualEffects();
+
+  // 2. Enhanced Hover Effects
+  initHoverEffects();
+
+  // 3. Chat Functionality
+  initChat();
+
+  // 4. Mobile Menu Functionality
+  initMobileMenu();
+
+  // 5. Language Toggle Functionality
+  initLanguageToggle();
+
+  // 6. Update Language Content based on saved preference
+  const savedLanguage = localStorage.getItem("language") || "en";
+  updateLanguageContent(savedLanguage);
+
+  // 7. Initialize Particles.js
+  initParticles();
+});
