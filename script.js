@@ -972,25 +972,28 @@ setTimeout(() => {
       if (sectionTop < window.innerHeight - 100) {
         section.classList.add('visible');
       }
-// إزالة التعريفات المكررة إن وجدت
-// ظهور تدريجي للأقسام عند التمرير
-// (تمت إزالة التكرار: استخدم revealSections المعرفة أعلاه)
+    });
+  }
+  window.addEventListener('scroll', revealSections);
+  window.addEventListener('DOMContentLoaded', revealSections);
+})();
 
 // تفاعل زر CTA (Pulse)
-const ctaBtn2 = document.getElementById('btn-get-in-touch');
-if(ctaBtn2){
-  ctaBtn2.addEventListener('mouseenter', e => {
+// Remove duplicate declaration of ctaBtn to avoid "Cannot redeclare block-scoped variable" error
+// (Already declared above, so do NOT redeclare here)
+if(ctaBtn){
+  ctaBtn.addEventListener('mouseenter', e => {
     e.target.classList.add('pulse');
   });
-  ctaBtn2.addEventListener('mouseleave', e => {
+  ctaBtn.addEventListener('mouseleave', e => {
     e.target.classList.remove('pulse');
   });
 }
 
 // إنشاء فقاعة شات متحركة (SVG Animated Chatbot Bubble)
-const chatBubble2 = document.createElement('div');
-chatBubble2.className = 'chat-bubble';
-chatBubble2.innerHTML = `
+const chatBubble = document.createElement('div');
+chatBubble.className = 'chat-bubble';
+chatBubble.innerHTML = `
   <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
     <circle cx="19" cy="19" r="16" stroke="#21D4FD" stroke-width="3" fill="#9B59B6" />
     <ellipse cx="19" cy="19" rx="12" ry="7" fill="#39FF14" fill-opacity="0.6">
@@ -999,13 +1002,28 @@ chatBubble2.innerHTML = `
     </ellipse>
     <text x="50%" y="56%" text-anchor="middle" fill="#fff" font-size="1.2em" dy=".3em" font-family="Inter,Arial">💬</text>
   </svg>`;
-chatBubble2.title = 'تحدث معي';
-chatBubble2.onclick = () => {
+chatBubble.title = 'تحدث معي';
+chatBubble.onclick = () => {
   alert('مرحباً! كيف يمكنني مساعدتك؟');
 };
-document.body.appendChild(chatBubble2);
+document.body.appendChild(chatBubble);
 
 // دعم ظهور تدريجي للفقاعة عند تحميل الصفحة
 setTimeout(() => {
-  chatBubble2.classList.add('visible');
+  chatBubble.classList.add('visible');
 }, 600);
+
+// Parallax effect
+// تأكد من تحميل simpleParallax.min.js في index.html
+// يعمل على كل عنصر يحمل كلاس parallax-img
+
+document.addEventListener('DOMContentLoaded', function() {
+  var images = document.querySelectorAll('.parallax-img');
+  if(images.length && typeof simpleParallax !== 'undefined'){
+    new simpleParallax(images, {
+      scale: 1.18,
+      delay: .16,
+      transition: 'cubic-bezier(0,0,0,1)'
+    });
+  }
+});
