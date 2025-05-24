@@ -131,29 +131,17 @@
   <section id="theme-design-system">
     <h2>Theme & Design System</h2>
     <ul>
-      <li><strong>Font Family:</strong> Exo 2, Roboto, sans-serif (primary); Roboto Mono, monospace (secondary)</li>
-      <li><strong>Typography:</strong> Headings: Montserrat, bold (700); Body: Source Sans Pro, regular (400); h1: 3rem, h2: 2.25rem, h3: 1.75rem, body: 1rem, small: 0.875rem; Line height: 1.5</li>
-      <li><strong>Colors:</strong> Neon Green: #21E6C1; Dark Gray: #10151F, #0A0F1A, #050A15; White: #FFFFFF; Black: #000000; Neon Purple: #9A16E5</li>
-      <li><strong>Box Model:</strong> Consistent padding/margin, border radius 8–14px, subtle box-shadow</li>
-      <li><strong>Logo & Favicon:</strong> logo-full.svg, logo-icon.svg, logo-mono.svg, favicon PNG/ICO in assets/icons/; min clear space: 1× logomark height; do not alter colors or stretch</li>
-      <li><strong>Button Styles:</strong> .btn-primary: neon green bg, black text, invert on hover; .btn-secondary: white bg, black text, neon border; .btn-link: text only, underline on hover; all buttons: clear focus, accessible contrast</li>
-      <li><strong>Cards & Badges:</strong> .card: black bg, white text, border-radius, shadow; .badge: inline, color-coded, always with text</li>
-      <li><strong>Accessibility:</strong> WCAG 2.1 AA color contrast, keyboard navigation, alt text for images, ARIA for icons, semantic HTML, respects prefers-reduced-motion</li>
-      <li><strong>Animation & Motion:</strong> Animate only transform/opacity, use will-change: transform, provide reduced motion fallback</li>
+      <li><strong>Font:</strong> Exo 2, Roboto, Montserrat, Source Sans Pro</li>
+      <li><strong>Colors:</strong> Neon Green #21E6C1, Dark Gray, White, Black, Neon Purple</li>
+      <li><strong>Box Model:</strong> Consistent spacing, 8–14px radius, subtle shadow</li>
+      <li><strong>Logo & Favicon:</strong> SVG/PNG, clear space, no distortion</li>
+      <li><strong>Buttons:</strong> Modern, accessible, clear focus, color contrast</li>
+      <li><strong>Cards:</strong> Black bg, white text, rounded, shadow</li>
+      <li><strong>Accessibility:</strong> WCAG AA, keyboard nav, alt/ARIA, semantic HTML, reduced motion</li>
+      <li><strong>Animation:</strong> Only transform/opacity, performant, reduced motion fallback</li>
     </ul>
   </section>
 </main>
-
-    <!-- Example: Accessible card with badge and alt text -->
-    <div class="card" role="region" aria-labelledby="project1-title">
-      <img src="project1.png" alt="Screenshot of Project 1 web app interface">
-      <div class="card-content">
-        <h3 id="project1-title">Project One</h3>
-        <span class="badge badge-success" aria-label="New project">New</span>
-        <p>A short description of the project goes here.</p>
-        <button class="btn-secondary" type="button">Learn More</button>
-      </div>
-    </div>
 
     <!-- Example: Accessible form -->
     <form>
