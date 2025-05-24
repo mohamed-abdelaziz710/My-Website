@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initParticles();
   initTabs();
   initScrollAnimations();
+  initHoverEffects();
 });
 
 // Initialize Particles.js
@@ -63,4 +64,38 @@ function initScrollAnimations() {
   } else {
     elems.forEach(el => el.classList.add('visible'));
   }
+}
+
+// Enhanced Hover Effects (Example: Card Tilt)
+function initHoverEffects() {
+  // Add .smart-card selector for smart card effect
+  const cards = document.querySelectorAll(".card, .panel, .skill-category, .project-item, .certification-item, .smart-card");
+
+  cards.forEach(card => {
+    card.addEventListener("mousemove", (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const rotateX = (y - centerY) * 0.03;
+      const rotateY = (centerX - x) * 0.03;
+
+      // Enhanced smart card effect
+      if (card.classList.contains("smart-card")) {
+        card.style.transform = `perspective(1200px) rotateX(${rotateX * 1.5}deg) rotateY(${rotateY * 1.5}deg) scale(1.06)`;
+        card.style.boxShadow = "0 8px 32px 0 rgba(33,230,193,0.25), 0 1.5px 8px 0 rgba(0,0,0,0.12)";
+      } else {
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`;
+        card.style.boxShadow = "";
+      }
+      card.style.transition = "transform 0.1s ease-out, box-shadow 0.2s";
+    });
+
+    card.addEventListener("mouseleave", () => {
+      card.style.transform = "perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)";
+      card.style.boxShadow = "";
+      card.style.transition = "transform 0.5s ease-in-out, box-shadow 0.4s";
+    });
+  });
 }
