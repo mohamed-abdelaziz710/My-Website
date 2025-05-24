@@ -445,6 +445,26 @@
     @media (max-width: 600px) {
       #hero-sphere { width: 220px; height: 220px; }
     }
+
+    /* Neon Timeline Glow */
+    #experience .border-l-4, #education .border-l-4 {
+      box-shadow: 0 0 18px #21E6C144;
+    }
+    #experience .group:hover .bg-[#181E2A], #education .group:hover .bg-[#181E2A] {
+      box-shadow: 0 0 36px #39FF14cc, 0 0 24px #21E6C1cc;
+      border-color: #39FF14;
+    }
+    #experience .group .absolute, #education .group .absolute {
+      transition: box-shadow 0.3s, border-color 0.3s;
+    }
+    @media (max-width: 600px) {
+      #experience .border-l-4, #education .border-l-4 {
+        pl-8: pl-4;
+      }
+      #experience .group, #education .group {
+        mb-12: mb-8;
+      }
+    }
   </style>
 </head>
 <body class="bg-gradient-to-br from-[#0A0F1A] to-[#161b26] min-h-screen text-white">
@@ -649,6 +669,128 @@
     </div>
   </div>
 </section>
+
+  <!-- Projects Section: Neon Cards Grid -->
+<section id="projects" class="w-full max-w-6xl mx-auto px-4 py-16">
+  <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-[#39FF14] tracking-wide drop-shadow-[0_0_12px_#21E6C1]">Projects</h2>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+    <!-- Project Card 1 -->
+    <div class="bg-[#181E2A] border-2 border-[#21E6C1] rounded-2xl shadow-[0_0_32px_#21E6C1aa] flex flex-col items-center p-6 transition-transform duration-300 hover:scale-105 hover:shadow-[0_0_48px_#39FF14] min-h-[420px]">
+      <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=400&q=80" alt="Zentix AI Platform" class="w-full h-40 object-cover rounded-xl mb-5 border border-[#21E6C1]/40 shadow-[0_0_16px_#21E6C1]" />
+      <div class="flex items-center gap-2 mb-2">
+        <span class="bg-[#21E6C1]/20 text-[#21E6C1] px-3 py-1 rounded-full text-xs font-semibold shadow-[0_0_8px_#21E6C1]">Completed</span>
+      </div>
+      <h3 class="font-semibold text-xl text-[#39FF14] mb-2 text-center">Zentix AI Platform</h3>
+      <p class="text-gray-300 text-sm text-center mb-4 flex-1">Developed a collection of AI agent templates for business automation.</p>
+      <div class="flex gap-3 mt-auto">
+        <a href="https://zentix.example.com" target="_blank" class="px-4 py-2 rounded-full bg-gradient-to-r from-[#21E6C1] to-[#39FF14] text-[#0A0F1A] font-bold text-sm shadow-[0_0_12px_#21E6C1] transition-all duration-200 hover:from-[#0A0F1A] hover:to-[#39FF14] hover:text-[#39FF14] hover:shadow-[0_0_24px_#21E6C1]">Live Demo</a>
+        <a href="https://github.com/amrikyy/zentix-ai" target="_blank" class="px-4 py-2 rounded-full border-2 border-[#21E6C1] text-[#21E6C1] font-bold text-sm transition-all duration-200 hover:bg-[#21E6C1] hover:text-[#0A0F1A] hover:shadow-[0_0_24px_#21E6C1]">GitHub</a>
+      </div>
+    </div>
+    <!-- Project Card 2 -->
+    <div class="bg-[#181E2A] border-2 border-[#21E6C1] rounded-2xl shadow-[0_0_32px_#21E6C1aa] flex flex-col items-center p-6 transition-transform duration-300 hover:scale-105 hover:shadow-[0_0_48px_#39FF14] min-h-[420px]">
+      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Personal Portfolio Website" class="w-full h-40 object-cover rounded-xl mb-5 border border-[#21E6C1]/40 shadow-[0_0_16px_#21E6C1]" />
+      <div class="flex items-center gap-2 mb-2">
+        <span class="bg-[#21E6C1]/20 text-[#21E6C1] px-3 py-1 rounded-full text-xs font-semibold shadow-[0_0_8px_#21E6C1]">In Progress</span>
+      </div>
+      <h3 class="font-semibold text-xl text-[#39FF14] mb-2 text-center">Personal Portfolio Website</h3>
+      <p class="text-gray-300 text-sm text-center mb-4 flex-1">Designed and coded a modern personal website with React and Tailwind.</p>
+      <div class="flex gap-3 mt-auto">
+        <a href="https://amrikyy.com" target="_blank" class="px-4 py-2 rounded-full bg-gradient-to-r from-[#21E6C1] to-[#39FF14] text-[#0A0F1A] font-bold text-sm shadow-[0_0_12px_#21E6C1] transition-all duration-200 hover:from-[#0A0F1A] hover:to-[#39FF14] hover:text-[#39FF14] hover:shadow-[0_0_24px_#21E6C1]">Live Demo</a>
+        <a href="https://github.com/amrikyy/portfolio" target="_blank" class="px-4 py-2 rounded-full border-2 border-[#21E6C1] text-[#21E6C1] font-bold text-sm transition-all duration-200 hover:bg-[#21E6C1] hover:text-[#0A0F1A] hover:shadow-[0_0_24px_#21E6C1]">GitHub</a>
+      </div>
+    </div>
+    <!-- Project Card 3 -->
+    <div class="bg-[#181E2A] border-2 border-[#21E6C1] rounded-2xl shadow-[0_0_32px_#21E6C1aa] flex flex-col items-center p-6 transition-transform duration-300 hover:scale-105 hover:shadow-[0_0_48px_#39FF14] min-h-[420px]">
+      <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80" alt="Charity: water Landing Page" class="w-full h-40 object-cover rounded-xl mb-5 border border-[#21E6C1]/40 shadow-[0_0_16px_#21E6C1]" />
+      <div class="flex items-center gap-2 mb-2">
+        <span class="bg-[#39FF14]/20 text-[#39FF14] px-3 py-1 rounded-full text-xs font-semibold shadow-[0_0_8px_#39FF14]">Completed</span>
+        <span class="bg-[#21E6C1]/20 text-[#21E6C1] px-3 py-1 rounded-full text-xs font-semibold shadow-[0_0_8px_#21E6C1]">Collaboration</span>
+      </div>
+      <h3 class="font-semibold text-xl text-[#39FF14] mb-2 text-center">Charity: water Landing Page</h3>
+      <p class="text-gray-300 text-sm text-center mb-4 flex-1">Designed and developed a landing page project in collaboration with charity: water to support clean water initiatives.</p>
+      <div class="flex gap-3 mt-auto">
+        <a href="https://charitywater.amrikyy.com" target="_blank" class="px-4 py-2 rounded-full bg-gradient-to-r from-[#21E6C1] to-[#39FF14] text-[#0A0F1A] font-bold text-sm shadow-[0_0_12px_#21E6C1] transition-all duration-200 hover:from-[#0A0F1A] hover:to-[#39FF14] hover:text-[#39FF14] hover:shadow-[0_0_24px_#21E6C1]">Live Demo</a>
+        <a href="https://github.com/amrikyy/charity-water-landing" target="_blank" class="px-4 py-2 rounded-full border-2 border-[#21E6C1] text-[#21E6C1] font-bold text-sm transition-all duration-200 hover:bg-[#21E6C1] hover:text-[#0A0F1A] hover:shadow-[0_0_24px_#21E6C1]">GitHub</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- Experience Timeline Section -->
+<section id="experience" class="w-full max-w-4xl mx-auto px-4 py-16">
+  <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-[#39FF14] tracking-wide drop-shadow-[0_0_12px_#21E6C1]">Experience</h2>
+  <div class="relative border-l-4 border-[#21E6C1]/60 pl-8">
+    <!-- Timeline Item 1 -->
+    <div class="group mb-12 relative fade-in-up">
+      <span class="absolute -left-5 top-2 w-5 h-5 rounded-full bg-[#21E6C1] shadow-[0_0_18px_#21E6C1] border-4 border-[#10151F] group-hover:shadow-[0_0_32px_#39FF14] transition"></span>
+      <div class="bg-[#181E2A] rounded-xl p-6 shadow-[0_0_18px_#21E6C1aa] border border-[#21E6C1]/40 group-hover:shadow-[0_0_32px_#39FF14] transition">
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-1">
+          <span class="text-sm text-[#21E6C1] font-bold mb-1 md:mb-0">Summer 2024</span>
+          <span class="text-base font-semibold text-[#39FF14]">Cybersecurity Intern</span>
+        </div>
+        <span class="block text-sm text-gray-400 mb-2">Intel</span>
+        <p class="text-gray-300 text-sm">Worked on penetration testing and network security protocols.</p>
+      </div>
+    </div>
+    <!-- Timeline Item 2 -->
+    <div class="group mb-12 relative fade-in-up">
+      <span class="absolute -left-5 top-2 w-5 h-5 rounded-full bg-[#21E6C1] shadow-[0_0_18px_#21E6C1] border-4 border-[#10151F] group-hover:shadow-[0_0_32px_#39FF14] transition"></span>
+      <div class="bg-[#181E2A] rounded-xl p-6 shadow-[0_0_18px_#21E6C1aa] border border-[#21E6C1]/40 group-hover:shadow-[0_0_32px_#39FF14] transition">
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-1">
+          <span class="text-sm text-[#21E6C1] font-bold mb-1 md:mb-0">2025</span>
+          <span class="text-base font-semibold text-[#39FF14]">AI Developer</span>
+        </div>
+        <span class="block text-sm text-gray-400 mb-2">OpenAI Internship</span>
+        <p class="text-gray-300 text-sm">Built AI tools and automated content generation pipelines.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Education Timeline Section -->
+<section id="education" class="w-full max-w-4xl mx-auto px-4 py-16">
+  <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-[#39FF14] tracking-wide drop-shadow-[0_0_12px_#21E6C1]">Education</h2>
+  <div class="relative border-l-4 border-[#21E6C1]/60 pl-8">
+    <!-- Timeline Item 1 -->
+    <div class="group mb-12 relative fade-in-up">
+      <span class="absolute -left-5 top-2 w-5 h-5 rounded-full bg-[#21E6C1] shadow-[0_0_18px_#21E6C1] border-4 border-[#10151F] group-hover:shadow-[0_0_32px_#39FF14] transition"></span>
+      <div class="bg-[#181E2A] rounded-xl p-6 shadow-[0_0_18px_#21E6C1aa] border border-[#21E6C1]/40 group-hover:shadow-[0_0_32px_#39FF14] transition">
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-1">
+          <span class="text-sm text-[#21E6C1] font-bold mb-1 md:mb-0">2026</span>
+          <span class="text-base font-semibold text-[#39FF14]">BSc Cybersecurity Engineering</span>
+        </div>
+        <span class="block text-sm text-gray-400 mb-2">Kennesaw State University</span>
+        <p class="text-gray-300 text-sm">Expected graduation May 2026.</p>
+      </div>
+    </div>
+    <!-- Timeline Item 2 -->
+    <div class="group mb-12 relative fade-in-up">
+      <span class="absolute -left-5 top-2 w-5 h-5 rounded-full bg-[#21E6C1] shadow-[0_0_18px_#21E6C1] border-4 border-[#10151F] group-hover:shadow-[0_0_32px_#39FF14] transition"></span>
+      <div class="bg-[#181E2A] rounded-xl p-6 shadow-[0_0_18px_#21E6C1aa] border border-[#21E6C1]/40 group-hover:shadow-[0_0_32px_#39FF14] transition">
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-1">
+          <span class="text-sm text-[#21E6C1] font-bold mb-1 md:mb-0">2021</span>
+          <span class="text-base font-semibold text-[#39FF14]">Associate Degree in Computer Science</span>
+        </div>
+        <span class="block text-sm text-gray-400 mb-2">Chattahoochee Technical College</span>
+        <p class="text-gray-300 text-sm">Graduated with a focus on software development and IT.</p>
+      </div>
+    </div>
+    <!-- Timeline Item 3 -->
+    <div class="group mb-4 relative fade-in-up">
+      <span class="absolute -left-5 top-2 w-5 h-5 rounded-full bg-[#21E6C1] shadow-[0_0_18px_#21E6C1] border-4 border-[#10151F] group-hover:shadow-[0_0_32px_#39FF14] transition"></span>
+      <div class="bg-[#181E2A] rounded-xl p-6 shadow-[0_0_18px_#21E6C1aa] border border-[#21E6C1]/40 group-hover:shadow-[0_0_32px_#39FF14] transition">
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-1">
+          <span class="text-sm text-[#21E6C1] font-bold mb-1 md:mb-0">2017</span>
+          <span class="text-base font-semibold text-[#39FF14]">High School Diploma</span>
+        </div>
+        <span class="block text-sm text-gray-400 mb-2">El Shaheen High School, Kuwait City</span>
+        <p class="text-gray-300 text-sm">Graduated with honors.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
   <!-- Chat Bubble -->
   <div class="chat-bubble" title="Chat with me">
     <i class="fas fa-robot"></i>
