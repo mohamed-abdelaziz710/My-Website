@@ -1877,3 +1877,104 @@ label {
   100% { background-position: 100% 50%; }
 }
 
+/* --- 3D UI Elements & HUD Interfaces --- */
+
+/* 3D Glowing Button */
+.btn-3d {
+  background: linear-gradient(135deg, #21E6C1 60%, #9A16E5 100%);
+  color: #10151F;
+  border: none;
+  border-radius: 14px;
+  box-shadow: 0 4px 24px 0 #21E6C1, 0 1.5px 6px 0 #9A16E5, 0 0 0 4px #10151F inset;
+  font-size: 1.15rem;
+  font-weight: 700;
+  padding: 1rem 2.2rem;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  perspective: 400px;
+  transform-style: preserve-3d;
+  transition: box-shadow 0.25s, transform 0.18s;
+  position: relative;
+  z-index: 1;
+}
+.btn-3d:hover, .btn-3d:focus {
+  box-shadow: 0 0 32px 8px #21E6C1, 0 0 24px 8px #9A16E5, 0 0 0 4px #10151F inset;
+  transform: translateY(-4px) scale(1.04) rotateX(8deg);
+}
+
+/* Circular Progress HUD (use with .hud-progress) */
+.hud-progress {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 60% 40%, #10151F 60%, #21E6C1 100%);
+  box-shadow: 0 0 24px 4px #21E6C1 inset, 0 0 0 2px #9A16E5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin: 1.5rem auto;
+}
+.hud-progress svg {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  transform: rotate(-90deg);
+}
+.hud-progress .hud-value {
+  color: #21E6C1;
+  font-size: 2rem;
+  font-family: 'Montserrat', 'Exo 2', sans-serif;
+  font-weight: 900;
+  text-shadow: 0 0 8px #21E6C1, 0 0 16px #9A16E5;
+  z-index: 2;
+}
+
+/* HUD Data Readout */
+.hud-data {
+  background: rgba(16, 21, 31, 0.85);
+  border: 2px solid #21E6C1;
+  border-radius: 10px;
+  box-shadow: 0 0 18px 2px #21E6C1 inset;
+  color: #21E6C1;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 1.1rem;
+  padding: 1.1rem 1.7rem;
+  margin: 1.2rem auto;
+  max-width: 340px;
+  text-align: center;
+  letter-spacing: 0.08em;
+  position: relative;
+}
+.hud-data::before {
+  content: '';
+  position: absolute;
+  top: 10px; left: 10px;
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  background: #9A16E5;
+  box-shadow: 0 0 8px #9A16E5;
+}
+.hud-data::after {
+  content: '';
+  position: absolute;
+  bottom: 10px; right: 10px;
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  background: #21E6C1;
+  box-shadow: 0 0 8px #21E6C1;
+}
+
+/* 3D Icon Style */
+.icon-3d {
+  color: #21E6C1;
+  text-shadow: 0 0 12px #21E6C1, 0 0 24px #9A16E5, 0 2px 8px #10151F;
+  filter: drop-shadow(0 0 8px #21E6C1);
+  font-size: 2.2em;
+  transition: transform 0.18s, text-shadow 0.18s;
+}
+.icon-3d:hover {
+  transform: scale(1.12) rotateY(12deg);
+  text-shadow: 0 0 24px #21E6C1, 0 0 32px #9A16E5;
+}
+
