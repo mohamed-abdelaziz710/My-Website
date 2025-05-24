@@ -515,22 +515,22 @@
     </div>
   </section>
 
-  <section id="about">
-    <img src="https://i.imgur.com/2DhmtJ4.jpg" alt="Mohamed Abdelaziz" />
-    <h2>About Me</h2>
-    <p>I'm a passionate cybersecurity engineer and AI enthusiast currently working on integrating cutting-edge AI technologies with security solutions.</p>
-    <div class="badges">
-      <div class="badge">Cybersecurity Engineer</div>
-      <div class="badge">AI Tools Builder</div>
-      <div class="badge">KSU '26 Student</div>
-      <div class="badge">Multilingual (AR/EN)</div>
-    </div>
-  </section>
-
-  <!-- Responsive Neon Skills Section (Tailwind CSS) -->
-  <section id="skills" class="w-full max-w-5xl mx-auto px-4 py-12">
-    <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 text-[#39FF14] tracking-wide drop-shadow-[0_0_12px_#21E6C1]">Skills</h2>
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-7">
+  <!-- Modern About Section with Neon Card and Glassmorphism -->
+  <section id="about" class="w-full flex justify-center items-center py-16 px-4">
+    <div class="about-card fade-in-up flex flex-col md:flex-row items-center md:items-stretch max-w-4xl w-full bg-white/10 backdrop-blur-md rounded-3xl shadow-[0_8px_40px_#21E6C155] border border-[#21E6C1]/40 overflow-hidden transition-all duration-700 mx-auto">
+      <!-- Left: Profile Image -->
+      <div class="flex-shrink-0 flex items-center justify-center p-8 md:p-12 bg-gradient-to-br from-[#181E2A] to-[#10151F]">
+        <div class="relative">
+          <img src="https://i.imgur.com/2DhmtJ4.jpg" alt="Mohamed Abdelaziz" class="w-40 h-40 md:w-48 md:h-48 rounded-full object-cover border-4 border-[#21E6C1] shadow-[0_0_32px_#21E6C1cc]">
+          <span class="absolute inset-0 rounded-full border-4 border-[#39FF14] animate-pulse pointer-events-none"></span>
+        </div>
+      </div>
+      <!-- Right: Text Content -->
+      <div class="flex-1 flex flex-col justify-center px-6 py-8 md:py-12">
+        <h2 class="text-3xl md:text-4xl font-extrabold mb-2 bg-gradient-to-r from-[#21E6C1] via-[#39FF14] to-[#9A16E5] bg-clip-text text-transparent animate-neon-gradient">
+          Mohamed Abdelaziz
+        </h2>
+        <div class="text-lg md:text-xl font-semibold text-[#21E6C1] mb-2 typing" style="animation:none;">
       <div class="flex flex-col items-center bg-[#181E2A] rounded-2xl shadow-[0_0_24px_#39FF14aa] border border-[#21E6C1] p-7 transition-transform hover:scale-105 hover:shadow-[0_0_38px_#21E6C1]">
         <span class="text-4xl mb-3 text-[#21E6C1]"><i class="fas fa-shield-alt"></i></span>
         <span class="font-semibold text-lg text-[#39FF14] mb-1">Cybersecurity</span>
