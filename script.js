@@ -837,71 +837,20 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-// Remove duplicate DOMContentLoaded for initHeroVisualEffects (if not defined elsewhere)
-document.addEventListener("DOMContentLoaded", function () {
-  // Lazy loading for all images if not set
-  document.querySelectorAll("img").forEach(img => {
-    if (!img.hasAttribute("loading")) {
-      img.setAttribute("loading", "lazy");
-    }
-  });
-
-  // زيادة تباين النصوص الصغيرة على الخلفية الداكنة
-  const contrastSelectors = [
-    ".text-gray-300",
-    ".text-gray-400",
-    ".text-sm",
-    ".text-xs"
-  ];
-  document.querySelectorAll(contrastSelectors.join(",")).forEach(el => {
-    el.style.color = "#f4fff4";
-    el.style.textShadow = "0 0 2px #10151F, 0 0 8px #21E6C144";
-    el.style.letterSpacing = "0.01em";
-    el.style.fontWeight = "500";
-  });
-
-  // تحسين حجم أيقونة الدردشة وتفاعل اللمس
-  const chatBubble = document.getElementById("chatbot-bubble");
-  if (chatBubble) {
-    function resizeChatBubble() {
-      if (window.innerWidth <= 600) {
-        chatBubble.style.width = "72px";
-        chatBubble.style.height = "72px";
-        const icon = chatBubble.querySelector("i");
-        if (icon) icon.style.fontSize = "2.7rem";
-      } else {
-        chatBubble.style.width = "64px";
-        chatBubble.style.height = "64px";
-        const icon = chatBubble.querySelector("i");
-        if (icon) icon.style.fontSize = "2.3rem";
+// إصلاح ظهور الأقسام: إزالة تكرار revealSections والتأكد من إضافة كلاس visible عند التمرير فقط
+(function() {
+  function revealSections() {
+    const sections = document.querySelectorAll('section, .project-card, .blog-card');
+    sections.forEach(section => {
+      const sectionTop = section.getBoundingClientRect().top;
+      if (sectionTop < window.innerHeight - 100) {
+        section.classList.add('visible');
       }
-    }
-    resizeChatBubble();
-    window.addEventListener("resize", resizeChatBubble);
-
-    chatBubble.style.touchAction = "manipulation";
-    chatBubble.style.webkitTapHighlightColor = "rgba(33,230,193,0.15)";
-    chatBubble.addEventListener("touchstart", function () {
-      chatBubble.style.boxShadow = "0 0 0 6px #39FF14, 0 0 32px #21E6C1cc";
-    });
-    chatBubble.addEventListener("touchend", function () {
-      chatBubble.style.boxShadow = "";
     });
   }
-});
-
-// ظهور تدريجي للأقسام عند التمرير
-function revealSections() {
-  const sections = document.querySelectorAll('section, .project-card, .blog-card');
-  sections.forEach(section => {
-    const sectionTop = section.getBoundingClientRect().top;
-    if (sectionTop < window.innerHeight - 100) {
-      section.classList.add('visible');
-    }
-  });
-}
-window.addEventListener('scroll', revealSections);
-window.addEventListener('DOMContentLoaded', revealSections);
+  window.addEventListener('scroll', revealSections);
+  window.addEventListener('DOMContentLoaded', revealSections);
+})();
 
 // تفاعل زر CTA
 const ctaBtn = document.getElementById('btn-get-in-touch');
@@ -926,57 +875,6 @@ chatBubble.onclick = () => {
 
 // تأثير ظهور تدريجي للأقسام والبطاقات عند التمرير
 // (تمت إزالة التكرار: استخدم revealSections المعرفة أعلاه)
-
-// تفاعل زر CTA (Pulse)
-// Remove duplicate declaration of ctaBtn to avoid "Cannot redeclare block-scoped variable" error
-// (Already declared above, so do NOT redeclare here)
-if(ctaBtn){
-  ctaBtn.addEventListener('mouseenter', e => {
-    e.target.classList.add('pulse');
-  });
-  ctaBtn.addEventListener('mouseleave', e => {
-    e.target.classList.remove('pulse');
-  });
-}
-
-// إنشاء فقاعة شات متحركة (SVG Animated Chatbot Bubble)
-const chatBubble = document.createElement('div');
-chatBubble.className = 'chat-bubble';
-chatBubble.innerHTML = `
-  <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="19" cy="19" r="16" stroke="#21D4FD" stroke-width="3" fill="#9B59B6" />
-    <ellipse cx="19" cy="19" rx="12" ry="7" fill="#39FF14" fill-opacity="0.6">
-      <animate attributeName="rx" values="12;14;12" dur="1.6s" repeatCount="indefinite" />
-      <animate attributeName="fill-opacity" values="0.6;1;0.6" dur="1.6s" repeatCount="indefinite" />
-    </ellipse>
-    <text x="50%" y="56%" text-anchor="middle" fill="#fff" font-size="1.2em" dy=".3em" font-family="Inter,Arial">💬</text>
-  </svg>`;
-chatBubble.title = 'تحدث معي';
-chatBubble.onclick = () => {
-  alert('مرحباً! كيف يمكنني مساعدتك؟');
-};
-document.body.appendChild(chatBubble);
-
-// دعم ظهور تدريجي للفقاعة عند تحميل الصفحة
-setTimeout(() => {
-  chatBubble.classList.add('visible');
-}, 600);
-
-// إزالة التعريفات المكررة إن وجدت
-// ظهور تدريجي للأقسام عند التمرير
-(function() {
-  const revealSections = () => {
-    const sections = document.querySelectorAll('section, .project-card, .blog-card');
-    sections.forEach(section => {
-      const sectionTop = section.getBoundingClientRect().top;
-      if (sectionTop < window.innerHeight - 100) {
-        section.classList.add('visible');
-      }
-    });
-  }
-  window.addEventListener('scroll', revealSections);
-  window.addEventListener('DOMContentLoaded', revealSections);
-})();
 
 // تفاعل زر CTA (Pulse)
 // Remove duplicate declaration of ctaBtn to avoid "Cannot redeclare block-scoped variable" error
