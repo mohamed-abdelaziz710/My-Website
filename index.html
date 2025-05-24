@@ -723,6 +723,39 @@
       background: linear-gradient(90deg, #39FF14, #21E6C1);
       color: #0A0F1A;
     }
+
+    /* زيادة تباين النصوص الصغيرة على الخلفية الداكنة */
+    .text-gray-300,
+    .text-gray-400,
+    .text-sm,
+    .text-xs {
+      color: #e6ffe6 !important; /* أخضر فاتح جداً لقراءة أوضح */
+      text-shadow: 0 0 2px #10151F, 0 0 8px #21E6C122;
+      letter-spacing: 0.01em;
+    }
+    /* تفاصيل التايملاين */
+    #experience .bg-\[\#181E2A\] .text-gray-300,
+    #experience .bg-\[\#181E2A\] .text-gray-400,
+    #education .bg-\[\#181E2A\] .text-gray-300,
+    #education .bg-\[\#181E2A\] .text-gray-400 {
+      color: #e6ffe6 !important;
+      font-weight: 500;
+      text-shadow: 0 0 2px #10151F, 0 0 8px #21E6C122;
+    }
+    /* تفاصيل الكروت */
+    .bg-\[\#181E2A\] .text-gray-300,
+    .bg-\[\#181E2A\] .text-gray-400 {
+      color: #e6ffe6 !important;
+      font-weight: 500;
+      text-shadow: 0 0 2px #10151F, 0 0 8px #21E6C122;
+    }
+    /* تفاصيل البادجات */
+    .bg-\[\#181E2A\] .text-xs,
+    .bg-\[\#181E2A\] .text-sm {
+      color: #e6ffe6 !important;
+      font-weight: 500;
+      text-shadow: 0 0 2px #10151F, 0 0 8px #21E6C122;
+    }
   </style>
 </head>
 <body class="bg-gradient-to-br from-[#0A0F1A] to-[#161b26] min-h-screen text-white">
@@ -799,7 +832,7 @@
       <!-- Left: Profile Image -->
       <div class="flex-shrink-0 flex items-center justify-center p-8 md:p-12 bg-gradient-to-br from-[#181E2A] to-[#10151F]">
         <div class="relative">
-          <img src="https://i.imgur.com/2DhmtJ4.jpg" alt="Mohamed Abdelaziz" class="w-40 h-40 md:w-48 md:h-48 rounded-full object-cover border-4 border-[#21E6C1] shadow-[0_0_32px_#21E6C1cc]">
+          <img src="https://i.imgur.com/2DhmtJ4.jpg" alt="Mohamed Abdelaziz" class="w-40 h-40 md:w-48 md:h-48 rounded-full object-cover border-4 border-[#21E6C1] shadow-[0_0_32px_#21E6C1cc]" loading="lazy">
           <span class="absolute inset-0 rounded-full border-4 border-[#39FF14] animate-pulse pointer-events-none"></span>
         </div>
       </div>
@@ -935,7 +968,7 @@
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
     <!-- Project Card 1 -->
     <div class="bg-[#181E2A] border-2 border-[#21E6C1] rounded-2xl shadow-[0_0_32px_#21E6C1aa] flex flex-col items-center p-6 transition-transform duration-300 hover:scale-105 hover:shadow-[0_0_48px_#39FF14] min-h-[420px]">
-      <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=400&q=80" alt="Zentix AI Platform" class="w-full h-40 object-cover rounded-xl mb-5 border border-[#21E6C1]/40 shadow-[0_0_16px_#21E6C1]" />
+      <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=400&q=80" alt="Zentix AI Platform" class="w-full h-40 object-cover rounded-xl mb-5 border border-[#21E6C1]/40 shadow-[0_0_16px_#21E6C1]" loading="lazy" />
       <div class="flex items-center gap-2 mb-2">
         <span class="bg-[#21E6C1]/20 text-[#21E6C1] px-3 py-1 rounded-full text-xs font-semibold shadow-[0_0_8px_#21E6C1]">Completed</span>
       </div>
@@ -948,7 +981,7 @@
     </div>
     <!-- Project Card 2 -->
     <div class="bg-[#181E2A] border-2 border-[#21E6C1] rounded-2xl shadow-[0_0_32px_#21E6C1aa] flex flex-col items-center p-6 transition-transform duration-300 hover:scale-105 hover:shadow-[0_0_48px_#39FF14] min-h-[420px]">
-      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Personal Portfolio Website" class="w-full h-40 object-cover rounded-xl mb-5 border border-[#21E6C1]/40 shadow-[0_0_16px_#21E6C1]" />
+      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Personal Portfolio Website" class="w-full h-40 object-cover rounded-xl mb-5 border border-[#21E6C1]/40 shadow-[0_0_16px_#21E6C1]" loading="lazy" />
       <div class="flex items-center gap-2 mb-2">
         <span class="bg-[#21E6C1]/20 text-[#21E6C1] px-3 py-1 rounded-full text-xs font-semibold shadow-[0_0_8px_#21E6C1]">In Progress</span>
       </div>
@@ -961,7 +994,7 @@
     </div>
     <!-- Project Card 3 -->
     <div class="bg-[#181E2A] border-2 border-[#21E6C1] rounded-2xl shadow-[0_0_32px_#21E6C1aa] flex flex-col items-center p-6 transition-transform duration-300 hover:scale-105 hover:shadow-[0_0_48px_#39FF14] min-h-[420px]">
-      <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80" alt="Charity: water Landing Page" class="w-full h-40 object-cover rounded-xl mb-5 border border-[#21E6C1]/40 shadow-[0_0_16px_#21E6C1]" />
+      <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80" alt="Charity: water Landing Page" class="w-full h-40 object-cover rounded-xl mb-5 border border-[#21E6C1]/40 shadow-[0_0_16px_#21E6C1]" loading="lazy" />
       <div class="flex items-center gap-2 mb-2">
         <span class="bg-[#39FF14]/20 text-[#39FF14] px-3 py-1 rounded-full text-xs font-semibold shadow-[0_0_8px_#39FF14]">Completed</span>
         <span class="bg-[#21E6C1]/20 text-[#21E6C1] px-3 py-1 rounded-full text-xs font-semibold shadow-[0_0_8px_#21E6C1]">Collaboration</span>
