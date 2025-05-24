@@ -350,12 +350,16 @@ function initMobileMenu() {
          </svg>`;
       menuBtn.setAttribute("aria-expanded", "false");
       document.body.style.overflow = "";
-      // Smooth scroll logic (if needed, otherwise handled by browser)
-      // const targetId = this.getAttribute("href").substring(1);
-      // const targetElement = document.getElementById(targetId);
-      // if (targetElement) {
-      //   targetElement.scrollIntoView({ behavior: "smooth" });
-      // }
+    });
+    // إضافة دعم إغلاق القائمة عند الضغط على الرابط لأي سبب (حتى لو كان التنقل داخلي)
+    link.addEventListener("touchend", function () {
+      navLinks.classList.remove("active");
+      menuBtn.innerHTML = 
+        `<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+         </svg>`;
+      menuBtn.setAttribute("aria-expanded", "false");
+      document.body.style.overflow = "";
     });
   });
 
@@ -775,4 +779,59 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // 7. Initialize Particles.js
   initParticles();
+});
+
+// تحسين تحميل الصور: إضافة lazy loading تلقائياً لكل الصور إن لم يكن موجوداً
+document.addEventListener("DOMContentLoaded", function () {
+  // Lazy loading for all images if not set
+  document.querySelectorAll("img").forEach(img => {
+    if (!img.hasAttribute("loading")) {
+      img.setAttribute("loading", "lazy");
+    }
+  });
+
+  // زيادة تباين النصوص الصغيرة على الخلفية الداكنة
+  const contrastSelectors = [
+    ".text-gray-300",
+    ".text-gray-400",
+    ".text-sm",
+    ".text-xs"
+  ];
+  document.querySelectorAll(contrastSelectors.join(",")).forEach(el => {
+    el.style.color = "#f4fff4";
+    el.style.textShadow = "0 0 2px #10151F, 0 0 8px #21E6C144";
+    el.style.letterSpacing = "0.01em";
+    el.style.fontWeight = "500";
+  });
+
+  // تحسين حجم أيقونة الدردشة وتفاعل اللمس
+  const chatBubble = document.getElementById("chatbot-bubble");
+  if (chatBubble) {
+    // زيادة الحجم على الشاشات الصغيرة
+    function resizeChatBubble() {
+      if (window.innerWidth <= 600) {
+        chatBubble.style.width = "72px";
+        chatBubble.style.height = "72px";
+        const icon = chatBubble.querySelector("i");
+        if (icon) icon.style.fontSize = "2.7rem";
+      } else {
+        chatBubble.style.width = "64px";
+        chatBubble.style.height = "64px";
+        const icon = chatBubble.querySelector("i");
+        if (icon) icon.style.fontSize = "2.3rem";
+      }
+    }
+    resizeChatBubble();
+    window.addEventListener("resize", resizeChatBubble);
+
+    // تحسين التفاعل مع اللمس
+    chatBubble.style.touchAction = "manipulation";
+    chatBubble.style.webkitTapHighlightColor = "rgba(33,230,193,0.15)";
+    chatBubble.addEventListener("touchstart", function () {
+      chatBubble.style.boxShadow = "0 0 0 6px #39FF14, 0 0 32px #21E6C1cc";
+    });
+    chatBubble.addEventListener("touchend", function () {
+      chatBubble.style.boxShadow = "";
+    });
+  }
 });
