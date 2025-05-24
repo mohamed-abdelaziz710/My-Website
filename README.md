@@ -1,186 +1,60 @@
-# Mohamed H Abdelaziz – 3D Spaceship Portfolio
+# 🌌 Mohamed Abdelaziz – Personal Portfolio Website
 
-🚀 **A futuristic personal website for Mohamed H Abdelaziz: Cybersecurity Engineer & AI Innovator.**
+Welcome to my personal portfolio website! This site showcases my projects, skills, and contact information, all presented with a modern, space-themed design.
 
-## Features
-
-- 3D-inspired hero section with neon highlights and interactive canvas orb
-- Modern About Card with personal info, professional badges, and social links
-- Smart animated chatbot bubble (ready to connect to your backend)
-- Fully responsive and accessible (mobile-first)
-- Custom font family: Space Grotesk, Inter, IBM Plex Sans
-- All info & links dynamically update-friendly
-- Clean, documented code – easy to extend
-
-## Quick Start
-
-1. **Clone the repo:**
-
-   ```bash
-   git clone https://github.com/YOUR_USERNAME/your-portfolio-repo.git
-   ```
-
-2. **Add your assets:**
-
-   - `profile.jpg` (in root or `/assets`)
-   - Update favicon/logo as needed (`assets/icons/logo-full.svg`)
-
-3. **Edit personal info:**
-
-   - All main info is in the `<main>` and `<section>` elements in `index.html`
-   - Social/profile/contact links are easy to customize
-
-4. **Preview locally:**
-
-   - Open `index.html` in your browser
-   - Or use Live Server with VS Code
-
-5. **Connect chatbot:**
-
-   - The chatbot bubble is UI-only; connect to your backend in `script.js` as needed
-
-## Tech Stack
-
-- HTML5, CSS3 (No frameworks)
-- Google Fonts: Space Grotesk, Inter, IBM Plex Sans
-- JavaScript (for canvas, chat, animation)
-- Mobile-first responsive
-
-## Contact
-
-- [LinkedIn](https://www.linkedin.com/in/amrikyy)
-- [GitHub](https://github.com/mohamed-abdelaziz710)
-- [Instagram](https://www.instagram.com/amrikyy?igsh=bzhlOHRycTN4bDAz&utm_source=qr)
-- [Email](mailto:amrikyy@email.com)
+🔗 **Live Site**: [mohamed-abdelaziz710.github.io/My-Website](https://mohamed-abdelaziz710.github.io/My-Website)
 
 ---
 
-## Info
+## 🚀 Features
 
-- **Name:** Mohamed H Abdelaziz
-- **Born:** July 10, 1999 (26 years old)
-- **Tagline:** Cybersecurity Engineer | AI Innovator
-- **Profile Image:** `profile.jpg`
-- **Location:** Cairo, Egypt (Egyptian-American)
-- **Languages:** Arabic, English
-- **Email:** <amrikyy@email.com>
-- **Phone (Call & WhatsApp):** +20-109-422-8044
-- **WhatsApp (only):** +1-770-616-0211
-- **GitHub Development Program Member**
-- **Social Links:**
-  - [LinkedIn](https://www.linkedin.com/in/amrikyy)
-  - [GitHub](https://github.com/mohamed-abdelaziz710)
-  - [Facebook](https://web.facebook.com/Hamood.Amriky0/)
-  - [Instagram](https://www.instagram.com/amrikyy?igsh=bzhlOHRycTN4bDAz&utm_source=qr)
-  - [TikTok](https://www.tiktok.com/@moecrypto710?_t=ZT-8wbeZ0H9A1z&_r=1)
-  - [Snapchat](https://snapchat.com/t/M9sQbCZu)
-
-### Skills
-
-- Web Development: HTML, CSS, React, Angular
-- Web Design: HTML, CSS, Sketch, Figma
-- chatGPT
-- Google Drive
-- Brainstorming
-- Build AI agents
-- Python
-- Azure
-- Firebase
-- Amadeus Selling Platform
-
-## Experience
-
-- **Cybersecurity Engineer**  
-  *Kennesaw State University* — 2023–Present  
-  - Lead student security research projects and implement campus-wide security awareness campaigns.
-  - Develop and maintain secure web applications; automate threat detection scripts.
-
-- **Travel Agent**  
-  *Amadeus Selling Platform* — 2020–2022  
-  - Managed client bookings and provided technical support for Amadeus GDS.
-  - Trained new agents on digital tools and customer service best practices.
-
-- **Web Developer (Freelance)**  
-  *Remote* — 2018–2020  
-  - Built and launched websites for small businesses and non-profits.
-  - Specialized in responsive design, accessibility, and SEO optimization.
-
-## Highlights & Achievements
-
-- Built a landing page project for charity: water
-- Member of Blackroom Talent Community
-- Cisco Certified in Cybersecurity
-- Worked as a travel agent for 2 years (Amadeus Selling Platform experience)
-- Currently writing a book titled "CodeX"
-- Participant in the Global Career Program with OpenAI, L'Oréal, charity: water, Intel, and Google
-
-## Education
-
-- Graduated 2017, El Shaheen High School, Kuwait City
-- Graduated 2021, Chattahoochee Technical College, Marietta, GA, USA
-- Will graduate May 2026, Kennesaw State University (Cybersecurity Engineering)
+- **Responsive Design**: Optimized for all devices.
+- **Interactive Animations**: Engaging 3D effects and hover interactions.
+- **Dark Mode**: Eye-friendly color scheme with neon accents.
+- **Contact Section**: Easy-to-use contact form.
+- **GitHub Pages Deployment**: Hosted directly from this repository.
 
 ---
 
-## Theme & Design System
+## 🛠️ Technologies Used
 
-**Font Family:**
+- **HTML5 & CSS3**: Semantic structure and modern styling.
+- **JavaScript (ES6)**: Interactive elements and animations.
+- **Font Awesome**: Scalable vector icons.
+- **Google Fonts**: Custom typography.
+- **GitHub Pages**: Seamless deployment and hosting.
 
-- Exo 2, Roboto, sans-serif (primary)
-- Roboto Mono, monospace (secondary)
+---
 
-**Typography:**
+## 📁 Project Structure
 
-- Headings: Montserrat, bold (700)
-- Body: Source Sans Pro, regular (400)
-- h1: 3rem, h2: 2.25rem, h3: 1.75rem, body: 1rem, small: 0.875rem
-- Line height: 1.5 for body text
+My-Website/
+├── index.html
+├── css/
+│ └── style.css
+├── js/
+│ └── script.js
+├── assets/
+│ ├── images/
+│ └── fonts/
+└── README.md
 
-**Colors:**
+---
 
-- Neon Green: #21E6C1 (primary accent)
-- Dark Gray: #10151F, #0A0F1A, #050A15 (backgrounds)
-- White: #FFFFFF (main text)
-- Black: #000000 (deep backgrounds)
-- Neon Purple: #9A16E5 (secondary accent)
+## 📬 Contact
 
-**Box Model:**
+Feel free to reach out via the contact form on the website or connect with me through the following platforms:
 
-- Padding/margin: consistent for all cards/containers
-- Border radius: 8–14px for cards/buttons
-- Subtle box-shadow for depth
+- **LinkedIn**: [linkedin.com/in/mohamed-abdelaziz](https://www.linkedin.com/in/mohamed-abdelaziz)
+- **GitHub**: [github.com/mohamed-abdelaziz710](https://github.com/mohamed-abdelaziz710)
+- **Email**: [your.email@example.com](mailto:your.email@example.com)
 
-**Logo & Favicon:**
+---
 
-- Full logo: `assets/icons/logo-full.svg` (Meta/Facebook logo)
-- Icon: `assets/icons/logo-icon.svg`
-- Monochrome: `assets/icons/logo-mono.svg`
-- Favicon: `assets/icons/logo-full.svg` (used for browser tab and meta icon)
-- Minimum clear space: 1× logomark height
-- Do not alter colors, stretch, or add effects
+## 📄 License
 
-**Button Styles:**
+This project is licensed under the [MIT License](LICENSE).
 
-- .btn-primary: Neon green bg, black text, invert on hover
-- .btn-secondary: White bg, black text, neon border
-- .btn-link: Text only, underline on hover
-- All buttons: clear focus state, accessible contrast
+---
 
-**Cards & Badges:**
-
-- .card: Black bg, white text, border-radius, shadow
-- .badge: Inline, color-coded, always with text
-
-**Accessibility:**
-
-- WCAG 2.1 AA color contrast
-- Keyboard navigation for all interactive elements
-- Alt text for images, ARIA for icons
-- Semantic HTML
-- Respects prefers-reduced-motion
-
-**Animation & Motion:**
-
-- Animate only transform/opacity
-- Use will-change: transform for performance
-- Provide reduced motion fallback
+*Thank you for visiting my portfolio!*
