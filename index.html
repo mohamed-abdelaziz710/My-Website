@@ -825,7 +825,104 @@
     </div>
   </section>
 
-  <!-- سيبدأ هنا باقي الأقسام -->
+  <!-- قسم من أنا -->
+  <section id="about" class="about-section glass py-20">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl sm:text-4xl font-extrabold mb-6">
+        من أنا
+      </h2>
+      <p class="text-lg sm:text-xl mb-8 leading-relaxed">
+        مهندس أمن سيبراني ومطور أدوات الذكاء الاصطناعي بخبرة واسعة في تصميم واجهات المستخدم وتجربة المستخدم.
+      </p>
+      <div class="badges flex justify-center gap-4 flex-wrap mb-10">
+        <div class="badge">#أمن_سيبراني</div>
+        <div class="badge">#ذكاء_اصطناعي</div>
+        <div class="badge">#تطوير_ويب</div>
+        <div class="badge">#تصميم_واجهات</div>
+      </div>
+      <img src="profile.jpg" alt="Profile Picture" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-[#21E6C1] shadow-[0_0_24px_#21E6C1]">
+      <p class="text-gray-300 mb-6">
+        "التكنولوجيا هي المستقبل، والمستقبل يبدأ الآن."
+      </p>
+      <a href="#contact" class="hero-btn px-6 py-3 rounded-full bg-gradient-to-r from-[#39FF14] to-[#21E6C1] text-[#0A0F1A] font-bold text-lg shadow-[0_0_24px_#21E6C1] transition-all duration-200 hover:from-[#0A0F1A] hover:to-[#39FF14] hover:text-[#39FF14] hover:shadow-[0_0_48px_#21E6C1] focus:outline-none">
+        تواصل معي
+      </a>
+    </div>
+  </section>
+
+  <!-- قسم المشاريع -->
+  <section id="projects" class="projects-section py-20">
+    <div class="max-w-6xl mx-auto text-center">
+      <h2 class="text-3xl sm:text-4xl font-extrabold mb-8">
+        المشاريع
+      </h2>
+      <div class="projects-container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="project-card glass p-6 rounded-lg shadow-[0_4px_24px_rgba(33,230,193,0.2)] transition-transform transform hover:scale-105">
+          <h3 class="text-xl font-semibold mb-2">AI Automation Suite</h3>
+          <p class="text-gray-300 mb-4">
+            منصة أتمتة تعتمد على الذكاء الاصطناعي لتحسين العمليات.
+          </p>
+          <a href="#" class="text-[#21E6C1] hover:underline">عرض المشروع</a>
+        </div>
+        <div class="project-card glass p-6 rounded-lg shadow-[0_4px_24px_rgba(33,230,193,0.2)] transition-transform transform hover:scale-105">
+          <h3 class="text-xl font-semibold mb-2">Secure Network Framework</h3>
+          <p class="text-gray-300 mb-4">
+            إطار عمل لتأمين الشبكات وحماية البيانات.
+          </p>
+          <a href="#" class="text-[#21E6C1] hover:underline">عرض المشروع</a>
+        </div>
+        <div class="project-card glass p-6 rounded-lg shadow-[0_4px_24px_rgba(33,230,193,0.2)] transition-transform transform hover:scale-105">
+          <h3 class="text-xl font-semibold mb-2">Quantum Data Explorer</h3>
+          <p class="text-gray-300 mb-4">
+            أداة استكشاف البيانات بالمفاهيم الكمية.
+          </p>
+          <a href="#" class="text-[#21E6C1] hover:underline">عرض المشروع</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- قسم المدونة -->
+  <section id="blog" class="blog-section py-20">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-3xl sm:text-4xl font-extrabold mb-8">
+        مدونتي
+      </h2>
+      <div class="blog-container space-y-6">
+        <article class="blog-card glass p-6 rounded-lg shadow-[0_4px_24px_rgba(33,230,193,0.2)] transition-transform transform hover:scale-105">
+          <h3 class="text-xl font-semibold mb-2">عنوان المقال الأول</h3>
+          <p class="text-gray-300 mb-4">
+            مقدمة قصيرة عن المقال والتقنيات المستقبلية.
+          </p>
+          <a href="#" class="read-more text-[#21E6C1] hover:underline">اقرأ المزيد</a>
+        </article>
+        <article class="blog-card glass p-6 rounded-lg shadow-[0_4px_24px_rgba(33,230,193,0.2)] transition-transform transform hover:scale-105">
+          <h3 class="text-xl font-semibold mb-2">عنوان المقال الثاني</h3>
+          <p class="text-gray-300 mb-4">
+            مقدمة قصيرة عن الأمن السيبراني والتشفير الكمي.
+          </p>
+          <a href="#" class="read-more text-[#21E6C1] hover:underline">اقرأ المزيد</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- قسم تواصل معي -->
+  <section id="contact" class="contact-section glass py-20">
+    <div class="max-w-md mx-auto text-center">
+      <h2 class="text-3xl sm:text-4xl font-extrabold mb-6">
+        تواصل معي
+      </h2>
+      <form id="contact-form" class="space-y-4">
+        <input type="text" id="name" name="name" placeholder="اسمك" required class="p-4 rounded-lg border border-[#21E6C1] bg-transparent text-white focus:ring-2 focus:ring-[#39FF14] focus:outline-none">
+        <input type="email" id="email" name="email" placeholder="بريدك الإلكتروني" required class="p-4 rounded-lg border border-[#21E6C1] bg-transparent text-white focus:ring-2 focus:ring-[#39FF14] focus:outline-none">
+        <textarea id="message" name="message" placeholder="رسالتك" rows="4" required class="p-4 rounded-lg border border-[#21E6C1] bg-transparent text-white focus:ring-2 focus:ring-[#39FF14] focus:outline-none"></textarea>
+        <button type="submit" id="send-btn" class="w-full py-3 rounded-lg bg-gradient-to-r from-[#39FF14] to-[#21E6C1] text-[#0A0F1A] font-bold shadow-[0_0_24px_#21E6C1] transition-all duration-200 hover:from-[#0A0F1A] hover:to-[#39FF14] hover:text-[#39FF14] hover:shadow-[0_0_48px_#21E6C1] focus:outline-none">
+          إرسال
+        </button>
+      </form>
+    </div>
+  </section>
 
   <script src="script.js"></script>
 </body>
