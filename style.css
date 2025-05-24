@@ -1715,3 +1715,114 @@ label {
 
 /* Only animate transform/opacity for performance. Avoid animating box-shadow or filter. */
 
+/* --- About Section Styles --- */
+.about-card {
+  display: flex;
+  align-items: center;
+  background: #10151F;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px 0 rgba(33,230,193,0.10), 0 2px 8px 0 rgba(0,0,0,0.10);
+  padding: 2rem 2.5rem;
+  margin: 2rem auto 2.5rem auto;
+  max-width: 700px;
+  gap: 2.2rem;
+}
+.about-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #21E6C1;
+  box-shadow: 0 2px 12px 0 rgba(33,230,193,0.10);
+}
+.about-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+.about-title {
+  font-size: 1.2rem;
+  font-family: 'Montserrat', 'Exo 2', sans-serif;
+  color: #21E6C1;
+  font-weight: 700;
+  margin-bottom: 0.2rem;
+}
+.about-dot {
+  color: #fff;
+  font-size: 1.1em;
+  margin: 0 0.4em;
+}
+.about-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.2rem;
+}
+.badge {
+  background: #181F2A;
+  color: #21E6C1;
+  border-radius: 999px;
+  padding: 0.32em 1em;
+  font-size: 0.98rem;
+  font-family: 'Montserrat', 'Exo 2', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  display: inline-block;
+  border: 1.5px solid #21E6C1;
+  box-shadow: 0 1px 4px 0 rgba(33,230,193,0.08);
+  transition: background 0.18s, color 0.18s, border 0.18s;
+}
+.badge-link {
+  background: #21E6C1;
+  color: #10151F;
+  border: none;
+  margin-right: 0.5em;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  font-size: 0.97rem;
+  font-weight: 600;
+  transition: background 0.18s, color 0.18s;
+}
+.badge-link:hover, .badge-link:focus {
+  background: #10151F;
+  color: #21E6C1;
+  border: 1.5px solid #21E6C1;
+  outline: none;
+}
+.about-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.2rem;
+}
+.social-links {
+  display: flex;
+  gap: 0.7rem;
+  margin-top: 0.3rem;
+}
+.social-links a {
+  color: #21E6C1;
+  font-size: 1.35rem;
+  transition: color 0.18s;
+}
+.social-links a:hover, .social-links a:focus {
+  color: #fff;
+}
+@media (max-width: 700px) {
+  .about-card {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.2rem 1rem;
+    gap: 1.2rem;
+  }
+  .about-avatar {
+    width: 90px;
+    height: 90px;
+  }
+}
+
+/* ...existing code... */
+
