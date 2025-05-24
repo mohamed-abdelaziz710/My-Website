@@ -863,35 +863,82 @@ if (ctaBtn) {
   });
 }
 
-// فقاعة الشات
-const chatBubble = document.createElement('div');
-chatBubble.className = 'chat-bubble';
-chatBubble.innerHTML = `<svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" stroke="white" stroke-width="2"/><path d="M8 12h.01M12 12h.01M16 12h.01" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>`;
-document.body.appendChild(chatBubble);
-
-chatBubble.onclick = () => {
-  alert('مرحباً! كيف يمكنني مساعدتك؟');
-};
-
-// تأثير ظهور تدريجي للأقسام والبطاقات عند التمرير
-// (تمت إزالة التكرار: استخدم revealSections المعرفة أعلاه)
-
-// تفاعل زر CTA (Pulse)
-// Remove duplicate declaration of ctaBtn to avoid "Cannot redeclare block-scoped variable" error
-// (Already declared above, so do NOT redeclare here)
-if(ctaBtn){
-  ctaBtn.addEventListener('mouseenter', e => {
-    e.target.classList.add('pulse');
+// Consolidated variables chat bubble and chatbot window functionality
+const chatBubble = document.getElementById('chatBubble');ubble');
+const chatbotWindow = document.getElementById('chatbotWindow');mentById('chatbotWindow');
+const closeChat = document.getElementById('closeChat');
+const chatInput = document.getElementById('chatInput');yId('chatInput');
+const btnGetInTouch = document.getElementById('btn-get-in-touch');
+dow && closeChat && chatInput) {
+// Event listeners() => {
+if (chatBubble) {  chatbotWindow.style.display = 'block';
+  chatBubble.addEventListener('click', () => {  });
+    chatbotWindow.style.display = 'block';
   });
-  ctaBtn.addEventListener('mouseleave', e => {
-    e.target.classList.remove('pulse');
+}    chatbotWindow.style.display = 'none';
+
+if (closeChat) {
+  closeChat.addEventListener('click', () => {
+    chatbotWindow.style.display = 'none';ey === 'Enter' && chatInput.value.trim() !== '') {
+  });nt('div');
+}ge user';
+ userMessage.textContent = chatInput.value;
+if (chatInput) {.appendChild(userMessage);
+  chatInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter' && chatInput.value.trim() !== '') {
+      const userMessage = document.createElement('div'); });
+      userMessage.className = 'message user';}
+      userMessage.textContent = chatInput.value;
+      chatbotWindow.querySelector('.messages').appendChild(userMessage);y
+      chatInput.value = '';mentById('btn-get-in-touch');
+    }
   });
 }
 
-// إنشاء فقاعة شات متحركة (SVG Animated Chatbot Bubble)
+if (btnGetInTouch) {
+  btnGetInTouch.addEventListener('click', () => {
+    document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+  });
+}.className = 'chat-bubble';
+idth="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" stroke="white" stroke-width="2"/><path d="M8 12h.01M12 12h.01M16 12h.01" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>`;
+// إنشاء فقاعة شات متحركة (SVG Animated Chatbot Bubble)atBubble);
 const chatBubble = document.createElement('div');
-chatBubble.className = 'chat-bubble';
-chatBubble.innerHTML = `
+chatBubble.className = 'chat-bubble';atBubble.onclick = () => {
+chatBubble.innerHTML = `;
+  <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">};
+    <circle cx="19" cy="19" r="16" stroke="#21D4FD" stroke-width="3" fill="#9B59B6" />
+    <ellipse cx="19" cy="19" rx="12" ry="7" fill="#39FF14" fill-opacity="0.6">جي للأقسام والبطاقات عند التمرير
+      <animate attributeName="rx" values="12;14;12" dur="1.6s" repeatCount="indefinite" />ctions المعرفة أعلاه)
+      <animate attributeName="fill-opacity" values="0.6;1;0.6" dur="1.6s" repeatCount="indefinite" />
+    </ellipse>// تفاعل زر CTA (Pulse)
+    <text x="50%" y="56%" text-anchor="middle" fill="#fff" font-size="1.2em" dy=".3em" font-family="Inter,Arial">💬</text>e declaration of ctaBtn to avoid "Cannot redeclare block-scoped variable" error
+  </svg>`;)
+chatBubble.title = 'تحدث معي';
+chatBubble.onclick = () => {  ctaBtn.addEventListener('mouseenter', e => {
+  alert('مرحباً! كيف يمكنني مساعدتك؟');
+};
+document.body.appendChild(chatBubble);
+ulse');
+// دعم ظهور تدريجي للفقاعة عند تحميل الصفحة
+setTimeout(() => {
+  chatBubble.classList.add('visible');
+}, 600);ء فقاعة شات متحركة (SVG Animated Chatbot Bubble)
+st chatBubble = document.createElement('div');
+// Parallax effecttBubble.className = 'chat-bubble';
+
+
+
+
+
+
+
+
+
+
+
+
+
+});  }    });      transition: 'cubic-bezier(0,0,0,1)'      delay: .16,      scale: 1.18,    new simpleParallax(images, {  if(images.length && typeof simpleParallax !== 'undefined'){  var images = document.querySelectorAll('.parallax-img');document.addEventListener('DOMContentLoaded', function() {// يعمل على كل عنصر يحمل كلاس parallax-img// تأكد من تحميل simpleParallax.min.js في index.htmlchatBubble.innerHTML = `
   <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
     <circle cx="19" cy="19" r="16" stroke="#21D4FD" stroke-width="3" fill="#9B59B6" />
     <ellipse cx="19" cy="19" rx="12" ry="7" fill="#39FF14" fill-opacity="0.6">
