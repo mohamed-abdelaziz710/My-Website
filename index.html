@@ -23,6 +23,7 @@
       --shadow-color: #21E6C1;
       --font-primary: 'Exo 2', 'Roboto', sans-serif;
       --font-secondary: 'Roboto Mono', monospace;
+    }
 
     /* Reset */
     * {
@@ -453,7 +454,7 @@
     #experience .border-l-4, #education .border-l-4 {
       box-shadow: 0 0 18px #21E6C144;
     }
-    #experience .group:hover .bg-[#181E2A], #education .group:hover .bg-[#181E2A] {
+    #experience .group:hover, #education .group:hover {
       box-shadow: 0 0 36px #39FF14cc, 0 0 24px #21E6C1cc;
       border-color: #39FF14;
     }
@@ -750,36 +751,37 @@
         <h2 class="text-3xl md:text-4xl font-extrabold mb-2 bg-gradient-to-r from-[#21E6C1] via-[#39FF14] to-[#9A16E5] bg-clip-text text-transparent animate-neon-gradient">
           Mohamed Abdelaziz
         </h2>
-        <div class="text-lg md:text-xl font-semibold text-[#21E6C1] mb-2 typing" style="animation:none;">
-      <div class="flex flex-col items-center bg-[#181E2A] rounded-2xl shadow-[0_0_24px_#39FF14aa] border border-[#21E6C1] p-7 transition-transform hover:scale-105 hover:shadow-[0_0_38px_#21E6C1]">
-        <span class="text-4xl mb-3 text-[#21E6C1]"><i class="fas fa-shield-alt"></i></span>
-        <span class="font-semibold text-lg text-[#39FF14] mb-1">Cybersecurity</span>
-        <span class="text-gray-300 text-sm text-center">Penetration Testing, Network Security, SIEM</span>
-      </div>
-      <div class="flex flex-col items-center bg-[#181E2A] rounded-2xl shadow-[0_0_24px_#39FF14aa] border border-[#21E6C1] p-7 transition-transform hover:scale-105 hover:shadow-[0_0_38px_#21E6C1]">
-        <span class="text-4xl mb-3 text-[#21E6C1]"><i class="fas fa-robot"></i></span>
-        <span class="font-semibold text-lg text-[#39FF14] mb-1">AI Development</span>
-        <span class="text-gray-300 text-sm text-center">Python, LLMs, Automation, Prompt Engineering</span>
-      </div>
-      <div class="flex flex-col items-center bg-[#181E2A] rounded-2xl shadow-[0_0_24px_#39FF14aa] border border-[#21E6C1] p-7 transition-transform hover:scale-105 hover:shadow-[0_0_38px_#21E6C1]">
-        <span class="text-4xl mb-3 text-[#21E6C1]"><i class="fas fa-pencil-ruler"></i></span>
-        <span class="font-semibold text-lg text-[#39FF14] mb-1">UI/UX Design</span>
-        <span class="text-gray-300 text-sm text-center">Figma, Prototyping, User Flows</span>
-      </div>
-      <div class="flex flex-col items-center bg-[#181E2A] rounded-2xl shadow-[0_0_24px_#39FF14aa] border border-[#21E6C1] p-7 transition-transform hover:scale-105 hover:shadow-[0_0_38px_#21E6C1]">
-        <span class="text-4xl mb-3 text-[#21E6C1]"><i class="fab fa-react"></i></span>
-        <span class="font-semibold text-lg text-[#39FF14] mb-1">React & Tailwind CSS</span>
-        <span class="text-gray-300 text-sm text-center">Modern Web Apps, Responsive Design</span>
-      </div>
-      <div class="flex flex-col items-center bg-[#181E2A] rounded-2xl shadow-[0_0_24px_#39FF14aa] border border-[#21E6C1] p-7 transition-transform hover:scale-105 hover:shadow-[0_0_38px_#21E6C1]">
-        <span class="text-4xl mb-3 text-[#21E6C1]"><i class="fab fa-python"></i></span>
-        <span class="font-semibold text-lg text-[#39FF14] mb-1">Python & Firebase</span>
-        <span class="text-gray-300 text-sm text-center">APIs, Automation, Cloud Functions</span>
-      </div>
-      <div class="flex flex-col items-center bg-[#181E2A] rounded-2xl shadow-[0_0_24px_#39FF14aa] border border-[#21E6C1] p-7 transition-transform hover:scale-105 hover:shadow-[0_0_38px_#21E6C1]">
-        <span class="text-4xl mb-3 text-[#21E6C1]"><i class="fas fa-language"></i></span>
-        <span class="font-semibold text-lg text-[#39FF14] mb-1">Multilingual</span>
-        <span class="text-gray-300 text-sm text-center">Arabic, English, Localization</span>
+      <div class="text-lg md:text-xl font-semibold text-[#21E6C1] mb-2 typing" style="animation:none;">
+        <div class="flex flex-col items-center bg-[#181E2A] rounded-2xl shadow-[0_0_24px_#39FF14aa] border border-[#21E6C1] p-7 transition-transform hover:scale-105 hover:shadow-[0_0_38px_#21E6C1]">
+          <span class="text-4xl mb-3 text-[#21E6C1]"><i class="fas fa-shield-alt"></i></span>
+          <span class="font-semibold text-lg text-[#39FF14] mb-1">Cybersecurity</span>
+          <span class="text-gray-300 text-sm text-center">Penetration Testing, Network Security, SIEM</span>
+        </div>
+        <div class="flex flex-col items-center bg-[#181E2A] rounded-2xl shadow-[0_0_24px_#39FF14aa] border border-[#21E6C1] p-7 transition-transform hover:scale-105 hover:shadow-[0_0_38px_#21E6C1]">
+          <span class="text-4xl mb-3 text-[#21E6C1]"><i class="fas fa-robot"></i></span>
+          <span class="font-semibold text-lg text-[#39FF14] mb-1">AI Development</span>
+          <span class="text-gray-300 text-sm text-center">Python, LLMs, Automation, Prompt Engineering</span>
+        </div>
+        <div class="flex flex-col items-center bg-[#181E2A] rounded-2xl shadow-[0_0_24px_#39FF14aa] border border-[#21E6C1] p-7 transition-transform hover:scale-105 hover:shadow-[0_0_38px_#21E6C1]">
+          <span class="text-4xl mb-3 text-[#21E6C1]"><i class="fas fa-pencil-ruler"></i></span>
+          <span class="font-semibold text-lg text-[#39FF14] mb-1">UI/UX Design</span>
+          <span class="text-gray-300 text-sm text-center">Figma, Prototyping, User Flows</span>
+        </div>
+        <div class="flex flex-col items-center bg-[#181E2A] rounded-2xl shadow-[0_0_24px_#39FF14aa] border border-[#21E6C1] p-7 transition-transform hover:scale-105 hover:shadow-[0_0_38px_#21E6C1]">
+          <span class="text-4xl mb-3 text-[#21E6C1]"><i class="fab fa-react"></i></span>
+          <span class="font-semibold text-lg text-[#39FF14] mb-1">React & Tailwind CSS</span>
+          <span class="text-gray-300 text-sm text-center">Modern Web Apps, Responsive Design</span>
+        </div>
+        <div class="flex flex-col items-center bg-[#181E2A] rounded-2xl shadow-[0_0_24px_#39FF14aa] border border-[#21E6C1] p-7 transition-transform hover:scale-105 hover:shadow-[0_0_38px_#21E6C1]">
+          <span class="text-4xl mb-3 text-[#21E6C1]"><i class="fab fa-python"></i></span>
+          <span class="font-semibold text-lg text-[#39FF14] mb-1">Python & Firebase</span>
+          <span class="text-gray-300 text-sm text-center">APIs, Automation, Cloud Functions</span>
+        </div>
+        <div class="flex flex-col items-center bg-[#181E2A] rounded-2xl shadow-[0_0_24px_#39FF14aa] border border-[#21E6C1] p-7 transition-transform hover:scale-105 hover:shadow-[0_0_38px_#21E6C1]">
+          <span class="text-4xl mb-3 text-[#21E6C1]"><i class="fas fa-language"></i></span>
+          <span class="font-semibold text-lg text-[#39FF14] mb-1">Multilingual</span>
+          <span class="text-gray-300 text-sm text-center">Arabic, English, Localization</span>
+        </div>
       </div>
     </div>
   </section>
