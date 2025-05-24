@@ -666,6 +666,63 @@
     form.neon-form button {
       transition: background 0.2s, box-shadow 0.2s, color 0.2s;
     }
+
+    /* تحسين تفاعل الـ focus للأزرار وعناصر التفاعل */
+    button,
+    [role="button"],
+    .neon-social,
+    #chatbot-bubble,
+    #chatbot-close,
+    .hero-btn {
+      outline: none;
+      transition: box-shadow 0.2s, border-color 0.2s;
+    }
+    button:focus-visible,
+    [role="button"]:focus-visible,
+    .neon-social:focus-visible,
+    #chatbot-bubble:focus-visible,
+    #chatbot-close:focus-visible,
+    .hero-btn:focus-visible {
+      box-shadow: 0 0 0 3px #39FF14, 0 0 12px #21E6C1;
+      border-color: #39FF14 !important;
+      outline: none;
+      z-index: 10;
+    }
+    /* إضافة تحسين للـ focus على روابط السوشيال */
+    .neon-social:focus-visible {
+      outline: none;
+      border-radius: 50%;
+      background: rgba(57,255,20,0.08);
+    }
+    /* تحسين زر البوت */
+    #chatbot-bubble:focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 4px #39FF14, 0 0 24px #21E6C1;
+      background: linear-gradient(135deg, #39FF14 60%, #21E6C1 100%);
+    }
+    /* تحسين زر الإرسال في نموذج البوت */
+    #chatbot-form button:focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 3px #39FF14, 0 0 16px #21E6C1;
+      border-color: #39FF14;
+      background: linear-gradient(135deg, #39FF14 0%, #21E6C1 100%);
+      color: #0A0F1A;
+    }
+    /* تحسين زر الإغلاق للبوت */
+    #chatbot-close:focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 3px #39FF14, 0 0 16px #21E6C1;
+      border-radius: 50%;
+      background: rgba(57,255,20,0.08);
+    }
+    /* تحسين زر الاتصال الرئيسي */
+    .hero-btn:focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 3px #39FF14, 0 0 16px #21E6C1;
+      border-color: #39FF14;
+      background: linear-gradient(90deg, #39FF14, #21E6C1);
+      color: #0A0F1A;
+    }
   </style>
 </head>
 <body class="bg-gradient-to-br from-[#0A0F1A] to-[#161b26] min-h-screen text-white">
