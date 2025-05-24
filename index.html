@@ -465,6 +465,176 @@
         mb-12: mb-8;
       }
     }
+
+    /* Chatbot styles */
+    #chatbot-bubble {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #21E6C1 60%, #39FF14 100%);
+      border-radius: 50%;
+      box-shadow: 0 0 24px rgba(33, 230, 193, 0.6);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      z-index: 1000;
+      animation: pulse-glow 1.5s infinite alternate;
+    }
+    #chatbot-bubble i {
+      font-size: 2.5rem;
+      color: #fff;
+      text-shadow: 0 0 12px rgba(33, 230, 193, 0.8);
+    }
+    @keyframes pulse-glow {
+      0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 24px rgba(33, 230, 193, 0.6);
+      }
+      50% {
+        transform: scale(1.1);
+        box-shadow: 0 0 36px rgba(33, 230, 193, 0.8);
+      }
+    }
+
+    /* Chatbot window styles */
+    #chatbot-window {
+      position: fixed;
+      bottom: 80px;
+      right: 20px;
+      width: 350px;
+      max-width: 90vw;
+      background: rgba(24, 30, 42, 0.9);
+      backdrop-filter: blur(10px);
+      border: 2px solid var(--primary-accent);
+      border-radius: 12px;
+      box-shadow: 0 4px 24px rgba(33, 230, 193, 0.6);
+      display: none;
+      flex-direction: column;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(10px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    #chatbot-window.open {
+      display: flex;
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+    #chatbot-window header {
+      padding: 0.75rem 1rem;
+      background: linear-gradient(135deg, #21E6C1 0%, #9A16E5 100%);
+      border-top-left-radius: 12px;
+      border-top-right-radius: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    #chatbot-window h2 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #0A0F1A;
+    }
+    #chatbot-close {
+      background: none;
+      border: none;
+      color: #0A0F1A;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    #chatbot-messages {
+      padding: 1rem;
+      flex: 1;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .chatbot-message {
+      max-width: 80%;
+      padding: 0.75rem 1rem;
+      border-radius: 12px;
+      position: relative;
+      overflow: hidden;
+    }
+    .chatbot-message.user {
+      align-self: flex-end;
+      background: #39FF14;
+      color: #0A0F1A;
+    }
+    .chatbot-message.bot {
+      align-self: flex-start;
+      background: #21E6C1;
+      color: #0A0F1A;
+    }
+    .chatbot-message.bot:before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: -8px;
+      width: 0;
+      height: 0;
+      border-top: 8px solid transparent;
+      border-right: 8px solid #21E6C1;
+      border-bottom: 8px solid transparent;
+      transform: translateY(-50%);
+    }
+    .chatbot-message.user:after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: -8px;
+      width: 0;
+      height: 0;
+      border-top: 8px solid transparent;
+      border-left: 8px solid #39FF14;
+      border-bottom: 8px solid transparent;
+      transform: translateY(-50%);
+    }
+    #chatbot-form {
+      display: flex;
+      padding: 0.5rem 1rem;
+      border-top: 1px solid #21E6C1;
+      background: #10151F;
+    }
+    #chatbot-input {
+      flex: 1;
+      padding: 0.5rem 1rem;
+      border: 1px solid #21E6C1;
+      border-radius: 24px;
+      background: transparent;
+      color: #fff;
+      transition: border-color 0.3s;
+    }
+    #chatbot-input:focus {
+      outline: none;
+      border-color: #39FF14;
+    }
+    #chatbot-form button {
+      margin-left: 0.5rem;
+      padding: 0.5rem 1rem;
+      border-radius: 24px;
+      background: linear-gradient(135deg, #21E6C1 0%, #39FF14 100%);
+      color: #0A0F1A;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    #chatbot-form button:hover {
+      transform: translateY(-2px);
+    }
+    @media (max-width: 500px) {
+      #chatbot-window {
+        right: 2vw;
+        left: 2vw;
+        width: 96vw;
+        min-width: 0;
+        max-width: 98vw;
+      }
+    }
   </style>
 </head>
 <body class="bg-gradient-to-br from-[#0A0F1A] to-[#161b26] min-h-screen text-white">
@@ -791,10 +961,54 @@
   </div>
 </section>
 
-  <!-- Chat Bubble -->
-  <div class="chat-bubble" title="Chat with me">
-    <i class="fas fa-robot"></i>
+  <!-- Chatbot Bubble -->
+  <div id="chatbot-bubble" class="fixed bottom-6 right-6 z-50 flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-[#21E6C1] to-[#39FF14] shadow-[0_0_32px_#21E6C1cc] animate-pulse-glow cursor-pointer transition-transform duration-200 hover:scale-110">
+    <i class="fas fa-robot text-3xl text-white drop-shadow-[0_0_12px_#21E6C1]"></i>
   </div>
+
+  <!-- Chatbot Window -->
+  <div id="chatbot-window" class="fixed bottom-28 right-6 z-50 w-[350px] max-w-[95vw] bg-[#181E2A]/90 backdrop-blur-md border-2 border-[#21E6C1] rounded-2xl shadow-[0_0_48px_#21E6C1bb] flex flex-col transition-all duration-300 opacity-0 pointer-events-none scale-95">
+    <div class="flex items-center justify-between px-5 py-3 border-b border-[#21E6C1]/40 bg-gradient-to-r from-[#181E2A] to-[#10151F] rounded-t-2xl">
+      <span class="font-bold text-[#21E6C1] tracking-wide">AI Chatbot</span>
+      <button id="chatbot-close" class="text-[#21E6C1] text-2xl font-bold hover:text-[#39FF14] focus:outline-none" aria-label="Close chat">&times;</button>
+    </div>
+    <div id="chatbot-messages" class="flex-1 px-5 py-4 overflow-y-auto text-sm text-gray-200 space-y-3" style="max-height:300px;">
+      <div class="text-[#21E6C1]">🤖 Hi! How can I help you today?</div>
+    </div>
+    <form id="chatbot-form" class="flex items-center gap-2 px-5 py-3 border-t border-[#21E6C1]/40 bg-[#10151F] rounded-b-2xl">
+      <input id="chatbot-input" type="text" autocomplete="off" placeholder="Type your message..." class="flex-1 bg-transparent border border-[#21E6C1]/40 rounded-full px-4 py-2 text-white placeholder-gray-400 focus:outline-none focus:border-[#21E6C1]" />
+      <button type="submit" class="px-4 py-2 rounded-full bg-gradient-to-r from-[#21E6C1] to-[#39FF14] text-[#0A0F1A] font-bold shadow-[0_0_12px_#21E6C1] hover:from-[#0A0F1A] hover:to-[#39FF14] hover:text-[#39FF14] transition-all duration-200">
+        <i class="fas fa-paper-plane"></i>
+      </button>
+    </form>
+  </div>
+
+  <style>
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 0 32px #21E6C144, 0 0 0 #39FF1400; }
+      50% { box-shadow: 0 0 48px #39FF14cc, 0 0 24px #21E6C1aa; }
+    }
+    .animate-pulse-glow {
+      animation: pulse-glow 1.6s infinite alternate;
+    }
+    #chatbot-window {
+      /* Already styled for glassmorphism and neon borders */
+    }
+    #chatbot-window.open {
+      opacity: 1 !important;
+      pointer-events: auto !important;
+      scale: 1 !important;
+    }
+    @media (max-width: 500px) {
+      #chatbot-window {
+        right: 2vw;
+        left: 2vw;
+        width: 96vw;
+        min-width: 0;
+        max-width: 98vw;
+      }
+    }
+  </style>
 
   <script>
     // Typing animation for subtitle
@@ -936,7 +1150,22 @@
         }
       }
     });
-  </script>
 
-</body>
-</html>
+    // Chatbot open/close logic
+    const bubble = document.getElementById('chatbot-bubble');
+    const windowEl = document.getElementById('chatbot-window');
+    const closeBtn = document.getElementById('chatbot-close');
+    const form = document.getElementById('chatbot-form');
+    const input = document.getElementById('chatbot-input');
+    const messages = document.getElementById('chatbot-messages');
+
+    function openChatbot() {
+      windowEl.classList.add('open');
+      bubble.style.display = 'none';
+      setTimeout(() => { input.focus(); }, 300);
+    }
+    function closeChatbot() {
+      windowEl.classList.remove('open');
+      bubble.style.display = 'flex';
+    }
+    bubble.addEventListener('click
