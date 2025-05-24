@@ -1600,41 +1600,59 @@ footer.site-footer {
   background: var(--color-neon);
   color: var(--color-black);
   border: none;
-  padding: 0.75rem 1.5rem;
-  border-radius: 4px;
+  padding: 0.75rem 2rem;
+  border-radius: 10px;
+  font-family: var(--font-primary);
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: 0.03em;
+  box-shadow: 0 0 0 0 var(--color-neon), 0 2px 16px 0 rgba(33,230,193,0.18);
   cursor: pointer;
-  transition: background 0.2s, color 0.2s;
+  transition: background 0.25s, color 0.25s, box-shadow 0.25s, transform 0.18s;
+  outline: none;
 }
-.btn-primary:hover {
+.btn-primary:hover, .btn-primary:focus {
   background: var(--color-black);
   color: var(--color-neon);
+  box-shadow: 0 0 8px 2px var(--color-neon), 0 2px 24px 0 rgba(33,230,193,0.28);
+  transform: translateY(-2px) scale(1.03);
 }
 .btn-primary:focus {
-  outline: 2px solid var(--color-white);
+  outline: 2.5px solid var(--color-neon);
   outline-offset: 2px;
 }
 .btn-primary:disabled {
   background: var(--color-gray);
   color: #ddd;
   cursor: not-allowed;
+  box-shadow: none;
 }
 
 /* Secondary Button: white background, neon border, black text */
 .btn-secondary {
   background: var(--color-white);
   color: var(--color-black);
-  border: 2px solid var(--color-neon);
-  padding: 0.75rem 1.5rem;
-  border-radius: 4px;
+  border: 2.5px solid var(--color-neon);
+  padding: 0.75rem 2rem;
+  border-radius: 10px;
+  font-family: var(--font-primary);
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: 0.03em;
+  box-shadow: 0 0 0 0 var(--color-neon), 0 2px 16px 0 rgba(33,230,193,0.10);
   cursor: pointer;
-  transition: background 0.2s, color 0.2s;
+  transition: background 0.25s, color 0.25s, box-shadow 0.25s, border-color 0.25s, transform 0.18s;
+  outline: none;
 }
-.btn-secondary:hover {
+.btn-secondary:hover, .btn-secondary:focus {
   background: var(--color-neon);
   color: var(--color-black);
+  box-shadow: 0 0 8px 2px var(--color-neon), 0 2px 24px 0 rgba(33,230,193,0.22);
+  border-color: var(--color-neon);
+  transform: translateY(-2px) scale(1.03);
 }
 .btn-secondary:focus {
-  outline: 2px solid var(--color-white);
+  outline: 2.5px solid var(--color-neon);
   outline-offset: 2px;
 }
 .btn-secondary:disabled {
@@ -1642,20 +1660,28 @@ footer.site-footer {
   color: #aaa;
   border-color: #ccc;
   cursor: not-allowed;
+  box-shadow: none;
 }
 
 /* Link Button: text only, underline on hover */
 .btn-link {
   background: none;
-  color: var(--color-black);
+  color: var(--color-neon);
   border: none;
-  padding: 0;
+  padding: 0.25rem 0.5rem;
   font: inherit;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
   cursor: pointer;
   text-decoration: underline;
+  border-radius: 6px;
+  transition: color 0.2s, background 0.2s, box-shadow 0.2s;
 }
-.btn-link:hover {
-  color: var(--color-neon);
+.btn-link:hover, .btn-link:focus {
+  color: var(--color-black);
+  background: var(--color-neon);
+  box-shadow: 0 0 6px 1.5px var(--color-neon);
 }
 .btn-link:focus {
   outline: 2px dotted var(--color-neon);
@@ -1930,6 +1956,4 @@ label {
     padding: 1rem 0.7rem 1rem 2rem;
   }
 }
-
-/* ...existing code... */
 
