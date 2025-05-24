@@ -73,9 +73,6 @@ function initHeroEffects() {
       heroVisual.style.transition = "transform 0.5s ease-in-out"; // Slower return transition
     });
   }
-
-  // Optional: Add JS-driven typing/glitch effect if CSS isn't sufficient
-  // (Current implementation uses CSS for typing effect)
 }
 
 // 3. Enhanced Hover Effects (Example: Card Tilt)
@@ -759,3 +756,11 @@ function initHeroVisualEffects() {
 
       heroVisual.style.transform = `perspective(1000px) rotateY(${rotateY}deg) rotateX(${rotateX}deg) scale(1.05)`; // Combine with existing hover scale
       heroVisual.style.transition = "transform 0.1s ease-out"; // Faster transition for hover effect
+    });
+
+    heroSection.addEventListener("mouseleave", () => {
+      heroVisual.style.transform = "perspective(1000px) rotateY(0deg) rotateX(0deg) scale(1)";
+      heroVisual.style.transition = "transform 0.5s ease-in-out";
+    });
+  }
+}
