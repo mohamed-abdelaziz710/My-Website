@@ -59,7 +59,7 @@
 - Currently writing a book titled "CodeX"
 - Participant in the Global Career Program with OpenAI, L'Oréal, charity: water, Intel, and Google
 
-### Education
+## Education
 
 - Graduated 2017, El Shaheen High School, Kuwait City
 - Graduated 2021, Chattahoochee Technical College, Marietta, GA, USA
