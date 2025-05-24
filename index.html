@@ -3,113 +3,64 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>بورتفوليو محمد عبدالعزيز</title>
+  <title>بورتفوليو محمد عبدالعزيز | Smart VIP Card</title>
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <!-- خلفية تفاعلية Particles -->
   <div id="particles-js"></div>
 
-  <!-- شريط التنقل -->
-  <nav id="navbar">
-    <ul>
-      <li><a href="#hero">الرئيسية</a></li>
-      <li><a href="#about">من أنا</a></li>
-      <li><a href="#projects">المشاريع</a></li>
-      <li><a href="#blog">المدونة</a></li>
-      <li><a href="#contact">تواصل معي</a></li>
-    </ul>
-  </nav>
-
-  <!-- قسم الترحيب (Hero) -->
-  <section id="hero" class="hero-section scroll-animate">
-    <div id="hero-animation">
-      <lottie-player
-        src="assets/quantum-animation.json"
-        background="transparent"
-        speed="1"
-        style="width: 200px; height: 200px; margin: auto;"
-        loop autoplay>
-      </lottie-player>
-    </div>
-    <img src="assets/hero-img.png" class="parallax-img" alt="Hero Visual" style="max-width:220px; margin: auto; display:block;"/>
-    <h1 data-translate="hero-title">مرحبًا بك في بورتفوليو محمد عبدالعزيز</h1>
-    <p data-translate="hero-description">مهندس أمن سيبراني ومطور أدوات ذكاء اصطناعي.</p>
-    <button id="btn-get-in-touch">تواصل الآن</button>
-  </section>
-
-  <!-- قسم من أنا -->
-  <section id="about" class="about-section glass scroll-animate">
-    <h2 data-translate="nav-about">من أنا</h2>
-    <img src="assets/images/profile.jpg" alt="صورة شخصية" class="about-profile-img" />
-    <p>أنا محمد عبدالعزيز، مهندس أمن سيبراني ومطور أدوات الذكاء الاصطناعي بخبرة واسعة في تصميم واجهات وتجارب المستخدم.</p>
-  </section>
-
-  <!-- قسم المشاريع -->
-  <section id="projects" class="projects-section scroll-animate">
-    <h2 data-translate="projects-title">المشاريع</h2>
-    <div class="projects-container">
-      <div class="project-card glass ripple-hover">
-        <h3 class="glitch">AI Automation Suite</h3>
-        <p>منصة أتمتة تعتمد على الذكاء الاصطناعي لتحسين العمليات.</p>
+  <!-- البطاقة الذكية -->
+  <div class="smart-card glass scroll-animate">
+    <!-- الهيدر: الاسم والأنيميشن -->
+    <div class="card-header">
+      <div class="hero-visual">
+        <lottie-player
+          src="assets/quantum-animation.json"
+          background="transparent"
+          speed="1"
+          class="lottie"
+          loop autoplay>
+        </lottie-player>
       </div>
-      <div class="project-card glass ripple-hover">
-        <h3 class="glitch">Secure Network Framework</h3>
-        <p>إطار عمل لتأمين الشبكات وحماية البيانات.</p>
-      </div>
-      <div class="project-card glass ripple-hover">
-        <h3 class="glitch">Quantum Data Explorer</h3>
-        <p>أداة استكشاف البيانات بالمفاهيم الكمية.</p>
-      </div>
+      <h1>محمد عبدالعزيز</h1>
+      <p>مهندس أمن سيبراني ومطور AI</p>
+      <button id="btn-get-in-touch" class="primary-btn">تواصل معي</button>
     </div>
-  </section>
 
-  <!-- قسم المدونة -->
-  <section id="blog" class="blog-section glass scroll-animate">
-    <h2>مدونتي</h2>
-    <div class="blog-container">
-      <article class="blog-card glass">
-        <h3>عنوان المقال الأول</h3>
-        <p>مقدمة قصيرة عن المقال والتقنيات المستقبلية.</p>
-        <a href="#" class="read-more">اقرأ المزيد</a>
-      </article>
-      <article class="blog-card glass">
-        <h3>عنوان المقال الثاني</h3>
-        <p>مقدمة قصيرة عن الأمن السيبراني والتشفير الكمي.</p>
-        <a href="#" class="read-more">اقرأ المزيد</a>
-      </article>
+    <!-- تبويبات محتوى البطاقة -->
+    <div class="card-tabs">
+      <button class="tab-btn active" data-tab="about">من أنا</button>
+      <button class="tab-btn" data-tab="projects">المشاريع</button>
+      <button class="tab-btn" data-tab="contact">تواصل</button>
     </div>
-  </section>
 
-  <!-- قسم تواصل معي -->
-  <section id="contact" class="contact-section glass scroll-animate">
-    <h2 data-translate="contact-title">تواصل معي</h2>
-    <form id="contact-form">
-      <input type="text" id="name" name="name" placeholder="اسمك" required>
-      <input type="email" id="email" name="email" placeholder="بريدك الإلكتروني" required>
-      <textarea id="message" name="message" placeholder="رسالتك" rows="4" required></textarea>
-      <button type="submit" id="send-btn">إرسال</button>
-    </form>
-  </section>
-
-  <!-- Chatbot -->
-  <div id="chatBubble" class="chat-bubble"></div>
-  <div id="chatbotWindow" class="chatbot-window" aria-hidden="true">
-    <header>
-      <span data-translate="chat-header">🤖 شات الذكاء الاصطناعي</span>
-      <button id="closeChat">✕</button>
-    </header>
-    <div id="chatMessages" class="messages">
-      <div class="message bot-message">مرحباً! كيف أقدر أساعدك اليوم؟</div>
+    <!-- محتوى التبويبات -->
+    <div class="tab-content active" id="about">
+      <img src="assets/images/profile.jpg" alt="محمد عبدالعزيز" class="about-img">
+      <p>أدمج بين الأمان والابتكار لبناء مستقبل رقمي آمن بواسطة الذكاء الاصطناعي.</p>
     </div>
-    <input type="text" id="chatInput" placeholder="اكتب رسالتك..." autocomplete="off">
-    <button id="sendMessage">إرسال</button>
+    <div class="tab-content" id="projects">
+      <ul class="projects-list">
+        <li>AI Automation Suite</li>
+        <li>Secure Network Framework</li>
+        <li>Quantum Data Explorer</li>
+      </ul>
+    </div>
+    <div class="tab-content" id="contact">
+      <form id="contact-form" class="form-glass">
+        <input type="text" name="name" placeholder="اسمك" required>
+        <input type="email" name="email" placeholder="بريدك الإلكتروني" required>
+        <textarea name="message" rows="3" placeholder="رسالتك" required></textarea>
+        <button type="submit" class="primary-btn small">إرسال</button>
+      </form>
+    </div>
   </div>
 
-  <!-- Scripts -->
+  <!-- سكريبتات -->
   <script src="assets/particles.min.js"></script>
   <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/simple-parallax-js@5.6.2/dist/simpleParallax.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
