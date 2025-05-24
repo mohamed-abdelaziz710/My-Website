@@ -1,4 +1,61 @@
-# Mohamed Abdelaziz – Personal Portfolio Website
+# Mohamed H Abdelaziz – 3D Spaceship Portfolio
+
+🚀 **A futuristic personal website for Mohamed H Abdelaziz: Cybersecurity Engineer & AI Innovator.**
+
+## Features
+
+- 3D-inspired hero section with neon highlights and interactive canvas orb
+- Modern About Card with personal info, professional badges, and social links
+- Smart animated chatbot bubble (ready to connect to your backend)
+- Fully responsive and accessible (mobile-first)
+- Custom font family: Space Grotesk, Inter, IBM Plex Sans
+- All info & links dynamically update-friendly
+- Clean, documented code – easy to extend
+
+## Quick Start
+
+1. **Clone the repo:**
+
+
+   ```bash
+   git clone https://github.com/YOUR_USERNAME/your-portfolio-repo.git
+   ```
+
+
+2. **Add your assets:**
+
+   - `profile.jpg` (in root or `/assets`)
+   - Update favicon/logo as needed (`assets/icons/logo-full.svg`)
+
+3. **Edit personal info:**
+
+   - All main info is in the `<main>` and `<section>` elements in `index.html`
+   - Social/profile/contact links are easy to customize
+
+4. **Preview locally:**
+
+   - Open `index.html` in your browser
+   - Or use Live Server with VS Code
+
+5. **Connect chatbot:**
+
+   - The chatbot bubble is UI-only; connect to your backend in `script.js` as needed
+
+## Tech Stack
+
+- HTML5, CSS3 (No frameworks)
+- Google Fonts: Space Grotesk, Inter, IBM Plex Sans
+- JavaScript (for canvas, chat, animation)
+- Mobile-first responsive
+
+## Contact
+
+- [LinkedIn](https://www.linkedin.com/in/amrikyy)
+- [GitHub](https://github.com/mohamed-abdelaziz710)
+- [Instagram](https://www.instagram.com/amrikyy?igsh=bzhlOHRycTN4bDAz&utm_source=qr)
+- [Email](mailto:amrikyy@email.com)
+
+---
 
 ## Info
 

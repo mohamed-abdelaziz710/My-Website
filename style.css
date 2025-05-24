@@ -42,7 +42,7 @@ body, html {
   font-size: 1rem;
   letter-spacing: 0.01em;
   color: var(--text-color);
-  background-color: var(--dark-bg);
+  background: linear-gradient(115deg, #0a0f1a 85%, #161b26 100%);
 }
 
 .container {
@@ -1976,5 +1976,80 @@ label {
 .icon-3d:hover {
   transform: scale(1.12) rotateY(12deg);
   text-shadow: 0 0 24px #21E6C1, 0 0 32px #9A16E5;
+}
+
+/* --- Custom Styles Overrides --- */
+body {
+  background: linear-gradient(115deg, #0a0f1a 85%, #161b26 100%);
+  font-family: 'Space Grotesk', 'Inter', 'IBM Plex Sans', Arial, sans-serif;
+  color: #fff;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+.main-hero {
+  position: relative;
+  min-height: 95vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 7vw 3vw 3vw 3vw;
+  overflow: hidden;
+}
+
+.hero3d-title {
+  color: #21e6c1;
+  font-size: 2.7em;
+  letter-spacing: 0.13em;
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
+  text-shadow: 0 0 22px #21e6c1cc, 0 2px 12px #181e2a;
+  margin-bottom: 8px;
+  background: linear-gradient(90deg, #21e6c1, #9a16e5 60%, #21e6c1 90%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: neon-text 1.5s infinite alternate;
+}
+@keyframes neon-text {
+  from { filter: drop-shadow(0 0 18px #21e6c1); }
+  to   { filter: drop-shadow(0 0 30px #9a16e5); }
+}
+
+.badge, .main-btn, .about-link {
+  border: none;
+  outline: none;
+  box-shadow: 0 2px 20px #21e6c1bb, 0 0 0 2.5px #21e6c1;
+  background: rgba(22,30,42,0.78);
+  transition: background 0.2s, box-shadow 0.22s;
+}
+
+.badge:hover, .main-btn:hover, .about-link:hover {
+  background: linear-gradient(90deg, #21e6c1 0%, #9a16e5 100%);
+  color: #0a0f1a;
+  box-shadow: 0 4px 30px #9a16e5bb, 0 0 0 5px #21e6c1;
+}
+
+.hero-orbits {
+  pointer-events: none;
+  position: absolute;
+  left: 50%; top: 80px; width: 90vw; max-width: 410px;
+  z-index: 0;
+  filter: blur(0.6px) brightness(1.25);
+  opacity: 0.90;
+  animation: orbits-spin 40s linear infinite;
+}
+@keyframes orbits-spin { 
+  0% { transform: translateX(-50%) rotate(0deg);}
+  100% { transform: translateX(-50%) rotate(360deg);}
+}
+
+.about-card, .card, .project-card {
+  border: 1.7px solid #21e6c1aa;
+  border-radius: 22px;
+  box-shadow: 0 8px 32px #21e6c133;
+  background: linear-gradient(120deg, #181e2a 80%, #21e6c130 100%);
+  position: relative;
+  overflow: hidden;
 }
 
