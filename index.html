@@ -1,222 +1,211 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mohamed Abdelaziz | Spaceship 3D Portfolio</title>
-  <!-- Fonts: Space Grotesk (headline), Inter & IBM Plex Sans (body) -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=IBM+Plex+Sans:wght@400;600&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-  <link rel="stylesheet" href="style.css">
-  <!-- Favicon and App Icons -->
-  <link rel="icon" type="image/svg+xml" href="assets/icons/logo-full.svg">
-  <link rel="shortcut icon" href="assets/icons/logo-full.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="assets/icons/logo-full.svg">
-  <meta property="og:image" content="assets/icons/logo-full.svg">
-  <meta name="theme-color" content="#21E6C1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mohamed H. Abdelaziz | Portfolio</title>
+  <!-- أيقونات FontAwesome -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <!-- خطوط Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-accent: #21E6C1;
+      --secondary-accent: #9A16E5;
+      --bg-dark: #10151F;
+      --bg-darker: #0A0F1A;
+      --white: #fff;
+    }
+    body {
+      background: linear-gradient(115deg, var(--bg-darker) 80%, #181e2a 100%);
+      font-family: 'Inter', Arial, sans-serif;
+      color: var(--white);
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+    }
+    header {
+      text-align: center;
+      padding: 2rem 1rem 1.5rem 1rem;
+      background: var(--bg-darker);
+    }
+    header h1 {
+      font-family: 'Space Grotesk', Arial, sans-serif;
+      font-size: 2.5rem;
+      color: var(--primary-accent);
+      letter-spacing: 0.08em;
+      margin: 0 0 0.5rem 0;
+      text-shadow: 0 0 10px #21E6C180;
+    }
+    header p {
+      font-size: 1.17rem;
+      color: var(--secondary-accent);
+      margin-bottom: 0.2rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+    }
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+      padding: 2rem 1rem;
+      margin: 0 auto;
+      max-width: 1200px;
+    }
+    .card {
+      background: linear-gradient(135deg, var(--bg-dark) 85%, #21e6c110 100%);
+      border-radius: 1.2rem;
+      box-shadow: 0 6px 32px #21e6c133;
+      padding: 1.6rem 1.4rem 1.3rem 1.4rem;
+      max-width: 320px;
+      flex: 1 1 300px;
+      min-width: 270px;
+      border: 1.5px solid #21E6C188;
+      position: relative;
+      transition: transform 0.32s, box-shadow 0.32s;
+    }
+    .card:hover {
+      transform: translateY(-8px) scale(1.025);
+      box-shadow: 0 16px 36px #21E6C155, 0 0 12px #9a16e540;
+      border-color: var(--secondary-accent);
+    }
+    .profile-img {
+      width: 94px;
+      height: 94px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3.5px solid var(--primary-accent);
+      box-shadow: 0 0 20px #21E6C188;
+      display: block;
+      margin: 0 auto 1.2rem auto;
+      background: #161b26;
+    }
+    .card h2 {
+      font-family: 'Space Grotesk', Arial, sans-serif;
+      text-align: center;
+      margin-bottom: 1rem;
+      color: var(--primary-accent);
+      font-size: 1.35rem;
+      letter-spacing: 0.04em;
+    }
+    .card ul {
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 0;
+    }
+    .card ul li {
+      margin-bottom: 0.6rem;
+      display: flex;
+      align-items: center;
+      font-size: 1rem;
+      font-weight: 500;
+      color: #e0e0e0;
+    }
+    .card ul li i {
+      margin-right: 0.5rem;
+      color: var(--secondary-accent);
+      font-size: 1.14em;
+    }
+    .card a {
+      color: var(--primary-accent);
+      text-decoration: none;
+      transition: color 0.19s;
+      font-weight: 600;
+    }
+    .card a:hover {
+      color: var(--secondary-accent);
+      text-decoration: underline;
+    }
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 0.9rem;
+      margin-top: 1.1rem;
+    }
+    .social-links a {
+      color: var(--primary-accent);
+      font-size: 1.45rem;
+      background: #212837;
+      border-radius: 50%;
+      padding: 0.5em;
+      box-shadow: 0 1px 7px #21e6c130;
+      transition: color 0.2s, background 0.2s, transform 0.17s;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .social-links a:hover {
+      color: var(--white);
+      background: var(--secondary-accent);
+      transform: scale(1.15) rotate(-8deg);
+    }
+    @media (max-width: 900px) {
+      .cards { flex-direction: column; align-items: center; gap: 1.3rem; }
+      .card { max-width: 97vw; }
+    }
+    footer {
+      text-align: center;
+      padding: 1.25rem;
+      background: var(--bg-dark);
+      color: #b0b0b0;
+      font-size: 1.02rem;
+      letter-spacing: 0.02em;
+      margin-top: 2.5rem;
+      border-top: 1.5px solid #21e6c133;
+    }
+  </style>
 </head>
 <body>
-  <div id="particles-js"></div>
-    <!-- Header Section with Navigation and Social Media Icons -->
-    <header>
-      <div class="header-top-bar">
-        <div class="header-social-icons">
-          <a href="https://www.linkedin.com/in/amrikyy" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="header-social-link"><i class="fa-brands fa-linkedin-in"></i></a>
-          <a href="https://github.com/mohamed-abdelaziz710" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="header-social-link"><i class="fa-brands fa-github"></i></a>
-          <a href="https://web.facebook.com/Hamood.Amriky0/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="header-social-link"><i class="fa-brands fa-facebook-f"></i></a>
-          <a href="https://www.instagram.com/amrikyy?igsh=bzhlOHRycTN4bDAz&utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="header-social-link"><i class="fa-brands fa-instagram"></i></a>
-          <a href="https://www.tiktok.com/@moecrypto710?_t=ZT-8wbeZ0H9A1z&_r=1" target="_blank" rel="noopener noreferrer" aria-label="TikTok" class="header-social-link"><i class="fa-brands fa-tiktok"></i></a>
-          <a href="https://snapchat.com/t/M9sQbCZu" target="_blank" rel="noopener noreferrer" aria-label="Snapchat" class="header-social-link"><i class="fa-brands fa-snapchat-ghost"></i></a>
-        </div>
-      </div>
-      <nav>
-        <div class="logo neon-glow">Mohamed Abdelaziz</div>
-        <ul class="nav-links hud-nav">
-          <li><a href="#about" data-translate="nav-about">About</a></li>
-          <li><a href="#skills" data-translate="nav-skills">Skills</a></li>
-          <li><a href="#projects" data-translate="nav-projects">Projects</a></li>
-          <li><a href="#contact" data-translate="nav-contact">Contact</a></li>
-        </ul>
-      </nav>
-    </header>
+  <header>
+    <h1>Mohamed H. Abdelaziz</h1>
+    <p>Cybersecurity Engineer | AI Innovator</p>
+  </header>
 
-  <!-- Main Hero Section (Spaceship 3D) -->
-  <section class="main-hero hero-section scroll-animate">
-    <div class="hero-orbits">
-      <!-- SVG or Canvas for 3D orbital effect (optional, can be added later) -->
+  <section class="cards">
+    <!-- بطاقة الملف الشخصي -->
+    <div class="card">
+      <img src="profile.jpg" alt="Profile Picture" class="profile-img"/>
+      <h2>About Me</h2>
+      <p style="text-align:center;font-size:1.04em;">
+        Egyptian-American, based in Cairo.<br>
+        KSU'26 • Certified Cybersecurity Engineer • AI Tools Builder.<br>
+        Member of <b>BlackRock Talent Community</b>, OpenAI, L'Oréal, Intel & charity: water global programs.
+      </p>
     </div>
-    <div class="hero-canvas-wrap">
-      <img src="profile.jpg" alt="Mohamed Abdelaziz avatar" class="about-avatar hero-avatar-glow" style="margin-bottom: 12px;">
-      <h1 class="hero3d-title animated-name">Mohamed Abdelaziz</h1>
-      <div class="hero3d-sub hud-label">Cybersecurity Engineer <span class="about-dot">•</span> AI Innovator</div>
-      <div class="badges-bar">
-        <span class="badge badge-glow"><i class="fa-solid fa-location-dot"></i> Cairo, Egypt</span>
-        <span class="badge badge-glow"><i class="fa-solid fa-flag"></i> Egyptian-American</span>
-        <span class="badge badge-glow"><i class="fa-solid fa-language"></i> Arabic / English</span>
-        <span class="badge badge-glow"><i class="fa-brands fa-github"></i> GitHub Dev Program</span>
-      </div>
-      <a href="#contact" class="main-btn btn-3d">Contact Me</a>
-    </div>
-  </section>
 
-  <!-- About Card Section (3D Card) -->
-  <section id="about" class="scroll-animate">
-    <div class="about-card hud-panel">
-      <img src="profile.jpg" alt="Profile photo of Mohamed Abdelaziz" class="about-avatar">
-      <div class="about-info">
-        <h2 class="animated-name">Mohamed H Abdelaziz</h2>
-        <div class="about-role hud-label">Cybersecurity Engineer & AI Innovator</div>
-        <div class="about-bio">Passionate about building secure, intelligent systems. Experienced in cybersecurity, AI, and web development. Always exploring new tech frontiers and sharing knowledge.</div>
-        <div class="about-links">
-          <a href="mailto:amrikyy@email.com" class="about-link"><i class="fa-solid fa-envelope"></i> Email</a>
-          <a href="tel:+201094228044" class="about-link"><i class="fa-solid fa-phone"></i> +20-109-422-8044</a>
-          <a href="https://wa.me/17706160211" class="about-link" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
-        </div>
+    <!-- بطاقة المهارات -->
+    <div class="card">
+      <h2>Skills</h2>
+      <ul>
+        <li><i class="fas fa-code"></i> HTML, CSS, JavaScript, React, Angular</li>
+        <li><i class="fas fa-paint-brush"></i> UI/UX, Figma, Sketch</li>
+        <li><i class="fas fa-brain"></i> AI Agents, Prompt Engineering</li>
+        <li><i class="fas fa-shield-alt"></i> Cybersecurity, Cisco Certified</li>
+        <li><i class="fas fa-cloud"></i> Azure, Firebase, Google Drive</li>
+        <li><i class="fas fa-plane"></i> Amadeus Selling Platform</li>
+      </ul>
+    </div>
+
+    <!-- بطاقة التواصل الاجتماعي والمعلومات -->
+    <div class="card">
+      <h2>Contact & Social</h2>
+      <ul>
+        <li><i class="fas fa-envelope"></i> <a href="mailto:amrikyy@email.com">amrikyy@email.com</a></li>
+        <li><i class="fas fa-phone"></i> +20-109-422-8044</li>
+        <li><i class="fab fa-whatsapp"></i> +1-770-616-0211</li>
+      </ul>
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/amrikyy" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/mohamed-abdelaziz710" title="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://web.facebook.com/Hamood.Amriky0/" title="Facebook"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.instagram.com/amrikyy" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@moecrypto710" title="TikTok"><i class="fab fa-tiktok"></i></a>
+        <a href="https://snapchat.com/t/M9sQbCZu" title="Snapchat"><i class="fab fa-snapchat"></i></a>
       </div>
     </div>
   </section>
 
-  <!-- Skills Section -->
-  <section id="skills" class="scroll-animate">
-    <div class="card-grid">
-      <div class="card skill-card hud-panel">
-        <h3>Web Development</h3>
-        <div class="badges-grid">
-          <span class="badge badge-glow"><i class="fa-brands fa-html5 icon-3d"></i> HTML</span>
-          <span class="badge badge-glow"><i class="fa-brands fa-css3-alt icon-3d"></i> CSS</span>
-          <span class="badge badge-glow"><i class="fa-brands fa-react icon-3d"></i> React</span>
-          <span class="badge badge-glow"><i class="fa-brands fa-angular icon-3d"></i> Angular</span>
-          <span class="badge badge-glow"><i class="fa-solid fa-database icon-3d"></i> Firebase</span>
-        </div>
-      </div>
-      <div class="card skill-card hud-panel">
-        <h3>Web Design</h3>
-        <div class="badges-grid">
-          <span class="badge badge-glow"><i class="fa-brands fa-sketch icon-3d"></i> Sketch</span>
-          <span class="badge badge-glow"><i class="fa-brands fa-figma icon-3d"></i> Figma</span>
-          <span class="badge badge-glow"><i class="fa-solid fa-mobile-screen icon-3d"></i> Responsive Design</span>
-          <span class="badge badge-glow"><i class="fa-solid fa-universal-access icon-3d"></i> Accessibility</span>
-        </div>
-      </div>
-      <div class="card skill-card hud-panel">
-        <h3>AI & Productivity</h3>
-        <div class="badges-grid">
-          <span class="badge badge-glow"><i class="fa-brands fa-robot icon-3d"></i> chatGPT</span>
-          <span class="badge badge-glow"><i class="fa-solid fa-brain icon-3d"></i> Build AI agents</span>
-          <span class="badge badge-glow"><i class="fa-brands fa-google-drive icon-3d"></i> Google Drive</span>
-          <span class="badge badge-glow"><i class="fa-solid fa-lightbulb icon-3d"></i> Brainstorming</span>
-        </div>
-      </div>
-      <div class="card skill-card hud-panel">
-        <h3>Programming & Cloud</h3>
-        <div class="badges-grid">
-          <span class="badge badge-glow"><i class="fa-brands fa-python icon-3d"></i> Python</span>
-          <span class="badge badge-glow"><i class="fa-brands fa-microsoft icon-3d"></i> Azure</span>
-          <span class="badge badge-glow"><i class="fa-solid fa-plane icon-3d"></i> Amadeus Selling Platform</span>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section id="experience" class="scroll-animate">
-    <h2>Experience</h2>
-    <ul>
-      <li><strong>Cybersecurity Engineer</strong> <em>Kennesaw State University</em> — 2023–Present
-        <ul>
-          <li>Lead student security research projects and implement campus-wide security awareness campaigns.</li>
-          <li>Develop and maintain secure web applications; automate threat detection scripts.</li>
-        </ul>
-      </li>
-      <li><strong>Travel Agent</strong> <em>Amadeus Selling Platform</em> — 2020–2022
-        <ul>
-          <li>Managed client bookings and provided technical support for Amadeus GDS.</li>
-          <li>Trained new agents on digital tools and customer service best practices.</li>
-        </ul>
-      </li>
-    </ul>
-  </section>
-  <section id="achievements" class="scroll-animate">
-        <div class="card smart-card achievements-card hud-panel">
-          <h2><i class="fa-solid fa-trophy icon-3d" aria-hidden="true"></i> Highlights & Achievements</h2>
-          <ul class="achievements-list">
-            <li class="hud-data"><i class="fa-solid fa-droplet icon-3d"></i> Built a landing page project for <strong>charity: water</strong></li>
-            <li class="hud-data"><i class="fa-solid fa-users-gear icon-3d"></i> Member of <strong>Blackroom Talent Community</strong></li>
-            <li class="hud-data"><i class="fa-solid fa-shield-halved icon-3d"></i> <strong>Cisco Certified</strong> in Cybersecurity</li>
-            <li class="hud-data"><i class="fa-solid fa-plane-departure icon-3d"></i> 2 years as a <strong>Travel Agent</strong> (Amadeus Selling Platform)</li>
-            <li class="hud-data"><i class="fa-solid fa-book-open icon-3d"></i> Currently writing a book titled <strong>"CodeX"</strong></li>
-            <li class="hud-data"><i class="fa-brands fa-openai icon-3d"></i> Participant in the <strong>Global Career Program</strong> with OpenAI, L'Oréal, charity: water, Intel, and Google</li>
-          </ul>
-        </div>
-      </section>
-  <section id="roadmap" class="scroll-animate">
-    <h2>Roadmap</h2>
-    <ul class="roadmap-list">
-      <li><span class="roadmap-date">2017</span> Graduated El Shaheen High School, Kuwait City</li>
-      <li><span class="roadmap-date">2021</span> Graduated Chattahoochee Technical College, Marietta, GA, USA</li>
-      <li><span class="roadmap-date">2026</span> (Expected) Graduate, Kennesaw State University (Cybersecurity Engineering)</li>
-    </ul>
-  </section>
-
-  <!-- Contact Section (3D Card) -->
-  <section id="contact" class="contact-section scroll-animate">
-    <h3>Contact</h3>
-    <div class="contact-links">
-      <a href="mailto:amrikyy@email.com" class="contact-link btn-3d"><i class="fa-solid fa-envelope"></i> Email</a>
-      <a href="tel:+201094228044" class="contact-link btn-3d"><i class="fa-solid fa-phone"></i> +20-109-422-8044</a>
-      <a href="https://wa.me/17706160211" class="contact-link btn-3d" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
-    </div>
-    <div class="contact-links">
-      <a href="https://www.linkedin.com/in/amrikyy" class="contact-link btn-3d" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin-in"></i> LinkedIn</a>
-      <a href="https://github.com/mohamed-abdelaziz710" class="contact-link btn-3d" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i> GitHub</a>
-      <a href="https://web.facebook.com/Hamood.Amriky0/" class="contact-link btn-3d" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook-f"></i> Facebook</a>
-      <a href="https://www.instagram.com/amrikyy?igsh=bzhlOHRycTN4bDAz&utm_source=qr" class="contact-link btn-3d" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i> Instagram</a>
-      <a href="https://www.tiktok.com/@moecrypto710?_t=ZT-8wbeZ0H9A1z&_r=1" class="contact-link btn-3d" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-tiktok"></i> TikTok</a>
-      <a href="https://snapchat.com/t/M9sQbCZu" class="contact-link btn-3d" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-snapchat-ghost"></i> Snapchat</a>
-    </div>
-  </section>
-
-  <!-- Chatbot Bubble (fixed, accessible, 3D, custom SVG) -->
-  <div id="chatBubble" style="
-  position:fixed;bottom:28px;right:22px;width:66px;height:66px;z-index:999;
-  border-radius:50%;background:linear-gradient(135deg,#21E6C1 70%,#9A16E5 100%);
-  box-shadow:0 0 36px 0 #21E6C1AA,0 0 0 9px #10151F;
-  display:flex;align-items:center;justify-content:center;cursor:pointer;transition:box-shadow .22s;"
-  aria-label="Open chat" tabindex="0">
-  <svg width="36" height="36" viewBox="0 0 38 38" aria-hidden="true" focusable="false">
-    <circle cx="19" cy="19" r="17" stroke="#fff" stroke-width="2" fill="none"/>
-    <path d="M12 18.5c0-2 2.3-3.5 7-3.5s7 1.5 7 3.5-2.3 3.5-7 3.5-7-1.5-7-3.5z" stroke="#fff" stroke-width="2"/>
-    <ellipse cx="15.3" cy="17.7" rx="1.2" ry="1.9" fill="#fff"/>
-    <ellipse cx="22.7" cy="17.7" rx="1.2" ry="1.9" fill="#fff"/>
-  </svg>
-</div>
-  <!-- Chat Window (remains as in script.js) -->
-
-  <!-- Particles.js CDN and Initialization -->
-  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
-  <script>
-    particlesJS('particles-js', {
-      particles: {
-        number: { value: 44, density: { enable: true, value_area: 600 }},
-        color: { value: "#21e6c1" },
-        shape: { type: "circle" },
-        opacity: { value: 0.38, random: true },
-        size: { value: 2.4, random: true },
-        line_linked: { enable: true, distance: 110, color: "#9a16e5", opacity: 0.14, width: 1.3 },
-        move: { enable: true, speed: 2.4, random: true, out_mode: "out" }
-      },
-      interactivity: { events: { onhover: { enable: true, mode: "repulse" } } },
-      retina_detect: true
-    });
-  </script>
-
-  <!-- Force all main sections visible if JS fails -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      document.querySelectorAll('.scroll-animate').forEach(function(el) {
-        el.classList.add('visible');
-      });
-    });
-  </script>
-  <!-- Place this script at the end of body as well for normal JS -->
-  <script src="script.js"></script>
+  <footer>
+    &copy; 2025 Mohamed H. Abdelaziz &mdash; All Rights Reserved
+  </footer>
 </body>
 </html>
