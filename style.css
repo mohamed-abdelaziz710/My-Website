@@ -1859,3 +1859,21 @@ label {
   }
 }
 
+/* Eye-catching animated gradient for About section name */
+.animated-name {
+  background: linear-gradient(90deg, #21E6C1, #9A16E5, #21E6C1 80%);
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-move 2.5s linear infinite;
+  font-weight: 900;
+  text-shadow: 0 0 12px #21E6C1, 0 0 24px #9A16E5;
+  letter-spacing: 0.04em;
+}
+@keyframes gradient-move {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+

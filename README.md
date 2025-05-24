@@ -97,10 +97,10 @@
 
 **Logo & Favicon:**
 
-- Full logo: `assets/icons/logo-full.svg`
+- Full logo: `assets/icons/logo-full.svg` (Meta/Facebook logo)
 - Icon: `assets/icons/logo-icon.svg`
 - Monochrome: `assets/icons/logo-mono.svg`
-- Favicon: PNG/ICO in `assets/icons/`
+- Favicon: `assets/icons/logo-full.svg` (used for browser tab and meta icon)
 - Minimum clear space: 1× logomark height
 - Do not alter colors, stretch, or add effects
 
