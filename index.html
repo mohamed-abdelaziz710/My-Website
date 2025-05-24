@@ -1148,9 +1148,14 @@
       }
     });
 
-    // Close mobile nav on link click or Escape
+    // تحسين: إغلاق القائمة عند الضغط على أي رابط في الموبايل
     mobileNav.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => toggleNav(false));
+      link.addEventListener('click', function (e) {
+        // فقط أغلق إذا القائمة مفتوحة
+        if (navOpen) {
+          toggleNav(false);
+        }
+      });
       link.addEventListener('keydown', (e) => {
         if (e.key === "Escape") {
           toggleNav(false);
