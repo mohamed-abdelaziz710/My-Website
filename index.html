@@ -1,540 +1,420 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Amrikyy | Futuristic Portfolio</title>
-  <!-- Favicon and Profile Picture -->
-  <link rel="icon" type="image/png" sizes="32x32" href="https://i.imgur.com/2DhmtJ4.jpg" />
-  <link rel="apple-touch-icon" sizes="180x180" href="https://i.imgur.com/2DhmtJ4.jpg" />
-  <link rel="shortcut icon" href="https://i.imgur.com/2DhmtJ4.jpg" />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&family=IBM+Plex+Sans:wght@400;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
-  <style>
-    body {
-      background: linear-gradient(120deg, #0D0D0D 60%, #11131a 100%);
-      min-height: 100vh;
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      color: #fff;
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Amrikyy Portfolio - Demo</title>
+<style>
+  /* ===== CSS مقتبس من ستايلك مع تبسيط لتركيز على الهيكل ===== */
+
+  :root {
+    --primary-accent: #21E6C1;
+    --secondary-accent: #9A16E5;
+    --dark-bg: #0A0F1A;
+    --card-bg: #10151F;
+    --text-color: #FFFFFF;
+    --border-color: rgba(33, 230, 193, 0.5);
+    --shadow-color: #21E6C1;
+    --font-primary: 'Exo 2', 'Roboto', sans-serif;
+    --font-secondary: 'Roboto Mono', monospace;
+  }
+
+  /* Reset */
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    font-family: var(--font-primary);
+    background: linear-gradient(115deg, var(--dark-bg) 85%, #161b26 100%);
+    color: var(--text-color);
+    min-height: 100vh;
+  }
+
+  a {
+    color: var(--primary-accent);
+    text-decoration: none;
+  }
+  a:hover {
+    color: var(--secondary-accent);
+  }
+
+  /* --- Header --- */
+  header {
+    position: sticky;
+    top: 0;
+    background: rgba(10, 15, 26, 0.8);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 2rem;
+    border-bottom: 1px solid var(--border-color);
+    z-index: 999;
+  }
+  .logo {
+    font-family: var(--font-secondary);
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: var(--primary-accent);
+    letter-spacing: 2px;
+    text-shadow: 0 0 8px var(--shadow-color);
+  }
+  nav ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+  }
+  nav ul li a {
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    padding: 0.25rem 0;
+    position: relative;
+  }
+  nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 50%;
+    background-color: var(--primary-accent);
+    transition: 0.3s;
+    transform: translateX(-50%);
+  }
+  nav ul li a:hover::after {
+    width: 100%;
+  }
+
+  /* --- Language Toggle (simplified) --- */
+  .language-toggle {
+    display: flex;
+    gap: 0.8rem;
+  }
+  .language-toggle button {
+    background: none;
+    border: 2px solid var(--primary-accent);
+    color: var(--primary-accent);
+    padding: 0.2rem 0.7rem;
+    border-radius: 6px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.25s, color 0.25s;
+  }
+  .language-toggle button.active,
+  .language-toggle button:hover {
+    background: var(--primary-accent);
+    color: var(--dark-bg);
+  }
+
+  /* --- Hero Section --- */
+  .hero-section {
+    min-height: 85vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 3rem auto;
+    padding: 0 1rem;
+  }
+  .hero-text {
+    flex: 1;
+    max-width: 600px;
+  }
+  .hero-text h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(90deg, var(--primary-accent), var(--secondary-accent));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: neon-text 1.5s infinite alternate;
+  }
+  .hero-text p {
+    font-size: 1.3rem;
+    line-height: 1.4;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+  }
+  .hero-btn {
+    background: transparent;
+    border: 2px solid var(--primary-accent);
+    color: var(--primary-accent);
+    padding: 0.8rem 2.5rem;
+    font-weight: 700;
+    font-size: 1.1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .hero-btn:hover {
+    background: var(--primary-accent);
+    color: var(--dark-bg);
+    box-shadow: 0 0 20px var(--shadow-color);
+  }
+  @keyframes neon-text {
+    from { filter: drop-shadow(0 0 18px var(--primary-accent)); }
+    to { filter: drop-shadow(0 0 30px var(--secondary-accent)); }
+  }
+
+  /* Sphere visual */
+  .hero-visual {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .futuristic-sphere {
+    position: relative;
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+  }
+  .futuristic-sphere .sphere-layer {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 1px solid var(--border-color);
+    animation: rotate-sphere 15s linear infinite;
+  }
+  .futuristic-sphere .sphere-layer:nth-child(1) {
+    animation-duration: 12s;
+    opacity: 0.3;
+  }
+  .futuristic-sphere .sphere-layer:nth-child(2) {
+    animation-duration: 18s;
+    animation-direction: reverse;
+    inset: 20px;
+    opacity: 0.5;
+    border-color: var(--secondary-accent);
+  }
+  .futuristic-sphere .sphere-layer:nth-child(3) {
+    animation-duration: 10s;
+    inset: 40px;
+    opacity: 0.7;
+  }
+  .futuristic-sphere .sphere-layer:nth-child(4) {
+    inset: 60px;
+    border-style: dashed;
+    animation: none;
+    opacity: 0.2;
+  }
+  .futuristic-sphere .sphere-core {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(circle, var(--primary-accent) 0%, transparent 70%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: pulse-core 2s infinite alternate;
+  }
+  @keyframes rotate-sphere {
+    from { transform: rotate(0deg) scale(1); }
+    to { transform: rotate(360deg) scale(1.02); }
+  }
+  @keyframes pulse-core {
+    from { opacity: 0.6; transform: translate(-50%, -50%) scale(0.9); }
+    to { opacity: 1; transform: translate(-50%, -50%) scale(1.1); box-shadow: 0 0 20px var(--shadow-color); }
+  }
+
+  /* --- About Section --- */
+  #about {
+    max-width: 900px;
+    margin: 4rem auto;
+    background: var(--card-bg);
+    border-radius: 14px;
+    box-shadow: 0 8px 32px var(--shadow-color);
+    padding: 2rem 3rem;
+    text-align: center;
+  }
+  #about img {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    border: 3px solid var(--primary-accent);
+    box-shadow: 0 0 32px var(--primary-accent);
+    margin-bottom: 1.25rem;
+    object-fit: cover;
+  }
+  #about h2 {
+    color: var(--primary-accent);
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 0.4rem;
+  }
+  #about p {
+    max-width: 650px;
+    margin: 0 auto 1.5rem auto;
+    font-size: 1.1rem;
+    opacity: 0.85;
+    line-height: 1.5;
+  }
+  #about .badges {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  #about .badge {
+    background: transparent;
+    border: 2px solid var(--primary-accent);
+    color: var(--primary-accent);
+    border-radius: 30px;
+    padding: 0.35rem 1.2rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: default;
+    user-select: none;
+    transition: background 0.25s;
+  }
+  #about .badge:hover {
+    background: var(--primary-accent);
+    color: var(--dark-bg);
+  }
+
+  /* --- Chat Bubble --- */
+  .chat-bubble {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 65px;
+    height: 65px;
+    background: linear-gradient(135deg, var(--primary-accent) 60%, var(--secondary-accent) 100%);
+    border-radius: 50%;
+    box-shadow: 0 0 36px 10px var(--primary-accent), 0 0 0 8px var(--dark-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 1100;
+    animation: bubblePulse 1.5s infinite alternate;
+  }
+  .chat-bubble:hover {
+    box-shadow: 0 0 48px 16px var(--secondary-accent), 0 0 0 8px var(--dark-bg);
+    transform: scale(1.08) rotate(-6deg);
+  }
+  .chat-bubble i {
+    font-size: 2.8rem;
+    color: #fff;
+    text-shadow: 0 0 18px var(--primary-accent), 0 0 8px var(--secondary-accent);
+    filter: drop-shadow(0 0 10px var(--primary-accent));
+  }
+  @keyframes bubblePulse {
+    0% {
+      box-shadow: 0 0 36px 10px var(--primary-accent), 0 0 0 8px var(--dark-bg);
     }
-    /* Header */
-    header {
-      width: 100%;
-      padding: 1.5rem 0 1.2rem 0;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: rgba(15,17,23,0.88);
-      border-bottom: 1.5px solid #21E6C180;
-      box-shadow: 0 6px 32px #21E6C130;
-      position: sticky;
-      top: 0;
-      z-index: 100;
+    100% {
+      box-shadow: 0 0 48px 16px var(--secondary-accent), 0 0 0 8px var(--dark-bg);
     }
-    .logo {
-      font-family: 'Space Grotesk', Inter, sans-serif;
-      color: #39FF14;
-      font-size: 2rem;
-      font-weight: bold;
-      letter-spacing: 2px;
-      margin-left: 2.2rem;
-      text-shadow: 0 0 8px #39FF1477;
-      user-select: none;
-    }
-    nav {
-      margin-right: 2.2rem;
-      display: flex;
-      gap: 2.5rem;
-    }
-    nav a {
-      color: #A0A0A0;
-      font-family: 'IBM Plex Sans', sans-serif;
-      text-decoration: none;
-      font-size: 1rem;
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      transition: color 0.15s;
-      user-select: none;
-    }
-    nav a:hover,
-    nav a.active {
-      color: #39FF14;
-      text-shadow: 0 0 8px #21E6C1;
-    }
-    /* Hero Section */
+  }
+
+  /* --- Responsive --- */
+  @media (max-width: 768px) {
     .hero-section {
-      display: flex;
-      align-items: center;
-      justify-content: center;
       flex-direction: column;
-      padding: 4.5rem 1.5rem 2.5rem 1.5rem;
+      padding: 0 1rem;
+    }
+    .hero-text {
+      max-width: 100%;
       text-align: center;
-      background: none;
-      user-select: none;
+      margin-bottom: 2rem;
     }
-    .hero-title {
-      font-family: 'Space Grotesk', Inter, sans-serif;
-      font-size: 2.8rem;
-      color: #39FF14;
-      font-weight: bold;
-      letter-spacing: 0.04em;
-      margin-bottom: 0.45em;
-      text-shadow: 0 0 14px #21E6C166;
+    .hero-visual {
+      margin-top: 1.5rem;
     }
-    .hero-subtitle {
-      font-family: 'IBM Plex Sans', sans-serif;
-      font-size: 1.25rem;
-      color: #A0A0A0;
-      font-weight: 500;
-      margin-bottom: 1.2em;
-      max-width: 520px;
-      line-height: 1.4;
+    #about {
+      padding: 1.5rem 1rem;
+      margin: 3rem 1rem;
     }
-    .hero-cta {
-      background: linear-gradient(90deg, #39FF14 0%, #21E6C1 100%);
-      color: #0D0D0D;
-      border: none;
-      border-radius: 2rem;
-      font-size: 1.13rem;
-      font-family: 'Inter', sans-serif;
-      font-weight: 700;
-      letter-spacing: 0.09em;
-      padding: 0.8em 2.6em;
-      box-shadow: 0 0 18px #39FF14, 0 4px 22px #21E6C1cc;
-      cursor: pointer;
-      transition: background 0.18s, box-shadow 0.18s, transform 0.14s;
-      user-select: none;
-    }
-    .hero-cta:hover,
-    .hero-cta:focus {
-      background: linear-gradient(90deg, #0D0D0D 10%, #39FF14 100%);
-      color: #39FF14;
-      box-shadow: 0 0 34px #39FF14cc;
-      transform: scale(1.06) translateY(-2px);
-    }
-    /* Card Styles */
-    .card-spaceship {
-      background: rgba(22, 28, 36, 0.90);
-      border-radius: 2rem;
-      box-shadow: 0 0 48px #39ff1433, 0 8px 32px #000a;
-      padding: 2.5rem 2rem 2rem 2rem;
-      max-width: 340px;
-      width: 340px;
-      text-align: center;
-      position: relative;
-      border: 2px solid #39FF1475;
-      backdrop-filter: blur(12px) saturate(160%);
-      transition: box-shadow 0.25s;
-      z-index: 2;
-      margin: 0 auto 2.4rem auto;
-      cursor: default;
-      user-select: none;
-      animation: fadeInScale 0.6s ease forwards;
-      opacity: 0;
-    }
-    .card-spaceship:after {
-      content: "";
-      display: block;
-      position: absolute;
-      inset: -4px;
-      border-radius: 2.3rem;
-      background: linear-gradient(100deg, #39FF14 0%, transparent 70%);
-      filter: blur(12px) opacity(0.33);
-      pointer-events: none;
-      z-index: 0;
-    }
-    .avatar-neon {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 1.2rem;
-      position: relative;
-    }
-    .avatar-neon img {
-      width: 84px;
-      height: 84px;
-      border-radius: 50%;
-      box-shadow: 0 0 0 5px #39FF14, 0 0 28px #39FF14cc, 0 0 64px #21E6C1cc;
-      border: 3px solid #fff2;
-      background: #222;
-      position: relative;
-      z-index: 2;
-    }
-    .username {
-      color: #39FF14;
-      font-family: 'Space Grotesk', Inter, sans-serif;
-      font-size: 1.55rem;
-      letter-spacing: 1.5px;
-      margin-bottom: 0.22em;
-      margin-top: 0.1em;
-    }
-    .subtitle {
-      color: #A0A0A0;
-      font-family: 'IBM Plex Sans', sans-serif;
-      font-size: 1.05rem;
-      margin-bottom: 1.4em;
-    }
-    .btn-cta {
-      background: linear-gradient(90deg, #39FF14 0%, #21E6C1 100%);
-      color: #0D0D0D;
-      font-family: 'Inter', sans-serif;
-      font-size: 1.06rem;
-      padding: 0.8em 2.2em;
-      border-radius: 2rem;
-      border: none;
-      outline: none;
-      box-shadow: 0 0 16px #39FF14, 0 4px 22px #21E6C1cc;
-      font-weight: 700;
-      letter-spacing: 0.07em;
-      cursor: pointer;
-      transition: background 0.18s, box-shadow 0.18s, transform 0.14s;
-      position: relative;
-      overflow: hidden;
-      z-index: 2;
-    }
-    .btn-cta:hover,
-    .btn-cta:focus {
-      background: linear-gradient(90deg, #0D0D0D 10%, #39FF14 100%);
-      color: #39FF14;
-      box-shadow: 0 0 34px #39FF14cc;
-      transform: scale(1.09) translateY(-2px);
-    }
-    /* Section containers */
-    .section-container {
-      max-width: 960px;
-      margin: 2.8rem auto 3.5rem auto;
-      padding: 0 1.5rem;
-      background: rgba(15, 17, 23, 0.74);
-      border-radius: 1.8rem;
-      box-shadow: 0 0 36px #39FF1480, 0 6px 38px #000c;
-      border: 1.5px solid #21E6C166;
-      animation: fadeInScale 0.7s ease forwards;
-      opacity: 0;
-      user-select: none;
-    }
-    .section-title {
-      font-family: 'Space Grotesk', Inter, sans-serif;
-      color: #39FF14;
-      font-size: 2.3rem;
-      font-weight: 700;
-      margin-bottom: 1.2rem;
-      letter-spacing: 0.12em;
-      text-shadow: 0 0 12px #21E6C199;
-    }
-    .cards-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.6rem 2.3rem;
-    }
-    .card-item {
-      background: rgba(22, 28, 36, 0.85);
-      border-radius: 1.6rem;
-      padding: 1.7rem 1.4rem;
-      color: #c5c5c5;
-      box-shadow: 0 0 24px #39FF1477, 0 6px 28px #000a;
-      font-family: 'IBM Plex Sans', sans-serif;
-      font-size: 1rem;
-      font-weight: 400;
-      cursor: default;
-      transition: transform 0.35s ease, box-shadow 0.35s ease;
-      user-select: none;
-      position: relative;
-      overflow-wrap: break-word;
-    }
-    .card-item:hover {
-      transform: translateY(-6px) scale(1.05);
-      box-shadow:
-        0 0 28px #39FF14,
-        0 0 42px #21E6C1,
-        0 6px 38px #39FF14cc;
-      color: #fff;
-      z-index: 10;
-    }
-    .card-item h4 {
-      color: #39FF14;
-      font-family: 'Space Grotesk', Inter, sans-serif;
-      font-weight: 700;
-      margin-bottom: 0.4rem;
-      font-size: 1.25rem;
-      letter-spacing: 0.06em;
-    }
-    .card-subtitle {
-      font-size: 0.92rem;
-      color: #a3a3a3;
-      font-style: italic;
-      margin-bottom: 0.6rem;
-      font-weight: 500;
-    }
-    /* Fade in keyframes */
-    @keyframes fadeInScale {
-      0% {
-        opacity: 0;
-        transform: scale(0.95);
-      }
-      100% {
-        opacity: 1;
-        transform: scale(1);
-      }
-    }
-    /* Responsive tweaks */
-    @media (max-width: 700px) {
-      header {
-        flex-direction: column;
-        gap: 1rem;
-        padding: 1rem 0 0.7rem 0;
-      }
-      nav {
-        margin-right: 0;
-        gap: 1.5rem;
-      }
-      .logo {
-        margin-left: 1rem;
-      }
-      .card-spaceship {
-        max-width: 96vw;
-        width: 96vw;
-      }
-      .section-container {
-        max-width: 98vw;
-      }
-    }
-    @media (max-width: 400px) {
-      .card-spaceship {
-        max-width: 99vw;
-        width: 99vw;
-        padding: 2rem 0.5rem 1.5rem 0.5rem;
-      }
-      .section-container {
-        padding: 1.7rem 0.5rem 2rem 0.5rem;
-      }
-      .section-title {
-        font-size: 1.85rem;
-      }
-      .card-item {
-        font-size: 0.95rem;
-        padding: 1.3rem 1rem;
-      }
-    }
-
-    /* Chatbot styles */
-    #chatBubble {
-      position: fixed;
-      bottom: 2rem;
-      right: 2rem;
-      width: 60px;
-      height: 60px;
-      background: #39FF14;
-      color: #0D0D0D;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
-      cursor: pointer;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-      z-index: 1000;
-      transition: transform 0.2s;
-    }
-    #chatBubble:hover {
-      transform: scale(1.1);
-    }
-    #chatWindow {
-      position: fixed;
-      bottom: 70px;
-      right: 2rem;
-      width: 350px;
-      max-width: 80%;
-      background: rgba(15, 17, 23, 0.9);
-      border-radius: 1rem;
-      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.6);
-      z-index: 1001;
-      display: none;
-      flex-direction: column;
-      animation: slideIn 0.4s forwards;
-    }
-    #chatHeader {
-      background: #39FF14;
-      color: #0D0D0D;
-      padding: 0.8rem 1rem;
-      border-top-left-radius: 1rem;
-      border-top-right-radius: 1rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-weight: 500;
-    }
-    #chatMessages {
-      padding: 1rem;
-      flex-grow: 1;
-      overflow-y: auto;
-      display: flex;
-      flex-direction: column;
-      gap: 0.8rem;
-    }
-    #chatInputArea {
-      display: flex;
-      padding: 0.8rem 1rem;
-      border-top: 1px solid #333;
-      gap: 0.5rem;
-    }
-    #messageInput {
-      flex-grow: 1;
-      padding: 0.6rem;
-      border: none;
-      border-radius: 0.5rem;
-      background: #222;
-      color: #fff;
+    #about p {
       font-size: 1rem;
     }
-    #sendMessage {
-      background: #39FF14;
-      color: #0D0D0D;
-      border: none;
-      border-radius: 0.5rem;
-      padding: 0.6rem 1.2rem;
-      cursor: pointer;
-      font-size: 1rem;
-      transition: background 0.2s;
+    #about img {
+      width: 110px;
+      height: 110px;
     }
-    #sendMessage:hover {
-      background: #32cc12;
-    }
-
-    /* Animations */
-    @keyframes slideIn {
-      from {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-  </style>
+  }
+</style>
+<script src="https://kit.fontawesome.com/38f5fbd09d.js" crossorigin="anonymous"></script>
 </head>
 <body>
-  <header>
-    <div class="logo">amrikyy</div>
-    <nav>
-      <a href="#" class="active">Home</a>
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#experience">Experience</a>
-      <a href="#education">Education</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
-  <main>
-    <section class="hero-section">
-      <h1 class="hero-title">Hi, I’m Mohamed Abdelaziz</h1>
-      <div class="hero-subtitle">Cybersecurity Engineer &amp; AI Innovator &mdash; Building the Future with Tech, Design, and a Bit of Magic ✦</div>
-      <button class="hero-cta">Let’s Connect</button>
-    </section>
-    <div class="card-spaceship">
-      <div class="avatar-neon">
-        <img src="https://i.imgur.com/2DhmtJ4.jpg" alt="Amrikyy Profile Picture" />
-      </div>
-      <h2 class="username">Mohamed Abdelaziz</h2>
-      <p class="subtitle">Cybersecurity Engineer &amp; AI Innovator</p>
-      <button class="btn-cta">Contact Me 🚀</button>
-    </div>
-    <section class="about-section section-container" id="about">
-      <div class="about-title section-title">About Me</div>
-      <div class="about-text">
-        I’m Mohamed (aka Amrikyy), a creative and visionary engineer blending cybersecurity with futuristic UI/UX, AI tools, and creative digital products.<br /><br />
-        I love designing out-of-the-box, eye-catching interfaces and automating digital workflows. Born in Syria, raised in Kuwait, now based in Cairo &mdash; I live for building things that break the mold.<br /><br />
-        Currently writing my book <b>CodeX</b> and crafting unique platforms.
-      </div>
-      <div class="about-badges">
-        <span class="about-badge">Cybersecurity</span>
-        <span class="about-badge">AI Development</span>
-        <span class="about-badge">UI/UX Design</span>
-        <span class="about-badge">Figma Pro</span>
-        <span class="about-badge">Replit Dev</span>
-        <span class="about-badge">Multilingual</span>
-        <span class="about-badge">Branding</span>
-      </div>
-    </section>
-    <section id="skills" class="section-container">
-      <h3 class="section-title">Skills</h3>
-      <div class="cards-grid">
-        <div class="card-item">Cybersecurity</div>
-        <div class="card-item">AI Development</div>
-        <div class="card-item">UI/UX Design</div>
-        <div class="card-item">Figma Pro</div>
-        <div class="card-item">React & Tailwind CSS</div>
-        <div class="card-item">Python & Firebase</div>
-      </div>
-    </section>
-    <section id="experience" class="section-container">
-      <h3 class="section-title">Experience</h3>
-      <div class="cards-grid">
-        <div class="card-item">
-          <h4>Cybersecurity Intern</h4>
-          <span class="card-subtitle">Intel - Summer 2024</span>
-          <p>Worked on penetration testing and network security protocols.</p>
-        </div>
-        <div class="card-item">
-          <h4>AI Developer</h4>
-          <span class="card-subtitle">OpenAI Internship 2025</span>
-          <p>Built AI tools and automated content generation pipelines.</p>
-        </div>
-      </div>
-    </section>
-    <section id="projects" class="section-container">
-      <h3 class="section-title">Projects</h3>
-      <div class="cards-grid">
-        <div class="card-item">
-          <h4>Zentix AI Platform</h4>
-          <p>Developed a collection of AI agent templates for business automation.</p>
-        </div>
-        <div class="card-item">
-          <h4>Personal Portfolio Website</h4>
-          <p>Designed and coded a modern personal website with React and Tailwind.</p>
-        </div>
-        <div class="card-item">
-          <h4>Charity: water Landing Page</h4>
-          <p>Designed and developed a landing page project in collaboration with charity: water to support clean water initiatives.</p>
-        </div>
-      </div>
-    </section>
-    <section id="education" class="section-container">
-      <h3 class="section-title">Education</h3>
-      <div class="cards-grid">
-        <div class="card-item">
-          <h4>Kennesaw State University</h4>
-          <span class="card-subtitle">BSc Cybersecurity Engineering, 2026</span>
-        </div>
-        <div class="card-item">
-          <h4>Chattahoochee Technical College</h4>
-          <span class="card-subtitle">Associate Degree in Computer Science, 2021</span>
-        </div>
-        <div class="card-item">
-          <h4>El Shaheen High School</h4>
-          <span class="card-subtitle">Kuwait City, Graduated 2017</span>
-        </div>
-      </div>
-    </section>
 
-    <!-- Chatbot Bubble -->
-    <div id="chatBubble" title="Chat with me" aria-label="Open chat" role="button" tabindex="0">
-      💬
-    </div>
+<header>
+  <div class="logo">AMRIKYY</div>
+  <nav>
+    <ul>
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#about">About Me</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+  <div class="language-toggle">
+    <button id="en-btn" class="active">EN</button>
+    <button id="ar-btn">AR</button>
+  </div>
+</header>
 
-    <!-- Chat Window -->
-    <div id="chatWindow" aria-live="polite" aria-hidden="true" role="dialog" aria-label="AI Chat Assistant">
-      <div id="chatHeader">
-        <span>SPACE COMMS v1.0</span>
-        <button id="closeChat" aria-label="Close chat window">&times;</button>
-      </div>
-      <div id="chatMessages"></div>
-      <div id="chatInputArea">
-        <input id="messageInput" type="text" placeholder="Transmit message..." aria-label="Chat message input" />
-        <button id="sendMessage" aria-label="Send message">➤</button>
-      </div>
+<section id="hero" class="hero-section">
+  <div class="hero-text">
+    <h1>Mohamed Abdelaziz</h1>
+    <p>Cybersecurity Engineer & AI Innovator <br> Securing the digital frontier with innovative AI solutions.</p>
+    <button class="hero-btn">Contact Me 🚀</button>
+  </div>
+  <div class="hero-visual">
+    <div class="futuristic-sphere">
+      <div class="sphere-layer"></div>
+      <div class="sphere-layer"></div>
+      <div class="sphere-layer"></div>
+      <div class="sphere-layer"></div>
+      <div class="sphere-core"></div>
     </div>
-  </main>
+  </div>
+</section>
+
+<section id="about">
+  <img src="https://i.imgur.com/2DhmtJ4.jpg" alt="Mohamed Abdelaziz" />
+  <h2>About Me</h2>
+  <p>I'm a passionate cybersecurity engineer and AI enthusiast currently working on integrating cutting-edge AI technologies with security solutions.</p>
+  <div class="badges">
+    <div class="badge">Cybersecurity Engineer</div>
+    <div class="badge">AI Tools Builder</div>
+    <div class="badge">KSU '26 Student</div>
+    <div class="badge">Multilingual (AR/EN)</div>
+  </div>
+</section>
+
+<!-- Chat Bubble -->
+<div class="chat-bubble" title="Chat with me">
+  <i class="fas fa-robot"></i>
+</div>
+
+<script>
+  // Language toggle behavior (simple example)
+  const enBtn = document.getElementById('en-btn');
+  const arBtn = document.getElementById('ar-btn');
+
+  enBtn.addEventListener('click', () => {
+    enBtn.classList.add('active');
+    arBtn.classList.remove('active');
+    alert('Switch to English (functionality not implemented)');
+  });
+
+  arBtn.addEventListener('click', () => {
+    arBtn.classList.add('active');
+    enBtn.classList.remove('active');
+    alert('Switch to Arabic (functionality not implemented)');
+  });
+</script>
+
 </body>
 </html>
