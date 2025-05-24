@@ -106,11 +106,14 @@ nav {
 .hero h1 {
   font-size: 2.6em;
   letter-spacing: 0.1em;
-  color: var(--primary);
-  text-shadow: 0 0 18px #21e6c1cc, 0 2px 12px #181e2a;
+  color: var(--primary); /* fallback color for browsers that don't support background-clip */
   background: linear-gradient(90deg, #21e6c1, #9a16e5 60%, #21e6c1 90%);
-  background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   animation: neon-text 1.7s infinite alternate;
+  /* Fallback for browsers that don't support background-clip */
+  /* Use a strong color for accessibility */
 }
 @keyframes neon-text {
   from { filter: drop-shadow(0 0 12px #21e6c1); }
@@ -120,9 +123,9 @@ nav {
   font-family: var(--body);
   font-size: 1.15em;
   font-weight: 700;
-  color: var(--gray);
+  color: #baffba;
   margin-bottom: 24px;
-  text-shadow: 0 1px 8px #181e2a;
+  text-shadow: 0 1px 8px #181e2a, 0 0 8px #21e6c1cc;
 }
 .hero .badges {
   display: flex;
